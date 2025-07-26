@@ -5,7 +5,7 @@ class Cliente (models.Model):
     clienteId=models.AutoField(primary_key=True,unique=True)
     nickname=models.CharField(max_length=15)
     email=models.CharField(max_length=20)
-    nombre=models.CharField(max_length=15, verbose_name='nombre')
+    nombre=models.CharField(max_length=15, verbose_name='nombre', default='Sin Nombre')
     contrasena=models.CharField(max_length=15, verbose_name='contraseña')
     telefono=models.CharField(max_length=15,blank=True)
     metodoPago=models.BooleanField(default=False, verbose_name='método de pago')
