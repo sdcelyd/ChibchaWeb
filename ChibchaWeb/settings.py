@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Clientes',
     'Direcciones',
     'Pagos',
+    'Administradores',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
