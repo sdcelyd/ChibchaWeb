@@ -1,40 +1,39 @@
- .bg-azul {
-    background-color: #0c3569 !important;
+body {
+    background-color: #f8f9fa;
+    color: #212529;
 }
 
-.navbar {
-    background-color: #0c3569 !important;
-    border-bottom: solid #fec335;
+.bg-dark-gray {
+    background-color: #343a40;
 }
 
-#footer {
-    background-color: #0c3569;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    border-top: solid #fec335;
+.bg-light-gray {
+    background-color: #e9ecef;
 }
 
-#footer .informacion {
-    text-align: center;
-    margin: 20px 0;
+.text-gray {
+    color: #6c757d;
 }
 
-#footer .informacion p {
-    margin: 10px 0;
+.nav-link {
+    color: #dcdcdc !important;
 }
 
-.img-hero {
-    width: 75%;
+.nav-link:hover {
+    color: #ffffff !important;
 }
 
-.card-dominios {
-    width: 65%;
-    border: solid #fec335 2px;
-    background-color: #145bb5;
+.btn-custom {
+    background-color: #6c757d;
     color: white;
 }
 
-.card-b-azul {
-    border: solid #0c3569 2px;
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+.card-header {
+    font-weight: bold;
+    font-size: 1.2rem;
 }
