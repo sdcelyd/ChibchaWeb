@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <link href="static/styles/estilo.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7ec8b161d7.js" crossorigin="anonymous"></script>
+
+    <title>ChibchaWeb</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="fa-solid fa-clapperboard fa-1x"></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dominios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Planes de hospedaje</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_clientes' %}">Lista Clientes</a>
+                    </li>
+                    <!-- Aquí puedes agregar más enlaces simples si lo necesitas -->
+                </ul>
+                <a class="btn btn-success" href="{% url 'clientes:login' %}">Iniciar sesión</a>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <div class="container-fluid">
+    <div class="row bg-azul text-white">
+        <div class="col-8 my-4">
+            <h1 class="ms-3">¡Bienvenido a chibchaWeb!</h1>
+            <p class="ms-3">Sitio #1 de webhosting en Colombia</p>
+            <p class="ms-3">Registrate gratis</p>
+            <p class="ms-3">Instalación Wordpress a 1 click</p>
+            <p class="ms-3">Certificado SSL gratuito</p>
+            <p class="ms-3">Garantia de 30 días</p>
+            <p class="ms-3">Soporte técnico 24/7</p>
+            <button type="button" class="btn btn-warning ms-3">Empieza ya</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row my-5">
+        <h1 class="mb-3 text-center">¿Qué es ChibchaWeb?</h1>
+        <div class="col-7 d-flex justify-content-center align-items-center">
+            <p>ChibchaWeb es una empresa de hospedaje de páginas Web ubicada en Sugamuxi, una empresa de alojamiento web con clientes en Colombia y otros paises cercanos
+
+                Estamos aquí para ayudarte a crear y alojar tu sitio web.
+                
+                Ofrecemos una amplia gama de planes de servicio para adaptarse a cualquier presupuesto y necesidad.
+                
+                Nuestros planes de alojamiento compartido son una excelente opción para los principiantes. Estos planes son económicos y ofrecen un rendimiento básico.</p>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-7 d-flex justify-content-center align-items-center">
+            <p>No importa qué tipo de plan elijas, podemos ayudarte a crear un sitio web exitoso.
+            Aquí hay algunas de las características que ofrecemos:<p>
+        </div>
+        <div class="col-7 d-flex justify-content-center align-items-center">
+            <p>Almacenamiento:Te proporcionamos el espacio de almacenamiento que necesitas para almacenar tu sitio web y bases de datos.<p>
+        </div>
+        <div class="col-7 d-flex justify-content-center align-items-center">
+            <p>Seguridad: Las Ultimas medidas en seguridad que aseguraran la integridad de tus sitios web y dominios hospedados con nostros<p>
+        </div>
+        <div class="col-7 d-flex justify-content-center align-items-center">
+            <p>Soporte tecnico: Nuestro equipo de soporte técnico está disponible 24/7 para ayudarte con cualquier problema que tengas con tu sitio web,
+                 a partir del la funcion de tickets donde podras comunicarte en cualquier momento<p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row my-5 bg-azul text-white text-center d-flex flex-column justify-content-center align-items-center">
+        <h1 class="w-75 my-3">¡Adquiere tu dominio en chibcha web!</h1>
+        <p class="w-50 my-3">Tenemos una amplia disponibilidad de dominios de los cuales escoger para iniciar tu siguiente aventura, ademas tambien contamos con la posibilidad
+            de hacer solicitud de tu dominio en caso de estar ocupado o comprado por otra pagina.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row my-5 d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mb-3 text-center">Paquetes y planes</h1>
+        <div class="card-group my-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Platino</h5>
+                    <ul class="list-group list-group-flush text-center my-3">
+                        <li class="list-group-item">60 GB de almacenamiento.</li>
+                        <li class="list-group-item">150 correos corporativos.</li>
+                        <li class="list-group-item">Dominios ilimitados.</li>
+                        <li class="list-group-item">Bases de datos ilimitadas</li>
+                        <li class="list-group-item">Certificado SSL</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Oro</h5>
+                    <ul class="list-group list-group-flush text-center my-3">
+                        <li class="list-group-item">20 GB de almacenamiento.</li>
+                        <li class="list-group-item">20 correos corporativos.</li>
+                        <li class="list-group-item">20 dominios disponibles.</li>
+                        <li class="list-group-item">10 bases de datos disponibles</li>
+                        <li class="list-group-item">Certificado SSL</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Plata</h5>
+                    <ul class="list-group list-group-flush text-center my-3">
+                        <li class="list-group-item">10 GB de almacenamiento.</li>
+                        <li class="list-group-item">10 correos corporativos.</li>
+                        <li class="list-group-item">10 dominios disponibles.</li>
+                        <li class="list-group-item">2 bases de datos disponibles</li>
+                        <li class="list-group-item">Certificado SSL</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-azul">
+    <div class="row my-5 d-flex flex-column justify-content-center align-items-center text-white mx-5">
+        <h1 class="my-3 text-center">Categorías</h1>
+        <div class="card-group my-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-black">Básicos</h5>
+                    <ul class="list-group list-group-flush text-center my-3">
+                        <li class="list-group-item">Cuenta con hasta 100 dominios a tu disposición.</li>
+                        <li class="list-group-item">Se cobra una comisión del 10%.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-black">Premium</h5>
+                    <ul class="list-group list-group-flush text-center my-3">
+                        <li class="list-group-item">Cuenta con más 100 dominios a tu disposición.</li>
+                        <li class="list-group-item">Se cobra una comisión del 15%.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            </div>
+</div>
+</body>
+</html>

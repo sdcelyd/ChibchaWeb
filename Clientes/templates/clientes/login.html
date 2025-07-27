@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card mx-auto" style="width: 22rem;">
+        <div class="card-body">
+            <h5 class="card-title mb-4">Iniciar sesión</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Nickname</label>
+                    <input type="text" name="username" class="form-control" id="id_username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="id_password" class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="id_password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+            </form>
+            <hr>
+            <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-link w-100">Registrarse</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

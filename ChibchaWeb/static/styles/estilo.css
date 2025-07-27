@@ -1,0 +1,40 @@
+ .bg-azul {
+    background-color: #0c3569 !important;
+}
+
+.navbar {
+    background-color: #0c3569 !important;
+    border-bottom: solid #fec335;
+}
+
+#footer {
+    background-color: #0c3569;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    border-top: solid #fec335;
+}
+
+#footer .informacion {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#footer .informacion p {
+    margin: 10px 0;
+}
+
+.img-hero {
+    width: 75%;
+}
+
+.card-dominios {
+    width: 65%;
+    border: solid #fec335 2px;
+    background-color: #145bb5;
+    color: white;
+}
+
+.card-b-azul {
+    border: solid #0c3569 2px;
+}

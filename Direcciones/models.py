@@ -1,5 +1,5 @@
 from django.db import models
-from .validators import validar_direccion_colombia
+from .validators import VALIDADORES_DIRECCIONES
 from Clientes.models import Cliente
 
 class Pais(models.Model):
@@ -23,8 +23,9 @@ class Direccion(models.Model):
 
     def clean(self):
         super().clean()
-        if self.pais.nombre.lower() == 'colombia':
-            validar_direccion_colombia(self.ubicacion)
+        validador = VALIDADORES_DIRECCIONES.get(self.pais.nombre.lower())
+        if validador:
+            validador(self.ubicacion)
 
     def __str__(self):
         return f"{self.ubicacion}, {self.codigoPostal}, {self.pais}"
