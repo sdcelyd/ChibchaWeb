@@ -9,8 +9,8 @@
 - (Opcional pero recomendado) Visual Studio Code
 
 # Crear y activar el entorno virtual:
-- python -m venv venv #cres el entono virtual(desde terminal)
-- venv\Scripts\activate   #activa el entorno virtual (desde cmd)
+- python -m venv venv    #crea el entono virtual(desde terminal)
+- venv\Scripts\activate     #activa el entorno virtual (desde cmd)
 
 # Instalar dependencias
 - pip install django
