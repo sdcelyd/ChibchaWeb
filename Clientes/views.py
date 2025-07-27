@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
-from .models import Clientefrom django.contrib.auth import authenticate, login
+from .models import Cliente
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 
 from .forms import ClienteForm
