@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Detalle de Cliente{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Detalle del Cliente</h1>
+
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            {{ cliente.user.get_full_name|default:cliente.user.username }}
+        </div>
+        <div class="card-body">
+            <p class="card-text"><strong>Email:</strong> {{ cliente.user.email }}</p>
+            <p class="card-text"><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
+            
+            <p class="card-text"><strong>Direcciones:</strong></p>
+            <ul>
+                {% for direccion in cliente.direcciones.all %}
+                    <li>{{ direccion.ubicacion }}, {{ direccion.codigoPostal }}, {{ direccion.pais.nombre }}</li>
+                {% empty %}
+                    <li>No tiene direcciones registradas.</li>
+                {% endfor %}
+            </ul>
+
+            <p class="card-text"><strong>Tarjetas de Crédito:</strong></p>
+            <ul>
+                {% for tarjeta in cliente.tarjetas.all %}
+                    <li>**** **** **** {{ tarjeta.numero|slice:"-4:" }}</li>
+                {% empty %}
+                    <li>No tiene tarjetas registradas.</li>
+                {% endfor %}
+            </ul>
+
+            <a href="{% url 'clientes:editar_cliente' user.id %}" class="btn btn-warning mt-3">Editar</a>
+
+            <form method="post" action="{% url 'clientes:borrar_cliente' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger mt-3" onclick="return confirm('¿Estás seguro de que deseas eliminar tu cuenta?');">
+                    Eliminar
+                </button>
+            </form>>
+
+            <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Volver al inicio</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

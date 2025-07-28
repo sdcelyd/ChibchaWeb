@@ -64,7 +64,10 @@ ROOT_URLCONF = 'ChibchaWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'ChibchaWeb' / 'templates'],
+        'DIRS': [
+            BASE_DIR / 'ChibchaWeb' / 'templates',
+            BASE_DIR / 'clientes' / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,3 +137,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_URL = 'clientes:login'  # URL donde se redirige si no está logueado
+
+LOGIN_REDIRECT_URL = '/'  # A dónde va después de hacer login
+
+LOGOUT_REDIRECT_URL = '/login/'  # A dónde va después del logout
