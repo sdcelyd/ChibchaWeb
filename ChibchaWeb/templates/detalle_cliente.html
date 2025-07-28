@@ -25,10 +25,10 @@
             <p class="card-text"><strong>Dirección:</strong> {{ cliente.direccion }}</p>
             <p class="card-text"><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
             <p class="card-text"><strong>Tarjeta de Crédito:</strong> {{ cliente.tarjeta_credito }}</p>
-            <a href="" class="btn btn-warning mt-3">Editar</a>
-            <form method="post" action="" style="display:inline;">
+            <a href="{% url 'clientes:editar_cliente' user.id %}" class="btn btn-warning mt-3">Editar</a>
+            <form method="post" action="{% url 'clientes:borrar_cliente' user.id %}" style="display:inline;">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-danger mt-3" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">Eliminar</button>
+                <button type="submit" class="btn btn-danger mt-3" onclick="return confirm('¿Estás seguro de que deseas eliminar tu cuenta?');">Eliminar</button>
             </form>
             <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Volver al listado</a>
         </div>

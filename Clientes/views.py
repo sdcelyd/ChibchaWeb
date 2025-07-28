@@ -1,5 +1,5 @@
 def detalle_cliente(request, cliente_id):
-    cliente = get_object_or_404(Cliente, pk=cliente_id)
+    cliente = get_object_or_404(Cliente, clienteId=cliente_id)
     return render(request, 'detalle_cliente.html', {'cliente': cliente})
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
@@ -38,7 +38,7 @@ def cliente_login(request):
 @require_POST #para que cualquiera no pueda borrar con solo ingresar una url
 def borrar_cliente(request, cliente_id):
     if request.method == 'POST':
-        cliente = get_object_or_404(Cliente, id=cliente_id)
+        cliente = get_object_or_404(Cliente, clienteId=cliente_id)
         cliente.delete()
         return JsonResponse({'mensaje': 'Cliente eliminado correctamente'}, status=200)
     else:
@@ -48,8 +48,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Cliente
 
 
+
 def editar_cliente(request, cliente_id):
-    cliente = get_object_or_404(Cliente, id=cliente_id)
+    cliente = get_object_or_404(Cliente, clienteId=cliente_id)
 
     if request.method == 'POST':
         cliente.nombre = request.POST.get('nombre')
