@@ -7,7 +7,7 @@ class Cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # Teléfono adicional que no está en el modelo User
-    telefono = models.CharField(max_length=15, blank=True)
+    telefono = models.IntegerField(blank=True)
 
     # Indica si el cliente ya tiene un método de pago registrado (TarjetaCredito, etc.)
     metodoPago = models.BooleanField(default=False, verbose_name='método de pago')

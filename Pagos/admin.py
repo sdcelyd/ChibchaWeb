@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import TarjetaCredito
+from .models import TarjetaCredito, Direccion, Pais
 
-# Register your models here.
+admin.site.register(Direccion)
+admin.site.register(Pais)
 admin.site.register(TarjetaCredito)

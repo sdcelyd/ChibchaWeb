@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>EXITO</title>
-</head>
-<body>
+{% extends "base.html" %}
 
+{% block title %}Registro Exitoso - ChibchaWeb{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body text-center p-5">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h1 class="card-title text-success mb-3">¡Registro Exitoso!</h1>
+                    <p class="card-text lead mb-4">¡Gracias por registrarte en ChibchaWeb!</p>
+                    <p class="text-muted mb-4">Tu cuenta ha sido creada correctamente. Ya puedes comenzar a utilizar nuestros servicios.</p>
+                    
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'clientes:login' %}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                        </a>
+                        <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                            <i class="fas fa-home me-2"></i>Volver al Inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}

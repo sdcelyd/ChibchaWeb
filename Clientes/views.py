@@ -51,15 +51,27 @@ def borrar_cliente(request):
 
 
 def editar_cliente(request, cliente_id):
-    cliente = get_object_or_404(Cliente, clienteId=cliente_id)
+    cliente = get_object_or_404(Cliente, id=cliente_id)
 
     if request.method == 'POST':
-        cliente.nombre = request.POST.get('nombre')
-        cliente.apellido = request.POST.get('apellido')
-        cliente.email = request.POST.get('email')
-        cliente.telefono = request.POST.get('telefono')
+        # Actualizar campos del User
+        cliente.user.username = request.POST.get('username', cliente.user.username)
+        cliente.user.first_name = request.POST.get('first_name', cliente.user.first_name)
+        cliente.user.last_name = request.POST.get('last_name', cliente.user.last_name)
+        cliente.user.email = request.POST.get('email', cliente.user.email)
+        
+        # Actualizar contraseña si se proporcionó
+        new_password = request.POST.get('password')
+        if new_password:
+            cliente.user.set_password(new_password)
+        
+        cliente.user.save()
+        
+        # Actualizar campos del Cliente
+        cliente.telefono = request.POST.get('telefono', cliente.telefono)
         cliente.save()
-        return redirect('/Clientes/exito/')  
+        
+        return redirect('clientes:detalle_cliente')
 
     return render(request, 'clientes/editar.html', {'cliente': cliente})
 

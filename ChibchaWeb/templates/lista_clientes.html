@@ -19,24 +19,22 @@
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
-                <th>Nickname</th>
-                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Nombre Completo</th>
                 <th>Email</th>
+                <th>Teléfono</th>
             </tr>
         </thead>
         <tbody>
             {% for cliente in clientes %}
             <tr>
                 <td>
-                    {% if cliente.clienteId %}
-                        <a href="{% url 'detalle_cliente' cliente.clienteId %}">{{ cliente.clienteId }}</a>
-                    {% else %}
-                        Sin ID
-                    {% endif %}
+                    <a href="{% url 'detalle_cliente' cliente.id %}">{{ cliente.id }}</a>
                 </td>
-                <td>{{ cliente.nickname }}</td>
-                <td>{{ cliente.nombre }}</td>
-                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.user.username }}</td>
+                <td>{{ cliente.user.get_full_name|default:"N/A" }}</td>
+                <td>{{ cliente.user.email }}</td>
+                <td>{{ cliente.telefono|default:"N/A" }}</td>
             </tr>
             {% empty %}
             <tr>
