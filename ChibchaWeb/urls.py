@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import include, path
 from . import views
 from django.contrib.auth.views import LogoutView
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -27,5 +28,6 @@ urlpatterns = [
     path('Clientes/', include('Clientes.urls')),
     path('clientes/', views.lista_clientes, name='lista_clientes'),
     path('clientes/<int:cliente_id>/', views.detalle_cliente, name='detalle_cliente'), 
-    path('logout/', LogoutView.as_view(next_page='home'), name='logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]

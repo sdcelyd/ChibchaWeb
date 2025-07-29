@@ -1,14 +1,17 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class Cliente (models.Model):
-    #Modelo de la tabla Clientes para la base de datos
-    clienteId=models.AutoField(primary_key=True,unique=True)
-    nickname=models.CharField(max_length=15)
-    email=models.CharField(max_length=20)
-    nombre=models.CharField(max_length=15, verbose_name='nombre', default='Sin Nombre')
-    contrasena=models.CharField(max_length=15, verbose_name='contraseña')
-    telefono=models.CharField(max_length=15,blank=True)
-    metodoPago=models.BooleanField(default=False, verbose_name='método de pago')
+class Cliente(models.Model):
+    # Relación uno a uno con el modelo de usuario estándar de Django
+    # Este campo conecta con los datos de autenticación (username, email, password, etc.)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    # Teléfono adicional que no está en el modelo User
+    telefono = models.CharField(max_length=15, blank=True)
+
+    # Indica si el cliente ya tiene un método de pago registrado (TarjetaCredito, etc.)
+    metodoPago = models.BooleanField(default=False, verbose_name='método de pago')
 
     def __str__(self):
-        return self.nickname
+        # Muestra el username del usuario en representaciones del modelo
+        return self.user.username

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from Clientes.models import Cliente
 
+
 def home(request):
     return render(request, 'base.html')
 
