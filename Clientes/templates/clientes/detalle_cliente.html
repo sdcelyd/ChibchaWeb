@@ -1,11 +1,9 @@
-{% extends "base.html" %}
+{% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
-
-{% block title %}Detalle de Cliente{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="mb-4">Detalle del Cliente</h1>
+    <h1 class="mb-4">Detalle del ddCliednte</h1>
 
     <div class="card">
         <div class="card-header bg-primary text-white">
@@ -67,13 +65,13 @@
             </div>
 
             <a href="{% url 'clientes:editar_cliente' cliente.id %}" class="btn btn-warning mt-3">Editar</a>
-x
+
             <form method="post" action="{% url 'clientes:borrar_cliente' %}" style="display:inline;">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger mt-3" onclick="return confirm('¿Estás seguro de que deseas eliminar tu cuenta?');">
                     Eliminar
                 </button>
-            </form>>
+            </form>
 
             <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Volver al inicio</a>
         </div>

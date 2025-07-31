@@ -16,4 +16,5 @@ urlpatterns = [
      path('login/', ClienteLoginView.as_view(), name='login'),
      path('exitologin/', vista_exito, name='exitologin'),
     path('detalle/', views.detalle_cliente, name='detalle_cliente'),
+    path('mis-hosts/', views.mis_hosts, name='mis_hosts'),
 ]
