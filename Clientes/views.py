@@ -83,3 +83,7 @@ class ClienteLoginView(LoginView):
 @login_required
 def vista_exito(request):
     return render(request, 'clientes/exito.html')
+
+@login_required
+def mis_hosts(request):
+    return render(request, 'mis_hosts.html')  
