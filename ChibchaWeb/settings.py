@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'crispy_bootstrap5',    
+    'crispy_bootstrap5', 
+
     'Clientes',
     'Pagos',
     'Administradores',
@@ -128,6 +129,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'ChibchaWeb' / 'static',
+    BASE_DIR / "static",
 ]
 
 # Default primary key field type

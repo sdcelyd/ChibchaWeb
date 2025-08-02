@@ -1,0 +1,17 @@
+{% extends "base_clientes.html" %}
+
+{% block content %}
+<title>Home - ChibchaWeb</title>
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2 class="mb-4">Bienvenido, {{ request.user.first_name }}</h2>
+        {% if cliente.tiene_suscripcion %}
+            <p><strong>Plan actual:</strong> {{ cliente.plan|capfirst }}</p>
+            <p><strong>Suscripción activa hasta:</strong> {{ cliente.fecha_fin_suscripcion|date:"d M Y" }}</p>
+        {% else %}
+            <p>No tienes una suscripción activa.</p>
+            <a href="{% url 'seleccionar_plan' %}" class="btn btn-success">Suscribirse ahora</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

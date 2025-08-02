@@ -1,6 +1,4 @@
 {% load static %}
-
-<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,22 +28,14 @@
         </div>
         {% endif %}
 
-    <!-- Hero principal -->
-        <header class="bg-dark-gray text-white py-5">
-            <div class="container text-center">
-               <img src="{% static 'img/logocompleto.svg' %}" alt="Logo" class="img-fluid mb-4 mx-auto d-block" style="max-width: 400px;">
-                <h1 class="h3">¡Bienvenido a ChibchaWeb!</h1>
-                <p class="lead">Tu sitio #1 de hosting en Colombia</p>
-                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-light btn-lg mt-3">Empieza ahora</a>
-            </div>
-        </header>
+   
 
     <!-- Navegación superior -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
-                <i class="fa-solid fa-globe"></i> ChibchaWeb
-            </a>
+                    <img src="{% static 'img/textoBlanco.svg' %}" alt="ChibchaWeb" style="height:40px;">
+                </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -61,7 +51,7 @@
                         Mi cuenta
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Perfil</a></li>
+                        <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}">Perfil</a></li>
                         <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Configuración</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
@@ -78,6 +68,19 @@
             </div>
         </div>
     </nav>
+
+
+     <!-- Hero principal -->
+        <header class="bg-dark-gray text-white py-5">
+            <div class="container text-center">
+               <img src="{% static 'img/logocompleto.svg' %}" alt="Logo" class="img-fluid mb-4 mx-auto d-block" style="max-width: 400px;">
+                <h1 class="h3">¡Bienvenido a ChibchaWeb!</h1>
+                <p class="lead">Tu sitio #1 de hosting en Colombia</p>
+                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-light btn-lg mt-3">Empieza ahora</a>
+            </div>
+        </header>
+
+
 
     <!-- Contenido extendible -->
     {% block content %}{% endblock %}

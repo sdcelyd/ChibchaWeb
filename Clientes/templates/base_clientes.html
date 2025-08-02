@@ -18,7 +18,7 @@
     <!-- Estilo personalizado -->
     <link rel="stylesheet" href="{% static 'styles/estilo.css' %}">
 
-    <title>ChibchaWeb - dPanel Cliendte</title>
+   
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -36,8 +36,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
-                <i class="fa-solid fa-globe"></i> ChibchaWeb
-            </a>
+                    <img src="{% static 'img/textoBlanco.svg' %}" alt="ChibchaWeb" style="height:40px;">
+                </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -50,7 +50,7 @@
                         Mi cuenta
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Perfil</a></li>
+                        <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}">Perfil</a></li>
                         <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Configuración</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>

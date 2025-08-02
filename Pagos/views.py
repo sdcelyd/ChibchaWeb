@@ -3,10 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 import re
-from .models import Direccion, TarjetaCredito, Pais
+from .models import Direccion, TarjetaCredito, Pais, Pago
 from Clientes.models import Cliente
 from .validators import validar_tarjeta, VALIDADORES_DIRECCIONES
-
+from ChibchaWeb.planes import PLANES_DISPONIBLES
+from datetime import timedelta
+from django.utils import timezone
 
 @login_required
 def registrar_direccion(request):
@@ -136,3 +138,112 @@ def eliminar_tarjeta(request, tarjeta_id):
         messages.error(request, f"Error al eliminar la tarjeta: {str(e)}")
     
     return redirect('clientes:detalle_cliente')
+
+@login_required
+def seleccionar_plan(request):
+    if request.method == "POST":
+        plan = request.POST.get("plan")
+        modalidad = request.POST.get("modalidad")  # mensual, anual, etc.
+        request.session["plan"] = plan
+        request.session["modalidad"] = modalidad
+        return redirect("pagos:direccion_facturacion")
+    return render(request, "Pagos/seleccionar_plan.html", {"planes": PLANES_DISPONIBLES})
+
+@login_required
+def direccion_facturacion(request):
+    if request.method == "POST":
+        ubicacion = request.POST.get("ubicacion")
+        codigo_postal = request.POST.get("codigo_postal")
+        pais_id = request.POST.get("pais")
+
+        direccion = Direccion.objects.create(
+            ubicacion=ubicacion,
+            codigoPostal=codigo_postal,
+            pais_id=pais_id,
+            cliente=request.user.cliente
+        )
+        request.session["direccion_id"] = direccion.direccionId
+        return redirect("pagos:ingresar_tarjeta")
+
+    paises = Pais.objects.all()
+    return render(request, "pagos/direccion_facturacion.html", {"paises": paises})
+
+@login_required
+def ingresar_tarjeta(request):
+    if request.method == "POST":
+        request.session["numero_tarjeta"] = request.POST.get("numero")
+        request.session["titular_tarjeta"] = request.POST.get("titular")
+        request.session["expiracion_tarjeta"] = request.POST.get("expiracion")
+        request.session["cvv_tarjeta"] = request.POST.get("cvv")
+        return redirect("pagos:resumen_pago")
+
+    return render(request, "pagos/ingresar_tarjeta.html")
+
+
+def resumen_pago(request):
+    if request.method == "POST":
+        cliente = request.user.cliente
+
+        # Crear tarjeta
+        tarjeta = TarjetaCredito.objects.create(
+            numero=request.session["numero_tarjeta"],
+            nombre_titular=request.session["titular_tarjeta"],
+            fecha_expiracion=request.session["expiracion_tarjeta"],
+            cvv=request.session["cvv_tarjeta"],
+            cliente=cliente
+        )
+
+        plan = request.session.get("plan")
+        modalidad = request.session.get("modalidad")
+        direccion_id = request.session.get("direccion_id")
+        monto = PLANES_DISPONIBLES[plan][f"precio_{modalidad}"]
+
+        # Crear pago
+        Pago.objects.create(
+            cliente=cliente,
+            direccion_id=direccion_id,
+            tarjeta_usada=tarjeta,
+            monto=monto
+        )
+
+        # Actualizar estado de suscripción
+        cliente.tiene_suscripcion = True
+        cliente.plan = plan
+        cliente.fecha_inicio_suscripcion = timezone.now()
+
+        # Calcular fecha de fin de suscripción
+        if modalidad == "mensual":
+            cliente.fecha_fin_suscripcion = timezone.now() + timedelta(days=30)
+        elif modalidad == "anual":
+            cliente.fecha_fin_suscripcion = timezone.now() + timedelta(days=365)
+        else:
+            cliente.fecha_fin_suscripcion = None  # o manejar otra lógica
+
+        cliente.save()
+
+        return redirect("pagos:confirmacion_pago")
+
+    # Mostrar resumen
+    plan = request.session.get("plan")
+    modalidad = request.session.get("modalidad")
+    direccion_id = request.session.get("direccion_id")
+    direccion = Direccion.objects.get(direccionId=direccion_id)
+    monto = PLANES_DISPONIBLES[plan][f"precio_{modalidad}"]
+
+    resumen = {
+        "plan": plan,
+        "modalidad": modalidad,
+        "monto": monto,
+        "direccion": direccion,
+        "tarjeta": f"**** **** **** {request.session.get('numero_tarjeta')[-4:]}"
+    }
+
+    return render(request, "pagos/resumen_pago.html", resumen)
+
+@login_required
+def confirmacion_pago(request):
+    # limpiar la sesión
+    for key in ["plan", "modalidad", "direccion_id", "numero_tarjeta", "titular_tarjeta", "expiracion_tarjeta", "cvv_tarjeta"]:
+        request.session.pop(key, None)
+
+    return render(request, "pagos/confirmacion_pago.html")

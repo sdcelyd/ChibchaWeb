@@ -1,0 +1,36 @@
+{% extends "base_clientes.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>Selecciona un plan</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div style="display: flex; gap: 20px;">
+        {% for clave, datos in planes.items %}
+            <label style="border: 1px solid #ccc; padding: 20px; width: 30%;">
+                <input type="radio" name="plan" value="{{ clave }}" required>
+                <h3>{{ datos.nombre }}</h3>
+                <p><strong>Mensual:</strong> ${{ datos.precio_mensual }}</p>
+                <p><strong>Semestral:</strong> ${{ datos.precio_semestral }}</p>
+                <p><strong>Anual:</strong> ${{ datos.precio_anual }}</p>
+                <!-- ... -->
+            </label>
+        {% endfor %}
+    </div>
+
+    <!-- Nueva sección para modalidad -->
+    <div style="margin-top: 20px;">
+        <label for="modalidad">Modalidad:</label>
+        <select name="modalidad" required>
+            <option value="">Seleccione una modalidad</option>
+            <option value="mensual">Mensual</option>
+            <option value="semestral">Semestral</option>
+            <option value="anual">Anual</option>
+        </select>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button type="submit">Continuar</button>
+    </div>
+</form>
+{% endblock %}
