@@ -1,0 +1,78 @@
+{% extends "base_clientes.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-map-marker-alt me-2"></i>Dirección de Facturación
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Por favor ingresa la dirección donde recibes tu correspondencia de facturación.
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="id_ubicacion" class="form-label">
+                                <i class="fas fa-home me-1"></i>Dirección
+                            </label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="id_ubicacion" 
+                                   name="ubicacion" 
+                                   placeholder="Calle 123 #45-67, apto 202"
+                                   maxlength="50"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="id_codigo_postal" class="form-label">
+                                <i class="fas fa-mail-bulk me-1"></i>Código Postal
+                            </label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="id_codigo_postal" 
+                                   name="codigo_postal" 
+                                   placeholder="110111"
+                                   maxlength="10"
+                                   required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="id_pais" class="form-label">
+                                <i class="fas fa-flag me-1"></i>País
+                            </label>
+                            <select id="id_pais" name="pais" class="form-select" required>
+                                <option value="">-- Selecciona un país --</option>
+                                {% for pais in paises %}
+                                    <option value="{{ pais.paisId }}">{{ pais.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{% url 'clientes:detalle_cliente' %}" class="btn btn-secondary me-md-2">
+                                <i class="fas fa-arrow-left me-1"></i>Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-arrow-right me-1"></i>Continuar con el pago
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}

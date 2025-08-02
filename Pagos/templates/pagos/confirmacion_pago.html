@@ -1,0 +1,18 @@
+{% extends "base_clientes.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <div class="card-body text-center">
+            <h2 class="card-title text-success mb-4">¡Pago exitoso!</h2>
+            <p class="lead">Tu suscripción ha sido activada correctamente.</p>
+            <p>Gracias por confiar en nuestro servicio.</p>
+
+            <a href="{% url 'clientes:home_clientes' %}" class="btn btn-primary mt-3">
+                Ir al panel principal
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

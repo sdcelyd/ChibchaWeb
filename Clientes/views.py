@@ -30,6 +30,10 @@ def detalle_cliente(request):
     cliente = Cliente.objects.get(user=request.user)
     return render(request, 'clientes/detalle_cliente.html', {'cliente': cliente})
 
+@login_required
+def perfil(request):
+    cliente = Cliente.objects.get(user=request.user)
+    return render(request, 'perfil.html', {'cliente': cliente})
 
 @require_POST
 @login_required
@@ -87,3 +91,12 @@ def vista_exito(request):
 @login_required
 def mis_hosts(request):
     return render(request, 'mis_hosts.html')  
+
+def perfil_cliente(request):
+    cliente = get_object_or_404(Cliente, user=request.user)
+    return render(request, 'clientes/perfil.html', {'cliente': cliente})
+
+@login_required
+def home_clientes(request):
+    cliente = request.user.cliente
+    return render(request, "clientes/home_clientes.html", {"cliente": cliente})
