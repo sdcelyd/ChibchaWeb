@@ -10,6 +10,11 @@ class Empleado(models.Model):
         ('supervisor', 'Supervisor'),
         ('agente', 'Agente'),
     ])
+    nivel = models.IntegerField(default=1, choices=[
+        (1, 'Nivel 1'),
+        (2, 'Nivel 2'),
+        (3, 'Nivel 3'),
+    ], verbose_name='nivel de acceso')
     
     def __str__(self):
-        return f"Empleado: {self.user.username}, Rol: {self.rol}"
+        return f"Empleado: {self.user.username}, Rol: {self.rol}, Nivel: {self.nivel}"
