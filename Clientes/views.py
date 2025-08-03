@@ -20,14 +20,18 @@ def registrar_cliente(request):
     else:
         form = RegistroClienteForm()
 
-    return render(request, 'clientes/registro.html', {'form': form})
+    return render(request, 'registro.html', {'form': form})
 
 @cliente_required
 def detalle_cliente(request):
     # request.cliente ya está disponible automáticamente
     cliente = request.cliente
-    return render(request, 'clientes/detalle_cliente.html', {'cliente': cliente})
+    return render(request, 'detalle_cliente.html', {'cliente': cliente})
 
+@login_required
+def perfil(request):
+    cliente = Cliente.objects.get(user=request.user)
+    return render(request, 'perfil.html', {'cliente': cliente})
 
 @require_POST
 @cliente_required
@@ -46,7 +50,9 @@ def borrar_cliente(request):
 
     return redirect('home')
 
-
+@cliente_required
+def mis_hosts(request):
+    return render(request, 'mis_hosts.html')  
 
 @cliente_required
 def editar_cliente(request, cliente_id):
@@ -81,4 +87,4 @@ def editar_cliente(request, cliente_id):
         messages.success(request, "Perfil actualizado exitosamente.")
         return redirect('clientes:detalle_cliente')
 
-    return render(request, 'clientes/editar.html', {'cliente': cliente})
+    return render(request, 'editar.html', {'cliente': cliente})

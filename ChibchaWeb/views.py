@@ -7,7 +7,6 @@ from Clientes.models import Cliente
 
 def home(request):
     return render(request, 'informacion.html')
-
 def lista_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'lista_clientes.html', {'clientes': clientes})

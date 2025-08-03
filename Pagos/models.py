@@ -1,5 +1,6 @@
 from django.db import models
 from Clientes.models import Cliente
+from django.utils import timezone
 from .validators import validar_tarjeta,VALIDADORES_DIRECCIONES
 
 class Pais(models.Model):
@@ -45,3 +46,28 @@ class TarjetaCredito(models.Model):
 
     def __str__(self):
         return f"**** **** **** {self.numero[-4:]}"
+    
+
+class Pago(models.Model):
+    
+    pagoId = models.AutoField(primary_key=True, unique=True)
+
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='pagos')
+    
+    direccion = models.ForeignKey(Direccion, on_delete=models.SET_NULL, null=True, blank=True, related_name='pagos')
+    
+    tarjeta_usada = models.ForeignKey(
+        TarjetaCredito,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='pagos_realizados',
+        verbose_name="Tarjeta utilizada"
+    )
+    
+    monto = models.DecimalField(max_digits=10, decimal_places=2)
+    
+    fecha = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"Pago de ${self.monto} por {self.cliente.user.username} el {self.fecha.strftime('%Y-%m-%d %H:%M')}"
