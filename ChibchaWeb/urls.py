@@ -33,4 +33,6 @@ urlpatterns = [
     path('login/', views.ClienteLoginView.as_view(), name='login'),
     path('exitologin/', views.vista_exito, name='exitologin'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('tickets/', include('Tickets.urls', namespace='tickets')),
+    
 ]

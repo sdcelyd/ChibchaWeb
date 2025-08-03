@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Pagos',
     'Administradores',
     'Empleados',
+    'Tickets.apps.TicketsConfig',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -139,6 +140,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'  # URL donde se redirige si no está logueado
 
-LOGIN_REDIRECT_URL = '/'  # A dónde va después de hacer login
+LOGIN_REDIRECT_URL = '/Clientes/home/'  # A dónde va después de hacer login
 
 LOGOUT_REDIRECT_URL = '/login/'  # A dónde va después del logout

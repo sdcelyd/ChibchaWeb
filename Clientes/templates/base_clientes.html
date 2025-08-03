@@ -44,6 +44,7 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{% url 'clientes:mis_hosts' %}">Mis Host</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'tickets:mis_tickets' %}">Mis Tickets</a></li>
                 </ul>
                 <div class="dropdown">
                     <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,6 +53,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}">Perfil</a></li>
                         <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Configuración</a></li>
+                        <li><a class="dropdown-item" href="{% url 'tickets:crear_ticket' %}">Crear Ticket</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
                           <form method="post" action="{% url 'logout' %}" style="display:inline;">

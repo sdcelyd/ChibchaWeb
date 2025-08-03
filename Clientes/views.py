@@ -11,6 +11,11 @@ from django.views.decorators.http import require_POST
 from ChibchaWeb.decorators import cliente_required
 
 
+@cliente_required
+def home_cliente(request):
+    cliente = request.cliente
+    return render(request, 'home_clientes.html', {'cliente': cliente})
+
 def registrar_cliente(request):
     if request.method == 'POST':
         form = RegistroClienteForm(request.POST)

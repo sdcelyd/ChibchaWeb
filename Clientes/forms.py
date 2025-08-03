@@ -25,6 +25,7 @@ class RegistroClienteForm(UserCreationForm):
             'email': 'Correo electrónico',
         }
 
+    # Logica de base de datos, agregarlo en infraestructura
     def save(self, commit=True):
         user = super().save(commit=False)
         user.email = self.cleaned_data['email']
