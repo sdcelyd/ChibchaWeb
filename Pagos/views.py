@@ -6,15 +6,12 @@ import re
 from .models import Direccion, TarjetaCredito, Pais
 from Clientes.models import Cliente
 from .validators import validar_tarjeta, VALIDADORES_DIRECCIONES
+from ChibchaWeb.decorators import cliente_required
 
 
-@login_required
+@cliente_required
 def registrar_direccion(request):
-    try:
-        cliente = Cliente.objects.get(user=request.user)
-    except Cliente.DoesNotExist:
-        messages.error(request, "No se encontró el perfil de cliente.")
-        return redirect('home')
+    cliente = request.cliente  # Disponible automáticamente
     
     if request.method == 'POST':
         ubicacion = request.POST.get('ubicacion')
@@ -52,13 +49,9 @@ def registrar_direccion(request):
     return render(request, 'pagos/registrar_direccion.html', {'paises': paises})
 
 
-@login_required
+@cliente_required
 def registrar_tarjeta(request):
-    try:
-        cliente = Cliente.objects.get(user=request.user)
-    except Cliente.DoesNotExist:
-        messages.error(request, "No se encontró el perfil de cliente.")
-        return redirect('home')
+    cliente = request.cliente  # Disponible automáticamente
     
     if request.method == 'POST':
         numero = request.POST.get('numero', '').replace(' ', '')  # Remover espacios
@@ -106,10 +99,10 @@ def registrar_tarjeta(request):
     return render(request, 'pagos/registrar_tarjeta.html')
 
 
-@login_required
+@cliente_required
 def eliminar_direccion(request, direccion_id):
     try:
-        cliente = Cliente.objects.get(user=request.user)
+        cliente = request.cliente
         direccion = get_object_or_404(Direccion, direccionId=direccion_id, cliente=cliente)
         direccion.delete()
         messages.success(request, "Dirección eliminada exitosamente.")
@@ -119,10 +112,10 @@ def eliminar_direccion(request, direccion_id):
     return redirect('clientes:detalle_cliente')
 
 
-@login_required
+@cliente_required
 def eliminar_tarjeta(request, tarjeta_id):
     try:
-        cliente = Cliente.objects.get(user=request.user)
+        cliente = request.cliente
         tarjeta = get_object_or_404(TarjetaCredito, id=tarjeta_id, cliente=cliente)
         tarjeta.delete()
         

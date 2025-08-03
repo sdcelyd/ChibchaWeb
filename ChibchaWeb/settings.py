@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Clientes',
     'Pagos',
     'Administradores',
+    'Empleados',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -136,7 +137,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_URL = 'clientes:login'  # URL donde se redirige si no está logueado
+LOGIN_URL = 'login'  # URL donde se redirige si no está logueado
 
 LOGIN_REDIRECT_URL = '/'  # A dónde va después de hacer login
 

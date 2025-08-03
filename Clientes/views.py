@@ -2,16 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Cliente
 from django.http import HttpResponse
-from django.contrib.auth.views import LoginView
-from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from .forms import RegistroClienteForm
 from django.contrib.auth import logout
 from django.contrib import messages
-
-
 from .forms import ClienteForm
 from django.views.decorators.http import require_POST
+from ChibchaWeb.decorators import cliente_required
 
 
 def registrar_cliente(request):
@@ -25,33 +22,40 @@ def registrar_cliente(request):
 
     return render(request, 'clientes/registro.html', {'form': form})
 
-@login_required
+@cliente_required
 def detalle_cliente(request):
-    cliente = Cliente.objects.get(user=request.user)
+    # request.cliente ya está disponible automáticamente
+    cliente = request.cliente
     return render(request, 'clientes/detalle_cliente.html', {'cliente': cliente})
 
 
 @require_POST
-@login_required
+@cliente_required
 def borrar_cliente(request):
     if request.method == 'POST':
         try:
-            cliente = Cliente.objects.get(user=request.user)
+            cliente = request.cliente  # Usar el cliente del decorador
             user = request.user
             cliente.delete()   # Elimina el registro de Cliente
             user.delete()      # Elimina el usuario de Django
             messages.success(request, "Tu cuenta fue eliminada exitosamente.")
             logout(request)    # Cierra sesión
             
-        except Cliente.DoesNotExist:
-            pass  # Silenciosamente ignora si no existe
+        except Exception as e:
+            messages.error(request, f"Error al eliminar la cuenta: {str(e)}")
 
-    return redirect('home')  # Ajusta a la ruta de tu página principal
+    return redirect('home')
 
 
 
+@cliente_required
 def editar_cliente(request, cliente_id):
-    cliente = get_object_or_404(Cliente, id=cliente_id)
+    cliente = request.cliente  # Usar el cliente del decorador
+    
+    # Verificar que el cliente solo pueda editar su propio perfil
+    if cliente.id != cliente_id:
+        messages.error(request, "No puedes editar el perfil de otro cliente.")
+        return redirect('clientes:detalle_cliente')
 
     if request.method == 'POST':
         # Actualizar campos del User
@@ -64,6 +68,9 @@ def editar_cliente(request, cliente_id):
         new_password = request.POST.get('password')
         if new_password:
             cliente.user.set_password(new_password)
+            # Mantener la sesión activa después del cambio de contraseña
+            from django.contrib.auth import update_session_auth_hash
+            update_session_auth_hash(request, cliente.user)
         
         cliente.user.save()
         
@@ -71,15 +78,7 @@ def editar_cliente(request, cliente_id):
         cliente.telefono = request.POST.get('telefono', cliente.telefono)
         cliente.save()
         
+        messages.success(request, "Perfil actualizado exitosamente.")
         return redirect('clientes:detalle_cliente')
 
     return render(request, 'clientes/editar.html', {'cliente': cliente})
-
-class ClienteLoginView(LoginView):
-    template_name = 'login.html'
-    success_url = reverse_lazy('clientes:exitologin')  # a donde lo lleva si es exitoso
-    redirect_authenticated_user = True
-
-@login_required
-def vista_exito(request):
-    return render(request, 'clientes/exito.html')

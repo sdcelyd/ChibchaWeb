@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Registro Exitoso - ChibchaWeb{% endblock %}
+{% block title %}Inicio de Sesión Exitoso - ChibchaWeb{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
@@ -11,16 +11,15 @@
                     <div class="mb-4">
                         <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
                     </div>
-                    <h1 class="card-title text-success mb-3">¡Registro Exitoso!</h1>
-                    <p class="card-text lead mb-4">¡Gracias por registrarte en ChibchaWeb!</p>
-                    <p class="text-muted mb-4">Tu cuenta ha sido creada correctamente. Ya puedes comenzar a utilizar nuestros servicios.</p>
+                    <h2 class="text-success mb-3">¡Inicio de sesión exitoso!</h2>
+                    <p class="lead mb-4">Bienvenido, <strong>{{ user.username }}</strong></p>
                     
                     <div class="d-grid gap-2">
-                        <a href="{% url 'login' %}" class="btn btn-primary btn-lg">
-                            <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                        <a href="{% url 'clientes:detalle_cliente' %}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-user me-2"></i>Ver Mi Perfil
                         </a>
                         <a href="{% url 'home' %}" class="btn btn-outline-secondary">
-                            <i class="fas fa-home me-2"></i>Volver al Inicio
+                            <i class="fas fa-home me-2"></i>Ir al Inicio
                         </a>
                     </div>
                 </div>
