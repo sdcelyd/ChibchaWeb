@@ -9,7 +9,14 @@ from .models import Empleado
 
 
 class EmpleadoLoginView(LoginView):
-    template_name = 'empleados/login.html'
+    template_name = 'logEmpleados.html'
+    
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        # Añadir clases CSS a los campos del formulario
+        form.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Ingresa tu usuario'})
+        form.fields['password'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Ingresa tu contraseña'})
+        return form
     
     def form_valid(self, form):
         # Verificar que el usuario que se logea sea un empleado activo
@@ -29,6 +36,7 @@ class EmpleadoLoginView(LoginView):
         except Empleado.DoesNotExist:
             messages.error(self.request, 'Este usuario no es un empleado válido.')
             return self.form_invalid(form)
+            return self.form_invalid(form)
     
     def get_success_url(self):
         return '/empleados/dashboard/'
@@ -36,7 +44,7 @@ class EmpleadoLoginView(LoginView):
 
 @method_decorator(empleado_required, name='dispatch')
 class DashboardView(TemplateView):
-    template_name = 'empleados/dashboard.html'
+    template_name = 'dashboard.html'
     
     def get(self, request, *args, **kwargs):
         # Redirigir según el rol del empleado
@@ -49,25 +57,57 @@ class DashboardView(TemplateView):
 
 @method_decorator(supervisor_required, name='dispatch')
 class SupervisorDashboardView(TemplateView):
-    template_name = 'empleados/supervisor_dashboard.html'
+    template_name = 'supervisor_dashboard.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['empleado'] = self.request.user.empleado
-        # Aquí puedes agregar más datos específicos del supervisor
+        supervisor = self.request.user.empleado
+        
+        # Filtrar agentes del mismo nivel que el supervisor
+        agentes_mismo_nivel = Empleado.objects.filter(
+            rol='agente',
+            nivel=supervisor.nivel,
+            activo=True
+        ).select_related('user')
+        
+        context['empleado'] = supervisor
+        context['agentes'] = agentes_mismo_nivel
+        context['nivel_supervisor'] = supervisor.nivel
+        
+        # TODO: Agregar tickets del mismo nivel cuando se cree la tabla Ticket
+        # tickets_nivel = Ticket.objects.filter(nivel=supervisor.nivel)
+        # context['tickets'] = tickets_nivel
+        
         return context
 
 
 @method_decorator(agente_required, name='dispatch')
 class AgenteDashboardView(TemplateView):
-    template_name = 'empleados/agente_dashboard.html'
+    template_name = 'agente_dashboard.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['empleado'] = self.request.user.empleado
-        # Aquí puedes agregar más datos específicos del agente
+        agente = self.request.user.empleado
+        
+        # TODO: Implementar cuando se cree la tabla Ticket
+        # tickets_solucionados = Ticket.objects.filter(agente=agente, estado='resuelto')
+        # tickets_pendientes = Ticket.objects.filter(agente=agente, estado__in=['pendiente', 'en_proceso'])
+        # context['tickets_solucionados'] = tickets_solucionados
+        # context['tickets_pendientes'] = tickets_pendientes
+        
+        context['empleado'] = agente
+        context['usuario'] = agente.user
+        
+        # Estadísticas simuladas para mostrar estructura
+        context['stats'] = {
+            'tickets_solucionados_count': 0,  # tickets_solucionados.count()
+            'tickets_pendientes_count': 0,    # tickets_pendientes.count()
+            'tickets_hoy': 0,                 # tickets resueltos hoy
+            'calificacion_promedio': 0        # promedio de calificaciones
+        }
+        
         return context
 
 
 class EmpleadoLogoutView(LogoutView):
-    next_page = 'empleados:login'
+    next_page = 'empleados:log'

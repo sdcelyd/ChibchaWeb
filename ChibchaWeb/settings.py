@@ -64,7 +64,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'ChibchaWeb' / 'templates',
-            BASE_DIR / 'clientes' / 'templates',
+            BASE_DIR / 'Clientes' / 'templates',
+            BASE_DIR / 'Empleados' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
