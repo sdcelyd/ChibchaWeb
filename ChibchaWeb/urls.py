@@ -4,6 +4,7 @@ from . import views
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth import views as auth_views
 
+import Dominios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
