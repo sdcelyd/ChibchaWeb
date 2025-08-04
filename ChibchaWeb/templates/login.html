@@ -23,7 +23,10 @@
                 <button type="submit" class="btn btn-primary w-100">Ingresar</button>
             </form>
             <hr>
-            <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-link w-100">Registrarse</a>
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-link w-100">Registrarse</a>
+                <a href="{% url 'empleados:log' %}" class="btn btn-link w-100">Portal Empleados</a>
+            </div>
         </div>
     </div>
 </div>

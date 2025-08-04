@@ -1,0 +1,55 @@
+body {
+    background: linear-gradient(135deg, #1b1215 0%, #69554b 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.login-card {
+    background: rgba(229, 211, 181, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.employee-badge {
+    background: #6c371f;
+    color: #e5d3b5;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.text-primary {
+    color: #1b1215 !important;
+}
+
+.text-muted {
+    color: #69554b !important;
+}
+
+.btn-primary {
+    background-color: #eab21b;
+    border-color: #eab21b;
+    color: #1b1215;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #6c371f;
+    border-color: #6c371f;
+    color: #e5d3b5;
+}
+
+.form-control:focus {
+    border-color: #eab21b;
+    box-shadow: 0 0 0 0.2rem rgba(234, 178, 27, 0.25);
+}
+
+.form-label {
+    color: #1b1215;
+    font-weight: 500;
+}

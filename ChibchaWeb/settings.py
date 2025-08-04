@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Pagos',
     'Administradores',
     'Empleados',
+    'Tickets.apps.TicketsConfig',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -64,7 +65,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'ChibchaWeb' / 'templates',
-            BASE_DIR / 'clientes' / 'templates',
+            BASE_DIR / 'Clientes' / 'templates',
+            BASE_DIR / 'Empleados' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -139,6 +141,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'  # URL donde se redirige si no está logueado
 
-LOGIN_REDIRECT_URL = '/'  # A dónde va después de hacer login
+LOGIN_REDIRECT_URL = '/Clientes/home/'  # A dónde va después de hacer login
 
 LOGOUT_REDIRECT_URL = '/login/'  # A dónde va después del logout

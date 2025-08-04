@@ -10,7 +10,7 @@
             <p><strong>Suscripción activa hasta:</strong> {{ cliente.fecha_fin_suscripcion|date:"d M Y" }}</p>
         {% else %}
             <p>No tienes una suscripción activa.</p>
-            <a href="{% url 'seleccionar_plan' %}" class="btn btn-success">Suscribirse ahora</a>
+            {# <a href="{% url 'seleccionar_plan' %}" class="btn btn-success">Suscribirse ahora</a> #}
         {% endif %}
     </div>
 </div>
