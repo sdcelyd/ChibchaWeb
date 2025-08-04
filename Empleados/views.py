@@ -1,11 +1,49 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.generic import TemplateView
 from django.utils.decorators import method_decorator
 from ChibchaWeb.decorators import empleado_required, supervisor_required, agente_required
 from .models import Empleado
+from django.http import HttpResponseForbidden
+from Tickets.models import HistoriaTicket
+
+@method_decorator(login_required, name='dispatch')
+class DashboardSupervisorView(TemplateView):
+    template_name = 'supervisor_dashboard.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            empleado = Empleado.objects.get(user=request.user)
+            if empleado.rol != 'supervisor':
+                return HttpResponseForbidden("No tienes permisos para acceder a esta vista.")
+        except Empleado.DoesNotExist:
+            return HttpResponseForbidden("Usuario no registrado como empleado.")
+        
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        supervisor = Empleado.objects.get(user=self.request.user)
+        nivel = supervisor.nivel
+        # Filtrar agentes del mismo nivel que el supervisor
+        agentes_mismo_nivel = Empleado.objects.filter(
+            rol='agente',
+            nivel=supervisor.nivel,
+            activo=True
+        ).select_related('user')
+
+        tickets_asignados = HistoriaTicket.objects.filter(
+            empleado_id=supervisor.id
+        ).select_related('ticket', 'estado')
+
+        context['nivel_supervisor'] = nivel
+        context['agentes'] = agentes_mismo_nivel
+        context['tickets_asignados'] = tickets_asignados
+        return context
+
 
 
 class EmpleadoLoginView(LoginView):
@@ -55,30 +93,6 @@ class DashboardView(TemplateView):
             return redirect('empleados:agente_dashboard')
 
 
-@method_decorator(supervisor_required, name='dispatch')
-class SupervisorDashboardView(TemplateView):
-    template_name = 'supervisor_dashboard.html'
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        supervisor = self.request.user.empleado
-        
-        # Filtrar agentes del mismo nivel que el supervisor
-        agentes_mismo_nivel = Empleado.objects.filter(
-            rol='agente',
-            nivel=supervisor.nivel,
-            activo=True
-        ).select_related('user')
-        
-        context['empleado'] = supervisor
-        context['agentes'] = agentes_mismo_nivel
-        context['nivel_supervisor'] = supervisor.nivel
-        
-        # TODO: Agregar tickets del mismo nivel cuando se cree la tabla Ticket
-        # tickets_nivel = Ticket.objects.filter(nivel=supervisor.nivel)
-        # context['tickets'] = tickets_nivel
-        
-        return context
 
 
 @method_decorator(agente_required, name='dispatch')

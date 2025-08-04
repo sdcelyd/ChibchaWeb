@@ -6,31 +6,6 @@ from .models import Ticket, HistoriaTicket
 from ChibchaWeb.decorators import cliente_required, supervisor_required
 from django.utils import timezone
 from django.utils.decorators import method_decorator
-from django.views.generic import TemplateView
-from Empleados.models import Empleado
-
-@method_decorator(supervisor_required, name='dispatch')
-class DashboardSupervisorView(TemplateView):
-    template_name = 'supervisor_dashboard.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        supervisor = self.request.empleado  # ← cambio aquí
-        nivel = supervisor.nivel
-
-        agentes_nivel = Empleado.objects.filter(nivel=nivel, rol='tecnico')
-
-        tickets_asignados = HistoriaTicket.objects.filter(
-            empleado_id=supervisor.id
-        ).select_related('ticket', 'estado')
-
-        context['nivel_supervisor'] = nivel
-        context['agentes'] = agentes_nivel
-        context['tickets_asignados'] = tickets_asignados
-
-        print("Supervisor ID:", supervisor.id)
-        print("HistoriaTicket empleados:", HistoriaTicket.objects.values_list('empleado_id', flat=True))
-        return context
 
 
 @cliente_required

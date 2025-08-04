@@ -194,6 +194,19 @@
                                                     <tr>
                                                         <td>{{ h.ticket.idTicket }}</td>
                                                         <td>{{ h.estado.nombreEstado }}</td>
+                                                        <td>
+                                                            <form method="post" class="d-flex align-items-center gap-2">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="ticket_id" value="{{ h.ticket.idTicket }}">
+                                                                <select name="empleado_id" class="form-select select2" style="width: 200px;">
+                                                                    <option value="">Selecciona técnico</option>
+                                                                    {% for agente in agentes %}
+                                                                        <option value="{{ agente.id }}">{{ agente.user.get_full_name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                                <button type="submit" class="btn btn-sm btn-primary">Asignar</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                     {% endfor %}
                                                 </tbody>
