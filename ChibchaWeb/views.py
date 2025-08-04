@@ -18,7 +18,6 @@ def detalle_cliente(request, cliente_id):
 
 class ClienteLoginView(LoginView):
     template_name = 'login.html'
-    success_url = reverse_lazy('exitologin')  # a donde lo lleva si es exitoso
     redirect_authenticated_user = True
     
     def form_valid(self, form):
@@ -28,6 +27,15 @@ class ClienteLoginView(LoginView):
             messages.error(self.request, 'Los empleados deben usar el portal de empleados.')
             return self.form_invalid(form)
         return super().form_valid(form)
+
+    def get_success_url(self):
+        user = self.request.user
+        if hasattr(user, 'cliente'):
+            if user.cliente.es_distribuidor:
+                return reverse_lazy('distribuidores:dashboard')
+            else:
+                return reverse_lazy('clientes:perfil')
+        return reverse_lazy('home')    
 
 @login_required
 def vista_exito(request):

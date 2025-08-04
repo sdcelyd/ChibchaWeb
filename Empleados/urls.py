@@ -1,12 +1,14 @@
 from django.urls import path
 from . import views
 
+
 app_name = 'empleados'  # Namespace for the app
 
 urlpatterns = [
     path('log/', views.EmpleadoLoginView.as_view(), name='log'),
     path('dashboard/', views.DashboardView.as_view(), name='dashboard'),
-    path('dashboard/supervisor/', views.SupervisorDashboardView.as_view(), name='supervisor_dashboard'),
+    #path('dashboard/supervisor/', views.SupervisorDashboardView.as_view(), name='supervisor_dashboard'),
+    path('dashboard/supervisor/', views.DashboardSupervisorView.as_view(), name='supervisor_dashboard'),
     path('dashboard/agente/', views.AgenteDashboardView.as_view(), name='agente_dashboard'),
     path('mis-tickets/', views.MisTicketsView.as_view(), name='mis_tickets'),
     path('asignar-ticket/', views.asignar_ticket, name='asignar_ticket'),
