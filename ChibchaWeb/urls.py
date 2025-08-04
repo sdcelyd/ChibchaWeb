@@ -18,5 +18,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('admin-panel/', include('Administradores.urls')),
     path('tickets/', include('Tickets.urls', namespace='tickets')),
-    
+    path('verificar-url/', include('Dominios.urls')),
+    path('verificar-url/', Dominios.views.verificar_url, name='verificar-url'),
 ]
