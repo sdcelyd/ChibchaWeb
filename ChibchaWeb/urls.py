@@ -18,5 +18,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('admin-panel/', include('Administradores.urls')),
     path('tickets/', include('Tickets.urls', namespace='tickets')),
+    path('distribuidor/', include('Distribuidor.urls', namespace='distribuidores')),
     
 ]

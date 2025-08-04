@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Administradores',
     'Empleados',
     'Tickets.apps.TicketsConfig',
+    'Distribuidor',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -74,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Clientes.context_processors.cliente_context',
             ],
         },
     },

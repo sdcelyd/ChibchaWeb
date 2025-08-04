@@ -28,6 +28,30 @@ def cliente_required(view_func):
     
     return wrapper
 
+def distribuidor_required(view_func):
+    """
+    Decorador que verifica que el usuario sea un Cliente con rol de Distribuidor
+    """
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.warning(request, "Debes iniciar sesión para acceder a esta página.")
+            return redirect('login')
+
+        try:
+            cliente = Cliente.objects.get(user=request.user)
+            if not cliente.es_distribuidor:
+                messages.error(request, "No tienes permisos de distribuidor para acceder a esta página.")
+                return redirect('clientes:dashboard')  # o cualquier ruta segura para no distribuidores
+
+            request.cliente = cliente
+            return view_func(request, *args, **kwargs)
+        except Cliente.DoesNotExist:
+            messages.error(request, "No tienes perfil de cliente para acceder a esta página.")
+            return redirect('login')
+
+    return wrapper
+
 
 def empleado_required(view_func):
     """
