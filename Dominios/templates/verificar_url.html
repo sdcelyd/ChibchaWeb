@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Verificar Disponibilidad de URL{% endblock %}
+
+{% block content %}
+<div class="container py-5" style="background-color: #2f3338; color: #fff; border-radius: 12px; margin-top: 50px;">
+    <div class="text-center mb-4">
+        <h2 style="color: #F4C542;">Verificador de URLs</h2>
+        <p>Comprueba si una dirección está disponible y puede usarla.</p>
+    </div>
+
+    <form method="post" novalidate class="mx-auto" style="max-width: 600px;">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            {{ form.url.label_tag }}
+            {{ form.url }}
+        </div>
+        <button type="submit" class="btn btn-warning text-dark fw-bold w-100">Verificar URL</button>
+    </form>
+
+    {% if resultado %}
+        <div class="alert mt-4 {% if valido %}alert-success{% else %}alert-danger{% endif %}">
+            {{ resultado }}
+        </div>
+
+        {# Solo para usuarios autenticados: botón para descargar el XML #}
+        {% if user.is_authenticated and valido %}
+            <div class="text-end mt-3">
+                <a 
+                  href="{% url 'generar_xml' %}?url={{ form.url.value|urlencode }}" 
+                  class="btn btn-success fw-bold"
+                >
+                  Generar XML
+                </a>
+            </div>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
