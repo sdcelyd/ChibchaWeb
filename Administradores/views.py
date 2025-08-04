@@ -293,15 +293,16 @@ def estadisticas_usuarios(request):
     """Vista para mostrar estadísticas de usuarios"""
     # Estadísticas de clientes
     total_clientes = Cliente.objects.count()
-    clientes_activos = Cliente.objects.filter(activo=True).count()
     clientes_con_suscripcion = Cliente.objects.filter(tiene_suscripcion=True).count()
     
+    porcentaje_suscripcion = (clientes_con_suscripcion * 100 / total_clientes) if total_clientes > 0 else 0
+
     # Estadísticas de empleados
     total_empleados = Empleado.objects.count()
     empleados_activos = Empleado.objects.filter(activo=True).count()
     empleados_por_rol = (
         Empleado.objects.values('rol')
-        .annotate(cantidad=Count('empleadoId'))
+        .annotate(cantidad=Count('id'))
         .order_by('rol')
     )
     
@@ -315,14 +316,14 @@ def estadisticas_usuarios(request):
     planes_distribucion = (
         Cliente.objects.filter(tiene_suscripcion=True)
         .values('plan')
-        .annotate(cantidad=Count('clienteId'))
+        .annotate(cantidad=Count('id'))
         .order_by('plan')
     )
     
     context = {
         'total_clientes': total_clientes,
-        'clientes_activos': clientes_activos,
         'clientes_con_suscripcion': clientes_con_suscripcion,
+        'porcentaje_suscripcion': round(porcentaje_suscripcion, 1),
         'total_empleados': total_empleados,
         'empleados_activos': empleados_activos,
         'empleados_por_rol': list(empleados_por_rol),
