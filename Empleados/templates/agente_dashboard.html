@@ -31,7 +31,7 @@
                         <a class="nav-link active" href="#">
                             <i class="fas fa-tachometer-alt"></i> Dashboard
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'empleados:mis_tickets' %}">
                             <i class="fas fa-ticket-alt"></i> Mis Tickets
                         </a>
                         <a class="nav-link" href="#">
@@ -65,8 +65,8 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>{{ stats.tickets_pendientes_count }}</h4>
-                                            <p class="mb-0">Tickets Pendientes</p>
+                                            <h4>{{ tickets_pendientes|length }}</h4>
+                                                                                        <p class="mb-0">Total Tickets</p>
                                         </div>
                                         <div class="align-self-center">
                                             <i class="fas fa-clock fa-2x"></i>
@@ -81,7 +81,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>{{ stats.tickets_solucionados_count }}</h4>
+                                            <h4>{{ tickets_completados|length }}</h4>
                                             <p class="mb-0">Tickets Resueltos</p>
                                         </div>
                                         <div class="align-self-center">
@@ -97,7 +97,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>{{ stats.tickets_hoy }}</h4>
+                                            <h4>{{ total_tickets }}</h4>
                                             <p class="mb-0">Resueltos Hoy</p>
                                         </div>
                                         <div class="align-self-center">
@@ -134,45 +134,34 @@
                                     <h5 class="card-title mb-0">Mis Tickets Pendientes</h5>
                                 </div>
                                 <div class="card-body">
-                                    <!-- TODO: Implementar cuando se cree la tabla Ticket -->
-                                    <div class="text-center py-3">
-                                        <i class="fas fa-ticket-alt fa-2x text-muted mb-2"></i>
-                                        <p class="text-muted">Sistema de tickets próximamente</p>
-                                        <small class="text-muted">Aquí aparecerán tus tickets pendientes</small>
-                                    </div>
-                                    {% comment %}
                                     {% if tickets_pendientes %}
                                         <div class="table-responsive">
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
+                                                        <th>Nombre</th>
                                                         <th>Cliente</th>
-                                                        <th>Asunto</th>
-                                                        <th>Prioridad</th>
-                                                        <th>Fecha</th>
-                                                        <th>Acción</th>
+                                                        <th>Estado</th>
+                                                        <th>Fecha Creación</th>
+                                                        <th>Última Actualización</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {% for ticket in tickets_pendientes %}
+                                                    {% for item in tickets_pendientes %}
                                                     <tr>
-                                                        <td>#{{ ticket.id }}</td>
-                                                        <td>{{ ticket.cliente.user.get_full_name }}</td>
-                                                        <td>{{ ticket.asunto }}</td>
+                                                        <td>#{{ item.ticket.idTicket }}</td>
+                                                        <td>{{ item.ticket.nombreTicket }}</td>
+                                                        <td>{% if item.ticket.cliente.user.first_name %}{{ item.ticket.cliente.user.first_name }} {{ item.ticket.cliente.user.last_name }}{% else %}{{ item.ticket.cliente.user.username }}{% endif %}</td>
                                                         <td>
-                                                            {% if ticket.prioridad == 'alta' %}
-                                                                <span class="badge bg-danger">Alta</span>
-                                                            {% elif ticket.prioridad == 'media' %}
-                                                                <span class="badge bg-warning">Media</span>
+                                                            {% if item.estado.nombreEstado == 'En Proceso' %}
+                                                                <span class="badge bg-info">{{ item.estado.nombreEstado }}</span>
                                                             {% else %}
-                                                                <span class="badge bg-success">Baja</span>
+                                                                <span class="badge bg-secondary">{{ item.estado.nombreEstado }}</span>
                                                             {% endif %}
                                                         </td>
-                                                        <td>{{ ticket.fecha_creacion|date:"d/m/Y" }}</td>
-                                                        <td>
-                                                            <button class="btn btn-sm btn-primary">Resolver</button>
-                                                        </td>
+                                                        <td>{{ item.ticket.fechar_creacion|date:"d/m/Y" }}</td>
+                                                        <td>{{ item.fecha_modificacion|date:"d/m/Y" }}</td>
                                                     </tr>
                                                     {% endfor %}
                                                 </tbody>
@@ -185,7 +174,6 @@
                                             <p class="text-muted">No tienes tickets pendientes.</p>
                                         </div>
                                     {% endif %}
-                                    {% endcomment %}
                                 </div>
                             </div>
 
@@ -195,45 +183,28 @@
                                     <h5 class="card-title mb-0">Mis Tickets Resueltos Recientemente</h5>
                                 </div>
                                 <div class="card-body">
-                                    <!-- TODO: Implementar cuando se cree la tabla Ticket -->
-                                    <div class="text-center py-3">
-                                        <i class="fas fa-history fa-2x text-muted mb-2"></i>
-                                        <p class="text-muted">Historial de tickets próximamente</p>
-                                        <small class="text-muted">Aquí aparecerán tus últimos tickets resueltos</small>
-                                    </div>
-                                    {% comment %}
-                                    {% if tickets_solucionados %}
+                                    {% if tickets_completados %}
                                         <div class="table-responsive">
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
+                                                        <th>Nombre</th>
                                                         <th>Cliente</th>
-                                                        <th>Asunto</th>
-                                                        <th>Resuelto</th>
-                                                        <th>Calificación</th>
+                                                        <th>Estado</th>
+                                                        <th>Fecha Finalización</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {% for ticket in tickets_solucionados|slice:":10" %}
+                                                    {% for item in tickets_completados|slice:":10" %}
                                                     <tr>
-                                                        <td>#{{ ticket.id }}</td>
-                                                        <td>{{ ticket.cliente.user.get_full_name }}</td>
-                                                        <td>{{ ticket.asunto }}</td>
-                                                        <td>{{ ticket.fecha_resolucion|date:"d/m/Y H:i" }}</td>
+                                                        <td>#{{ item.ticket.idTicket }}</td>
+                                                        <td>{{ item.ticket.nombreTicket }}</td>
+                                                        <td>{% if item.ticket.cliente.user.first_name %}{{ item.ticket.cliente.user.first_name }} {{ item.ticket.cliente.user.last_name }}{% else %}{{ item.ticket.cliente.user.username }}{% endif %}</td>
                                                         <td>
-                                                            {% if ticket.calificacion %}
-                                                                {% for i in "12345" %}
-                                                                    {% if forloop.counter <= ticket.calificacion %}
-                                                                        <i class="fas fa-star text-warning"></i>
-                                                                    {% else %}
-                                                                        <i class="far fa-star text-muted"></i>
-                                                                    {% endif %}
-                                                                {% endfor %}
-                                                            {% else %}
-                                                                <span class="text-muted">Sin calificar</span>
-                                                            {% endif %}
+                                                            <span class="badge bg-success">{{ item.estado.nombreEstado }}</span>
                                                         </td>
+                                                        <td>{{ item.fecha_modificacion|date:"d/m/Y" }}</td>
                                                     </tr>
                                                     {% endfor %}
                                                 </tbody>
@@ -246,7 +217,6 @@
                                             <p class="text-muted">Aún no has resuelto ningún ticket.</p>
                                         </div>
                                     {% endif %}
-                                    {% endcomment %}
                                 </div>
                             </div>
                         </div>
@@ -312,11 +282,11 @@
                                 <div class="card-body">
                                     <div class="row text-center mb-3">
                                         <div class="col-6">
-                                            <h4 class="text-success">{{ stats.tickets_solucionados_count }}</h4>
+                                            <h4 class="text-success">{{ tickets_completados|length }}</h4>
                                             <small class="text-muted">Total Resueltos</small>
                                         </div>
                                         <div class="col-6">
-                                            <h4 class="text-warning">{{ stats.tickets_pendientes_count }}</h4>
+                                            <h4 class="text-warning">{{ tickets_pendientes|length }}</h4>
                                             <small class="text-muted">Pendientes</small>
                                         </div>
                                     </div>

@@ -26,7 +26,10 @@ class Ticket(models.Model):
         db_table = 'Ticket'
 
     def __str__(self):
-        return f"{self.nombreTicket} - Cliente: {self.cliente.nickname}"
+        cliente_nombre = f"{self.cliente.user.first_name} {self.cliente.user.last_name}".strip()
+        if not cliente_nombre:
+            cliente_nombre = self.cliente.user.username
+        return f"{self.nombreTicket} - Cliente: {cliente_nombre}"
 
 # Tabla HistoriaTicket
 class HistoriaTicket(models.Model):

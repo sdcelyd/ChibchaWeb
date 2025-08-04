@@ -94,9 +94,8 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>0</h4>
+                                            <h4>{{ tickets_sin_asignar|length }}</h4>
                                             <p class="mb-0">Tickets Pendientes</p>
-                                            <!-- TODO: Cambiar por tickets.count cuando se implemente -->
                                         </div>
                                         <div class="align-self-center">
                                             <i class="fas fa-ticket-alt fa-2x"></i>
@@ -178,14 +177,114 @@
                         <div class="col-md-4">
                             <div class="card dashboard-card mb-3">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Tickets por Nivel</h5>
+                                    <h5 class="card-title mb-3">Gestión de Tickets - Nivel {{ nivel_supervisor }}</h5>
                                 </div>
                                 <div class="card-body">
-                                    <!-- TODO: Implementar cuando se cree la tabla Ticket -->
-                                    <div class="text-center py-3">
-                                        <i class="fas fa-ticket-alt fa-2x text-muted mb-2"></i>
-                                        <p class="text-muted">Sistema de tickets próximamente</p>
-                                        <small class="text-muted">Se mostrarán tickets de nivel {{ nivel_supervisor }}</small>
+                                    <!-- Tickets sin asignar -->
+                                    <div class="mb-4">
+                                        <h6 class="text-primary">Tickets Sin Asignar ({{ tickets_sin_asignar|length }})</h6>
+                                        {% if tickets_sin_asignar %}
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Nombre</th>
+                                                            <th>Cliente</th>
+                                                            <th>Fecha</th>
+                                                            <th>Acción</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for ticket in tickets_sin_asignar %}
+                                                        <tr>
+                                                            <td>{{ ticket.idTicket }}</td>
+                                                            <td>{{ ticket.nombreTicket }}</td>
+                                                            <td>{% if ticket.cliente.user.first_name %}{{ ticket.cliente.user.first_name }} {{ ticket.cliente.user.last_name }}{% else %}{{ ticket.cliente.user.username }}{% endif %}</td>
+                                                            <td>{{ ticket.fechar_creacion|date:"d/m/Y" }}</td>
+                                                            <td>
+                                                                <div class="btn-group">
+                                                                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" 
+                                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        Asignar
+                                                                    </button>
+                                                                    <ul class="dropdown-menu">
+                                                                        {% for agente in agentes %}
+                                                                        <li>
+                                                                            <a class="dropdown-item asignar-ticket" href="#" 
+                                                                            data-ticket-id="{{ ticket.idTicket }}" 
+                                                                            data-agente-id="{{ agente.id }}"
+                                                                            data-agente-name="{{ agente.user.first_name }} {{ agente.user.last_name }}">
+                                                                                {{ agente.user.first_name }} {{ agente.user.last_name }}
+                                                                            </a>
+                                                                        </li>
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        {% else %}
+                                            <div class="text-center py-2">
+                                                <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+                                                <p class="text-muted">No hay tickets sin asignar</p>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+
+                                    <!-- Tickets asignados -->
+                                    <div class="mb-3">
+                                        <h6 class="text-info">Tickets Asignados ({{ tickets_asignados|length }})</h6>
+                                        {% if tickets_asignados %}
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Nombre</th>
+                                                            <th>Cliente</th>
+                                                            <th>Asignado a</th>
+                                                            <th>Estado</th>
+                                                            <th>Fecha Asig.</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for item in tickets_asignados %}
+                                                        <tr>
+                                                            <td>#{{ item.ticket.idTicket }}</td>
+                                                            <td>{{ item.ticket.nombreTicket }}</td>
+                                                            <td>{% if item.ticket.cliente.user.first_name %}{{ item.ticket.cliente.user.first_name }} {{ item.ticket.cliente.user.last_name }}{% else %}{{ item.ticket.cliente.user.username }}{% endif %}</td>
+                                                            <td>
+                                                                <span class="badge bg-primary">
+                                                                    {{ item.agente_asignado.user.first_name }} {{ item.agente_asignado.user.last_name }}
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                {% if item.estado.nombreEstado == 'En Proceso' %}
+                                                                    <span class="badge bg-warning">{{ item.estado.nombreEstado }}</span>
+                                                                {% elif item.estado.nombreEstado == 'Resuelto' %}
+                                                                    <span class="badge bg-success">{{ item.estado.nombreEstado }}</span>
+                                                                {% elif item.estado.nombreEstado == 'Cerrado' %}
+                                                                    <span class="badge bg-secondary">{{ item.estado.nombreEstado }}</span>
+                                                                {% else %}
+                                                                    <span class="badge bg-info">{{ item.estado.nombreEstado }}</span>
+                                                                {% endif %}
+                                                            </td>
+                                                            <td>{{ item.fecha_asignacion|date:"d/m" }}</td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        {% else %}
+                                            <div class="text-center py-2">
+                                                <i class="fas fa-info-circle fa-2x text-muted mb-2"></i>
+                                                <p class="text-muted">No hay tickets asignados en tu nivel</p>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>          
@@ -198,5 +297,72 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Event delegation para botones de asignar ticket
+        document.querySelectorAll('.asignar-ticket').forEach(function(element) {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                const ticketId = this.dataset.ticketId;
+                const agenteId = this.dataset.agenteId;
+                const agenteName = this.dataset.agenteName;
+                
+                asignarTicket(ticketId, agenteId, agenteName);
+            });
+        });
+    });
+
+    function asignarTicket(ticketId, agenteId, agenteNombre) {
+        if (confirm(`¿Estás seguro de asignar este ticket a ${agenteNombre}?`)) {
+            // Mostrar indicador de carga en el botón
+            const buttons = document.querySelectorAll('.dropdown-toggle');
+            buttons.forEach(button => {
+                if (button.textContent.includes('Asignar')) {
+                    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Asignando...';
+                    button.disabled = true;
+                }
+            });
+            
+            fetch('/empleados/asignar-ticket/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: `ticket_id=${ticketId}&agente_id=${agenteId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Mostrar mensaje de éxito
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-success alert-dismissible fade show mt-3';
+                    alertDiv.innerHTML = `
+                        <i class="fas fa-check-circle"></i> ${data.message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    `;
+                    
+                    // Insertar el alert en la parte superior del panel
+                    const cardBody = document.querySelector('.card-body');
+                    cardBody.insertBefore(alertDiv, cardBody.firstChild);
+                    
+                    // Recargar después de 2 segundos
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                } else {
+                    alert('Error: ' + data.error);
+                    location.reload();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al asignar el ticket');
+                location.reload();
+            });
+        }
+    }
+</script>
 </body>
 </html>

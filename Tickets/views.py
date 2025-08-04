@@ -2,7 +2,7 @@
 
 from django.shortcuts import render, redirect
 from .forms import TicketForm
-from .models import Ticket
+from .models import Ticket, Estado, HistoriaTicket
 from ChibchaWeb.decorators import cliente_required
 from django.utils import timezone
 
@@ -15,7 +15,22 @@ def crear_ticket(request):
             ticket.cliente = request.cliente
             ticket.fechar_creacion = timezone.now().date()
             ticket.save()
-            return redirect('tickets:mis_tickets')  # o a la vista de tickets del cliente
+            
+            # Crear entrada inicial en HistoriaTicket con estado "En espera"
+            estado_inicial, created = Estado.objects.get_or_create(
+                nombreEstado='En espera',
+                defaults={'idEstado': 1}
+            )
+            
+            HistoriaTicket.objects.create(
+                modDescripcion=f'Ticket creado por el cliente {request.user.get_full_name() or request.user.username}',
+                fecha_modificacion=timezone.now().date(),
+                empleado=None,  # Inicialmente sin asignar
+                ticket=ticket,
+                estado=estado_inicial
+            )
+            
+            return redirect('tickets:mis_tickets')
     else:
         form = TicketForm()
 
