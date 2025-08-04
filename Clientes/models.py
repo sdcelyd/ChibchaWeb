@@ -6,6 +6,7 @@ class Cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     telefono = models.IntegerField(blank=True)
+    es_distribuidor = models.BooleanField(default=True)
 
     # Campos de suscripción
     tiene_suscripcion = models.BooleanField(default=False)
