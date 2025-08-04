@@ -22,4 +22,5 @@ urlpatterns = [
     path('distribuidor/', include('Distribuidor.urls', namespace='distribuidores')),
     path('verificar-url/', include('Dominios.urls')),
     path('verificar-url/', Dominios.views.verificar_url, name='verificar-url'),
+    path('administradores/', include('Administradores.urls')),
 ]

@@ -1,0 +1,164 @@
+/* chibcha-theme.css - Tema global para ChibchaWeb */
+
+:root {
+    --chibcha-dark: #1b1215;
+    --chibcha-brown: #69554b;
+    --chibcha-light: #e5d3b5;
+    --chibcha-accent: #eab21b;
+    --chibcha-secondary: #6c371f;
+}
+
+/* Colores base */
+.bg-chibcha-dark {
+    background-color: var(--chibcha-dark);
+}
+
+.bg-chibcha-brown {
+    background-color: var(--chibcha-brown);
+}
+
+.bg-chibcha-light {
+    background-color: var(--chibcha-light);
+}
+
+.bg-chibcha-accent {
+    background-color: var(--chibcha-accent);
+}
+
+.bg-chibcha-secondary {
+    background-color: var(--chibcha-secondary);
+}
+
+.text-chibcha-dark {
+    color: var(--chibcha-dark) !important;
+}
+
+.text-chibcha-brown {
+    color: var(--chibcha-brown) !important;
+}
+
+.text-chibcha-light {
+    color: var(--chibcha-light) !important;
+}
+
+.text-chibcha-accent {
+    color: var(--chibcha-accent) !important;
+}
+
+.text-chibcha-secondary {
+    color: var(--chibcha-secondary) !important;
+}
+
+/* Gradientes */
+.bg-gradient-chibcha {
+    background: linear-gradient(135deg, var(--chibcha-dark) 0%, var(--chibcha-brown) 100%);
+}
+
+.bg-gradient-chibcha-vertical {
+    background: linear-gradient(180deg, var(--chibcha-dark) 0%, var(--chibcha-brown) 100%);
+}
+
+/* Estilos generales */
+body {
+    background-color: #f5f5f5;
+    color: var(--chibcha-dark);
+}
+
+/* Botones personalizados */
+.btn-chibcha-primary {
+    background-color: var(--chibcha-accent);
+    border-color: var(--chibcha-accent);
+    color: var(--chibcha-dark);
+    font-weight: bold;
+}
+
+.btn-chibcha-primary:hover {
+    background-color: var(--chibcha-secondary);
+    border-color: var(--chibcha-secondary);
+    color: var(--chibcha-light);
+}
+
+.btn-chibcha-secondary {
+    background-color: var(--chibcha-secondary);
+    border-color: var(--chibcha-secondary);
+    color: var(--chibcha-light);
+    font-weight: bold;
+}
+
+.btn-chibcha-secondary:hover {
+    background-color: var(--chibcha-brown);
+    border-color: var(--chibcha-brown);
+    color: var(--chibcha-light);
+}
+
+/* Tarjetas */
+.card-chibcha {
+    background-color: var(--chibcha-light);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Badges */
+.badge-chibcha {
+    background-color: var(--chibcha-secondary);
+    color: var(--chibcha-light);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Navegación */
+.navbar-chibcha {
+    background: linear-gradient(90deg, var(--chibcha-dark) 0%, var(--chibcha-secondary) 100%);
+}
+
+.nav-link-chibcha {
+    color: rgba(229, 211, 181, 0.8);
+    border-radius: 5px;
+    margin: 0.2rem 0;
+    transition: all 0.3s;
+}
+
+.nav-link-chibcha:hover {
+    background-color: rgba(229, 211, 181, 0.2);
+    color: var(--chibcha-light);
+}
+
+.nav-link-chibcha.active {
+    background-color: var(--chibcha-accent);
+    color: var(--chibcha-dark);
+    font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar-chibcha {
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--chibcha-dark) 0%, var(--chibcha-brown) 100%);
+}
+
+/* Formularios */
+.form-control:focus {
+    border-color: var(--chibcha-accent);
+    box-shadow: 0 0 0 0.25rem rgba(234, 178, 27, 0.25);
+}
+
+.form-label-chibcha {
+    color: var(--chibcha-secondary);
+    font-weight: 500;
+}
+
+/* Tablas */
+.table-chibcha th {
+    background-color: var(--chibcha-secondary);
+    color: var(--chibcha-light);
+    border-color: var(--chibcha-brown);
+}
+
+.table-chibcha tbody tr:nth-of-type(odd) {
+    background-color: rgba(229, 211, 181, 0.3);
+}
+
+.table-chibcha tbody tr:hover {
+    background-color: rgba(229, 211, 181, 0.5);
+}

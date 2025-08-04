@@ -3,14 +3,14 @@
 {% block content %}
 <title>Home - ChibchaWeb</title>
 <div class="container mt-5">
-    <div class="card p-4 shadow">
-        <h2 class="mb-4">Bienvenido, {{ request.user.first_name }}</h2>
+    <div class="card card-chibcha p-4 shadow">
+        <h2 class="mb-4 text-chibcha-secondary">Bienvenido, {{ request.user.first_name }}</h2>
         {% if cliente.tiene_suscripcion %}
-            <p><strong>Plan actual:</strong> {{ cliente.plan|capfirst }}</p>
+            <p><strong>Plan actual:</strong> <span class="text-chibcha-accent">{{ cliente.plan|capfirst }}</span></p>
             <p><strong>Suscripción activa hasta:</strong> {{ cliente.fecha_fin_suscripcion|date:"d M Y" }}</p>
         {% else %}
             <p>No tienes una suscripción activa.</p>
-            {# <a href="{% url 'seleccionar_plan' %}" class="btn btn-success">Suscribirse ahora</a> #}
+            {# <a href="{% url 'seleccionar_plan' %}" class="btn btn-chibcha-primary">Suscribirse ahora</a> #}
         {% endif %}
     </div>
 </div>

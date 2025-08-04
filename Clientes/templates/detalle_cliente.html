@@ -7,7 +7,7 @@
     <h1 class="mb-4">Configuración</h1>
 
     <div class="card">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-chibcha-dark text-black">
             {{ cliente.user.get_full_name|default:cliente.user.username }}
         </div>
         <div class="card-body">
@@ -31,7 +31,7 @@
                             <p class="text-muted mb-0">No tiene direcciones registradas.</p>
                         {% endfor %}
                         <div class="mt-3">
-                            <a href="{% url 'pagos:registrar_direccion' %}" class="btn btn-sm btn-primary">
+                            <a href="{% url 'pagos:registrar_direccion' %}" class="btn btn-sm btn-chibcha-primary">
                                 <i class="fas fa-plus me-1"></i>Agregar Dirección
                             </a>
                         </div>

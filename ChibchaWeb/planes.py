@@ -1,8 +1,8 @@
 PLANES_DISPONIBLES = {
     'Plata': {
-        'precio_mensual': 25,
-        'precio_semestral': 45,
-        'precio_anual': 50,
+        'precio_mensual': 5,
+        'precio_semestral': 25,
+        'precio_anual': 45,
         'webs': 2,
         'bases_datos': 20,
         'almacenamiento': '20 GB NVMe SSD',

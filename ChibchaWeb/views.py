@@ -4,10 +4,11 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from Clientes.models import Cliente
+from .planes import PLANES_DISPONIBLES
 
 
 def home(request):
-    return render(request, 'informacion.html')
+    return render(request, 'informacion.html', {'planes': PLANES_DISPONIBLES})
 def lista_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'lista_clientes.html', {'clientes': clientes})

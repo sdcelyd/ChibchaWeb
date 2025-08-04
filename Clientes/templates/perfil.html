@@ -8,7 +8,7 @@
     <h1 class="mb-4">Mi perfil</h1>
 
     <div class="card mb-4">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-chibcha-dark text-black">
             {{ cliente.user.get_full_name|default:cliente.user.username }}
         </div>
         <div class="card-body">
@@ -27,7 +27,7 @@
                 </div>
             {% else %}
                 <p class="text-muted">No tienes una suscripción activa.</p>
-                <a href="{% url 'pagos:seleccionar_plan' %}" class="btn btn-success mt-2">Unirme / Seleccionar plan</a>
+                <a href="{% url 'pagos:seleccionar_plan' %}" class="btn btn-chibcha-primary mt-2">Unirme / Seleccionar plan</a>
             {% endif %}
         </div>
     </div>

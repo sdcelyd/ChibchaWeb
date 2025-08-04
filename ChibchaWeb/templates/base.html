@@ -13,6 +13,7 @@
 
     <!-- Estilo personalizado -->
     <link rel="stylesheet" href="{% static 'styles/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/chibcha-theme.css' %}">
 
     <title>ChibchaWeb</title>
 </head>
@@ -31,7 +32,7 @@
    
 
     <!-- Navegación superior -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-chibcha shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
                     <img src="{% static 'img/textoBlanco.svg' %}" alt="ChibchaWeb" style="height:40px;">
@@ -41,17 +42,19 @@
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'verificar-url' %}">Dominios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Planes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'lista_clientes' %}">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'verificar-url' %}">Dominios</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-chibcha" href="#">Planes</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'lista_clientes' %}">Clientes</a></li>
                 </ul>
                 {% if user.is_authenticated %}
                 <div class="dropdown">
-                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-chibcha-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         Mi cuenta
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Perfil</a></li>
+                        <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}">Perfil</a></li>
+                        <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Configuración</a></li>
+                        <li><a class="dropdown-item" href="{% url 'tickets:crear_ticket' %}">Crear Ticket</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
                           <form method="post" action="{% url 'logout' %}" style="display:inline;">
@@ -62,7 +65,7 @@
                     </ul>
                 </div>
                 {% else %}
-                <a class="btn btn-outline-light" href="{% url 'login' %}">Iniciar sesión</a>
+                <a class="btn btn-chibcha-secondary" href="{% url 'login' %}">Iniciar sesión</a>
                 {% endif %}
             </div>
         </div>
@@ -70,12 +73,12 @@
 
 
      <!-- Hero principal -->
-        <header class="bg-dark-gray text-white py-5">
+        <header class="bg-gradient-chibcha text-chibcha-light py-5">
             <div class="container text-center">
                <img src="{% static 'img/logocompleto.svg' %}" alt="Logo" class="img-fluid mb-4 mx-auto d-block" style="max-width: 400px;">
                 <h1 class="h3">¡Bienvenido a ChibchaWeb!</h1>
                 <p class="lead">Tu sitio #1 de hosting en Colombia</p>
-                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-light btn-lg mt-3">Empieza ahora</a>
+                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-chibcha-primary btn-lg mt-3">Empieza ahora</a>
             </div>
         </header>
 
@@ -85,7 +88,7 @@
     {% block content %}{% endblock %}
 
     <!-- Pie de página -->
-    <footer class="bg-dark-gray text-center text-white py-4 mt-5">
+    <footer class="bg-gradient-chibcha text-chibcha-light py-4 mt-5">
         <div class="container">
             <p class="mb-0">&copy; 2025 ChibchaWeb - Todos los derechos reservados</p>
         </div>

@@ -13,40 +13,43 @@ body {
 }
 
 .employee-badge {
-    background: #6c371f;
-    color: #e5d3b5;
+    background: #eab21b;
+    color: #1b1215;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     margin-bottom: 1rem;
     display: inline-block;
     font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .text-primary {
-    color: #1b1215 !important;
+    color: #6c371f !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .text-muted {
     color: #69554b !important;
+    font-size: 0.9rem;
 }
 
 .btn-primary {
-    background-color: #eab21b;
-    border-color: #eab21b;
-    color: #1b1215;
-    font-weight: bold;
-}
-
-.btn-primary:hover {
     background-color: #6c371f;
     border-color: #6c371f;
     color: #e5d3b5;
+    font-weight: bold;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
 }
 
-.form-control:focus {
+.btn-primary:hover {
+    background-color: #eab21b;
     border-color: #eab21b;
-    box-shadow: 0 0 0 0.2rem rgba(234, 178, 27, 0.25);
+    color: #1b1215;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilos para labels y inputs */
@@ -54,21 +57,24 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #1b1215;
+    color: #6c371f;
+    letter-spacing: 0.5px;
 }
 
 .input-group {
     margin-top: 0.25rem;
+    margin-bottom: 1.25rem;
 }
 
 .form-control {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #69554b;
+    border: 1px solid #69554b;
     border-radius: 0.375rem;
-    background-color: #e5d3b5;
+    background-color: rgba(255, 255, 255, 0.9);
     color: #1b1215;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .form-control::placeholder {
@@ -76,7 +82,52 @@ body {
     opacity: 0.7;
 }
 
-.form-label {
-    color: #1b1215;
-    font-weight: 500;
+.form-control:focus {
+    border-color: #eab21b;
+    background-color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(234, 178, 27, 0.25);
+}
+
+/* Animaciones y efectos adicionales */
+.login-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Enlaces y elementos interactivos */
+a {
+    color: #6c371f;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #eab21b;
+    text-decoration: none;
+}
+
+/* Alerta de error */
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+/* Mensajes de validación */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 576px) {
+    .login-card {
+        width: 90% !important;
+        margin: 0 auto;
+    }
 }

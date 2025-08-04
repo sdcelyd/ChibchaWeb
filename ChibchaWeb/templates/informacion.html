@@ -12,21 +12,21 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card h-100 p-4 shadow-sm">
-                        <i class="bi bi-hdd-network-fill display-5 mb-3 text-gray"></i>
+                        <i class="bi bi-hdd-network-fill display-5 mb-3 text-chibcha-secondary"></i>
                         <h5>Almacenamiento Seguro</h5>
                         <p>Espacio optimizado para tus sitios y bases de datos.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 p-4 shadow-sm">
-                        <i class="bi bi-shield-lock-fill display-5 mb-3 text-gray"></i>
+                        <i class="bi bi-shield-lock-fill display-5 mb-3 text-chibcha-brown"></i>
                         <h5>Protección SSL</h5>
                         <p>Seguridad avanzada y certificados SSL gratuitos.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 p-4 shadow-sm">
-                        <i class="bi bi-headset display-5 mb-3 text-gray"></i>
+                        <i class="bi bi-headset display-5 mb-3 text-chibcha-accent"></i>
                         <h5>Soporte 24/7</h5>
                         <p>Equipo técnico siempre disponible con sistema de tickets.</p>
                     </div>
@@ -40,40 +40,82 @@
         <h2 class="text-center mb-4">Nuestros Planes</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
+                <div class="card border-light text-center h-100">
+                    <div class="card-header bg-chibcha-light text-chibcha-dark">
+                        <h5>Plata</h5>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="pricing-header text-chibcha-brown">${{ planes.Plata.precio_mensual }}/mes</h4>
+                        <p class="text-muted mb-3">o ${{ planes.Plata.precio_anual }}/año</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>{{ planes.Plata.webs }}</strong> sitios web</li>
+                            <li class="list-group-item"><strong>{{ planes.Plata.bases_datos }}</strong> bases de datos</li>
+                            <li class="list-group-item"><strong>{{ planes.Plata.almacenamiento }}</strong> de almacenamiento</li>
+                            <li class="list-group-item"><strong>{{ planes.Plata.correos }}</strong> cuentas de correo</li>
+                            <li class="list-group-item"><strong>{{ planes.Plata.ssl }}</strong> certificados SSL</li>
+                            {% if planes.Plata.https %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> HTTPS incluido</li>
+                            {% endif %}
+                            {% if planes.Plata.creador_sitios %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Creador de sitios</li>
+                            {% endif %}
+                            {% if planes.Plata.email_marketing %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Email marketing</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
                 <div class="card border-dark text-center h-100">
-                    <div class="card-header bg-dark-gray text-white">
+                    <div class="card-header bg-chibcha-dark text-white">
                         <h5>Platino</h5>
                     </div>
                     <div class="card-body">
+                        <h4 class="pricing-header text-chibcha-secondary">${{ planes.Platino.precio_mensual }}/mes</h4>
+                        <p class="text-muted mb-3">o ${{ planes.Platino.precio_anual }}/año</p>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">--INFO--</li>
-                            <li class="list-group-item">--INFO--</li>
+                            <li class="list-group-item"><strong>{{ planes.Platino.webs }}</strong> sitios web</li>
+                            <li class="list-group-item"><strong>{{ planes.Platino.bases_datos }}</strong> bases de datos</li>
+                            <li class="list-group-item"><strong>{{ planes.Platino.almacenamiento }}</strong> de almacenamiento</li>
+                            <li class="list-group-item"><strong>{{ planes.Platino.correos }}</strong> cuentas de correo</li>
+                            <li class="list-group-item"><strong>{{ planes.Platino.ssl }}</strong> certificados SSL</li>
+                            {% if planes.Platino.https %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> HTTPS incluido</li>
+                            {% endif %}
+                            {% if planes.Platino.creador_sitios %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Creador de sitios</li>
+                            {% endif %}
+                            {% if planes.Platino.email_marketing %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Email marketing</li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card border-secondary text-center h-100">
-                    <div class="card-header bg-secondary text-white">
+                    <div class="card-header bg-chibcha-brown text-white">
                         <h5>Oro</h5>
                     </div>
                     <div class="card-body">
+                        <h4 class="pricing-header text-chibcha-accent">${{ planes.Oro.precio_mensual }}/mes</h4>
+                        <p class="text-muted mb-3">o ${{ planes.Oro.precio_anual }}/año</p>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">--INFO--</li>
-                            <li class="list-group-item">--INFO--</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card border-light text-center h-100">
-                    <div class="card-header bg-light text-dark">
-                        <h5>Plata</h5>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">--INFO--</li>
-                            <li class="list-group-item">--INFO--</li>
+                            <li class="list-group-item"><strong>{{ planes.Oro.webs }}</strong> sitios web</li>
+                            <li class="list-group-item"><strong>{{ planes.Oro.bases_datos }}</strong> bases de datos</li>
+                            <li class="list-group-item"><strong>{{ planes.Oro.almacenamiento }}</strong> de almacenamiento</li>
+                            <li class="list-group-item"><strong>{{ planes.Oro.correos }}</strong> cuentas de correo</li>
+                            <li class="list-group-item"><strong>{{ planes.Oro.ssl }}</strong> certificados SSL</li>
+                            {% if planes.Oro.https %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> HTTPS incluido</li>
+                            {% endif %}
+                            {% if planes.Oro.creador_sitios %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Creador de sitios</li>
+                            {% endif %}
+                            {% if planes.Oro.email_marketing %}
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Email marketing</li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>

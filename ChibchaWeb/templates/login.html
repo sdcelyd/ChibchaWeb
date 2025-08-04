@@ -7,25 +7,29 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="card mx-auto" style="width: 22rem;">
+    <div class="card card-chibcha mx-auto" style="width: 22rem;">
         <div class="card-body">
-            <h5 class="card-title mb-4">Iniciar sesión</h5>
+            <h5 class="card-title mb-4 text-chibcha-secondary">Iniciar sesión</h5>
             <form method="post">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label for="id_username" class="form-label">Nickname</label>
+                    <label for="id_username" class="form-label form-label-chibcha">Nickname</label>
                     <input type="text" name="username" class="form-control" id="id_username" required>
                 </div>
                 <div class="mb-3">
-                    <label for="id_password" class="form-label">Contraseña</label>
+                    <label for="id_password" class="form-label form-label-chibcha">Contraseña</label>
                     <input type="password" name="password" class="form-control" id="id_password" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                <button type="submit" class="btn btn-chibcha-primary w-100">Ingresar</button>
             </form>
             <hr>
             <div class="d-flex justify-content-between">
-                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-link w-100">Registrarse</a>
-                <a href="{% url 'empleados:log' %}" class="btn btn-link w-100">Portal Empleados</a>
+                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-link w-100 text-chibcha-secondary">Registrarse</a>
+                <a href="{% url 'empleados:log' %}" class="btn btn-link w-100 text-chibcha-secondary">Portal Empleados</a>
+            </div>
+            <hr>
+            <div class="text-center">
+                <a href="{% url 'administradores:login' %}" class="btn btn-link w-100 text-chibcha-secondary">Portal Administradores</a>
             </div>
         </div>
     </div>

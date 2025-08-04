@@ -1,0 +1,215 @@
+/* Colores principales de Chibcha */
+:root {
+    --chibcha-dark: #1b1215;
+    --chibcha-brown: #69554b;
+    --chibcha-light: #e5d3b5;
+    --chibcha-accent: #eab21b;
+    --chibcha-secondary: #6c371f;
+}
+
+/* Estilos generales */
+body {
+    background-color: #f8f9fa;
+    color: var(--chibcha-dark);
+}
+
+/* Barra de navegación */
+.navbar {
+    background: linear-gradient(90deg, var(--chibcha-dark) 0%, var(--chibcha-secondary) 100%);
+}
+
+.navbar-brand {
+    color: var(--chibcha-light) !important;
+    font-weight: bold;
+}
+
+.navbar-text {
+    color: var(--chibcha-light) !important;
+}
+
+/* Sidebar */
+.sidebar {
+    background: linear-gradient(180deg, var(--chibcha-dark) 0%, var(--chibcha-brown) 100%);
+    min-height: calc(100vh - 56px);
+}
+
+.sidebar .nav-link {
+    color: rgba(229, 211, 181, 0.8);
+    padding: 10px 15px;
+    margin: 2px 0;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(229, 211, 181, 0.2);
+    color: var(--chibcha-light);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--chibcha-accent);
+    color: var(--chibcha-dark);
+    font-weight: bold;
+}
+
+.sidebar-heading {
+    color: var(--chibcha-light) !important;
+    font-weight: bold;
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Tarjetas y paneles */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: rgba(229, 211, 181, 0.2);
+    border-bottom: 1px solid rgba(229, 211, 181, 0.3);
+    font-weight: bold;
+    color: var(--chibcha-secondary);
+}
+
+/* Bordes de tarjetas */
+.border-left-primary {
+    border-left: 4px solid var(--chibcha-secondary) !important;
+}
+
+.border-left-success {
+    border-left: 4px solid var(--chibcha-accent) !important;
+}
+
+.border-left-info {
+    border-left: 4px solid var(--chibcha-brown) !important;
+}
+
+.border-left-warning {
+    border-left: 4px solid var(--chibcha-light) !important;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--chibcha-secondary);
+    border-color: var(--chibcha-secondary);
+    color: var(--chibcha-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--chibcha-accent);
+    border-color: var(--chibcha-accent);
+    color: var(--chibcha-dark);
+}
+
+.btn-success {
+    background-color: var(--chibcha-accent);
+    border-color: var(--chibcha-accent);
+    color: var(--chibcha-dark);
+}
+
+.btn-success:hover {
+    background-color: #d9a41a;
+    border-color: #d9a41a;
+}
+
+/* Tablas */
+.table th {
+    background-color: var(--chibcha-secondary);
+    color: var(--chibcha-light);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(229, 211, 181, 0.1);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(229, 211, 181, 0.2);
+}
+
+/* Paginación */
+.page-item.active .page-link {
+    background-color: var(--chibcha-secondary);
+    border-color: var(--chibcha-secondary);
+}
+
+.page-link {
+    color: var(--chibcha-secondary);
+}
+
+.page-link:hover {
+    color: var(--chibcha-dark);
+    background-color: var(--chibcha-light);
+}
+
+/* Formularios */
+.form-control:focus {
+    border-color: var(--chibcha-accent);
+    box-shadow: 0 0 0 0.25rem rgba(234, 178, 27, 0.25);
+}
+
+.form-label {
+    color: var(--chibcha-secondary);
+    font-weight: 500;
+}
+
+/* Alertas y mensajes */
+.alert-success {
+    background-color: rgba(234, 178, 27, 0.2);
+    border-color: var(--chibcha-accent);
+    color: var(--chibcha-dark);
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+/* Badges y etiquetas */
+.badge-primary {
+    background-color: var(--chibcha-secondary);
+    color: var(--chibcha-light);
+}
+
+.badge-success {
+    background-color: var(--chibcha-accent);
+    color: var(--chibcha-dark);
+}
+
+/* Enlaces */
+a {
+    color: var(--chibcha-secondary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--chibcha-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        margin-left: -100%;
+        position: fixed;
+        top: 56px;
+        width: 80%;
+        height: 100%;
+        z-index: 1000;
+        transition: margin-left 0.3s;
+    }
+    
+    .sidebar.show {
+        margin-left: 0;
+    }
+}
