@@ -4,6 +4,7 @@ from . import views
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth import views as auth_views
 
+import Dominios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,5 +20,6 @@ urlpatterns = [
     path('admin-panel/', include('Administradores.urls')),
     path('tickets/', include('Tickets.urls', namespace='tickets')),
     path('distribuidor/', include('Distribuidor.urls', namespace='distribuidores')),
-    
+    path('verificar-url/', include('Dominios.urls')),
+    path('verificar-url/', Dominios.views.verificar_url, name='verificar-url'),
 ]

@@ -2,9 +2,11 @@
 
 from django.shortcuts import render, redirect
 from .forms import TicketForm
-from .models import Ticket
-from ChibchaWeb.decorators import cliente_required
+from .models import Ticket, HistoriaTicket
+from ChibchaWeb.decorators import cliente_required, supervisor_required
 from django.utils import timezone
+from django.utils.decorators import method_decorator
+
 
 @cliente_required
 def crear_ticket(request):

@@ -174,22 +174,55 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             <div class="card dashboard-card mb-3">
                                 <div class="card-header">
                                     <h5 class="card-title mb-0">Tickets por Nivel</h5>
                                 </div>
                                 <div class="card-body">
-                                    <!-- TODO: Implementar cuando se cree la tabla Ticket -->
-                                    <div class="text-center py-3">
-                                        <i class="fas fa-ticket-alt fa-2x text-muted mb-2"></i>
-                                        <p class="text-muted">Sistema de tickets próximamente</p>
-                                        <small class="text-muted">Se mostrarán tickets de nivel {{ nivel_supervisor }}</small>
-                                    </div>
+                                    {% if tickets_asignados %}
+                                        <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+                                            <table class="table table-sm table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Estado</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for h in tickets_asignados %}
+                                                    <tr>
+                                                        <td>{{ h.ticket.idTicket }}</td>
+                                                        <td>{{ h.estado.nombreEstado }}</td>
+                                                        <td>
+                                                            <form method="post" class="d-flex align-items-center gap-2">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="ticket_id" value="{{ h.ticket.idTicket }}">
+                                                                <select name="empleado_id" class="form-select select2" style="width: 200px;">
+                                                                    <option value="">Selecciona técnico</option>
+                                                                    {% for agente in agentes %}
+                                                                        <option value="{{ agente.id }}">{{ agente.user.get_full_name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                                <button type="submit" class="btn btn-sm btn-primary">Asignar</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <div class="text-center py-3">
+                                            <i class="fas fa-ticket-alt fa-2x text-muted mb-2"></i>
+                                            <p class="text-muted">No hay tickets asignados a tu nivel.</p>
+                                            <small class="text-muted">Se mostrarán tickets en este panel.</small>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>          
                         </div>
+
                     </div>
                 </div>
             </div>
