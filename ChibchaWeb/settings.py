@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Administradores',
     'Empleados',
     'Tickets.apps.TicketsConfig',
+    'Dominios',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
