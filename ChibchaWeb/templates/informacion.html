@@ -1,130 +1,289 @@
-{% extends "base.html" %}
+    {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Información - ChibchaWeb{% endblock %}
 
-{% block content %}
-<!DOCTYPE html>
-<html lang="es">
-  <!-- Sección de beneficios -->
-    <section class="py-5 bg-light-gray text-center">
-        <div class="container">
-            <h2 class="mb-4">¿Por qué elegir ChibchaWeb?</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 p-4 shadow-sm">
-                        <i class="bi bi-hdd-network-fill display-5 mb-3 text-chibcha-secondary"></i>
-                        <h5>Almacenamiento Seguro</h5>
-                        <p>Espacio optimizado para tus sitios y bases de datos.</p>
+{% block hero %}
+<!-- Hero Section Reconstruido -->
+<section class="hero-new bg-dark">
+    <div class="container-fluid px-0">
+        <div class="row g-0 min-vh-100">
+            <!-- Columna Principal -->
+            <div class="col-lg-8 d-flex align-items-center">
+                <div class="hero-main-content p-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-10">
+                                <!-- Badge superior -->
+                                <div class="hero-badge mb-4">
+                                    <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                                        <i class="bi bi-star-fill me-2"></i>
+                                        Hosting Premium Colombia
+                                    </span>
+                                </div>
+                                
+                                <!-- Título principal -->
+                                <h1 class="hero-new-title text-white mb-4">
+                                    Tu sitio web merece el 
+                                    <span class="text-chibcha-accent">mejor hosting</span>
+                                </h1>
+                                
+                                <!-- Subtítulo -->
+                                <p class="hero-new-subtitle text-light mb-5">
+                                    Servidores SSD ultrarrápidos, SSL gratuito y soporte 24/7. 
+                                    Todo lo que necesitas para que tu proyecto digital triunfe.
+                                </p>
+                                
+                                <!-- Métricas horizontales -->
+                                <div class="row g-4 mb-5">
+                                    <div class="col-6 col-md-3">
+                                        <div class="metric-new text-center">
+                                            <div class="metric-new-icon">
+                                                <i class="bi bi-people-fill"></i>
+                                            </div>
+                                            <div class="metric-new-number">{{ estadisticas.clientes }}+</div>
+                                            <div class="metric-new-text">Clientes Activos</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="metric-new text-center">
+                                            <div class="metric-new-icon">
+                                                <i class="bi bi-graph-up-arrow"></i>
+                                            </div>
+                                            <div class="metric-new-number">99.9%</div>
+                                            <div class="metric-new-text">Uptime</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="metric-new text-center">
+                                            <div class="metric-new-icon">
+                                                <i class="bi bi-lightning-charge-fill"></i>
+                                            </div>
+                                            <div class="metric-new-number">&lt;100ms</div>
+                                            <div class="metric-new-text">Respuesta</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="metric-new text-center">
+                                            <div class="metric-new-icon">
+                                                <i class="bi bi-shield-fill-check"></i>
+                                            </div>
+                                            <div class="metric-new-number">SSL</div>
+                                            <div class="metric-new-text">Gratis</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Botones de acción -->
+                                <div class="hero-new-actions">
+                                    <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-chibcha-accent btn-lg me-3 px-4">
+                                        <i class="bi bi-rocket-takeoff me-2"></i>
+                                        Comenzar Gratis
+                                    </a>
+                                    <a href="#planes" class="btn btn-outline-light btn-lg px-4">
+                                        <i class="bi bi-grid-3x3-gap me-2"></i>
+                                        Ver Planes
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 p-4 shadow-sm">
-                        <i class="bi bi-shield-lock-fill display-5 mb-3 text-chibcha-brown"></i>
-                        <h5>Protección SSL</h5>
-                        <p>Seguridad avanzada y certificados SSL gratuitos.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 p-4 shadow-sm">
-                        <i class="bi bi-headset display-5 mb-3 text-chibcha-accent"></i>
-                        <h5>Soporte 24/7</h5>
-                        <p>Equipo técnico siempre disponible con sistema de tickets.</p>
+            </div>
+            
+            <!-- Columna del Logo -->
+            <div class="col-lg-4 bg-chibcha-light d-flex align-items-center justify-content-center">
+                <div class="hero-logo-section text-center p-4">
+                    <img src="{% static 'img/textoBlanco.svg' %}" alt="ChibchaWeb" class="hero-logo-new img-fluid">
+                    <div class="hero-logo-text mt-4">
+                        <h4 class="text-chibcha-dark mb-3">ChibchaWeb</h4>
+                        <p class="text-chibcha-medium mb-4 fw-bold">Hosting Profesional Colombiano</p>
+                        
+                        <!-- Información convincente solo texto -->
+                        <div class="company-info-text">
+                            <p class="text-chibcha-dark mb-3">
+                                <strong>Más de 5 años</strong> siendo líderes en hosting en Colombia con tecnología de vanguardia.
+                            </p>
+                            
+                            <p class="text-chibcha-medium mb-3">
+                                Servidores SSD NVMe ultrarrápidos con <strong>99.9% de disponibilidad garantizada</strong> y soporte técnico especializado 24/7.
+                            </p>
+                            
+                            <p class="text-chibcha-dark mb-4">
+                                Nuestro equipo colombiano te acompaña en cada paso para que tu proyecto digital <strong>siempre esté disponible</strong>.
+                            </p>
+                            
+                            <!-- Testimonial simple -->
+                            <div class="testimonial-text p-3 bg-white rounded-3">
+                                <p class="small text-chibcha-dark mb-2 fst-italic">
+                                    "El mejor hosting que he usado en Colombia. Rápido, confiable y con excelente soporte técnico."
+                                </p>
+                                <p class="small text-chibcha-medium mb-0">
+                                    <strong>María González, CEO Digital Solutions</strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Planes destacados -->
-    <section class="container py-5">
-        <h2 class="text-center mb-4">Nuestros Planes</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card border-light text-center h-100">
-                    <div class="card-header bg-chibcha-light text-chibcha-dark">
-                        <h5>Plata</h5>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="pricing-header text-chibcha-brown">${{ planes.Plata.precio_mensual }}/mes</h4>
-                        <p class="text-muted mb-3">o ${{ planes.Plata.precio_anual }}/año</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>{{ planes.Plata.webs }}</strong> sitios web</li>
-                            <li class="list-group-item"><strong>{{ planes.Plata.bases_datos }}</strong> bases de datos</li>
-                            <li class="list-group-item"><strong>{{ planes.Plata.almacenamiento }}</strong> de almacenamiento</li>
-                            <li class="list-group-item"><strong>{{ planes.Plata.correos }}</strong> cuentas de correo</li>
-                            <li class="list-group-item"><strong>{{ planes.Plata.ssl }}</strong> certificados SSL</li>
-                            {% if planes.Plata.https %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> HTTPS incluido</li>
-                            {% endif %}
-                            {% if planes.Plata.creador_sitios %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Creador de sitios</li>
-                            {% endif %}
-                            {% if planes.Plata.email_marketing %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Email marketing</li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card border-dark text-center h-100">
-                    <div class="card-header bg-chibcha-dark text-white">
-                        <h5>Platino</h5>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="pricing-header text-chibcha-secondary">${{ planes.Platino.precio_mensual }}/mes</h4>
-                        <p class="text-muted mb-3">o ${{ planes.Platino.precio_anual }}/año</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>{{ planes.Platino.webs }}</strong> sitios web</li>
-                            <li class="list-group-item"><strong>{{ planes.Platino.bases_datos }}</strong> bases de datos</li>
-                            <li class="list-group-item"><strong>{{ planes.Platino.almacenamiento }}</strong> de almacenamiento</li>
-                            <li class="list-group-item"><strong>{{ planes.Platino.correos }}</strong> cuentas de correo</li>
-                            <li class="list-group-item"><strong>{{ planes.Platino.ssl }}</strong> certificados SSL</li>
-                            {% if planes.Platino.https %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> HTTPS incluido</li>
-                            {% endif %}
-                            {% if planes.Platino.creador_sitios %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Creador de sitios</li>
-                            {% endif %}
-                            {% if planes.Platino.email_marketing %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Email marketing</li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card border-secondary text-center h-100">
-                    <div class="card-header bg-chibcha-brown text-white">
-                        <h5>Oro</h5>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="pricing-header text-chibcha-accent">${{ planes.Oro.precio_mensual }}/mes</h4>
-                        <p class="text-muted mb-3">o ${{ planes.Oro.precio_anual }}/año</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>{{ planes.Oro.webs }}</strong> sitios web</li>
-                            <li class="list-group-item"><strong>{{ planes.Oro.bases_datos }}</strong> bases de datos</li>
-                            <li class="list-group-item"><strong>{{ planes.Oro.almacenamiento }}</strong> de almacenamiento</li>
-                            <li class="list-group-item"><strong>{{ planes.Oro.correos }}</strong> cuentas de correo</li>
-                            <li class="list-group-item"><strong>{{ planes.Oro.ssl }}</strong> certificados SSL</li>
-                            {% if planes.Oro.https %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> HTTPS incluido</li>
-                            {% endif %}
-                            {% if planes.Oro.creador_sitios %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Creador de sitios</li>
-                            {% endif %}
-                            {% if planes.Oro.email_marketing %}
-                            <li class="list-group-item"><i class="bi bi-check-circle-fill text-success"></i> Email marketing</li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-            </div>
     </div>
-    <!-- Bootstrap JS Bundle (incluye Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </section>
-{% endblock content %}
+</section>
+{% endblock %}
 
+{% block content %}
+<!-- Servicios Simples -->
+<section class="services-simple py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Todo lo que necesitas para tu proyecto web</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card-simple text-center">
+                    <div class="service-icon-simple mb-3">
+                        <i class="bi bi-server"></i>
+                    </div>
+                    <h5>Hosting Premium</h5>
+                    <p>Servidores SSD NVMe ultrarrápidos</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card-simple text-center">
+                    <div class="service-icon-simple mb-3">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h5>SSL Gratuito</h5>
+                    <p>Certificados SSL automáticos</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card-simple text-center">
+                    <div class="service-icon-simple mb-3">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h5>Soporte 24/7</h5>
+                    <p>Asistencia técnica especializada</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card-simple text-center">
+                    <div class="service-icon-simple mb-3">
+                        <i class="bi bi-cloud-upload"></i>
+                    </div>
+                    <h5>Backup Automático</h5>
+                    <p>Respaldos diarios seguros</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Planes de Hosting Simples -->
+<section id="planes" class="plans-simple py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Planes de Hosting</h2>
+            <p class="section-subtitle">Elige el plan perfecto para tu proyecto</p>
+        </div>
+        
+        <div class="row g-4 justify-content-center">
+            <!-- Plan Starter - Color Chibcha Medium -->
+            <div class="col-lg-4 col-md-6">
+                <div class="plan-card-simple plan-starter">
+                    <div class="plan-header-simple">
+                        <h4>Starter</h4>
+                        <div class="plan-price-simple">
+                            <span class="currency">$</span>
+                            <span class="amount">{{ planes.Plata.precio_mensual }}</span>
+                            <span class="period">/mes</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Plata.webs }} Sitio Web</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Plata.almacenamiento }} SSD</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Plata.bases_datos }} Base de Datos</li>
+                            <li><i class="bi bi-check text-success"></i> SSL Gratuito</li>
+                            <li><i class="bi bi-check text-success"></i> Soporte 24/7</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-outline-light w-100">Elegir Plan</button>
+                </div>
+            </div>
+            
+            <!-- Plan Professional - Color Chibcha Accent -->
+            <div class="col-lg-4 col-md-6">
+                <div class="plan-card-simple plan-professional featured">
+                    <div class="plan-badge">Más Popular</div>
+                    <div class="plan-header-simple">
+                        <h4>Professional</h4>
+                        <div class="plan-price-simple">
+                            <span class="currency">$</span>
+                            <span class="amount">{{ planes.Platino.precio_mensual }}</span>
+                            <span class="period">/mes</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Platino.webs }} Sitios Web</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Platino.almacenamiento }} SSD</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Platino.bases_datos }} Bases de Datos</li>
+                            <li><i class="bi bi-check text-success"></i> Email Marketing</li>
+                            <li><i class="bi bi-check text-success"></i> CDN Global</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-dark w-100">Elegir Plan</button>
+                </div>
+            </div>
+            
+            <!-- Plan Enterprise - Color Chibcha Brown -->
+            <div class="col-lg-4 col-md-6">
+                <div class="plan-card-simple plan-enterprise">
+                    <div class="plan-header-simple">
+                        <h4>Enterprise</h4>
+                        <div class="plan-price-simple">
+                            <span class="currency">$</span>
+                            <span class="amount">{{ planes.Oro.precio_mensual }}</span>
+                            <span class="period">/mes</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check text-success"></i> Sitios Ilimitados</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Oro.almacenamiento }} SSD</li>
+                            <li><i class="bi bi-check text-success"></i> Bases Ilimitadas</li>
+                            <li><i class="bi bi-check text-success"></i> Soporte Prioritario</li>
+                            <li><i class="bi bi-check text-success"></i> Backup Avanzado</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-outline-light w-100">Elegir Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Simple -->
+<section class="cta-simple py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3>¿Listo para comenzar?</h3>
+                <p class="mb-0">Únete a nuestros {{ estadisticas.clientes }} clientes satisfechos. Activa tu hosting en minutos.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-chibcha-primary btn-lg">
+                    Comenzar Ahora
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
