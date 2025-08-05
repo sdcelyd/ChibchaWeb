@@ -13,4 +13,7 @@ urlpatterns = [
     path("ingresar-tarjeta/", views.ingresar_tarjeta, name="ingresar_tarjeta"),
     path("resumen-pago/", views.resumen_pago, name="resumen_pago"),
     path("confirmacion-pago/", views.confirmacion_pago, name="confirmacion_pago"),
+    path("seleccionar-paquete/", views.seleccionar_paquete, name="seleccionar_paquete"),
+    path("resumen-pago-paquetes/", views.resumen_pago_paquetes, name="resumen_pago_paquetes"),
+    path('confirmacion-pago-paquetes/', views.confirmacion_pago_paquetes, name='confirmacion_pago_paquetes'),
 ]

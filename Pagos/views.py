@@ -3,13 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 import re
-from .models import Direccion, TarjetaCredito, Pais, Pago
+from .models import Direccion, TarjetaCredito, Pais, Pago, PagoDistribuidor
 from Clientes.models import Cliente
 from .validators import validar_tarjeta, VALIDADORES_DIRECCIONES
 from ChibchaWeb.planes import PLANES_DISPONIBLES
 from datetime import timedelta
 from django.utils import timezone
-from ChibchaWeb.decorators import cliente_required
+from ChibchaWeb.decorators import cliente_required, distribuidor_required
 
 
 @cliente_required
@@ -169,6 +169,9 @@ def ingresar_tarjeta(request):
         request.session["titular_tarjeta"] = request.POST.get("titular")
         request.session["expiracion_tarjeta"] = request.POST.get("expiracion")
         request.session["cvv_tarjeta"] = request.POST.get("cvv")
+
+        if request.session.get("es_compra_paquetes"):
+            return redirect("pagos:resumen_pago_paquetes")
         return redirect("pagos:resumen_pago")
 
     return render(request, "pagos/ingresar_tarjeta.html")
@@ -241,3 +244,81 @@ def confirmacion_pago(request):
         request.session.pop(key, None)
 
     return render(request, "pagos/confirmacion_pago.html")
+
+@login_required
+@distribuidor_required
+def seleccionar_paquete(request):
+    if request.method == "POST":
+        cantidad = request.POST.get("cantidad")
+        request.session["cantidad_paquetes"] = int(cantidad)
+        request.session["es_compra_paquetes"] = True
+        return redirect("pagos:direccion_facturacion")  # Reutilizas esta vista
+    return render(request, "pagos/seleccionar_paquete.html")
+
+@login_required
+@distribuidor_required
+def resumen_pago_paquetes(request):
+    if request.method == "POST":
+        distribuidor = request.user.cliente  # es un Distribuidor
+        tarjeta = TarjetaCredito.objects.create(
+            numero=request.session["numero_tarjeta"],
+            nombre_titular=request.session["titular_tarjeta"],
+            fecha_expiracion=request.session["expiracion_tarjeta"],
+            cvv=request.session["cvv_tarjeta"],
+            cliente=distribuidor
+        )
+
+        direccion_id = request.session.get("direccion_id")
+        cantidad_paquetes = int(request.session.get("cantidad_paquetes"))
+        precio_unitario = 25  # HAY QUE DEFINIR EL PRECIOO
+        monto = cantidad_paquetes * precio_unitario
+
+        # Crear el pago asociado a distribuidor
+        pago = Pago.objects.create(
+            cliente=distribuidor,
+            direccion_id=direccion_id,
+            tarjeta_usada=tarjeta,
+            monto=monto
+        )
+
+        # Crear el registro extendido
+        PagoDistribuidor.objects.create(
+            cliente=distribuidor,
+            direccion_id=direccion_id,
+            tarjeta_usada=tarjeta,
+            monto=monto,
+            cantidad_paginas=cantidad_paquetes,
+            descripcion=f"Compra de {cantidad_paquetes} páginas para reventa"
+        )
+
+        distribuidor_perfil = distribuidor.perfil_distribuidor  # accede al modelo Distribuidor
+        distribuidor_perfil.cantidad_dominios += cantidad_paquetes
+        distribuidor_perfil.save()
+
+
+
+        return redirect("pagos:confirmacion_pago_paquetes")
+
+    # Mostrar resumen
+    cantidad = int(request.session.get("cantidad_paquetes", 0))
+    precio_unitario = 25
+    direccion = Direccion.objects.get(direccionId=request.session["direccion_id"])
+    total = cantidad * precio_unitario
+
+    return render(request, "pagos/resumen_pago_paquetes.html", {
+        "cantidad": cantidad,
+        "precio_unitario": precio_unitario,
+        "total": total,
+        "direccion": direccion,
+        "tarjeta": f"**** **** **** {request.session.get('numero_tarjeta')[-4:]}"
+    })
+
+
+@login_required
+@distribuidor_required
+def confirmacion_pago_paquetes(request):
+    # Limpieza de sesión
+    for key in ["cantidad_paquetes", "direccion_id", "numero_tarjeta", "titular_tarjeta", "expiracion_tarjeta", "cvv_tarjeta", "es_compra_paquetes"]:
+        request.session.pop(key, None)
+
+    return render(request, "pagos/confirmacion_pago_paquetes.html")

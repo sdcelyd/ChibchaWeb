@@ -1,0 +1,31 @@
+{% extends "base_clientes.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4 text-primary">
+                <i class="fas fa-boxes me-2"></i>Resumen de Compra de Paquetes
+            </h2>
+
+            <div class="mb-4">
+                <p><strong>Cantidad de paquetes:</strong> {{ cantidad }}</p>
+                <p><strong>Precio por paquete:</strong> ${{ precio_unitario }}</p>
+                <p><strong>Total:</strong> <span class="text-success fw-bold">${{ total }}</span></p>
+                <p><strong>Dirección de facturación:</strong> {{ direccion }}</p>
+                <p><strong>Tarjeta usada:</strong> {{ tarjeta }}</p>
+            </div>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-check-circle me-1"></i>Confirmar Compra
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -14,5 +14,7 @@ urlpatterns = [
     path('mis-hosts/', mis_hosts, name='mis_hosts'),
     path('perfil/', perfil, name='perfil'),
     path('home/', views.home_cliente, name='home_cliente'),
-
+     path('quiero-ser-distribuidor/', views.quiero_ser_distribuidor, name='quiero_ser_distribuidor'),
+    path('confirmar-ser-distribuidor/', views.hacer_distribuidor, name='hacer_distribuidor'),
+    path('distribuidor-exito/', views.distribuidor_exito, name='distribuidor_exito'),
 ]
