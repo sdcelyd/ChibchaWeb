@@ -122,8 +122,10 @@ def gestionar_usuarios(request):
 @admin_permission_required('puede_gestionar_usuarios')
 def crear_usuario(request):
     """Vista para crear nuevos usuarios"""
+    from .forms import CrearUsuarioForm  # Importar el formulario correcto
+    
     if request.method == 'POST':
-        form = RegistroClienteForm(request.POST)
+        form = CrearUsuarioForm(request.POST)
         if form.is_valid():
             try:
                 # Crear usuario base
@@ -137,19 +139,22 @@ def crear_usuario(request):
                 
                 # Crear perfil específico según el tipo
                 tipo_usuario = form.cleaned_data['tipo_usuario']
+                telefono = form.cleaned_data.get('telefono', '')
                 
                 if tipo_usuario == 'cliente':
                     Cliente.objects.create(
                         user=user,
-                        telefono=form.cleaned_data.get('telefono', ''),
+                        telefono=telefono,
                         activo=True
                     )
                 elif tipo_usuario == 'empleado':
+                    # Aquí es donde se crea el empleado con el rol seleccionado
                     Empleado.objects.create(
                         user=user,
-                        telefono=form.cleaned_data.get('telefono', ''),
-                        rol=form.cleaned_data.get('rol_empleado', 'agente'),
-                        activo=True
+                        telefono=telefono,
+                        rol=form.cleaned_data['rol_empleado'],
+                        activo=True,
+                        nivel=1  # Nivel por defecto
                     )
                 elif tipo_usuario == 'administrador':
                     Administrador.objects.create(
@@ -157,49 +162,133 @@ def crear_usuario(request):
                         activo=True
                     )
                 
-                messages.success(request, f'Usuario {user.username} creado exitosamente.')
+                messages.success(request, f'Usuario {user.username} creado exitosamente como {tipo_usuario}.')
                 return redirect('administradores:gestionar_usuarios')
                 
             except Exception as e:
                 messages.error(request, f'Error al crear usuario: {str(e)}')
+                # Si hay error, eliminar el usuario creado para evitar inconsistencias
+                if 'user' in locals():
+                    user.delete()
     else:
-        form = RegistroClienteForm()
+        form = CrearUsuarioForm()
     
     return render(request, 'administradores/crear_usuario.html', {'form': form})
 
 
 @admin_permission_required('puede_gestionar_usuarios')
 def editar_usuario(request, user_id):
-    """Vista para editar usuarios existentes"""
+    """Vista para editar usuarios existentes con capacidad de cambiar tipos"""
     user = get_object_or_404(User, id=user_id)
     
     if request.method == 'POST':
         form = EditarUsuarioForm(request.POST, instance=user)
         if form.is_valid():
-            form.save()
-            
-            # Actualizar información específica del perfil
-            activo = form.cleaned_data.get('activo', True)
-            
-            if hasattr(user, 'cliente'):
-                user.cliente.activo = activo
-                user.cliente.save()
-            elif hasattr(user, 'empleado'):
-                user.empleado.activo = activo
-                user.empleado.save()
-            elif hasattr(user, 'administrador'):
-                user.administrador.activo = activo
-                user.administrador.save()
-            
-            messages.success(request, f'Usuario {user.username} actualizado exitosamente.')
-            return redirect('administradores:gestionar_usuarios')
+            try:
+                # Obtener valores antes de guardar
+                tipo_usuario = form.cleaned_data.get('tipo_usuario')
+                activo = form.cleaned_data.get('activo', True)
+                is_active = form.cleaned_data.get('is_active', True)
+                
+                # Guardar el usuario base
+                user = form.save(commit=False)
+                user.is_active = is_active
+                user.save()
+                
+                # Manejar perfiles específicos manualmente para asegurar sincronización
+                if tipo_usuario == 'cliente':
+                    # Eliminar otros perfiles si existen
+                    if hasattr(user, 'empleado'):
+                        user.empleado.delete()
+                    if hasattr(user, 'administrador'):
+                        user.administrador.delete()
+                    
+                    # Crear o actualizar cliente
+                    cliente, created = Cliente.objects.get_or_create(
+                        user=user,
+                        defaults={
+                            'telefono': form.cleaned_data.get('telefono', ''),
+                            'activo': activo
+                        }
+                    )
+                    if not created:
+                        cliente.telefono = form.cleaned_data.get('telefono', '')
+                        cliente.activo = activo
+                        cliente.save()
+                        
+                elif tipo_usuario == 'empleado':
+                    # Eliminar otros perfiles si existen
+                    if hasattr(user, 'cliente'):
+                        user.cliente.delete()
+                    if hasattr(user, 'administrador'):
+                        user.administrador.delete()
+                    
+                    # Crear o actualizar empleado
+                    empleado, created = Empleado.objects.get_or_create(
+                        user=user,
+                        defaults={
+                            'telefono': form.cleaned_data.get('telefono', ''),
+                            'rol': form.cleaned_data.get('rol_empleado', 'agente'),
+                            'nivel': form.cleaned_data.get('nivel_empleado', 1),
+                            'activo': activo
+                        }
+                    )
+                    if not created:
+                        empleado.telefono = form.cleaned_data.get('telefono', '')
+                        empleado.rol = form.cleaned_data.get('rol_empleado', 'agente')
+                        empleado.nivel = form.cleaned_data.get('nivel_empleado', 1)
+                        empleado.activo = activo
+                        empleado.save()
+                        
+                elif tipo_usuario == 'administrador':
+                    # Eliminar otros perfiles si existen
+                    if hasattr(user, 'cliente'):
+                        user.cliente.delete()
+                    if hasattr(user, 'empleado'):
+                        user.empleado.delete()
+                    
+                    # Crear o actualizar administrador
+                    administrador, created = Administrador.objects.get_or_create(
+                        user=user,
+                        defaults={'activo': activo}
+                    )
+                    if not created:
+                        administrador.activo = activo
+                        administrador.save()
+                
+                messages.success(
+                    request, 
+                    f'Usuario {user.username} actualizado exitosamente.'
+                )
+                return redirect('administradores:gestionar_usuarios')
+                
+            except Exception as e:
+                messages.error(request, f'Error al actualizar usuario: {str(e)}')
     else:
         form = EditarUsuarioForm(instance=user)
     
-    return render(request, 'administradores/editar_usuario.html', {
+    # Información adicional para el contexto
+    tipo_actual = 'Usuario base'
+    info_adicional = None
+    
+    if hasattr(user, 'cliente'):
+        tipo_actual = 'Cliente'
+        info_adicional = user.cliente
+    elif hasattr(user, 'empleado'):
+        tipo_actual = 'Empleado'
+        info_adicional = user.empleado
+    elif hasattr(user, 'administrador'):
+        tipo_actual = 'Administrador'
+        info_adicional = user.administrador
+    
+    context = {
         'form': form,
-        'user_obj': user
-    })
+        'user_obj': user,
+        'tipo_actual': tipo_actual,
+        'info_adicional': info_adicional,
+    }
+    
+    return render(request, 'administradores/editar_usuario.html', context)
 
 
 @admin_permission_required('puede_gestionar_usuarios')
