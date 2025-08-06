@@ -6,7 +6,12 @@ from ChibchaWeb.decorators import distribuidor_required
 @distribuidor_required
 def dashboard_distribuidor(request):
     cliente = request.user.cliente
-    return render(request, 'distribuidores/dashboard.html', {'cliente': cliente}) 
+    distribuidor = cliente.perfil_distribuidor  # accede al perfil distribuidor
+
+    return render(request, 'distribuidores/dashboard.html', {
+        'cliente': cliente,
+        'distribuidor': distribuidor
+    })
 
 @distribuidor_required
 def mis_paquetes(request):

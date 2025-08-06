@@ -42,7 +42,9 @@
                     <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'clientes:mis_hosts' %}">Mis Host</a></li>
                     <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'tickets:mis_tickets' %}">Mis Tickets</a></li>
                     {% if cliente.es_distribuidor %}
-                    <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'distribuidores:mis_paquetes' %}">Mis paquetes</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'distribuidores:mis_paquetes' %}">Mis paquetes</a></li>
+                    {% else %}
+                        <a class="nav-link nav-link-chibcha" href="{% url 'clientes:quiero_ser_distribuidor' %}">Quiero ser distribuidor</a>
                     {% endif %}
                 </ul>
                 <div class="dropdown">
@@ -50,7 +52,11 @@
                         Mi cuenta
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}">Perfil</a></li>
+                        {% if cliente.es_distribuidor %}
+                                <li><a class="dropdown-item" href="{% url 'distribuidores:dashboard' %}">Perfil</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}">Perfil</a></li>
+                            {% endif %}
                         <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Configuración</a></li>
                         <li><a class="dropdown-item" href="{% url 'tickets:crear_ticket' %}">Crear Ticket</a></li>
                         <li><hr class="dropdown-divider"></li>
