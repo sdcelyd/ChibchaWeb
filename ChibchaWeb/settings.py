@@ -168,3 +168,11 @@ LOGIN_URL = 'login'  # URL donde se redirige si no está logueado
 # LOGIN_REDIRECT_URL eliminado - cada LoginView maneja su propia redirección
 
 LOGOUT_REDIRECT_URL = '/login/'  # A dónde va después del logout
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'chibchamail@gmail.com'  # Tu correo
+EMAIL_HOST_PASSWORD = 'uxlb ymnl tcuo rzmt'  # Contraseña de aplicación, NO la normal
+DEFAULT_FROM_EMAIL = 'ChibchaWeb <chibchamail@gmail.com>'
