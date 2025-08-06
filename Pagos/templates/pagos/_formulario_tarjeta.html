@@ -1,0 +1,131 @@
+<!-- Campo número de tarjeta con logo y validación -->
+<div class="col-md-12 mb-3 position-relative">
+    <label for="id_numero" class="form-label">
+        <i class="fas fa-credit-card me-1"></i>Número de Tarjeta
+    </label>
+    <input type="text"
+           class="form-control pe-5"
+           id="id_numero"
+           name="numero"
+           placeholder="1234 5678 9012 3456"
+           maxlength="19"
+           required
+           oninput="formatCardNumber(this); actualizarLogo(); validarFranquicia();">
+    <img id="logoTarjeta"
+         src=""
+         alt="Logo Tarjeta"
+         style="height: 30px; position: absolute; right: 12px; top: 55%; transform: translateY(-50%); display: none;">
+    <div class="form-text">Ingresa los 14 a 16 dígitos de tu tarjeta</div>
+    <div id="aviso-franquicia" class="text-danger small mt-1" style="display: none;">
+        Solo se permiten tarjetas VISA, MasterCard o Diners Club.
+    </div>
+</div>
+
+<!-- Campo titular -->
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <label for="id_nombre_titular" class="form-label">
+            <i class="fas fa-user me-1"></i>Nombre del Titular
+        </label>
+        <input type="text"
+               class="form-control text-uppercase"
+               id="id_nombre_titular"
+               name="titular"
+               placeholder="NOMBRE COMPLETO COMO APARECE EN LA TARJETA"
+               maxlength="50"
+               required>
+        <div class="form-text">Nombre exacto como aparece en tu tarjeta</div>
+    </div>
+</div>
+
+<!-- Fecha de expiración y CVV -->
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label for="id_fecha_expiracion" class="form-label">
+            <i class="fas fa-calendar-alt me-1"></i>Fecha de Expiración
+        </label>
+        <input type="text"
+               class="form-control"
+               id="id_fecha_expiracion"
+               name="expiracion"
+               placeholder="MM/AA"
+               maxlength="5"
+               required
+               oninput="formatExpiryDate(this)">
+        <div class="form-text">Formato: MM/AA</div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label for="id_cvv" class="form-label">
+            <i class="fas fa-lock me-1"></i>CVV
+        </label>
+        <input type="password"
+               class="form-control"
+               id="id_cvv"
+               name="cvv"
+               placeholder="123"
+               maxlength="4"
+               required>
+        <div class="form-text">Código de 3 o 4 dígitos en el reverso</div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+function formatCardNumber(input) {
+    let value = input.value.replace(/\D/g, '');
+    value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+    input.value = value.substr(0, 19);
+}
+
+function formatExpiryDate(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length >= 2) {
+        value = value.substr(0, 2) + '/' + value.substr(2, 2);
+    }
+    input.value = value;
+}
+
+function detectarFranquicia(numero) {
+    numero = numero.replace(/\s/g, '');
+    if (/^4/.test(numero)) return "VISA";
+    if (/^5[1-5]/.test(numero) || /^2[2-7]/.test(numero)) return "MasterCard";
+    if (/^3(?:0[0-5]|[689])/.test(numero)) return "Diners Club";
+    return "Desconocida";
+}
+
+function actualizarLogo() {
+    const numero = document.getElementById("id_numero").value;
+    const tipo = detectarFranquicia(numero);
+    const logo = {
+        "VISA": "https://img.icons8.com/color/48/000000/visa.png",
+        "MasterCard": "https://img.icons8.com/color/48/000000/mastercard-logo.png",
+        "Diners Club": "https://img.icons8.com/color/48/000000/diners-club.png",
+    }[tipo];
+
+    const img = document.getElementById("logoTarjeta");
+
+    if (logo) {
+        img.src = logo;
+        img.style.display = "inline";
+    } else {
+        img.src = "";
+        img.style.display = "none";
+    }
+}
+
+function validarFranquicia() {
+    const numero = document.getElementById("id_numero").value;
+    const franquicia = detectarFranquicia(numero);
+    const aviso = document.getElementById("aviso-franquicia");
+    const btns = document.querySelectorAll('button[type="submit"]');
+
+    if (["VISA", "MasterCard", "Diners Club"].includes(franquicia)) {
+        aviso.style.display = "none";
+        btns.forEach(btn => btn.disabled = false);
+    } else {
+        aviso.style.display = "block";
+        btns.forEach(btn => btn.disabled = true);
+    }
+}
+</script>
