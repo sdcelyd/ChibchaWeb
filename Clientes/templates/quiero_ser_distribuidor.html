@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h2 class="card-title mb-4">Conviértete en Distribuidor</h2>
+                    <p class="mb-4">
+                        Como distribuidor, podrás vender paquetes de hosting, recibir comisiones y gestionar múltiples dominios. ¡Es una gran oportunidad para expandir tu presencia digital!
+                    </p>
+                    <form method="post" action="{% url 'clientes:hacer_distribuidor' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-chibcha-primary btn-lg">
+                            Sí, quiero ser distribuidor
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

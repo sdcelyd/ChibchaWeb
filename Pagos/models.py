@@ -71,3 +71,7 @@ class Pago(models.Model):
 
     def __str__(self):
         return f"Pago de ${self.monto} por {self.cliente.user.username} el {self.fecha.strftime('%Y-%m-%d %H:%M')}"
+
+class PagoDistribuidor(Pago):
+    cantidad_paginas = models.PositiveIntegerField()
+    descripcion = models.CharField(max_length=255, blank=True, help_text="Detalle opcional de la compra (ej: 'paquete de 100 páginas')")

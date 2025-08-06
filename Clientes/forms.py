@@ -35,6 +35,7 @@ class RegistroClienteForm(UserCreationForm):
             user.save()
             cliente = Cliente.objects.create(
                 user=user,
-                telefono=self.cleaned_data['telefono']
+                telefono=self.cleaned_data['telefono'],
+                es_distribuidor=False 
             )
         return user        
