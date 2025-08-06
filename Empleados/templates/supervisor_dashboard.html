@@ -7,8 +7,11 @@
     <title>Dashboard Supervisor - ChibchaWeb</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles/supervisor_dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body data-csrf-token="{{ csrf_token }}" 
+      data-tickets-sin-asignar='[{% for ticket in tickets_sin_asignar %}{"id":"{{ ticket.idTicket }}","nombre":"{{ ticket.nombreTicket|escapejs }}","cliente":"{% if ticket.cliente.user.first_name %}{{ ticket.cliente.user.first_name|escapejs }} {{ ticket.cliente.user.last_name|escapejs }}{% else %}{{ ticket.cliente.user.username|escapejs }}{% endif %}","fecha":"{{ ticket.fechar_creacion|date:"Y-m-d" }}","fechaFormato":"{{ ticket.fechar_creacion|date:"d/m/Y" }}","estado":"En espera","agentes":[{% for agente in agentes %}{"id":"{{ agente.id }}","nombre":"{{ agente.user.first_name|escapejs }} {{ agente.user.last_name|escapejs }}"}{% if not forloop.last %},{% endif %}{% endfor %}]}{% if not forloop.last %},{% endif %}{% endfor %}]'
+      data-tickets-asignados='[{% for item in tickets_asignados %}{"id":"{{ item.ticket.idTicket }}","nombre":"{{ item.ticket.nombreTicket|escapejs }}","cliente":"{% if item.ticket.cliente.user.first_name %}{{ item.ticket.cliente.user.first_name|escapejs }} {{ item.ticket.cliente.user.last_name|escapejs }}{% else %}{{ item.ticket.cliente.user.username|escapejs }}{% endif %}","fecha":"{{ item.fecha_asignacion|date:"Y-m-d" }}","fechaFormato":"{{ item.fecha_asignacion|date:"d/m/Y" }}","estado":"{{ item.estado.nombreEstado|escapejs }}","agente":"{{ item.agente_asignado.user.first_name|escapejs }} {{ item.agente_asignado.user.last_name|escapejs }}"}{% if not forloop.last %},{% endif %}{% endfor %}]'>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
@@ -28,16 +31,72 @@
                     </div>
 
                     <nav class="nav flex-column">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="#dashboard" onclick="showSection('dashboard')">
                             <i class="fas fa-tachometer-alt"></i> Dashboard
                         </a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#tickets" onclick="showSection('tickets')">
+                            <i class="fas fa-ticket-alt"></i> Gestión de Tickets
+                            {% if tickets_sin_asignar %}
+                                <span class="badge bg-warning ms-2">{{ tickets_sin_asignar|length }}</span>
+                            {% endif %}
+                        </a>
+                        <a class="nav-link" href="#empleados" onclick="showSection('empleados')">
                             <i class="fas fa-user-tie"></i> Gestión de Empleados
                         </a>    
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-cog"></i> Configuración
-                        </a>
-                        <hr class="text-white">
+                        <hr class="text-white-50 my-3">
+                        
+                        <!-- Mini información del supervisor -->
+                        <div class="supervisor-info p-2 rounded" style="background: rgba(255,255,255,0.1);">
+                            <h6 class="text-white mb-2">
+                                <i class="fas fa-user-shield me-2"></i>Mi Información
+                            </h6>
+                            <div class="text-white-50 small">
+                                <p class="mb-1">
+                                    <i class="fas fa-crown text-warning me-2"></i>
+                                    <strong>Nivel:</strong> {{ nivel_supervisor }}
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fas fa-users me-2"></i>
+                                    <strong>Agentes:</strong> {{ agentes|length }}
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fas fa-ticket-alt me-2"></i>
+                                    <strong>Tickets Pendientes:</strong> {{ tickets_sin_asignar|length }}
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fas fa-clock me-2"></i>
+                                    <strong>Asignados:</strong> {{ tickets_asignados|length }}
+                                </p>
+                                {% if user.email %}
+                                <p class="mb-2">
+                                    <i class="fas fa-envelope me-2"></i>
+                                    <strong>Email:</strong><br>
+                                    <small>{{ user.email }}</small>
+                                </p>
+                                {% endif %}
+                                <p class="mb-0">
+                                    <i class="fas fa-calendar me-2"></i>
+                                    <strong>Sesión:</strong> {{ user.last_login|date:"d/m H:i"|default:"Primera vez" }}
+                                </p>
+                            </div>
+                            
+                            <!-- Botón de acción rápida -->
+                            <div class="mt-2 pt-2" style="border-top: 1px solid rgba(255,255,255,0.2);">
+                                {% if tickets_sin_asignar %}
+                                <button class="btn btn-warning btn-sm w-100" onclick="showSection('tickets')" title="Ir a gestión de tickets">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    {{ tickets_sin_asignar|length }} ticket{{ tickets_sin_asignar|length|pluralize:"s" }} sin asignar
+                                </button>
+                                {% else %}
+                                <button class="btn btn-success btn-sm w-100" onclick="showSection('empleados')" title="Ver empleados">
+                                    <i class="fas fa-check-circle me-1"></i>
+                                    Todo al día
+                                </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <hr class="text-white-50 my-3">
                         <a class="nav-link text-danger" href="{% url 'empleados:logout' %}">
                             <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
                         </a>
@@ -48,73 +107,112 @@
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10">
                 <div class="container-fluid p-4">
-                    <div class="row mb-4">
-                        <div class="col">
-                            <h1 class="h3">Dashboard Supervisor - Nivel {{ nivel_supervisor }}</h1>
-                            <p class="text-muted">Panel de control administrativo</p>
-                        </div>
-                    </div>  
+                    <!-- Dashboard Section -->
+                    <div id="dashboard-section" class="content-section">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <h1 class="h3">Dashboard Supervisor - Nivel {{ nivel_supervisor }}</h1>
+                                <p class="text-muted">Panel de control administrativo</p>
+                            </div>
+                        </div>  
 
-                    <!-- Stats Cards -->
-                    <div class="row mb-4">
-                        <div class="col-xl-3 col-md-6 mb-3">
-                            <div class="card dashboard-card bg-primary text-white">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <h4>{{ agentes.count }}</h4>
-                                            <p class="mb-0">Agentes Nivel {{ nivel_supervisor }}</p>
+                        <!-- Stats Cards -->
+                        <div class="row mb-4">
+                            <div class="col-xl-3 col-md-6 mb-3">
+                                <div class="card dashboard-card bg-primary text-white">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h4>{{ agentes.count }}</h4>
+                                                <p class="mb-0">Agentes Nivel {{ nivel_supervisor }}</p>
+                                            </div>
+                                            <div class="align-self-center">
+                                                <i class="fas fa-users fa-2x"></i>
+                                            </div>
                                         </div>
-                                        <div class="align-self-center">
-                                            <i class="fas fa-users fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6 mb-3">
+                                <div class="card dashboard-card bg-success text-white">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h4>{{ agentes|length }}</h4>
+                                                <p class="mb-0">Agentes Activos</p>
+                                            </div>
+                                            <div class="align-self-center">
+                                                <i class="fas fa-user-tie fa-2x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6 mb-3">
+                                <div class="card dashboard-card bg-warning text-white">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h4>{{ tickets_sin_asignar|length }}</h4>
+                                                <p class="mb-0">Tickets Pendientes</p>
+                                            </div>
+                                            <div class="align-self-center">
+                                                <i class="fas fa-ticket-alt fa-2x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6 mb-3">
+                                <div class="card dashboard-card bg-info text-white">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h4>Nivel {{ nivel_supervisor }}</h4>
+                                                <p class="mb-0">Nivel de Acceso</p>
+                                            </div>
+                                            <div class="align-self-center">
+                                                <i class="fas fa-star fa-2x"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-xl-3 col-md-6 mb-3">
-                            <div class="card dashboard-card bg-success text-white">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <h4>{{ agentes|length }}</h4>
-                                            <p class="mb-0">Agentes Activos</p>
-                                        </div>
-                                        <div class="align-self-center">
-                                            <i class="fas fa-user-tie fa-2x"></i>
-                                        </div>
+                        <!-- Quick Actions -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card dashboard-card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Acciones Rápidas</h5>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-md-6 mb-3">
-                            <div class="card dashboard-card bg-warning text-white">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <h4>{{ tickets_sin_asignar|length }}</h4>
-                                            <p class="mb-0">Tickets Pendientes</p>
-                                        </div>
-                                        <div class="align-self-center">
-                                            <i class="fas fa-ticket-alt fa-2x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-md-6 mb-3">
-                            <div class="card dashboard-card bg-info text-white">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <h4>Nivel {{ nivel_supervisor }}</h4>
-                                            <p class="mb-0">Nivel de Acceso</p>
-                                        </div>
-                                        <div class="align-self-center">
-                                            <i class="fas fa-star fa-2x"></i>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <a href="#tickets" onclick="showSection('tickets')" class="btn btn-outline-primary w-100 p-3">
+                                                    <i class="fas fa-ticket-alt fa-2x mb-2"></i><br>
+                                                    <strong>Gestionar Tickets</strong><br>
+                                                    <small>{{ tickets_sin_asignar|length }} pendientes</small>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <a href="#empleados" onclick="showSection('empleados')" class="btn btn-outline-success w-100 p-3">
+                                                    <i class="fas fa-users fa-2x mb-2"></i><br>
+                                                    <strong>Ver Empleados</strong><br>
+                                                    <small>{{ agentes|length }} agentes</small>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <a href="#" class="btn btn-outline-info w-100 p-3">
+                                                    <i class="fas fa-chart-bar fa-2x mb-2"></i><br>
+                                                    <strong>Reportes</strong><br>
+                                                    <small>Ver estadísticas</small>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -122,69 +220,29 @@
                         </div>
                     </div>
 
-                    <!-- Agentes y Tickets -->
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card dashboard-card">
-                                <div class="card-header">
-                                    <h5 class="card-title mb-0">Agentes de Nivel {{ nivel_supervisor }}</h5>
-                                </div>
-                                <div class="card-body">
-                                    {% if agentes %}
-                                        <div class="table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nombre</th>
-                                                        <th>Usuario</th>
-                                                        <th>Email</th>
-                                                        <th>Estado</th>
-                                                        <th>Acción</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {% for agente in agentes %}
-                                                    <tr>
-                                                        <td>{{ agente.user.first_name }} {{ agente.user.last_name }}</td>
-                                                        <td>{{ agente.user.username }}</td>
-                                                        <td>{{ agente.user.email }}</td>
-                                                        <td>
-                                                            {% if agente.activo %}
-                                                                <span class="badge bg-success">Activo</span>
-                                                            {% else %}
-                                                                <span class="badge bg-danger">Inactivo</span>
-                                                            {% endif %}
-                                                        </td>
-                                                        <td>
-                                                            <button class="btn btn-sm btn-primary">Ver Detalles</button>
-                                                        </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    {% else %}
-                                        <div class="text-center py-4">
-                                            <i class="fas fa-users fa-3x text-muted mb-3"></i>
-                                            <h5 class="text-muted">No hay agentes de nivel {{ nivel_supervisor }}</h5>
-                                            <p class="text-muted">Aún no se han asignado agentes a este nivel.</p>
-                                        </div>
-                                    {% endif %}
-                                </div>
+                    <!-- Tickets Section -->
+                    <div id="tickets-section" class="content-section" style="display: none;">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <h1 class="h3">Gestión de Tickets - Nivel {{ nivel_supervisor }}</h1>
+                                <p class="text-muted">Asignación y seguimiento de tickets de soporte</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card dashboard-card mb-3">
-                                <div class="card-header">
-                                    <h5 class="card-title mb-3">Gestión de Tickets - Nivel {{ nivel_supervisor }}</h5>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Tickets sin asignar -->
-                                    <div class="mb-4">
-                                        <h6 class="text-primary">Tickets Sin Asignar ({{ tickets_sin_asignar|length }})</h6>
+
+                        <div class="row">
+                            <!-- Tickets sin asignar -->
+                            <div class="col-md-6 mb-4">
+                                <div class="card dashboard-card">
+                                    <div class="card-header bg-warning text-white">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fas fa-exclamation-circle me-2"></i>
+                                            Tickets Sin Asignar ({{ tickets_sin_asignar|length }})
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
                                         {% if tickets_sin_asignar %}
                                             <div class="table-responsive">
-                                                <table class="table table-sm table-hover">
+                                                <table class="table table-hover">
                                                     <thead>
                                                         <tr>
                                                             <th>ID</th>
@@ -194,11 +252,11 @@
                                                             <th>Acción</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        {% for ticket in tickets_sin_asignar %}
+                                                    <tbody id="tickets-sin-asignar-tbody">
+                                                        {% for ticket in tickets_sin_asignar|slice:":7" %}
                                                         <tr>
-                                                            <td>{{ ticket.idTicket }}</td>
-                                                            <td>{{ ticket.nombreTicket }}</td>
+                                                            <td><strong>#{{ ticket.idTicket }}</strong></td>
+                                                            <td>{{ ticket.nombreTicket|truncatechars:30 }}</td>
                                                             <td>{% if ticket.cliente.user.first_name %}{{ ticket.cliente.user.first_name }} {{ ticket.cliente.user.last_name }}{% else %}{{ ticket.cliente.user.username }}{% endif %}</td>
                                                             <td>{{ ticket.fechar_creacion|date:"d/m/Y" }}</td>
                                                             <td>
@@ -220,26 +278,49 @@
                                                                         {% endfor %}
                                                                     </ul>
                                                                 </div>
+                                                                <button type="button" class="btn btn-sm btn-outline-info ms-2" 
+                                                                        onclick="verDetallesTicket('{{ ticket.idTicket }}')"
+                                                                        title="Ver detalles">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </button>
                                                             </td>
                                                         </tr>
                                                         {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            {% if tickets_sin_asignar|length > 7 %}
+                                            <div class="text-center mt-3">
+                                                <button class="btn btn-outline-warning" onclick="openTicketModal('sin-asignar')">
+                                                    <i class="fas fa-expand-alt me-2"></i>
+                                                    Ver todos ({{ tickets_sin_asignar|length }} tickets)
+                                                </button>
+                                            </div>
+                                            {% endif %}
                                         {% else %}
-                                            <div class="text-center py-2">
-                                                <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
-                                                <p class="text-muted">No hay tickets sin asignar</p>
+                                            <div class="text-center py-4">
+                                                <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                                                <h5 class="text-muted">No hay tickets sin asignar</h5>
+                                                <p class="text-muted">Todos los tickets están asignados.</p>
                                             </div>
                                         {% endif %}
                                     </div>
+                                </div>
+                            </div>
 
-                                    <!-- Tickets asignados -->
-                                    <div class="mb-3">
-                                        <h6 class="text-info">Tickets Asignados ({{ tickets_asignados|length }})</h6>
+                            <!-- Tickets asignados -->
+                            <div class="col-md-6 mb-4">
+                                <div class="card dashboard-card">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fas fa-user-check me-2"></i>
+                                            Tickets Asignados ({{ tickets_asignados|length }})
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
                                         {% if tickets_asignados %}
                                             <div class="table-responsive">
-                                                <table class="table table-sm table-hover">
+                                                <table class="table table-hover">
                                                     <thead>
                                                         <tr>
                                                             <th>ID</th>
@@ -248,13 +329,14 @@
                                                             <th>Asignado a</th>
                                                             <th>Estado</th>
                                                             <th>Fecha Asig.</th>
+                                                            <th>Acción</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        {% for item in tickets_asignados %}
+                                                    <tbody id="tickets-asignados-tbody">
+                                                        {% for item in tickets_asignados|slice:":7" %}
                                                         <tr>
-                                                            <td>#{{ item.ticket.idTicket }}</td>
-                                                            <td>{{ item.ticket.nombreTicket }}</td>
+                                                            <td><strong>#{{ item.ticket.idTicket }}</strong></td>
+                                                            <td>{{ item.ticket.nombreTicket|truncatechars:25 }}</td>
                                                             <td>{% if item.ticket.cliente.user.first_name %}{{ item.ticket.cliente.user.first_name }} {{ item.ticket.cliente.user.last_name }}{% else %}{{ item.ticket.cliente.user.username }}{% endif %}</td>
                                                             <td>
                                                                 <span class="badge bg-primary">
@@ -273,96 +355,374 @@
                                                                 {% endif %}
                                                             </td>
                                                             <td>{{ item.fecha_asignacion|date:"d/m" }}</td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-sm btn-outline-info" 
+                                                                        onclick="verDetallesTicket('{{ item.ticket.idTicket }}')"
+                                                                        title="Ver detalles">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            {% if tickets_asignados|length > 7 %}
+                                            <div class="text-center mt-3">
+                                                <button class="btn btn-outline-info" onclick="openTicketModal('asignados')">
+                                                    <i class="fas fa-expand-alt me-2"></i>
+                                                    Ver todos ({{ tickets_asignados|length }} tickets)
+                                                </button>
+                                            </div>
+                                            {% endif %}
+                                        {% else %}
+                                            <div class="text-center py-4">
+                                                <i class="fas fa-info-circle fa-3x text-muted mb-3"></i>
+                                                <h5 class="text-muted">No hay tickets asignados</h5>
+                                                <p class="text-muted">No hay tickets asignados en tu nivel.</p>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Empleados Section -->
+                    <div id="empleados-section" class="content-section" style="display: none;">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <h1 class="h3">Gestión de Empleados - Nivel {{ nivel_supervisor }}</h1>
+                                <p class="text-muted">Administración de agentes de tu nivel</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card dashboard-card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Agentes de Nivel {{ nivel_supervisor }}</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        {% if agentes_con_tickets %}
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre</th>
+                                                            <th>Usuario</th>
+                                                            <th>Email</th>
+                                                            <th>Estado</th>
+                                                            <th>Tickets Asignados</th>
+                                                            <th>Acción</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for item in agentes_con_tickets %}
+                                                        <tr>
+                                                            <td>{{ item.agente.user.first_name }} {{ item.agente.user.last_name }}</td>
+                                                            <td>{{ item.agente.user.username }}</td>
+                                                            <td>{{ item.agente.user.email }}</td>
+                                                            <td>
+                                                                {% if item.agente.activo %}
+                                                                    <span class="badge bg-success">Activo</span>
+                                                                {% else %}
+                                                                    <span class="badge bg-danger">Inactivo</span>
+                                                                {% endif %}
+                                                            </td>
+                                                            <td>
+                                                                <span class="badge bg-info">{{ item.tickets_count }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-primary ver-empleado" 
+                                                                        data-empleado-id="{{ item.agente.id }}"
+                                                                        data-empleado-nombre="{{ item.agente.user.first_name }} {{ item.agente.user.last_name }}"
+                                                                        data-empleado-username="{{ item.agente.user.username }}"
+                                                                        data-empleado-email="{{ item.agente.user.email }}"
+                                                                        data-empleado-activo="{{ item.agente.activo }}"
+                                                                        data-empleado-fecha-ingreso="{{ item.agente.user.date_joined|date:'d/m/Y' }}">
+                                                                    <i class="fas fa-eye me-1"></i>Ver Detalles
+                                                                </button>
+                                                            </td>
                                                         </tr>
                                                         {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
                                         {% else %}
-                                            <div class="text-center py-2">
-                                                <i class="fas fa-info-circle fa-2x text-muted mb-2"></i>
-                                                <p class="text-muted">No hay tickets asignados en tu nivel</p>
+                                            <div class="text-center py-4">
+                                                <i class="fas fa-users fa-3x text-muted mb-3"></i>
+                                                <h5 class="text-muted">No hay agentes de nivel {{ nivel_supervisor }}</h5>
+                                                <p class="text-muted">Aún no se han asignado agentes a este nivel.</p>
                                             </div>
                                         {% endif %}
                                     </div>
                                 </div>
-                            </div>          
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal para ver todos los tickets -->
+    <div class="modal fade" id="ticketsModal" tabindex="-1" aria-labelledby="ticketsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ticketsModalLabel">
+                        <i class="fas fa-ticket-alt me-2"></i>
+                        <span id="modal-title-text">Gestión de Tickets</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Filtros -->
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="filtroFecha" class="form-label">
+                                <i class="fas fa-calendar me-1"></i>Filtrar por fecha
+                            </label>
+                            <input type="date" class="form-control" id="filtroFecha" onchange="aplicarFiltros()">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="filtroEstado" class="form-label">
+                                <i class="fas fa-filter me-1"></i>Filtrar por estado
+                            </label>
+                            <select class="form-select" id="filtroEstado" onchange="aplicarFiltros()">
+                                <option value="">Todos los estados</option>
+                                <option value="En espera">En espera</option>
+                                <option value="En Proceso">En Proceso</option>
+                                <option value="Resuelto">Resuelto</option>
+                                <option value="Cerrado">Cerrado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="filtroCliente" class="form-label">
+                                <i class="fas fa-user me-1"></i>Buscar cliente
+                            </label>
+                            <input type="text" class="form-control" id="filtroCliente" placeholder="Nombre del cliente..." onkeyup="aplicarFiltros()">
+                        </div>
+                    </div>
+
+                    <!-- Botones de filtro rápido -->
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="filtroRapido('hoy')">
+                                    <i class="fas fa-clock me-1"></i>Hoy
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="filtroRapido('semana')">
+                                    <i class="fas fa-calendar-week me-1"></i>Esta semana
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="filtroRapido('mes')">
+                                    <i class="fas fa-calendar-alt me-1"></i>Este mes
+                                </button>
+                                <button type="button" class="btn btn-outline-danger btn-sm" onclick="limpiarFiltros()">
+                                    <i class="fas fa-times me-1"></i>Limpiar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabla de tickets -->
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="modalTicketsTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Cliente</th>
+                                    <th>Fecha Creación</th>
+                                    <th id="modal-header-extra">Estado</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="modalTicketsTableBody">
+                                <!-- Los tickets se cargarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Contador de resultados -->
+                    <div class="text-muted text-center mt-3">
+                        <small id="contadorResultados">Mostrando 0 tickets</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i>Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ver detalles del ticket -->
+    <div class="modal fade" id="ticketDetalleModal" tabindex="-1" aria-labelledby="ticketDetalleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="ticketDetalleModalLabel">
+                        <i class="fas fa-ticket-alt me-2"></i>
+                        Detalles del Ticket #<span id="ticket-detail-id"></span>
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-info-circle text-primary me-2"></i>Información General</h6>
+                            <div class="card border-0 bg-light">
+                                <div class="card-body p-3">
+                                    <p><strong>Título:</strong> <span id="ticket-detail-nombre"></span></p>
+                                    <p><strong>Cliente:</strong> <span id="ticket-detail-cliente"></span></p>
+                                    <p><strong>Fecha de Creación:</strong> <span id="ticket-detail-fecha"></span></p>
+                                    <p><strong>Estado:</strong> <span id="ticket-detail-estado" class="badge"></span></p>
+                                    <p><strong>Prioridad:</strong> <span id="ticket-detail-prioridad" class="badge"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-user-tie text-success me-2"></i>Asignación</h6>
+                            <div class="card border-0 bg-light">
+                                <div class="card-body p-3">
+                                    <p><strong>Agente Asignado:</strong> <span id="ticket-detail-agente"></span></p>
+                                    <p><strong>Fecha de Asignación:</strong> <span id="ticket-detail-fecha-asignacion"></span></p>
+                                    <p><strong>Último Contacto:</strong> <span id="ticket-detail-ultimo-contacto"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h6><i class="fas fa-file-alt text-info me-2"></i>Descripción del Problema</h6>
+                            <div class="card border-0 bg-light">
+                                <div class="card-body">
+                                    <p id="ticket-detail-descripcion" class="mb-0"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h6><i class="fas fa-history text-warning me-2"></i>Historial de Actividades</h6>
+                            <div class="timeline" id="ticket-detail-timeline">
+                                <!-- El historial se cargará dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i>Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para información del empleado -->
+    <div class="modal fade" id="empleadoDetalleModal" tabindex="-1" aria-labelledby="empleadoDetalleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="empleadoDetalleModalLabel">
+                        <i class="fas fa-user-tie me-2"></i>
+                        Información del Empleado
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <div class="card border-0">
+                                <div class="card-body">
+                                    <div class="avatar-circle bg-primary text-white mb-3 mx-auto" style="width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-user fa-2x" id="empleado-avatar"></i>
+                                    </div>
+                                    <h5 id="empleado-nombre-completo"></h5>
+                                    <p class="text-muted" id="empleado-username"></p>
+                                    <span id="empleado-estado-badge" class="badge"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h6><i class="fas fa-info-circle text-primary me-2"></i>Información Personal</h6>
+                            <div class="card border-0 bg-light">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><strong>Email:</strong> <span id="empleado-email"></span></p>
+                                            <p><strong>Teléfono:</strong> <span id="empleado-telefono">No disponible</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><strong>Fecha de Ingreso:</strong> <span id="empleado-fecha-ingreso"></span></p>
+                                            <p><strong>Nivel:</strong> <span id="empleado-nivel" class="badge bg-info"></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h6 class="mt-3"><i class="fas fa-chart-bar text-success me-2"></i>Estadísticas de Trabajo</h6>
+                            <div class="card border-0 bg-light">
+                                <div class="card-body">
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <h4 class="text-primary" id="empleado-tickets-asignados">0</h4>
+                                            <small class="text-muted">Tickets Asignados</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-success" id="empleado-tickets-resueltos">0</h4>
+                                            <small class="text-muted">Tickets Resueltos</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-warning" id="empleado-tickets-pendientes">0</h4>
+                                            <small class="text-muted">Tickets Pendientes</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h6 class="mt-3"><i class="fas fa-tasks text-info me-2"></i>Últimos Tickets</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Ticket</th>
+                                            <th>Cliente</th>
+                                            <th>Estado</th>
+                                            <th>Fecha</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="empleado-tickets-recientes">
+                                        <!-- Se cargarán dinámicamente -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i>Cerrar
+                    </button>
+                    <button type="button" class="btn btn-warning" onclick="contactarEmpleado()">
+                        <i class="fas fa-envelope me-2"></i>Contactar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Event delegation para botones de asignar ticket
-        document.querySelectorAll('.asignar-ticket').forEach(function(element) {
-            element.addEventListener('click', function(e) {
-                e.preventDefault();
-                const ticketId = this.dataset.ticketId;
-                const agenteId = this.dataset.agenteId;
-                const agenteName = this.dataset.agenteName;
-                
-                asignarTicket(ticketId, agenteId, agenteName);
-            });
-        });
-    });
-
-    function asignarTicket(ticketId, agenteId, agenteNombre) {
-        if (confirm(`¿Estás seguro de asignar este ticket a ${agenteNombre}?`)) {
-            // Mostrar indicador de carga en el botón
-            const buttons = document.querySelectorAll('.dropdown-toggle');
-            buttons.forEach(button => {
-                if (button.textContent.includes('Asignar')) {
-                    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Asignando...';
-                    button.disabled = true;
-                }
-            });
-            
-            fetch('/empleados/asignar-ticket/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-CSRFToken': '{{ csrf_token }}'
-                },
-                body: `ticket_id=${ticketId}&agente_id=${agenteId}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Mostrar mensaje de éxito
-                    const alertDiv = document.createElement('div');
-                    alertDiv.className = 'alert alert-success alert-dismissible fade show mt-3';
-                    alertDiv.innerHTML = `
-                        <i class="fas fa-check-circle"></i> ${data.message}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    `;
-                    
-                    // Insertar el alert en la parte superior del panel
-                    const cardBody = document.querySelector('.card-body');
-                    cardBody.insertBefore(alertDiv, cardBody.firstChild);
-                    
-                    // Recargar después de 2 segundos
-                    setTimeout(() => {
-                        location.reload();
-                    }, 2000);
-                } else {
-                    alert('Error: ' + data.error);
-                    location.reload();
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error al asignar el ticket');
-                location.reload();
-            });
-        }
-    }
-</script>
+    <script src="{% static 'js/supervisor_dashboard.js' %}"></script>
 </body>
 </html>

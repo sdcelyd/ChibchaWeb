@@ -40,13 +40,60 @@
                         <a class="nav-link" href="{% url 'empleados:mis_tickets' %}">
                             <i class="fas fa-ticket-alt"></i> Mis Tickets
                         </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-history"></i> Historial
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-user"></i> Mi Perfil
-                        </a>
-                        <hr class="text-white">
+                        <hr class="text-white-50 my-3">
+                        
+                        <!-- Mini información del agente -->
+                        <div class="agente-info p-2 rounded" style="background: rgba(255,255,255,0.1);">
+                            <h6 class="text-white mb-2">
+                                <i class="fas fa-user-gear me-2"></i>Mi Información
+                            </h6>
+                            <div class="text-white-50 small">
+                                <p class="mb-1">
+                                    <i class="fas fa-id-badge text-info me-2"></i>
+                                    <strong>Nivel:</strong> {{ empleado.nivel }}
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fas fa-tasks me-2"></i>
+                                    <strong>Tickets Pendientes:</strong> {{ tickets_pendientes|length }}
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fas fa-check-circle me-2"></i>
+                                    <strong>Resueltos:</strong> {{ tickets_completados|length }}
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fas fa-calculator me-2"></i>
+                                    <strong>Total:</strong> {{ total_tickets }}
+                                </p>
+                                {% if user.email %}
+                                <p class="mb-2">
+                                    <i class="fas fa-envelope me-2"></i>
+                                    <strong>Email:</strong><br>
+                                    <small>{{ user.email }}</small>
+                                </p>
+                                {% endif %}
+                                <p class="mb-0">
+                                    <i class="fas fa-calendar me-2"></i>
+                                    <strong>Sesión:</strong> {{ user.last_login|date:"d/m H:i"|default:"Primera vez" }}
+                                </p>
+                            </div>
+                            
+                            <!-- Botón de acción rápida -->
+                            <div class="mt-2 pt-2" style="border-top: 1px solid rgba(255,255,255,0.2);">
+                                {% if tickets_pendientes %}
+                                <a href="{% url 'empleados:mis_tickets' %}" class="btn btn-warning btn-sm w-100" title="Ir a mis tickets">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    {{ tickets_pendientes|length }} ticket{{ tickets_pendientes|length|pluralize:"s" }} pendiente{{ tickets_pendientes|length|pluralize:"s" }}
+                                </a>
+                                {% else %}
+                                <button class="btn btn-success btn-sm w-100" disabled title="Todo al día">
+                                    <i class="fas fa-check-circle me-1"></i>
+                                    Todo al día
+                                </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <hr class="text-white-50 my-3">
                         <a class="nav-link text-danger" href="{% url 'empleados:logout' %}">
                             <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
                         </a>
@@ -72,7 +119,7 @@
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <h4>{{ tickets_pendientes|length }}</h4>
-                                                                                        <p class="mb-0">Total Tickets</p>
+                                            <p class="mb-0">Tickets Pendientes</p>
                                         </div>
                                         <div class="align-self-center">
                                             <i class="fas fa-clock fa-2x"></i>
@@ -104,7 +151,7 @@
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <h4>{{ total_tickets }}</h4>
-                                            <p class="mb-0">Resueltos Hoy</p>
+                                            <p class="mb-0">Total Asignados</p>
                                         </div>
                                         <div class="align-self-center">
                                             <i class="fas fa-calendar-day fa-2x"></i>
@@ -160,14 +207,14 @@
                                                         <td>{{ item.ticket.nombreTicket }}</td>
                                                         <td>{% if item.ticket.cliente.user.first_name %}{{ item.ticket.cliente.user.first_name }} {{ item.ticket.cliente.user.last_name }}{% else %}{{ item.ticket.cliente.user.username }}{% endif %}</td>
                                                         <td>
-                                                            {% if item.estado.nombreEstado == 'En Proceso' %}
-                                                                <span class="badge bg-info">{{ item.estado.nombreEstado }}</span>
+                                                            {% if item.estado_actual.nombreEstado == 'En Proceso' %}
+                                                                <span class="badge bg-info">{{ item.estado_actual.nombreEstado }}</span>
                                                             {% else %}
-                                                                <span class="badge bg-secondary">{{ item.estado.nombreEstado }}</span>
+                                                                <span class="badge bg-secondary">{{ item.estado_actual.nombreEstado }}</span>
                                                             {% endif %}
                                                         </td>
                                                         <td>{{ item.ticket.fechar_creacion|date:"d/m/Y" }}</td>
-                                                        <td>{{ item.fecha_modificacion|date:"d/m/Y" }}</td>
+                                                        <td>{{ item.fecha_ultima_modificacion|date:"d/m/Y" }}</td>
                                                     </tr>
                                                     {% endfor %}
                                                 </tbody>
@@ -208,9 +255,9 @@
                                                         <td>{{ item.ticket.nombreTicket }}</td>
                                                         <td>{% if item.ticket.cliente.user.first_name %}{{ item.ticket.cliente.user.first_name }} {{ item.ticket.cliente.user.last_name }}{% else %}{{ item.ticket.cliente.user.username }}{% endif %}</td>
                                                         <td>
-                                                            <span class="badge bg-success">{{ item.estado.nombreEstado }}</span>
+                                                            <span class="badge bg-success">{{ item.estado_actual.nombreEstado }}</span>
                                                         </td>
-                                                        <td>{{ item.fecha_modificacion|date:"d/m/Y" }}</td>
+                                                        <td>{{ item.fecha_ultima_modificacion|date:"d/m/Y" }}</td>
                                                     </tr>
                                                     {% endfor %}
                                                 </tbody>
