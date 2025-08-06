@@ -1,38 +1,181 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
- <title>Panel Cliente - ChibchaWeb</title>
- 
-<div class="container mt-5">
-    <h1 class="mb-4">Mi perfil</h1>
+<title>Mi Perfil - ChibchaWeb</title>
 
-    <div class="card mb-4">
-        <div class="card-header bg-chibcha-dark text-black">
-            {{ cliente.user.get_full_name|default:cliente.user.username }}
-        </div>
-        <div class="card-body">
-            <p><strong>Email:</strong> {{ cliente.user.email }}</p>
-            <p><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
-
-            <!-- Sección de suscripción -->
-            <hr>
-            <h5><i class="fas fa-star me-2"></i>Mi Plan</h5>
-            {% if cliente.suscripcion_activa %}
-                <div class="border rounded bg-light p-3">
-                    <p><strong>Plan actual:</strong> {{ cliente.plan }}</p>
-                    <p><strong>Fecha de inicio:</strong> {{ cliente.fecha_inicio_suscripcion|date:"d M Y" }}</p>
-                    <p><strong>Fecha de fin:</strong> {{ cliente.fecha_fin_suscripcion|date:"d M Y" }}</p>
-
+<!-- Header del Perfil -->
+<section class="profile-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="profile-info">
+                    <div class="profile-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-user me-2"></i>Mi Perfil
+                        </span>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-3">
+                        {{ cliente.user.get_full_name|default:cliente.user.username }}
+                    </h1>
+                    <p class="lead mb-4">
+                        Gestiona tu información personal y configuraciones de cuenta
+                    </p>
                 </div>
-            {% else %}
-                <p class="text-muted">No tienes una suscripción activa.</p>
-                <a href="{% url 'pagos:seleccionar_plan' %}" class="btn btn-chibcha-primary mt-2">Unirme / Seleccionar plan</a>
-            {% endif %}
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="profile-avatar">
+                    <div class="avatar-circle">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- Aquí podrías agregar otras secciones como dirección de pago, tarjetas, etc. -->
+<!-- Contenido del Perfil -->
+<section class="profile-content py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Información Personal -->
+            <div class="col-lg-8">
+                <div class="profile-card">
+                    <div class="card-header-custom">
+                        <h4><i class="fas fa-user me-2"></i>Información Personal</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="info-item">
+                                    <label class="info-label">Nombre de Usuario</label>
+                                    <div class="info-value">{{ cliente.user.username }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item">
+                                    <label class="info-label">Email</label>
+                                    <div class="info-value">{{ cliente.user.email }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item">
+                                    <label class="info-label">Nombre Completo</label>
+                                    <div class="info-value">{{ cliente.user.get_full_name|default:"No especificado" }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item">
+                                    <label class="info-label">Teléfono</label>
+                                    <div class="info-value">{{ cliente.telefono|default:"No especificado" }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <button class="btn btn-chibcha-primary">
+                                <i class="fas fa-edit me-2"></i>Editar Información
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</div>
+            <!-- Panel Lateral -->
+            <div class="col-lg-4">
+                <!-- Estado de la Cuenta -->
+                <div class="profile-card mb-4">
+                    <div class="card-header-custom">
+                        <h5><i class="fas fa-shield-alt me-2"></i>Estado de Cuenta</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="account-status">
+                            <div class="status-icon">
+                                <i class="fas fa-check-circle text-success"></i>
+                            </div>
+                            <div class="status-text">
+                                <strong>Cuenta Verificada</strong>
+                                <p class="text-muted mb-0">Tu cuenta está activa y verificada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan de Suscripción -->
+                <div class="profile-card">
+                    <div class="card-header-custom">
+                        <h5><i class="fas fa-star me-2"></i>Mi Plan</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if cliente.suscripcion_activa %}
+                            <div class="plan-active">
+                                <div class="plan-info">
+                                    <div class="plan-name">{{ cliente.plan|capfirst }}</div>
+                                    <div class="plan-status">
+                                        <span class="badge bg-success">Activo</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="plan-details">
+                                    <div class="detail-item">
+                                        <small class="text-muted">Inicio:</small>
+                                        <div>{{ cliente.fecha_inicio_suscripcion|date:"d M Y" }}</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <small class="text-muted">Vencimiento:</small>
+                                        <div>{{ cliente.fecha_fin_suscripcion|date:"d M Y" }}</div>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <a href="{% url 'home' %}#planes" class="btn btn-outline-chibcha-primary btn-sm">
+                                        <i class="fas fa-upgrade me-1"></i>Cambiar Plan
+                                    </a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="plan-inactive text-center">
+                                <div class="inactive-icon">
+                                    <i class="fas fa-exclamation-triangle text-warning"></i>
+                                </div>
+                                <h6 class="mt-2">Sin Suscripción</h6>
+                                <p class="text-muted small">No tienes una suscripción activa</p>
+                                <a href="{% url 'pagos:seleccionar_plan' %}" class="btn btn-chibcha-primary btn-sm">
+                                    <i class="fas fa-plus me-1"></i>Obtener Plan
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Acciones Rápidas -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="quick-actions-profile">
+                    <h4 class="text-center mb-4">Acciones Rápidas</h4>
+                    <div class="actions-grid">
+                        <a href="{% url 'clientes:mis_hosts' %}" class="action-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Mis Hosts</span>
+                        </a>
+                        <a href="{% url 'tickets:crear_ticket' %}" class="action-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Crear Ticket</span>
+                        </a>
+                        <a href="{% url 'verificar-url' %}" class="action-item">
+                            <i class="fas fa-search"></i>
+                            <span>Verificar Dominio</span>
+                        </a>
+                        <a href="#" class="action-item">
+                            <i class="fas fa-download"></i>
+                            <span>Backups</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

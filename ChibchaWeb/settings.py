@@ -158,6 +158,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'  # URL donde se redirige si no está logueado
 
-LOGIN_REDIRECT_URL = '/Clientes/home/'  # A dónde va después de hacer login
+# LOGIN_REDIRECT_URL eliminado - cada LoginView maneja su propia redirección
 
 LOGOUT_REDIRECT_URL = '/login/'  # A dónde va después del logout

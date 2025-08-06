@@ -42,10 +42,23 @@ class ClienteLoginView(LoginView):
     
     def form_valid(self, form):
         user = form.get_user()
+        
         # Verificar que no sea un empleado
         if hasattr(user, 'empleado'):
             messages.error(self.request, 'Los empleados deben usar el portal de empleados.')
             return self.form_invalid(form)
+            
+        # Verificar que no sea un administrador
+        if hasattr(user, 'administrador'):
+            messages.error(self.request, 'Los administradores deben usar el portal de administradores.')
+            return self.form_invalid(form)
+            
+        # Verificar que sea cliente
+        if not hasattr(user, 'cliente'):
+            messages.error(self.request, 'No tienes perfil de cliente. Contacta al administrador.')
+            return self.form_invalid(form)
+            
+        messages.success(self.request, f'Bienvenido {user.username}!')
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -54,7 +67,7 @@ class ClienteLoginView(LoginView):
             if user.cliente.es_distribuidor:
                 return reverse_lazy('distribuidores:dashboard')
             else:
-                return reverse_lazy('clientes:perfil')
+                return reverse_lazy('clientes:home_cliente')
         return reverse_lazy('home')    
 
 @login_required

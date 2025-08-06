@@ -35,6 +35,17 @@ class EmpleadoLoginView(LoginView):
     def form_valid(self, form):
         # Verificar que el usuario sea un empleado activo
         user = form.get_user()
+        
+        # Verificar que no sea un cliente
+        if hasattr(user, 'cliente'):
+            messages.error(self.request, 'Los clientes deben usar el portal de clientes.')
+            return self.form_invalid(form)
+            
+        # Verificar que no sea un administrador
+        if hasattr(user, 'administrador'):
+            messages.error(self.request, 'Los administradores deben usar el portal de administradores.')
+            return self.form_invalid(form)
+        
         try:
             empleado = user.empleado
             if not empleado.activo:
@@ -48,7 +59,15 @@ class EmpleadoLoginView(LoginView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        return '/empleados/dashboard/'
+        # Redirigir según el rol del empleado
+        user = self.request.user
+        if hasattr(user, 'empleado'):
+            empleado = user.empleado
+            if empleado.rol == 'supervisor':
+                return reverse_lazy('empleados:supervisor_dashboard')
+            else:
+                return reverse_lazy('empleados:agente_dashboard')
+        return reverse_lazy('empleados:dashboard')
 
 
 @method_decorator(empleado_required, name='dispatch')

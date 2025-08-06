@@ -1,17 +1,186 @@
 {% extends "base_clientes.html" %}
+{% load static %}
 
 {% block content %}
-<title>Home - ChibchaWeb</title>
-<div class="container mt-5">
-    <div class="card card-chibcha p-4 shadow">
-        <h2 class="mb-4 text-chibcha-secondary">Bienvenido, {{ request.user.first_name }}</h2>
-        {% if cliente.tiene_suscripcion %}
-            <p><strong>Plan actual:</strong> <span class="text-chibcha-accent">{{ cliente.plan|capfirst }}</span></p>
-            <p><strong>Suscripción activa hasta:</strong> {{ cliente.fecha_fin_suscripcion|date:"d M Y" }}</p>
-        {% else %}
-            <p>No tienes una suscripción activa.</p>
-            {# <a href="{% url 'seleccionar_plan' %}" class="btn btn-chibcha-primary">Suscribirse ahora</a> #}
-        {% endif %}
+<title>Panel Cliente - ChibchaWeb</title>
+
+<!-- Hero Dashboard del Cliente -->
+<section class="hero-dashboard-cliente bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="hero-content-cliente">
+                    <div class="welcome-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-crown me-2"></i>Panel de Control
+                        </span>
+                    </div>
+                    <p class="lead mb-4">
+                        Gestiona tus servicios de hosting, revisa estadísticas y controla todo desde tu panel personalizado.
+                    </p>
+                    
+                    <!-- Status del Plan -->
+                    <div class="plan-status-card">
+                        {% if cliente.tiene_suscripcion %}
+                            <div class="status-active">
+                                <i class="fas fa-check-circle me-2"></i>
+                                <span>Plan <strong>{{ cliente.plan|capfirst }}</strong> activo hasta {{ cliente.fecha_fin_suscripcion|date:"d M Y" }}</span>
+                            </div>
+                        {% else %}
+                            <div class="status-inactive">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <span>No tienes una suscripción activa</span>
+                                <a href="{% url 'home' %}#planes" class="btn btn-chibcha-accent ms-3">Ver Planes</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="hero-stats-cliente">
+                    <div class="stat-circle">
+                        <div class="stat-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="stat-label">Tu Hosting</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
+<!-- Dashboard Cards -->
+<section class="dashboard-cards py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Card Mis Hosts -->
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card h-100">
+                    <div class="card-icon">
+                        <i class="fas fa-globe text-chibcha-accent"></i>
+                    </div>
+                    <div class="card-content">
+                        <h5 class="card-title">Mis Sitios Web</h5>
+                        <p class="card-text">Administra tus dominios, configuraciones y estadísticas de rendimiento.</p>
+                        <div class="card-stats">
+                            <span class="stat-number">{% firstof cliente.sitios_count 0 %}</span>
+                            <span class="stat-label">Sitios Activos</span>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'clientes:mis_hosts' %}" class="btn btn-chibcha-primary">
+                            <i class="fas fa-eye me-2"></i>Ver Hosts
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Soporte -->
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card h-100">
+                    <div class="card-icon">
+                        <i class="fas fa-headset text-info"></i>
+                    </div>
+                    <div class="card-content">
+                        <h5 class="card-title">Soporte Técnico</h5>
+                        <p class="card-text">¿Necesitas ayuda? Crea tickets de soporte y recibe asistencia 24/7.</p>
+                        <div class="card-stats">
+                            <span class="stat-number">{% firstof cliente.tickets_count 0 %}</span>
+                            <span class="stat-label">Tickets Abiertos</span>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-info">
+                            <i class="fas fa-plus me-2"></i>Crear Ticket
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Perfil -->
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card h-100">
+                    <div class="card-icon">
+                        <i class="fas fa-user-cog text-success"></i>
+                    </div>
+                    <div class="card-content">
+                        <h5 class="card-title">Mi Perfil</h5>
+                        <p class="card-text">Actualiza tu información personal, configuraciones de cuenta y preferencias.</p>
+                        <div class="card-stats">
+                            <span class="stat-number">{{ request.user.email|slice:":10" }}...</span>
+                            <span class="stat-label">Email</span>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'clientes:perfil' %}" class="btn btn-success">
+                            <i class="fas fa-edit me-2"></i>Editar Perfil
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {% if cliente.es_distribuidor %}
+            <!-- Card Distribuidor (solo si es distribuidor) -->
+            <div class="col-lg-4 col-md-6">
+                <div class="dashboard-card h-100 distribuidor-card">
+                    <div class="card-icon">
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <div class="card-content">
+                        <h5 class="card-title">Panel Distribuidor</h5>
+                        <p class="card-text">Accede a tu panel exclusivo de distribuidor y gestiona tus paquetes.</p>
+                        <div class="card-stats">
+                            <span class="stat-number">VIP</span>
+                            <span class="stat-label">Status</span>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'distribuidores:dashboard' %}" class="btn btn-warning">
+                            <i class="fas fa-crown me-2"></i>Panel VIP
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions -->
+<section class="quick-actions py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center mb-5 text-chibcha-dark">Acciones Rápidas</h3>
+            </div>
+        </div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-auto">
+                <a href="{% url 'tickets:mis_tickets' %}" class="quick-action-btn">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Mis Tickets</span>
+                </a>
+            </div>
+            <div class="col-auto">
+                <a href="{% url 'verificar-url' %}" class="quick-action-btn">
+                    <i class="fas fa-search"></i>
+                    <span>Verificar Dominio</span>
+                </a>
+            </div>
+            <div class="col-auto">
+                <a href="{% url 'home' %}#planes" class="quick-action-btn">
+                    <i class="fas fa-upgrade"></i>
+                    <span>Cambiar Plan</span>
+                </a>
+            </div>
+            <div class="col-auto">
+                <a href="#" class="quick-action-btn">
+                    <i class="fas fa-download"></i>
+                    <span>Backups</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

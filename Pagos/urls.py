@@ -9,8 +9,8 @@ urlpatterns = [
     path('eliminar-direccion/<int:direccion_id>/', views.eliminar_direccion, name='eliminar_direccion'),
     path('eliminar-tarjeta/<int:tarjeta_id>/', views.eliminar_tarjeta, name='eliminar_tarjeta'),
     path("seleccionar-plan/", views.seleccionar_plan, name="seleccionar_plan"),
-    path("direccion-facturacion/", views.direccion_facturacion, name="direccion_facturacion"),
-    path("ingresar-tarjeta/", views.ingresar_tarjeta, name="ingresar_tarjeta"),
+    path("seleccionar-direccion/", views.seleccionar_direccion, name="seleccionar_direccion"),
+    path("seleccionar-tarjeta/", views.seleccionar_tarjeta, name="seleccionar_tarjeta"),
     path("resumen-pago/", views.resumen_pago, name="resumen_pago"),
     path("confirmacion-pago/", views.confirmacion_pago, name="confirmacion_pago"),
 ]

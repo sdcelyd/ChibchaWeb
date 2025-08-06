@@ -13,6 +13,19 @@
                     </h4>
                 </div>
                 <div class="card-body">
+                    {% if request.session.plan_pendiente %}
+                    <div class="alert alert-warning border-0 rounded-3 mb-4">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                            <div>
+                                <strong>Plan pendiente:</strong> Tienes el plan <strong>{{ request.session.plan_pendiente }}</strong> 
+                                en modalidad <strong>{{ request.session.modalidad_pendiente }}</strong> esperando. 
+                                Completa el registro de tu dirección para continuar.
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
                     <form method="post">
                         {% csrf_token %}
                         

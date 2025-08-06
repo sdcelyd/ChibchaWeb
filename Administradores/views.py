@@ -23,8 +23,37 @@ from Pagos.models import Pago
 
 class AdministradorLoginView(LoginView):
     template_name = 'administradores/login.html'
-    success_url = reverse_lazy('administradores:dashboard')
     redirect_authenticated_user = True
+    
+    def get_success_url(self):
+        return reverse_lazy('administradores:dashboard')
+    
+    def form_valid(self, form):
+        """Verificar que el usuario sea administrador antes de autenticar"""
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        
+        user = authenticate(self.request, username=username, password=password)
+        if user is not None:
+            try:
+                administrador = Administrador.objects.get(user=user)
+                if not administrador.activo:
+                    messages.error(self.request, 'Tu cuenta de administrador está desactivada.')
+                    return self.form_invalid(form)
+                    
+                # Actualizar último acceso
+                administrador.ultimo_acceso = timezone.now()
+                administrador.save()
+                
+                login(self.request, user)
+                messages.success(self.request, f'Bienvenido {user.username}. Redirigiendo al panel de administración.')
+                return redirect('administradores:dashboard')
+            except Administrador.DoesNotExist:
+                messages.error(self.request, 'No tienes permisos de administrador para acceder.')
+                return self.form_invalid(form)
+        else:
+            messages.error(self.request, 'Usuario o contraseña incorrectos.')
+            return self.form_invalid(form)
 
 
 @administrador_required

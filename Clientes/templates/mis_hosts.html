@@ -1,11 +1,132 @@
 {% extends "base_clientes.html" %}
+{% load static %}
 
 {% block content %}
-<title>Mis Host - ChibchaWeb</title>
-<div class="container mt-5">
-    <h2>Mis Hosts</h2>
-    <p>Estos son tus dominidos.</p>
-</div>
+<title>Mis Hosts - ChibchaWeb</title>
 
+<!-- Header de Hosts -->
+<section class="hosts-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="hosts-info">
+                    <div class="hosts-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-globe me-2"></i>Gestión de Hosting
+                        </span>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-3">Mis Hosts</h1>
+                    <p class="lead mb-4">
+                        Administra todos tus dominios y servicios de hosting desde un solo lugar
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="hosts-stats">
+                    <div class="stat-host-circle">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Hosts Activos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Contenido de Hosts -->
+<section class="hosts-content py-5">
+    <div class="container">
+        <!-- Estado Actual -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="empty-hosts-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>No tienes hosts configurados</h3>
+                    <p class="text-muted">Comienza agregando tu primer dominio para gestionar tu hosting</p>
+                    
+                    <div class="action-buttons">
+                        <a href="{% url 'pagos:seleccionar_plan' %}" class="btn btn-chibcha-primary btn-lg me-3">
+                            <i class="fas fa-plus me-2"></i>Obtener Plan
+                        </a>
+                        <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-outline-chibcha-primary btn-lg">
+                            <i class="fas fa-headset me-2"></i>Contactar Soporte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información útil -->
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="info-host-card">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket text-primary"></i>
+                    </div>
+                    <h5>Configuración Rápida</h5>
+                    <p>Te ayudamos a configurar tu dominio en minutos con nuestras herramientas automáticas.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-host-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt text-success"></i>
+                    </div>
+                    <h5>SSL Gratuito</h5>
+                    <p>Todos tus dominios incluyen certificado SSL gratuito para mayor seguridad.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-host-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line text-warning"></i>
+                    </div>
+                    <h5>Estadísticas</h5>
+                    <p>Monitorea el rendimiento de tus sitios web con estadísticas detalladas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guía de pasos -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="steps-guide">
+                    <h3 class="text-center mb-5">¿Cómo agregar tu primer host?</h3>
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <h6>Verificar Dominio</h6>
+                                <p>Usa nuestra herramienta para verificar que tu dominio esté disponible</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <h6>Contactar Soporte</h6>
+                                <p>Nuestro equipo te ayudará con la configuración inicial</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <h6>Configuración DNS</h6>
+                                <p>Te proporcionaremos los DNS necesarios para tu dominio</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <h6>¡Listo!</h6>
+                                <p>Tu sitio web estará online en pocas horas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

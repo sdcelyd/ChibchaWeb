@@ -2047,6 +2047,97 @@ body {
 
 /* Planes con Colores de Paleta Chibcha */
 
+/* Estilos base para planes simples */
+.plans-simple {
+    background: #f8f9fa;
+}
+
+.plan-card-simple {
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-header-simple {
+    margin-bottom: 1.5rem;
+}
+
+.plan-header-simple h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.plan-price-simple {
+    margin-bottom: 1.5rem;
+}
+
+.plan-price-simple .currency {
+    font-size: 1.2rem;
+    font-weight: 600;
+    vertical-align: top;
+}
+
+.plan-price-simple .amount {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.plan-price-simple .period {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.plan-features {
+    flex-grow: 1;
+    margin-bottom: 2rem;
+}
+
+.plan-features ul {
+    margin: 0;
+    padding: 0;
+}
+
+.plan-features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.plan-features li:last-child {
+    border-bottom: none;
+}
+
+.plan-features li i {
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+}
+
+.plan-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #ff4757;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
 /* Plan Starter - Color Chibcha Medium */
 .plan-starter {
     background: linear-gradient(135deg, #69554b 0%, #5a4841 100%);
@@ -3391,4 +3482,1501 @@ input:checked + .slider:before {
         flex-direction: column;
         align-items: center;
     }
+}
+
+/* =============================================================
+   DASHBOARD DE CLIENTES - DISEÑO EXPLOSIVO
+   ============================================================= */
+
+/* Hero Dashboard Cliente */
+.hero-dashboard-cliente {
+    background: linear-gradient(135deg, #1b1215 0%, #69554b 50%, #6c371f 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-dashboard-cliente::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(234,178,27,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(107,55,31,0.1) 0%, transparent 50%);
+    animation: dashboardFlow 8s ease-in-out infinite;
+}
+
+@keyframes dashboardFlow {
+    0%, 100% { opacity: 1; transform: translateX(0); }
+    50% { opacity: 0.8; transform: translateX(10px); }
+}
+
+.hero-content-cliente {
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-badge {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.plan-status-card {
+    background: rgba(229, 211, 181, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(234, 178, 27, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    animation: slideInLeft 1s ease-out 0.3s both;
+}
+
+.status-active {
+    color: #4caf50;
+    font-weight: 600;
+}
+
+.status-inactive {
+    color: #ff9800;
+    font-weight: 600;
+}
+
+.hero-stats-cliente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.stat-circle {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(234,178,27,0.2) 0%, rgba(107,55,31,0.1) 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(234, 178, 27, 0.4);
+    backdrop-filter: blur(15px);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.stat-icon {
+    font-size: 3rem;
+    color: #eab21b;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+    margin-top: -50px;
+    position: relative;
+    z-index: 3;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #eab21b, #6c371f);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover::before {
+    transform: scaleX(1);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(234, 178, 27, 0.3);
+}
+
+.dashboard-card .card-icon {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-card .card-icon i {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #eab21b, #6c371f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dashboard-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1b1215;
+    margin-bottom: 1rem;
+}
+
+.dashboard-card .card-text {
+    color: #69554b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-card .card-stats {
+    background: linear-gradient(135deg, rgba(234,178,27,0.1) 0%, rgba(107,55,31,0.05) 100%);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-stats .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #eab21b;
+    line-height: 1;
+}
+
+.card-stats .stat-label {
+    font-size: 0.85rem;
+    color: #69554b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.dashboard-card .card-action {
+    text-align: center;
+}
+
+/* Card Distribuidor Especial */
+.distribuidor-card {
+    background: linear-gradient(135deg, #fff8e1 0%, #fffaf5 100%);
+    border: 2px solid #ffc107;
+}
+
+.distribuidor-card .card-icon i {
+    color: #ffc107 !important;
+    -webkit-text-fill-color: #ffc107 !important;
+}
+
+/* Quick Actions */
+.quick-actions {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.quick-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 100px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: #69554b;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.quick-action-btn:hover {
+    color: #1b1215;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: rgba(234, 178, 27, 0.3);
+    background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+}
+
+.quick-action-btn i {
+    font-size: 1.5rem;
+    color: #eab21b;
+    margin-bottom: 0.5rem;
+}
+
+.quick-action-btn span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-dashboard-cliente {
+        min-height: 50vh;
+        text-align: center;
+    }
+    
+    .stat-circle {
+        width: 150px;
+        height: 150px;
+        margin-top: 2rem;
+    }
+    
+    .stat-icon {
+        font-size: 2rem;
+    }
+    
+    .dashboard-cards {
+        margin-top: -20px;
+    }
+    
+    .quick-action-btn {
+        width: 100px;
+        height: 80px;
+    }
+    
+    .quick-action-btn i {
+        font-size: 1.2rem;
+    }
+    
+    .quick-action-btn span {
+        font-size: 0.75rem;
+    }
+}
+
+/* =============================================================
+   PERFIL DE CLIENTE - DISEÑO PROFESIONAL
+   ============================================================= */
+
+/* Header del Perfil */
+.profile-header {
+    background: linear-gradient(135deg, #1b1215 0%, #69554b 50%, #6c371f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(234,178,27,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(107,55,31,0.08) 0%, transparent 50%);
+}
+
+.profile-info {
+    position: relative;
+    z-index: 2;
+}
+
+.profile-avatar {
+    position: relative;
+    z-index: 2;
+}
+
+.avatar-circle {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(234,178,27,0.2) 0%, rgba(107,55,31,0.1) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 4px solid rgba(234, 178, 27, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.avatar-circle i {
+    font-size: 4rem;
+    color: #eab21b;
+}
+
+/* Profile Cards */
+.profile-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-color: rgba(234, 178, 27, 0.2);
+}
+
+.card-header-custom {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 2px solid rgba(234, 178, 27, 0.1);
+    padding: 1.5rem;
+}
+
+.card-header-custom h4,
+.card-header-custom h5 {
+    margin: 0;
+    color: #1b1215;
+    font-weight: 700;
+}
+
+.profile-card .card-body {
+    padding: 2rem;
+}
+
+/* Info Items */
+.info-item {
+    margin-bottom: 1.5rem;
+}
+
+.info-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #69554b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1b1215;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, rgba(234,178,27,0.05) 0%, rgba(107,55,31,0.02) 100%);
+    border-radius: 8px;
+    border-left: 4px solid #eab21b;
+}
+
+/* Account Status */
+.account-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.status-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.status-text strong {
+    color: #1b1215;
+    font-size: 1.1rem;
+}
+
+/* Plan Info */
+.plan-active {
+    text-align: center;
+}
+
+.plan-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.plan-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1b1215;
+}
+
+.plan-details {
+    text-align: left;
+}
+
+.detail-item {
+    margin-bottom: 0.75rem;
+}
+
+.detail-item small {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.detail-item div {
+    font-weight: 600;
+    color: #1b1215;
+}
+
+.plan-inactive {
+    padding: 1.5rem;
+}
+
+.inactive-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Quick Actions Profile */
+.quick-actions-profile {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 110px;
+    background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: #69554b;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.action-item:hover {
+    color: #1b1215;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-color: rgba(234, 178, 27, 0.4);
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+}
+
+.action-item i {
+    font-size: 1.8rem;
+    color: #eab21b;
+    margin-bottom: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.action-item:hover i {
+    transform: scale(1.1);
+}
+
+.action-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-header {
+        text-align: center;
+    }
+    
+    .avatar-circle {
+        width: 120px;
+        height: 120px;
+        margin-top: 2rem;
+    }
+    
+    .avatar-circle i {
+        font-size: 3rem;
+    }
+    
+    .plan-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .action-item {
+        width: 120px;
+        height: 90px;
+    }
+    
+    .action-item i {
+        font-size: 1.5rem;
+    }
+    
+    .action-item span {
+        font-size: 0.8rem;
+    }
+}
+
+/* =============================================================
+   MIS HOSTS - DISEÑO PROFESIONAL
+   ============================================================= */
+
+/* Header de Hosts */
+.hosts-header {
+    background: linear-gradient(135deg, #1b1215 0%, #69554b 50%, #6c371f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hosts-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 75%, rgba(234,178,27,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(107,55,31,0.08) 0%, transparent 50%);
+}
+
+.hosts-info {
+    position: relative;
+    z-index: 2;
+}
+
+.hosts-stats {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-host-circle {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(234,178,27,0.2) 0%, rgba(107,55,31,0.1) 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(234, 178, 27, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.stat-host-circle .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #eab21b;
+    line-height: 1;
+}
+
+.stat-host-circle .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Estado Vacío */
+.empty-hosts-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+}
+
+.empty-icon {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(234,178,27,0.1) 0%, rgba(107,55,31,0.05) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    border: 2px solid rgba(234, 178, 27, 0.2);
+}
+
+.empty-icon i {
+    font-size: 3rem;
+    color: #eab21b;
+}
+
+.empty-hosts-state h3 {
+    color: #1b1215;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.empty-hosts-state p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+.action-buttons {
+    margin-top: 2rem;
+}
+
+/* Info Cards */
+.info-host-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.info-host-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-color: rgba(234, 178, 27, 0.2);
+}
+
+.info-host-card .card-icon {
+    margin-bottom: 1.5rem;
+}
+
+.info-host-card .card-icon i {
+    font-size: 2.5rem;
+}
+
+.info-host-card h5 {
+    color: #1b1215;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.info-host-card p {
+    color: #69554b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Steps Guide */
+.steps-guide {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+}
+
+.steps-guide h3 {
+    color: #1b1215;
+    font-weight: 700;
+}
+
+.step-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: rgba(234, 178, 27, 0.2);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #eab21b, #6c371f);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 auto 1rem;
+}
+
+.step-item h6 {
+    color: #1b1215;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.step-item p {
+    color: #69554b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hosts-header {
+        text-align: center;
+    }
+    
+    .stat-host-circle {
+        width: 120px;
+        height: 120px;
+        margin-top: 2rem;
+    }
+    
+    .stat-host-circle .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-host-circle .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    .empty-hosts-state {
+        padding: 3rem 1.5rem;
+    }
+    
+    .empty-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .empty-icon i {
+        font-size: 2.5rem;
+    }
+    
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .action-buttons .btn {
+        margin: 0 !important;
+    }
+    
+    .steps-guide {
+        padding: 2rem 1rem;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* =============================================================
+   SELECCIONAR PLAN - DISEÑO EXPLOSIVO
+   ============================================================= */
+
+/* Header de Planes */
+.plans-header {
+    background: linear-gradient(135deg, #1b1215 0%, #69554b 50%, #6c371f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.plans-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 75%, rgba(234,178,27,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(107,55,31,0.08) 0%, transparent 50%);
+}
+
+.plans-info {
+    position: relative;
+    z-index: 2;
+}
+
+.plans-stats {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-plans-circle {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(234,178,27,0.2) 0%, rgba(107,55,31,0.1) 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(234, 178, 27, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.stat-plans-circle .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #eab21b;
+    line-height: 1;
+}
+
+.stat-plans-circle .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Selector de Facturación */
+.billing-selector {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid rgba(234, 178, 27, 0.1);
+}
+
+.billing-options h5 {
+    color: #1b1215;
+    font-weight: 700;
+}
+
+.billing-tabs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+}
+
+.tab-option {
+    flex: 1;
+    max-width: 200px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.tab-option:hover {
+    background: rgba(234, 178, 27, 0.05);
+    border-color: rgba(234, 178, 27, 0.2);
+    transform: translateY(-2px);
+}
+
+.tab-option.active {
+    background: linear-gradient(135deg, rgba(234,178,27,0.1) 0%, rgba(107,55,31,0.05) 100%);
+    border-color: #eab21b;
+    box-shadow: 0 4px 15px rgba(234, 178, 27, 0.2);
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab-icon {
+    margin-bottom: 0.5rem;
+}
+
+.tab-icon i {
+    font-size: 1.5rem;
+    color: #69554b;
+    transition: color 0.3s ease;
+}
+
+.tab-option.active .tab-icon i {
+    color: #eab21b;
+}
+
+.tab-option h6 {
+    color: #1b1215;
+    font-weight: 700;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.tab-option p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.tab-option .save-badge {
+    background: linear-gradient(135deg, #eab21b, #6c371f);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 0.2rem;
+}
+
+.billing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+}
+
+.billing-label {
+    font-weight: 600;
+    color: #1b1215;
+}
+
+.save-badge {
+    background: linear-gradient(135deg, #eab21b, #6c371f);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-left: 0.5rem;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    transition: 0.4s;
+    border-radius: 30px;
+}
+
+.toggle-label:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-input:checked + .toggle-label {
+    background: linear-gradient(135deg, #eab21b, #6c371f);
+}
+
+.toggle-input:checked + .toggle-label:before {
+    transform: translateX(30px);
+}
+
+/* Cards de Planes */
+.plan-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    overflow: hidden;
+}
+
+.plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(234,178,27,0.02) 0%, rgba(107,55,31,0.01) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(234, 178, 27, 0.3);
+}
+
+.plan-card:hover::before {
+    opacity: 1;
+}
+
+.plan-card.selected {
+    border-color: #eab21b;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(234, 178, 27, 0.2);
+}
+
+.plan-card.selected::before {
+    opacity: 1;
+}
+
+.plan-card.popular {
+    border-color: #eab21b;
+    transform: scale(1.05);
+}
+
+.plan-card.popular::before {
+    opacity: 1;
+}
+
+/* Badge Popular */
+.popular-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #eab21b, #6c371f);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0 0 15px 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+/* Header del Plan */
+.plan-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
+.plan-icon {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+}
+
+.icon-background {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.icon-background.silver {
+    background: linear-gradient(135deg, #69554b 0%, #5a4640 50%, #4a3a35 100%);
+    border: 3px solid #8a6f66;
+}
+
+.icon-background.platinum {
+    background: linear-gradient(135deg, #eab21b 0%, #d19f17 50%, #b88c14 100%);
+    border: 3px solid #f2c341;
+    box-shadow: 0 8px 25px rgba(234, 178, 27, 0.2);
+}
+
+.icon-background.gold {
+    background: linear-gradient(135deg, #6c371f 0%, #5d2f1a 50%, #4e2715 100%);
+    border: 3px solid #8a4a28;
+}
+
+.icon-background i {
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.plan-icon i {
+    font-size: 3rem;
+}
+
+.plan-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1b1215;
+    margin-bottom: 1rem;
+}
+
+.plan-price {
+    margin-bottom: 0.5rem;
+}
+
+.price-amount {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #eab21b;
+    line-height: 1;
+}
+
+.price-period {
+    font-size: 1rem;
+    color: #69554b;
+    font-weight: 500;
+}
+
+.yearly-save {
+    margin-top: 0.5rem;
+}
+
+/* Features del Plan */
+.plan-features {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+/* Radio Check */
+.plan-action {
+    position: relative;
+    z-index: 2;
+}
+
+.plan-radio {
+    display: flex;
+    justify-content: center;
+}
+
+.radio-check {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.plan-card.selected .radio-check {
+    border-color: #eab21b;
+    background: linear-gradient(135deg, #eab21b, #6c371f);
+    color: white;
+}
+
+.radio-check i {
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.plan-card.selected .icon-background.silver {
+    background: linear-gradient(135deg, #7a645b 0%, #69554b 50%, #5a4640 100%);
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(105, 85, 75, 0.3);
+}
+
+.plan-card.selected .icon-background.platinum {
+    background: linear-gradient(135deg, #f5c84d 0%, #eab21b 50%, #d19f17 100%);
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(234, 178, 27, 0.4);
+}
+
+.plan-card.selected .icon-background.gold {
+    background: linear-gradient(135deg, #8a4a28 0%, #6c371f 50%, #5d2f1a 100%);
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(108, 55, 31, 0.4);
+}
+
+.plan-card:hover .icon-background {
+    transform: translateY(-5px);
+}
+
+.plan-card.selected .radio-check i {
+    opacity: 1;
+}
+
+/* Información Adicional */
+.additional-info {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+}
+
+.additional-info h4 {
+    color: #1b1215;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    padding: 1rem;
+}
+
+.info-icon {
+    margin-bottom: 1rem;
+}
+
+.info-icon i {
+    font-size: 2.5rem;
+}
+
+.info-item h6 {
+    color: #1b1215;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* Introducción de Planes */
+.plans-intro {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+    margin-bottom: 3rem;
+}
+
+.plans-intro h2 {
+    color: #1b1215;
+    font-weight: 700;
+}
+
+.intro-feature {
+    padding: 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(234,178,27,0.02) 0%, rgba(107,55,31,0.01) 100%);
+    border-radius: 15px;
+    border: 1px solid rgba(234, 178, 27, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.intro-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-color: rgba(234, 178, 27, 0.1);
+}
+
+.feature-icon {
+    margin-bottom: 1rem;
+}
+
+.feature-icon i {
+    font-size: 2.5rem;
+}
+
+.intro-feature h6 {
+    color: #1b1215;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.intro-feature p {
+    color: #69554b;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Clases de color Chibcha */
+.text-chibcha-primary {
+    color: #eab21b !important;
+}
+
+.text-chibcha-secondary {
+    color: #69554b !important;
+}
+
+.text-chibcha-accent {
+    color: #6c371f !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .plan-card.popular {
+        transform: none;
+        margin-bottom: 2rem;
+    }
+    
+    .billing-tabs {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .tab-option {
+        max-width: none;
+        padding: 1rem;
+    }
+    
+    .stat-plans-circle {
+        width: 120px;
+        height: 120px;
+        margin-top: 2rem;
+    }
+    
+    .stat-plans-circle .stat-number {
+        font-size: 2rem;
+    }
+    
+    .price-amount {
+        font-size: 2.5rem;
+    }
+    
+    .icon-background {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .icon-background i {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .plans-header {
+        text-align: center;
+    }
+    
+    .billing-tabs {
+        flex-direction: column;
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+    
+    .tab-option {
+        padding: 1rem 0.75rem;
+    }
+    
+    .tab-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .plan-card {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .plan-name {
+        font-size: 1.5rem;
+    }
+    
+    .price-amount {
+        font-size: 2rem;
+    }
+    
+    .features-list li {
+        font-size: 0.9rem;
+    }
+    
+    .icon-background {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .icon-background i {
+        font-size: 1.8rem;
+    }
+}
+
+/* Información de Requisitos */
+.requirements-info .alert {
+    background: linear-gradient(135deg, rgba(234,178,27,0.1) 0%, rgba(107,55,31,0.05) 100%);
+    border-left: 4px solid #eab21b !important;
+    color: #1b1215;
+}
+
+.requirements-info .alert i {
+    color: #eab21b;
+    font-size: 1.1rem;
+}
+
+.requirements-info .alert strong {
+    color: #6c371f;
 }
