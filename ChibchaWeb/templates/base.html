@@ -64,6 +64,10 @@
                             <i class="bi bi-envelope"></i> Contacto
                         </a>
                     </li>
+                    <!-- Language Selector -->
+                    <li class="nav-item">
+                        {% include 'components/language_selector.html' %}
+                    <li>
                 </ul>
                 
                 {% if user.is_authenticated %}
@@ -93,6 +97,7 @@
                 </div>
                 {% else %}
                 <div class="d-flex align-items-center">
+                    
                     <a class="btn btn-outline-light me-2" href="{% url 'login' %}">
                         <i class="fas fa-sign-in-alt"></i> Iniciar sesión
                     </a>
