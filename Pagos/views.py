@@ -164,17 +164,35 @@ def direccion_facturacion(request):
 
 @login_required
 def ingresar_tarjeta(request):
-    if request.method == "POST":
-        request.session["numero_tarjeta"] = request.POST.get("numero")
-        request.session["titular_tarjeta"] = request.POST.get("titular")
-        request.session["expiracion_tarjeta"] = request.POST.get("expiracion")
-        request.session["cvv_tarjeta"] = request.POST.get("cvv")
+    cliente = request.user.cliente
+    tarjetas = TarjetaCredito.objects.filter(cliente=cliente)
 
+    if request.method == "POST":
+        if "tarjeta_seleccionada" in request.POST:
+            # Usuario eligió una tarjeta ya guardada
+            tarjeta_id = request.POST.get("tarjeta_seleccionada")
+            tarjeta = TarjetaCredito.objects.get(id=tarjeta_id, cliente=cliente)
+
+            request.session["numero_tarjeta"] = tarjeta.numero
+            request.session["titular_tarjeta"] = tarjeta.nombre_titular
+            request.session["expiracion_tarjeta"] = tarjeta.fecha_expiracion
+            request.session["cvv_tarjeta"] = tarjeta.cvv  # si lo almacenas (aunque normalmente no se guarda el CVV)
+
+        elif "nueva_tarjeta" in request.POST:
+            # Usuario está agregando una nueva tarjeta
+            request.session["numero_tarjeta"] = request.POST.get("numero")
+            request.session["titular_tarjeta"] = request.POST.get("titular")
+            request.session["expiracion_tarjeta"] = request.POST.get("expiracion")
+            request.session["cvv_tarjeta"] = request.POST.get("cvv")
+
+        # Redirección según el flujo activo
         if request.session.get("es_compra_paquetes"):
             return redirect("pagos:resumen_pago_paquetes")
         return redirect("pagos:resumen_pago")
 
-    return render(request, "pagos/ingresar_tarjeta.html")
+    return render(request, "pagos/ingresar_tarjeta.html", {
+        "tarjetas": tarjetas,
+    })
 
 
 def resumen_pago(request):
