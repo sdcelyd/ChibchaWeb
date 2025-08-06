@@ -37,7 +37,7 @@ def registrar_direccion(request):
                             'paises': paises,
                             'from_payment': 'from_payment' in request.GET,
                         }
-                        return render(request, 'pagos/registrar_direccion.html', context)
+                        return render(request, 'registrar_direccion.html', context)
                 
                 direccion = Direccion.objects.create(
                     ubicacion=ubicacion,
@@ -47,9 +47,9 @@ def registrar_direccion(request):
                 )
                 messages.success(request, "Dirección registrada exitosamente.")
                 
-                # Si viene del flujo de pago, redirigir de vuelta a selección de direcciones
+                # Si viene del flujo de pago, redirigir de vuelta a selección unificada
                 if 'from_payment' in request.GET:
-                    return redirect('pagos:seleccionar_direccion')
+                    return redirect('pagos:seleccionar_direccion_tarjeta')
                 
                 # Verificar si hay un plan pendiente
                 plan_pendiente = request.session.get("plan_pendiente")
@@ -65,7 +65,7 @@ def registrar_direccion(request):
                         request.session.pop("plan_pendiente", None)
                         request.session.pop("modalidad_pendiente", None)
                         messages.success(request, f"¡Perfecto! Ahora puedes continuar con tu plan {plan_pendiente}.")
-                        return redirect("pagos:seleccionar_direccion")
+                        return redirect("pagos:seleccionar_direccion_tarjeta")
                     else:
                         # Aún falta la tarjeta
                         messages.info(request, "Ahora necesitas registrar una tarjeta de crédito para completar tu plan.")
@@ -82,7 +82,7 @@ def registrar_direccion(request):
         'paises': paises,
         'from_payment': 'from_payment' in request.GET,
     }
-    return render(request, 'pagos/registrar_direccion.html', context)
+    return render(request, 'registrar_direccion.html', context)
 
 
 @cliente_required
@@ -103,12 +103,12 @@ def registrar_tarjeta(request):
                 # Validar formato de fecha (MM/AA)
                 if not re.match(r'^\d{2}/\d{2}$', fecha_expiracion):
                     messages.error(request, "El formato de fecha debe ser MM/AA")
-                    return render(request, 'pagos/registrar_tarjeta.html')
+                    return render(request, 'registrar_tarjeta.html')
                 
                 # Validar CVV (3 o 4 dígitos)
                 if not re.match(r'^\d{3,4}$', cvv):
                     messages.error(request, "El CVV debe tener 3 o 4 dígitos")
-                    return render(request, 'pagos/registrar_tarjeta.html')
+                    return render(request, 'registrar_tarjeta.html')
                 
                 tarjeta = TarjetaCredito.objects.create(
                     numero=numero,
@@ -124,9 +124,9 @@ def registrar_tarjeta(request):
                 
                 messages.success(request, "Tarjeta de crédito registrada exitosamente.")
                 
-                # Si viene del flujo de pago, redirigir de vuelta a selección de tarjetas
+                # Si viene del flujo de pago, redirigir de vuelta a selección unificada
                 if 'from_payment' in request.GET:
-                    return redirect('pagos:seleccionar_tarjeta')
+                    return redirect('pagos:seleccionar_direccion_tarjeta')
                 
                 # Verificar si hay un plan pendiente
                 plan_pendiente = request.session.get("plan_pendiente")
@@ -142,7 +142,7 @@ def registrar_tarjeta(request):
                         request.session.pop("plan_pendiente", None)
                         request.session.pop("modalidad_pendiente", None)
                         messages.success(request, f"¡Perfecto! Ahora puedes continuar con tu plan {plan_pendiente}.")
-                        return redirect("pagos:seleccionar_direccion")
+                        return redirect("pagos:seleccionar_direccion_tarjeta")
                     else:
                         # Aún falta la dirección
                         messages.info(request, "Ahora necesitas registrar una dirección de facturación para completar tu plan.")
@@ -151,7 +151,7 @@ def registrar_tarjeta(request):
                 return redirect('clientes:detalle_cliente')
             except ValidationError as e:
                 messages.error(request, str(e))
-                return render(request, 'pagos/registrar_tarjeta.html')
+                return render(request, 'registrar_tarjeta.html')
             except Exception as e:
                 messages.error(request, f"Error al registrar la tarjeta: {str(e)}")
         else:
@@ -161,7 +161,7 @@ def registrar_tarjeta(request):
         'from_payment': 'from_payment' in request.GET,
     }
     
-    return render(request, 'pagos/registrar_tarjeta.html', context)
+    return render(request, 'registrar_tarjeta.html', context)
 
 
 @cliente_required
@@ -230,16 +230,16 @@ def seleccionar_plan(request):
             request.session["modalidad_pendiente"] = modalidad
             return redirect("pagos:registrar_tarjeta")
         
-        # Si tiene ambos, continuar a seleccionar dirección específica
+        # Si tiene ambos, continuar a seleccionar dirección y tarjeta específicas
         request.session["plan"] = plan
         request.session["modalidad"] = modalidad
-        messages.success(request, f"Plan {plan} en modalidad {modalidad} seleccionado. Ahora selecciona tu dirección de facturación.")
-        return redirect("pagos:seleccionar_direccion")
+        messages.success(request, f"Plan {plan} en modalidad {modalidad} seleccionado. Ahora selecciona tu dirección y tarjeta de pago.")
+        return redirect("pagos:seleccionar_direccion_tarjeta")
     
-    return render(request, "pagos/seleccionar_plan.html", {"planes": PLANES_DISPONIBLES})
+    return render(request, "seleccionar_plan.html", {"planes": PLANES_DISPONIBLES})
 
 @login_required
-def seleccionar_direccion(request):
+def seleccionar_direccion_tarjeta(request):
     try:
         cliente = request.user.cliente
     except:
@@ -255,66 +255,46 @@ def seleccionar_direccion(request):
     
     if request.method == "POST":
         direccion_id = request.POST.get("direccion_id")
+        tarjeta_id = request.POST.get("tarjeta_id")
         accion = request.POST.get("accion")
         
+        # Manejar acciones de crear nuevos elementos
         if accion == "nueva_direccion":
             return redirect("pagos:registrar_direccion?from_payment=true")
-        elif direccion_id:
-            # Verificar que la dirección pertenece al cliente
+        elif accion == "nueva_tarjeta":
+            return redirect("pagos:registrar_tarjeta?from_payment=true")
+        
+        # Validar que se seleccionaron ambos
+        if not direccion_id or not tarjeta_id:
+            messages.error(request, "Debes seleccionar una dirección y una tarjeta para continuar.")
+        else:
+            # Verificar que ambos pertenecen al cliente
             try:
                 direccion = get_object_or_404(Direccion, direccionId=direccion_id, cliente=cliente)
+                tarjeta = get_object_or_404(TarjetaCredito, id=tarjeta_id, cliente=cliente)
+                
+                # Guardar en sesión
                 request.session["direccion_id"] = direccion.direccionId
-                messages.success(request, f"Dirección seleccionada: {direccion.ubicacion}")
-                return redirect("pagos:seleccionar_tarjeta")
+                request.session["tarjeta_id"] = tarjeta.id
+                
+                messages.success(request, f"Seleccionado: {direccion.ubicacion} y tarjeta terminada en {tarjeta.numero[-4:]}")
+                return redirect("pagos:resumen_pago")
             except:
-                messages.error(request, "Dirección no válida.")
-        else:
-            messages.error(request, "Debes seleccionar una dirección.")
+                messages.error(request, "Dirección o tarjeta no válida.")
     
-    # Obtener todas las direcciones del cliente
+    # Obtener direcciones y tarjetas del cliente
     direcciones = cliente.direcciones.all()
+    tarjetas = cliente.tarjetas.all()
+    
     context = {
         "direcciones": direcciones,
+        "tarjetas": tarjetas,
         "plan": plan,
         "modalidad": modalidad,
         "precio": PLANES_DISPONIBLES[plan][f"precio_{modalidad}"]
     }
     
-    return render(request, "pagos/seleccionar_direccion.html", context)
-
-@login_required
-def ingresar_tarjeta(request):
-    if request.method == "POST":
-        tarjeta_id = request.POST.get("tarjeta_id")
-        accion = request.POST.get("accion")
-        
-        if accion == "nueva_tarjeta":
-            return redirect("pagos:registrar_tarjeta?from_payment=true")
-        elif tarjeta_id:
-            # Verificar que la tarjeta pertenece al cliente
-            try:
-                tarjeta = get_object_or_404(TarjetaCredito, id=tarjeta_id, cliente=cliente)
-                request.session["tarjeta_id"] = tarjeta.id
-                messages.success(request, f"Tarjeta seleccionada: **** **** **** {tarjeta.numero[-4:]}")
-                return redirect("pagos:resumen_pago")
-            except:
-                messages.error(request, "Tarjeta no válida.")
-        else:
-            messages.error(request, "Debes seleccionar una tarjeta.")
-    
-    # Obtener todas las tarjetas del cliente
-    tarjetas = cliente.tarjetas.all()
-    direccion = get_object_or_404(Direccion, direccionId=direccion_id, cliente=cliente)
-    
-    context = {
-        "tarjetas": tarjetas,
-        "plan": plan,
-        "modalidad": modalidad,
-        "precio": PLANES_DISPONIBLES[plan][f"precio_{modalidad}"],
-        "direccion": direccion
-    }
-    
-    return render(request, "pagos/seleccionar_tarjeta.html", context)
+    return render(request, "seleccionar_direccion_tarjeta.html", context)
 
 @login_required
 def resumen_pago(request):
@@ -383,7 +363,7 @@ def resumen_pago(request):
         "tarjeta": tarjeta
     }
 
-    return render(request, "pagos/resumen_pago.html", resumen)
+    return render(request, "resumen_pago.html", resumen)
 
 @login_required
 def confirmacion_pago(request):
@@ -395,7 +375,7 @@ def confirmacion_pago(request):
     for key in keys_to_remove:
         request.session.pop(key, None)
 
-    return render(request, "pagos/confirmacion_pago.html")
+    return render(request, "confirmacion_pago.html")
 
 @login_required
 @distribuidor_required
@@ -404,73 +384,89 @@ def seleccionar_paquete(request):
         cantidad = request.POST.get("cantidad")
         request.session["cantidad_paquetes"] = int(cantidad)
         request.session["es_compra_paquetes"] = True
-        return redirect("pagos:direccion_facturacion")  # Reutilizas esta vista
-    return render(request, "pagos/seleccionar_paquete.html")
+        return redirect("pagos:seleccionar_direccion_tarjeta")  # Usar el nuevo flujo
+    return render(request, "seleccionar_paquete.html")
 
 @login_required
 @distribuidor_required
 def resumen_pago_paquetes(request):
-    if request.method == "POST":
-        distribuidor = request.user.cliente  # es un Distribuidor
-        tarjeta = TarjetaCredito.objects.create(
-            numero=request.session["numero_tarjeta"],
-            nombre_titular=request.session["titular_tarjeta"],
-            fecha_expiracion=request.session["expiracion_tarjeta"],
-            cvv=request.session["cvv_tarjeta"],
-            cliente=distribuidor
-        )
+    cliente = request.cliente  # Proporcionado por el decorador
+    
+    # Verificar que tenemos todos los datos necesarios
+    cantidad_paquetes = request.session.get("cantidad_paquetes")
+    direccion_id = request.session.get("direccion_id")
+    tarjeta_id = request.session.get("tarjeta_id")
+    
+    if not all([cantidad_paquetes, direccion_id, tarjeta_id]):
+        messages.error(request, "Faltan datos para procesar el pago. Por favor, inicia el proceso nuevamente.")
+        return redirect("pagos:seleccionar_paquete")
+    
+    # Obtener los objetos
+    try:
+        direccion = get_object_or_404(Direccion, direccionId=direccion_id, cliente=cliente)
+        tarjeta = get_object_or_404(TarjetaCredito, id=tarjeta_id, cliente=cliente)
+    except:
+        messages.error(request, "Datos de dirección o tarjeta no válidos.")
+        return redirect("pagos:seleccionar_paquete")
 
-        direccion_id = request.session.get("direccion_id")
-        cantidad_paquetes = int(request.session.get("cantidad_paquetes"))
-        precio_unitario = 25  # HAY QUE DEFINIR EL PRECIOO
+    if request.method == "POST":
+        cantidad_paquetes = int(cantidad_paquetes)
+        precio_unitario = 25  # Definir precio por página
         monto = cantidad_paquetes * precio_unitario
 
-        # Crear el pago asociado a distribuidor
+        # Crear el pago base
         pago = Pago.objects.create(
-            cliente=distribuidor,
-            direccion_id=direccion_id,
+            cliente=cliente,
+            direccion=direccion,
             tarjeta_usada=tarjeta,
             monto=monto
         )
 
-        # Crear el registro extendido
+        # Crear el registro extendido para distribuidores
         PagoDistribuidor.objects.create(
-            cliente=distribuidor,
-            direccion_id=direccion_id,
+            cliente=cliente,
+            direccion=direccion,
             tarjeta_usada=tarjeta,
             monto=monto,
             cantidad_paginas=cantidad_paquetes,
             descripcion=f"Compra de {cantidad_paquetes} páginas para reventa"
         )
 
-        distribuidor_perfil = distribuidor.perfil_distribuidor  # accede al modelo Distribuidor
-        distribuidor_perfil.cantidad_dominios += cantidad_paquetes
-        distribuidor_perfil.save()
+        # Actualizar el perfil del distribuidor
+        try:
+            distribuidor_perfil = cliente.perfil_distribuidor
+            distribuidor_perfil.cantidad_dominios += cantidad_paquetes
+            distribuidor_perfil.save()
+        except:
+            messages.warning(request, "No se pudo actualizar el perfil de distribuidor.")
 
-
-
+        messages.success(request, f"¡Pago procesado exitosamente! Se agregaron {cantidad_paquetes} páginas a tu cuenta.")
         return redirect("pagos:confirmacion_pago_paquetes")
 
     # Mostrar resumen
-    cantidad = int(request.session.get("cantidad_paquetes", 0))
+    cantidad = int(cantidad_paquetes)
     precio_unitario = 25
-    direccion = Direccion.objects.get(direccionId=request.session["direccion_id"])
     total = cantidad * precio_unitario
 
-    return render(request, "pagos/resumen_pago_paquetes.html", {
+    resumen = {
         "cantidad": cantidad,
         "precio_unitario": precio_unitario,
         "total": total,
         "direccion": direccion,
-        "tarjeta": f"**** **** **** {request.session.get('numero_tarjeta')[-4:]}"
-    })
+        "tarjeta": tarjeta
+    }
+
+    return render(request, "resumen_pago_paquetes.html", resumen)
 
 
 @login_required
 @distribuidor_required
 def confirmacion_pago_paquetes(request):
-    # Limpieza de sesión
-    for key in ["cantidad_paquetes", "direccion_id", "numero_tarjeta", "titular_tarjeta", "expiracion_tarjeta", "cvv_tarjeta", "es_compra_paquetes"]:
+    # Limpieza de sesión - usar las variables del nuevo flujo
+    keys_to_remove = [
+        "cantidad_paquetes", "direccion_id", "tarjeta_id", "es_compra_paquetes"
+    ]
+    for key in keys_to_remove:
         request.session.pop(key, None)
 
-    return render(request, "pagos/confirmacion_pago_paquetes.html")
+    return render(request, "confirmacion_pago_paquetes.html")

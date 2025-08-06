@@ -1,0 +1,287 @@
+{% extends "base_clientes.html" %}
+{% load static %}
+
+{% block content %}
+<title>Seleccionar Plan - ChibchaWeb</title>
+
+<!-- Header de Planes -->
+<section class="plans-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <div class="plans-info">
+                    <div class="plans-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-server me-2"></i>Hosting Premium
+                        </span>
+                    </div>
+                    <h1 class="display-5 fw-bold mb-3">Planes de Hosting ChibchaWeb</h1>
+                    <p class="lead mb-0">
+                        Encuentra el plan perfecto para tu proyecto. Todos incluyen SSL gratuito, 
+                        creador de sitios web y soporte técnico especializado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Selector de Modalidad -->
+<section class="billing-selector py-4 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="billing-options">
+                    <h5 class="text-center mb-4">Elige tu modalidad de pago</h5>
+                    <div class="billing-tabs">
+                        <div class="tab-option active" data-period="mensual">
+                            <div class="tab-content">
+                                <div class="tab-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <h6>Mensual</h6>
+                                <p class="small text-muted">Pago mes a mes</p>
+                            </div>
+                        </div>
+                        <div class="tab-option" data-period="semestral">
+                            <div class="tab-content">
+                                <div class="tab-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <h6>Semestral</h6>
+                                <p class="small text-muted">Ahorra un 10%</p>
+                            </div>
+                        </div>
+                        <div class="tab-option" data-period="anual">
+                            <div class="tab-content">
+                                <div class="tab-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h6>Anual</h6>
+                                <p class="small text-muted">
+                                    <span class="save-badge">Ahorra 20%</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Planes de Hosting -->
+<section class="plans-content py-5">
+    <div class="container">
+        <form method="post" id="plan-form">
+            {% csrf_token %}
+            <input type="hidden" name="modalidad" id="modalidad-input" value="mensual">
+            
+            <div class="row g-4">
+                {% for clave, datos in planes.items %}
+                <div class="col-lg-4">
+                    <div class="plan-card {% if clave == 'Platino' %}popular{% endif %}" onclick="selectPlan('{{ clave }}', this)">
+                        {% if clave == 'Platino' %}
+                        <div class="popular-badge">
+                            <i class="fas fa-star me-1"></i>Más Popular
+                        </div>
+                        {% endif %}
+                        
+                        <div class="plan-header">
+                            <div class="plan-icon">
+                                {% if clave == 'Plata' %}
+                                    <div class="icon-background silver">
+                                        <i class="fas fa-medal text-white"></i>
+                                    </div>
+                                {% elif clave == 'Platino' %}
+                                    <div class="icon-background platinum">
+                                        <i class="fas fa-gem text-white"></i>
+                                    </div>
+                                {% elif clave == 'Oro' %}
+                                    <div class="icon-background gold">
+                                        <i class="fas fa-crown text-white"></i>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <h3 class="plan-name">{{ clave }}</h3>
+                            <div class="plan-price">
+                                <span class="price-amount monthly-price">${{ datos.precio_mensual }}</span>
+                                <span class="price-amount semestral-price d-none">${{ datos.precio_semestral }}</span>
+                                <span class="price-amount yearly-price d-none">${{ datos.precio_anual }}</span>
+                                <span class="price-period monthly-period">/mes</span>
+                                <span class="price-period semestral-period d-none">/6 meses</span>
+                                <span class="price-period yearly-period d-none">/año</span>
+                            </div>
+                            <div class="savings-info">
+                                <small class="monthly-save d-none text-muted">Pago mensual</small>
+                                <small class="semestral-save d-none text-success">
+                                    <i class="fas fa-tag me-1"></i>Ahorro del 10%
+                                </small>
+                                <small class="yearly-save d-none text-success">
+                                    <i class="fas fa-trophy me-1"></i>Mejor precio - 20% off
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-features">
+                            <ul class="features-list">
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>{{ datos.webs }}</strong> sitios web
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>{{ datos.almacenamiento }}</strong> de almacenamiento
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>{{ datos.bases_datos }}</strong> bases de datos
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>{{ datos.correos }}</strong> cuentas de email
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>{{ datos.ssl }}</strong> certificados SSL
+                                </li>
+                                {% if datos.https %}
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    HTTPS incluido
+                                </li>
+                                {% endif %}
+                                {% if datos.creador_sitios %}
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    Creador de sitios web
+                                </li>
+                                {% endif %}
+                                {% if datos.email_marketing %}
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    Email marketing
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        
+                        <div class="plan-action">
+                            <div class="plan-radio">
+                                <input type="radio" name="plan" value="{{ clave }}" id="plan-{{ clave }}" required class="d-none">
+                                <div class="radio-check">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Botón de Continuar -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <!-- Información de Requisitos -->
+                    <div class="requirements-info mb-4">
+                        <div class="alert alert-info border-0 rounded-3 shadow-sm">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <i class="fas fa-info-circle text-primary me-2"></i>
+                                <span><strong>Requisitos:</strong> Necesitas tener registrada una dirección de facturación y una tarjeta de crédito para continuar.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-chibcha-primary btn-lg px-5 py-3" disabled id="continue-btn">
+                        <i class="fas fa-arrow-right me-2"></i>Continuar con el Plan Seleccionado
+                    </button>
+                    <div class="mt-3">
+                        <small class="text-muted">
+                            <i class="fas fa-shield-alt me-1"></i>
+                            Proceso seguro y protegido. Cancela cuando quieras.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+// Manejo de modalidades (mensual, semestral, anual)
+document.querySelectorAll('.tab-option').forEach(tab => {
+    tab.addEventListener('click', function() {
+        const period = this.getAttribute('data-period');
+        
+        // Remover clase active de todos los tabs
+        document.querySelectorAll('.tab-option').forEach(t => t.classList.remove('active'));
+        
+        // Agregar clase active al tab seleccionado
+        this.classList.add('active');
+        
+        // Actualizar el input hidden
+        document.getElementById('modalidad-input').value = period;
+        
+        // Ocultar todos los precios y períodos
+        document.querySelectorAll('.price-amount, .price-period').forEach(el => {
+            el.classList.add('d-none');
+        });
+        
+        // Ocultar todas las etiquetas de ahorro
+        document.querySelectorAll('.monthly-save, .semestral-save, .yearly-save').forEach(el => {
+            el.classList.add('d-none');
+        });
+        
+        // Mostrar precios y períodos correspondientes
+        if (period === 'mensual') {
+            document.querySelectorAll('.monthly-price, .monthly-period').forEach(el => {
+                el.classList.remove('d-none');
+            });
+            document.querySelectorAll('.monthly-save').forEach(el => {
+                el.classList.remove('d-none');
+            });
+        } else if (period === 'semestral') {
+            document.querySelectorAll('.semestral-price, .semestral-period').forEach(el => {
+                el.classList.remove('d-none');
+            });
+            document.querySelectorAll('.semestral-save').forEach(el => {
+                el.classList.remove('d-none');
+            });
+        } else if (period === 'anual') {
+            document.querySelectorAll('.yearly-price, .yearly-period').forEach(el => {
+                el.classList.remove('d-none');
+            });
+            document.querySelectorAll('.yearly-save').forEach(el => {
+                el.classList.remove('d-none');
+            });
+        }
+    });
+});
+
+// Selección de plan
+function selectPlan(planName, cardElement) {
+    // Remover selección previa
+    document.querySelectorAll('.plan-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // Marcar como seleccionado
+    cardElement.classList.add('selected');
+    
+    // Marcar el radio button
+    document.getElementById('plan-' + planName).checked = true;
+    
+    // Habilitar botón continuar
+    document.getElementById('continue-btn').disabled = false;
+}
+
+// Prevenir envío sin selección
+document.getElementById('plan-form').addEventListener('submit', function(e) {
+    const selectedPlan = document.querySelector('input[name="plan"]:checked');
+    if (!selectedPlan) {
+        e.preventDefault();
+        alert('Por favor selecciona un plan antes de continuar.');
+    }
+});
+</script>
+{% endblock %}
