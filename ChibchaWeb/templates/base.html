@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="{% static 'styles/estilo.css' %}?v=2.0">
     <link rel="stylesheet" href="{% static 'styles/chibcha-theme.css' %}?v=3.3">
 
-    <title>{% block title %}ChibchaWeb - Hosting Profesional{% endblock %}</title>
+    <title>{% block title %}ChibchaWeb - {% trans "Hosting Profesional"%}{% endblock %}</title>
 </head>
 <body class="bg-light">
     {% if messages %}
@@ -46,22 +47,22 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link nav-link-chibcha" href="{% url 'home' %}">
-                            <i class="fas fa-home"></i> Inicio
+                            <i class="fas fa-home"></i> {% trans "Inicio"%}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-chibcha" href="{% url 'verificar-url' %}">
-                            <i class="bi bi-globe2"></i> Dominios
+                            <i class="bi bi-globe2"></i> {% trans "Dominios"%}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-chibcha" href="{% url 'home' %}#planes">
-                            <i class="bi bi-layers"></i> Planes
+                            <i class="bi bi-layers"></i> {% trans "Planes"%}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-chibcha" href="#contacto">
-                            <i class="bi bi-envelope"></i> Contacto
+                            <i class="bi bi-envelope"></i> {% trans "Contacto"%}
                         </a>
                     </li>
                     <!-- Language Selector -->
@@ -77,18 +78,18 @@
                     </span>
                     <div class="dropdown">
                         <button class="btn btn-chibcha-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user-cog"></i> Mi cuenta
+                            <i class="fas fa-user-cog"></i> {% trans "Mi cuenta"%}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}"><i class="fas fa-user"></i> Perfil</a></li>
-                            <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}"><i class="fas fa-cog"></i> Configuración</a></li>
-                            <li><a class="dropdown-item" href="{% url 'tickets:crear_ticket' %}"><i class="fas fa-ticket-alt"></i> Crear Ticket</a></li>
+                            <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}"><i class="fas fa-user"></i> {% trans "Perfil"%}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}"><i class="fas fa-cog"></i> {% trans "Configuración"%}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'tickets:crear_ticket' %}"><i class="fas fa-ticket-alt"></i> {% trans "Crear Ticket"%}</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                               <form method="post" action="{% url 'logout' %}" style="display:inline;">
                                 {% csrf_token %}
                                 <button type="submit" class="dropdown-item text-danger" style="display:inline">
-                                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                                    <i class="fas fa-sign-out-alt"></i> {% trans "Cerrar sesión"%}
                                 </button>
                               </form>
                             </li>
@@ -99,10 +100,10 @@
                 <div class="d-flex align-items-center">
                     
                     <a class="btn btn-outline-light me-2" href="{% url 'login' %}">
-                        <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                        <i class="fas fa-sign-in-alt"></i> {% trans "Iniciar sesión"%}
                     </a>
                     <a class="btn btn-chibcha-primary" href="{% url 'clientes:registrar_cliente' %}">
-                        <i class="fas fa-user-plus"></i> Registrarse
+                        <i class="fas fa-user-plus"></i> {% trans "Registrarse"%}
                     </a>
                 </div>
                 {% endif %}
@@ -117,14 +118,14 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 text-center text-lg-start">
                         <img src="{% static 'img/logocompleto.svg' %}" alt="Logo" class="img-fluid mb-4 d-lg-none" style="max-width: 250px;">
-                        <h1 class="display-4 fw-bold mb-3">¡Bienvenido a ChibchaWeb!</h1>
-                        <p class="lead mb-4">Tu sitio #1 de hosting profesional en Colombia</p>
+                        <h1 class="display-4 fw-bold mb-3">¡{% trans "Bienvenido a ChibchaWeb"%}!</h1>
+                        <p class="lead mb-4">{% trans "Tu sitio #1 de hosting profesional en Colombia"%}</p>
                         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center justify-content-lg-start">
                             <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-chibcha-primary btn-lg px-4 me-sm-3">
-                                <i class="fas fa-rocket"></i> Empieza ahora
+                                <i class="fas fa-rocket"></i> {% trans "Empieza ahora"%}
                             </a>
                             <a href="#planes" class="btn btn-outline-light btn-lg px-4">
-                                <i class="fas fa-th-list"></i> Ver planes
+                                <i class="fas fa-th-list"></i> {% trans "Ver planes"%}
                             </a>
                         </div>
                     </div>
@@ -150,7 +151,7 @@
                         <i class="fas fa-server fa-2x me-3"></i>
                         <h5 class="mb-0">ChibchaWeb</h5>
                     </div>
-                    <p class="mb-3">Soluciones de hosting profesional para empresas y emprendedores en Colombia. Más de 10 años de experiencia en el sector.</p>
+                    <p class="mb-3">{% trans "Soluciones de hosting profesional para empresas y emprendedores en Colombia. Más de 10 años de experiencia en el sector"%}.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-chibcha-light fs-4"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-chibcha-light fs-4"><i class="fab fa-twitter"></i></a>
@@ -160,27 +161,27 @@
                 </div>
                 
                 <div class="col-lg-2 col-md-6">
-                    <h5 class="mb-3"><i class="fas fa-link me-2"></i>Servicios</h5>
+                    <h5 class="mb-3"><i class="fas fa-link me-2"></i>{% trans "Servicios"%}</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="{% url 'home' %}" class="text-chibcha-light text-decoration-none">Hosting Web</a></li>
-                        <li class="mb-2"><a href="#planes" class="text-chibcha-light text-decoration-none">Planes</a></li>
-                        <li class="mb-2"><a href="{% url 'verificar-url' %}" class="text-chibcha-light text-decoration-none">Dominios</a></li>
+                        <li class="mb-2"><a href="{% url 'home' %}" class="text-chibcha-light text-decoration-none">{% trans "Hosting Web"%}</a></li>
+                        <li class="mb-2"><a href="#planes" class="text-chibcha-light text-decoration-none">{% trans "Planes"%}</a></li>
+                        <li class="mb-2"><a href="{% url 'verificar-url' %}" class="text-chibcha-light text-decoration-none">{% trans "Dominios"%}</a></li>
                         <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">SSL</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-3"><i class="fas fa-headset me-2"></i>Soporte</h5>
+                    <h5 class="mb-3"><i class="fas fa-headset me-2"></i>{% trans "Soporte"%}</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">Centro de Ayuda</a></li>
-                        <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">Documentación</a></li>
-                        <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">Tickets</a></li>
-                        <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">Estado del Servicio</a></li>
+                        <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">{% trans "Centro de Ayuda"%}</a></li>
+                        <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">{% trans "Documentación"%}</a></li>
+                        <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">{% trans "Tickets"%}</a></li>
+                        <li class="mb-2"><a href="#" class="text-chibcha-light text-decoration-none">{% trans "Estado del Servicio"%}</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-3"><i class="fas fa-map-marker-alt me-2"></i>Contacto</h5>
+                    <h5 class="mb-3"><i class="fas fa-map-marker-alt me-2"></i>{% trans "Contacto"%}</h5>
                     <div class="mb-2">
                         <i class="fas fa-building me-2"></i>
                         <span>Bogotá, Colombia</span>
@@ -195,7 +196,7 @@
                     </div>
                     <div>
                         <i class="fas fa-clock me-2"></i>
-                        <span>24/7 Soporte</span>
+                        <span>24/7 {% trans "Soporte"%}</span>
                     </div>
                 </div>
             </div>
@@ -204,15 +205,15 @@
             
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">&copy; 2025 ChibchaWeb - Todos los derechos reservados</p>
+                    <p class="mb-0">&copy; 2025 ChibchaWeb - {% trans "Todos los derechos reservados"%}</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="d-flex justify-content-center justify-content-md-end gap-3">
-                        <a href="#" class="text-chibcha-light text-decoration-none small">Términos de servicio</a>
+                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Términos de servicio"%}</a>
                         <span class="text-chibcha-light">|</span>
-                        <a href="#" class="text-chibcha-light text-decoration-none small">Política de privacidad</a>
+                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Política de privacidad"%}</a>
                         <span class="text-chibcha-light">|</span>
-                        <a href="#" class="text-chibcha-light text-decoration-none small">Cookies</a>
+                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Cookies"%}</a>
                     </div>
                 </div>
             </div>

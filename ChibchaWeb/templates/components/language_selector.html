@@ -9,7 +9,7 @@
             {% get_current_language as LANGUAGE_CODE %}
             {% if LANGUAGE_CODE == 'es' %}Español
             {% elif LANGUAGE_CODE == 'en' %}English  
-            {% elif LANGUAGE_CODE == 'fr' %}Français
+            {% comment %} {% elif LANGUAGE_CODE == 'fr' %}Français {% endcomment %}
             {% elif LANGUAGE_CODE == 'pt' %}Português
             {% endif %}
         </span>
@@ -32,8 +32,8 @@
                                 <span class="flag-icon flag-icon-es me-2"></span>Español
                             {% elif code == 'en' %}
                                 <span class="flag-icon flag-icon-us me-2"></span>English
-                            {% elif code == 'fr' %}
-                                <span class="flag-icon flag-icon-fr me-2"></span>Français
+                            {% comment %} {% elif code == 'fr' %}
+                                <span class="flag-icon flag-icon-fr me-2"></span>Français {% endcomment %}
                             {% elif code == 'pt' %}
                                 <span class="flag-icon flag-icon-br me-2"></span>Português
                             {% endif %}
@@ -69,6 +69,6 @@
 
 .flag-icon-us { background: linear-gradient(to bottom, #bf0a30 0%, #bf0a30 7.7%, white 7.7%, white 15.4%, #bf0a30 15.4%, #bf0a30 23.1%, white 23.1%, white 30.8%, #bf0a30 30.8%, #bf0a30 38.5%, white 38.5%, white 46.2%, #bf0a30 46.2%, #bf0a30 53.9%, white 53.9%, white 61.6%, #bf0a30 61.6%, #bf0a30 69.3%, white 69.3%, white 77%, #bf0a30 77%, #bf0a30 84.7%, white 84.7%, white 92.4%, #bf0a30 92.4%, #bf0a30 100%), linear-gradient(to bottom, #002868 0%, #002868 100%); background-size: 100% 100%, 40% 53.85%; background-repeat: no-repeat; background-position: 0 0, 0 0; }
 .flag-icon-es { background: linear-gradient(to bottom, #c60b1e 33%, #ffc400 33%, #ffc400 66%, #c60b1e 66%); }
-.flag-icon-fr { background: linear-gradient(to right, #002395 33%, #ffffff 33%, #ffffff 66%, #ed2939 66%); }
+{% comment %} .flag-icon-fr { background: linear-gradient(to right, #002395 33%, #ffffff 33%, #ffffff 66%, #ed2939 66%); } {% endcomment %}
 .flag-icon-br { background: linear-gradient(to bottom, #009739 40%, #fedd00 40%, #fedd00 60%, #009739 60%); }
 </style>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-05 18:45-0500\n"
+"POT-Creation-Date: 2025-08-06 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +18,380 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\ChibchaWeb\settings.py:127
-msgid "Español"
-msgstr ""
-
 #: .\ChibchaWeb\settings.py:128
-msgid "English"
-msgstr ""
+msgid "Español"
+msgstr "Spanish"
 
 #: .\ChibchaWeb\settings.py:129
-msgid "Français"
-msgstr ""
+msgid "English"
+msgstr "English"
 
 #: .\ChibchaWeb\settings.py:130
 msgid "Português"
+msgstr "Portuguese"
+
+#: .\ChibchaWeb\templates\base.html:20
+msgid "Hosting Profesional"
+msgstr "Professional hosting"
+
+#: .\ChibchaWeb\templates\base.html:50
+msgid "Inicio"
+msgstr "Start"
+
+#: .\ChibchaWeb\templates\base.html:55 .\ChibchaWeb\templates\base.html:168
+msgid "Dominios"
+msgstr "Domains"
+
+#: .\ChibchaWeb\templates\base.html:60 .\ChibchaWeb\templates\base.html:167
+msgid "Planes"
+msgstr "Plans"
+
+#: .\ChibchaWeb\templates\base.html:65 .\ChibchaWeb\templates\base.html:184
+msgid "Contacto"
+msgstr "Contact"
+
+#: .\ChibchaWeb\templates\base.html:81
+msgid "Mi cuenta"
+msgstr "My account"
+
+#: .\ChibchaWeb\templates\base.html:84
+msgid "Perfil"
+msgstr "Profile"
+
+#: .\ChibchaWeb\templates\base.html:85
+msgid "Configuración"
+msgstr "Configuration"
+
+#: .\ChibchaWeb\templates\base.html:86
+msgid "Crear Ticket"
+msgstr "Create Ticket"
+
+#: .\ChibchaWeb\templates\base.html:92
+#, fuzzy
+#| msgid "Iniciar sesión"
+msgid "Cerrar sesión"
+msgstr "Login"
+
+#: .\ChibchaWeb\templates\base.html:103 .\ChibchaWeb\templates\login.html:13
+msgid "Iniciar sesión"
+msgstr "Login"
+
+#: .\ChibchaWeb\templates\base.html:106 .\ChibchaWeb\templates\login.html:28
+msgid "Registrarse"
+msgstr "Register"
+
+#: .\ChibchaWeb\templates\base.html:121
+msgid "Bienvenido a ChibchaWeb"
+msgstr "Welcome to Chibchaweb"
+
+#: .\ChibchaWeb\templates\base.html:122
+msgid "Tu sitio #1 de hosting profesional en Colombia"
+msgstr "Your professional hosting site in Colombia"
+
+#: .\ChibchaWeb\templates\base.html:125
+msgid "Empieza ahora"
+msgstr "Start now"
+
+#: .\ChibchaWeb\templates\base.html:128
+msgid "Ver planes"
+msgstr "See plans"
+
+#: .\ChibchaWeb\templates\base.html:154
+msgid ""
+"Soluciones de hosting profesional para empresas y emprendedores en Colombia. "
+"Más de 10 años de experiencia en el sector"
 msgstr ""
+"Professional hosting solutions for companies and entrepreneurs in "
+"Colombia.More than 10 years of experience in the sector"
+
+#: .\ChibchaWeb\templates\base.html:164
+msgid "Servicios"
+msgstr "Services"
+
+#: .\ChibchaWeb\templates\base.html:166
+msgid "Hosting Web"
+msgstr "Web hosting"
+
+#: .\ChibchaWeb\templates\base.html:174 .\ChibchaWeb\templates\base.html:199
+#: .\ChibchaWeb\templates\informacion.html:213
+msgid "Soporte"
+msgstr "Medium"
+
+#: .\ChibchaWeb\templates\base.html:176
+msgid "Centro de Ayuda"
+msgstr "Help center"
+
+#: .\ChibchaWeb\templates\base.html:177
+msgid "Documentación"
+msgstr "Documentation"
+
+#: .\ChibchaWeb\templates\base.html:178
+msgid "Tickets"
+msgstr "Tickets"
+
+#: .\ChibchaWeb\templates\base.html:179
+msgid "Estado del Servicio"
+msgstr "SERVICE STATE"
+
+#: .\ChibchaWeb\templates\base.html:208
+msgid "Todos los derechos reservados"
+msgstr "All rights reserved"
+
+#: .\ChibchaWeb\templates\base.html:212
+msgid "Términos de servicio"
+msgstr "Terms of service"
+
+#: .\ChibchaWeb\templates\base.html:214
+msgid "Política de privacidad"
+msgstr "Privacy Policy"
+
+#: .\ChibchaWeb\templates\base.html:216
+msgid "Cookies"
+msgstr "Cookies"
+
+#: .\ChibchaWeb\templates\exitologin.html:3
+#, fuzzy
+#| msgid "Iniciar Sesión"
+msgid "Inicio de Sesión Exitoso"
+msgstr "Login"
+
+#: .\ChibchaWeb\templates\exitologin.html:14
+#, fuzzy
+#| msgid "Iniciar sesión"
+msgid "Inicio de sesión exitoso"
+msgstr "Login"
+
+#: .\ChibchaWeb\templates\exitologin.html:15
+msgid "Bienvenido"
+msgstr "Welcome"
+
+#: .\ChibchaWeb\templates\exitologin.html:19
+msgid "Ver Mi Perfil"
+msgstr "See my profile"
+
+#: .\ChibchaWeb\templates\exitologin.html:22
+msgid "Ir al Inicio"
+msgstr "Go to the beginning"
+
+#: .\ChibchaWeb\templates\informacion.html:4
+msgid "Información - ChibchaWeb"
+msgstr "Information - ChibchaWeb"
+
+#: .\ChibchaWeb\templates\informacion.html:21
+msgid "Hosting Premium Colombia"
+msgstr "Hosting Premium Colombia"
+
+#: .\ChibchaWeb\templates\informacion.html:27
+msgid "Tu sitio web merece el"
+msgstr "Your website deserves the"
+
+#: .\ChibchaWeb\templates\informacion.html:28
+msgid "mejor hosting"
+msgstr "Best Hosting"
+
+#: .\ChibchaWeb\templates\informacion.html:33
+msgid "Servidores SSD ultrarrápidos, SSL gratuito y soporte 24/7."
+msgstr "Ultra-fast SSD servers, free SSL, and 24/7 support."
+
+#: .\ChibchaWeb\templates\informacion.html:34
+msgid "Todo lo que necesitas para que tu proyecto digital triunfe."
+msgstr "Everything you need to make your digital project a success."
+
+#: .\ChibchaWeb\templates\informacion.html:45
+msgid "Clientes Activos"
+msgstr "Active customers"
+
+#: .\ChibchaWeb\templates\informacion.html:54
+msgid "Uptime"
+msgstr "Uptime"
+
+#: .\ChibchaWeb\templates\informacion.html:63
+msgid "Respuesta"
+msgstr "Answer"
+
+#: .\ChibchaWeb\templates\informacion.html:72
+msgid "Gratis"
+msgstr "Free"
+
+#: .\ChibchaWeb\templates\informacion.html:81
+msgid "Comenzar Gratis"
+msgstr "Start for free"
+
+#: .\ChibchaWeb\templates\informacion.html:85
+msgid "Ver Planes"
+msgstr "See plans"
+
+#: .\ChibchaWeb\templates\informacion.html:100
+msgid "Hosting Profesional Colombiano"
+msgstr "Colombian professional hosting"
+
+#: .\ChibchaWeb\templates\informacion.html:105
+msgid "Más de 5 años"
+msgstr "More than 5 years"
+
+#: .\ChibchaWeb\templates\informacion.html:105
+msgid "siendo líderes en hosting en Colombia con tecnología de vanguardia."
+msgstr "being leaders in Hosting in Colombia with avant -garde technology."
+
+#: .\ChibchaWeb\templates\informacion.html:109
+msgid "Servidores SSD NVMe ultrarrápidos con "
+msgstr "Ultra -granted SSD NVME servers with"
+
+#: .\ChibchaWeb\templates\informacion.html:109
+msgid "de disponibilidad garantizada"
+msgstr "of guaranteed availability"
+
+#: .\ChibchaWeb\templates\informacion.html:109
+msgid "y soporte técnico especializado 24/7."
+msgstr "and specialized technical support 24/7."
+
+#: .\ChibchaWeb\templates\informacion.html:113
+msgid ""
+"Nuestro equipo colombiano te acompaña en cada paso para que tu proyecto "
+"digital "
+msgstr ""
+"Our Colombian team accompanies you in each step so that your digital project"
+
+#: .\ChibchaWeb\templates\informacion.html:113
+msgid "siempre esté disponible"
+msgstr "is always available"
+
+#: .\ChibchaWeb\templates\informacion.html:119
+msgid ""
+"El mejor hosting que he usado en Colombia. Rápido, confiable y con excelente "
+"soporte técnico."
+msgstr ""
+"The best hosting I have used in Colombia.Fast, reliable and with excellent "
+"technical support."
+
+#: .\ChibchaWeb\templates\informacion.html:122
+msgid "María González, CEO Digital Solutions"
+msgstr "María González, CEO Digital Solutions"
+
+#: .\ChibchaWeb\templates\informacion.html:139
+msgid "Nuestros Servicios"
+msgstr "Our services"
+
+#: .\ChibchaWeb\templates\informacion.html:140
+msgid "Todo lo que necesitas para tu proyecto web"
+msgstr "Everything you need for your web project"
+
+#: .\ChibchaWeb\templates\informacion.html:149
+msgid "Hosting Premium"
+msgstr "Premium hosting"
+
+#: .\ChibchaWeb\templates\informacion.html:150
+msgid "Servidores SSD NVMe ultrarrápidos"
+msgstr "Ultra -granted SSD NVME servers"
+
+#: .\ChibchaWeb\templates\informacion.html:159
+msgid "SSL Gratuito"
+msgstr "Free SSL"
+
+#: .\ChibchaWeb\templates\informacion.html:160
+msgid "Certificados SSL automáticos"
+msgstr "Automatic SSL certificates"
+
+#: .\ChibchaWeb\templates\informacion.html:169
+msgid "Soporte 24/7"
+msgstr "24/7 support"
+
+#: .\ChibchaWeb\templates\informacion.html:170
+msgid "Asistencia técnica especializada"
+msgstr "Specialized Technical Assistance"
+
+#: .\ChibchaWeb\templates\informacion.html:179
+msgid "Backup Automático"
+msgstr "Automatic backup"
+
+#: .\ChibchaWeb\templates\informacion.html:180
+msgid "Respaldos diarios seguros"
+msgstr "Safe daily backs"
+
+#: .\ChibchaWeb\templates\informacion.html:191
+msgid "Planes de Hosting"
+msgstr "Hosting plans"
+
+#: .\ChibchaWeb\templates\informacion.html:192
+msgid "Elige el plan perfecto para tu proyecto"
+msgstr "Choose the perfect plan for your project"
+
+#: .\ChibchaWeb\templates\informacion.html:204
+#: .\ChibchaWeb\templates\informacion.html:228
+#: .\ChibchaWeb\templates\informacion.html:251
+msgid "mes"
+msgstr "month"
+
+#: .\ChibchaWeb\templates\informacion.html:209
+msgid "Sitio Web"
+msgstr "Website"
+
+#: .\ChibchaWeb\templates\informacion.html:211
+msgid "Base de Datos"
+msgstr "Database"
+
+#: .\ChibchaWeb\templates\informacion.html:212
+msgid "Gratuito"
+msgstr "Gratuitous"
+
+#: .\ChibchaWeb\templates\informacion.html:222
+msgid "Más Popular"
+msgstr "More popular"
+
+#: .\ChibchaWeb\templates\informacion.html:224
+msgid "Professional"
+msgstr "Professional"
+
+#: .\ChibchaWeb\templates\informacion.html:233
+msgid "Sitios Web"
+msgstr "Websites"
+
+#: .\ChibchaWeb\templates\informacion.html:235
+msgid "Bases de Datos"
+msgstr "Databases"
+
+#: .\ChibchaWeb\templates\informacion.html:236
+msgid "Email Marketing"
+msgstr "Email marketing"
+
+#: .\ChibchaWeb\templates\informacion.html:237
+msgid "CDN Global"
+msgstr "Global CDN"
+
+#: .\ChibchaWeb\templates\informacion.html:256
+msgid "Sitios Ilimitados"
+msgstr "Unlimited sites"
+
+#: .\ChibchaWeb\templates\informacion.html:258
+msgid "Bases Ilimitadas"
+msgstr "Unlimited bases"
+
+#: .\ChibchaWeb\templates\informacion.html:259
+msgid "Soporte Prioritario"
+msgstr "Priority Support"
+
+#: .\ChibchaWeb\templates\informacion.html:260
+msgid "Backup Avanzado"
+msgstr "Advanced backup"
+
+#: .\ChibchaWeb\templates\informacion.html:274
+msgid "¿Listo para comenzar?"
+msgstr "Ready to start?"
+
+#: .\ChibchaWeb\templates\informacion.html:275
+msgid "Únete a nuestros"
+msgstr "Join our"
+
+#: .\ChibchaWeb\templates\informacion.html:275
+msgid "clientes satisfechos. Activa tu hosting en minutos"
+msgstr "satisfied customers.Activate your hosting in minutes"
+
+#: .\ChibchaWeb\templates\informacion.html:279
+msgid "Comenzar Ahora"
+msgstr "Start now"
 
 #: .\ChibchaWeb\templates\login.html:7
 msgid "Iniciar Sesión"
-msgstr "Login"
-
-#: .\ChibchaWeb\templates\login.html:13
-msgid "Iniciar sesión"
 msgstr "Login"
 
 #: .\ChibchaWeb\templates\login.html:17
@@ -54,10 +406,6 @@ msgstr "Password"
 msgid "Ingresar"
 msgstr "Login"
 
-#: .\ChibchaWeb\templates\login.html:28
-msgid "Registrarse"
-msgstr "Register"
-
 #: .\ChibchaWeb\templates\login.html:29
 msgid "Portal Empleados"
 msgstr "Employee Portal"
@@ -68,70 +416,74 @@ msgstr "Portal Administrators"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 #: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
 msgid "Site Maps"
-msgstr ""
+msgstr "Site Maps"
 
 #: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
 msgid "Static Files"
-msgstr ""
+msgstr "Static Files"
 
 #: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
 msgid "Syndication"
-msgstr ""
+msgstr "Syndication"
 
 #. Translators: String used to replace omitted page numbers in elided page
 #. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
 #: .\venv\Lib\site-packages\django\core\paginator.py:30
 msgid "…"
-msgstr ""
+msgstr "..."
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:32
 msgid "That page number is not an integer"
-msgstr ""
+msgstr "That page number is not integer"
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:33
 msgid "That page number is less than 1"
-msgstr ""
+msgstr "That page Number is less than 1"
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:34
 msgid "That page contains no results"
-msgstr ""
+msgstr "That page contains no results"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:22
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Enter a Valid Value."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:70
 msgid "Enter a valid domain name."
-msgstr ""
+msgstr "Enter a Valid Domain Name."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:153
 #: .\venv\Lib\site-packages\django\forms\fields.py:775
 msgid "Enter a valid URL."
-msgstr ""
+msgstr "Enter a Valid Url."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:200
 msgid "Enter a valid integer."
-msgstr ""
+msgstr "Enter a Valid Integer."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:211
 msgid "Enter a valid email address."
-msgstr ""
+msgstr "Enter a Valid Email Address."
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: .\venv\Lib\site-packages\django\core\validators.py:289
 msgid ""
 "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
 msgstr ""
+"Enter a Valid \"Slug\" consisting of letters, numbers, Underscores or "
+"Hyphens."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:297
 msgid ""
 "Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
 "hyphens."
 msgstr ""
+"Enter a Valid \"slug\" consisting of unicode letters, numbers, underscores, "
+"or hyphens."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:309
 #: .\venv\Lib\site-packages\django\core\validators.py:318
@@ -139,44 +491,44 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2220
 #, python-format
 msgid "Enter a valid %(protocol)s address."
-msgstr ""
+msgstr "Enter a Valid %(protocol) S Address."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:311
 msgid "IPv4"
-msgstr ""
+msgstr "IPV4"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:320
 #: .\venv\Lib\site-packages\django\utils\ipv6.py:43
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:334
 msgid "IPv4 or IPv6"
-msgstr ""
+msgstr "IPV4 or IPV6"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:375
 msgid "Enter only digits separated by commas."
-msgstr ""
+msgstr "ENTER ONLY DIGITS SEPARATED BY COMMAS."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:381
 #, python-format
 msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr ""
+msgstr "Reure This Value is %(Limit_value) s (it is %(show_value) s)."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:416
 #, python-format
 msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr ""
+msgstr "Reure this value is less than or equal to %(limit_value) s."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:425
 #, python-format
 msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr ""
+msgstr "Reure This Value Is Greater than or equal to %(Limit_value) s."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:434
 #, python-format
 msgid "Ensure this value is a multiple of step size %(limit_value)s."
-msgstr ""
+msgstr "Reure This Value is a multiple of step size %(limit_value) s."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:441
 #, python-format
@@ -184,6 +536,8 @@ msgid ""
 "Ensure this value is a multiple of step size %(limit_value)s, starting from "
 "%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
 msgstr ""
+"Ensure This is a multiple of Step Size %(Limit_value) S, Starting From %"
+"(Offset) S, E.G.%(offset) s, %(valid_value1) s, %(valid_value2) s, and so on."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:473
 #, python-format
@@ -211,7 +565,7 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\forms\fields.py:366
 #: .\venv\Lib\site-packages\django\forms\fields.py:405
 msgid "Enter a number."
-msgstr ""
+msgstr "Entee Number."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:516
 #, python-format
@@ -242,43 +596,45 @@ msgid ""
 "File extension “%(extension)s” is not allowed. Allowed extensions are: "
 "%(allowed_extensions)s."
 msgstr ""
+"File extension “%(extension) s” is not alowed.ALLOWED EXTENSIONS ARE: "
+"%(ALLOWED_EXTENSIONS) s."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:659
 msgid "Null characters are not allowed."
-msgstr ""
+msgstr "Null Characters are Not Allowed."
 
 #: .\venv\Lib\site-packages\django\db\models\base.py:1600
 #: .\venv\Lib\site-packages\django\forms\models.py:908
 msgid "and"
-msgstr ""
+msgstr "and"
 
 #: .\venv\Lib\site-packages\django\db\models\base.py:1602
 #, python-format
 msgid "%(model_name)s with this %(field_labels)s already exists."
-msgstr ""
+msgstr "%(Model_name) s with This %(Field_Labels) S already exists."
 
 #: .\venv\Lib\site-packages\django\db\models\constraints.py:22
 #, python-format
 msgid "Constraint “%(name)s” is violated."
-msgstr ""
+msgstr "Constraint \"%(name) s\" is violated."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
 #, python-format
 msgid "Value %(value)r is not a valid choice."
-msgstr ""
+msgstr "Value %(Value) r is not a Valid Choice."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
 msgid "This field cannot be null."
-msgstr ""
+msgstr "This Field Cannot Be Null."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
 msgid "This field cannot be blank."
-msgstr ""
+msgstr "This Field Cannot Be Blank."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
 #, python-format
 msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr ""
+msgstr "%(Model_name) s with This %(Field_label) s already exists."
 
 #. Translators: The 'lookup_type' is one of 'date', 'year' or
 #. 'month'. Eg: "Title must be unique for pub_date year"
@@ -287,38 +643,39 @@ msgstr ""
 msgid ""
 "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
 msgstr ""
+"%(Field_Label) s must be unique for %(date_field_label) s %(lookup_type) s."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
 #, python-format
 msgid "Field of type: %(field_type)s"
-msgstr ""
+msgstr "Field of Type: %(Field_type) S"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1162
 #, python-format
 msgid "“%(value)s” value must be either True or False."
-msgstr ""
+msgstr "\"%(Value) s\" Value Must Be Eithher True or False."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1163
 #, python-format
 msgid "“%(value)s” value must be either True, False, or None."
-msgstr ""
+msgstr "\"%(Value) s\" Value Must Be Eithher True, False, Or None."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1165
 msgid "Boolean (Either True or False)"
-msgstr ""
+msgstr "Boolean (Eithher True or False)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1215
 #, python-format
 msgid "String (up to %(max_length)s)"
-msgstr ""
+msgstr "String (up to %(max_length) s)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1217
 msgid "String (unlimited)"
-msgstr ""
+msgstr "String (Unlimited)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1326
 msgid "Comma-separated integers"
-msgstr ""
+msgstr "Commuma-Separated Integers"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1427
 #, python-format
@@ -326,6 +683,8 @@ msgid ""
 "“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
 "format."
 msgstr ""
+"\"%(Value) s\" value you have an invalid date format.It must be in yyyy-mm-"
+"dd format."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1431
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1566
@@ -334,10 +693,12 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
 "date."
 msgstr ""
+"“%(Value) s” value have the correct format (yyyy-mm-dd) but it is an invalid "
+"date."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
 msgid "Date (without time)"
-msgstr ""
+msgstr "Date (Without Time)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1562
 #, python-format
@@ -345,6 +706,8 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
 "HH:MM[:ss[.uuuuuu]][TZ] format."
 msgstr ""
+"\"%(Value) s\" Value has an invalid format.It must be in yyyy-mm-dd hh: mm "
+"[: ss [.uuuuu]] [tz] format."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
 #, python-format
@@ -352,19 +715,21 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
 "[TZ]) but it is an invalid date/time."
 msgstr ""
+"“%(Value) s” value have the correct format (yyyy-mm-dd hh: mm [: ss "
+"[.uuuuu]] [tz]) but it is an invalid date/time."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
 msgid "Date (with time)"
-msgstr ""
+msgstr "Date (with time)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1702
 #, python-format
 msgid "“%(value)s” value must be a decimal number."
-msgstr ""
+msgstr "\"%(Value) s\" value must be a decimal number."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1704
 msgid "Decimal number"
-msgstr ""
+msgstr "Decimal Number"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1864
 #, python-format
@@ -372,83 +737,85 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in [DD] "
 "[[HH:]MM:]ss[.uuuuuu] format."
 msgstr ""
+"\"%(Value) s\" Value has an invalid format.It must be in [dd] [[hh:] mm:] ss "
+"[.uuuuu] format."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
 msgid "Duration"
-msgstr ""
+msgstr "Duration"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1920
 msgid "Email address"
-msgstr ""
+msgstr "Email Address"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1945
 msgid "File path"
-msgstr ""
+msgstr "File Path"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2023
 #, python-format
 msgid "“%(value)s” value must be a float."
-msgstr ""
+msgstr "\"%(Value) s\" value must be afloat."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2025
 msgid "Floating point number"
-msgstr ""
+msgstr "Floating Point Number"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2065
 #, python-format
 msgid "“%(value)s” value must be an integer."
-msgstr ""
+msgstr "\"%(Value) s\" value must be integer."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2067
 msgid "Integer"
-msgstr ""
+msgstr "Integer"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2163
 msgid "Big (8 byte) integer"
-msgstr ""
+msgstr "Big (8 byte) Integer"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2180
 msgid "Small integer"
-msgstr ""
+msgstr "Small Inter"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2188
 msgid "IPv4 address"
-msgstr ""
+msgstr "IPV4 Address"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2219
 msgid "IP address"
-msgstr ""
+msgstr "IP Address"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2310
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2311
 #, python-format
 msgid "“%(value)s” value must be either None, True or False."
-msgstr ""
+msgstr "\"%(Value) s\" Value Must Be Eithher None, True or False."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2313
 msgid "Boolean (Either True, False or None)"
-msgstr ""
+msgstr "Boolean (Eithher True, False or None)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2364
 msgid "Positive big integer"
-msgstr ""
+msgstr "Positive Big Integer"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2379
 msgid "Positive integer"
-msgstr ""
+msgstr "Positive Integer"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2394
 msgid "Positive small integer"
-msgstr ""
+msgstr "POSITIVE SMALL INTERGER"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2410
 #, python-format
 msgid "Slug (up to %(max_length)s)"
-msgstr ""
+msgstr "Slug (up to %(max_length) s)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2526
 #, python-format
@@ -456,6 +823,8 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
 "format."
 msgstr ""
+"\"%(Value) s\" Value has an invalid format.It must be in hh: mm [: ss "
+"[.uuuuu]] format."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2530
 #, python-format
@@ -463,119 +832,121 @@ msgid ""
 "“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
 "invalid time."
 msgstr ""
+"\"%(Value) s\" value has the correct format (hh: mm [: ss [.uuuuu]]) but it "
+"is an invalid time."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2534
 msgid "Time"
-msgstr ""
+msgstr "Time"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2642
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2666
 msgid "Raw binary data"
-msgstr ""
+msgstr "Raw Binary Data"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2731
 #, python-format
 msgid "“%(value)s” is not a valid UUID."
-msgstr ""
+msgstr "\"%(Value) s\" is not a valid uuid."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2733
 msgid "Universally unique identifier"
-msgstr ""
+msgstr "Universally Unique Identifier"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\files.py:244
 msgid "File"
-msgstr ""
+msgstr "File"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\json.py:24
 msgid "A JSON object"
-msgstr ""
+msgstr "To Json Object"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
 msgid "Value must be valid JSON."
-msgstr ""
+msgstr "Value Must Be Valid Json."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:978
 #, python-format
 msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
-msgstr ""
+msgstr "%(Model) s instance with %(Field) s %(value) r is not a valid choice."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:981
 msgid "Foreign Key (type determined by related field)"
-msgstr ""
+msgstr "Foreign Key (Type determined by Related Field)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:1275
 msgid "One-to-one relationship"
-msgstr ""
+msgstr "One-to -one Relationship"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:1332
 #, python-format
 msgid "%(from)s-%(to)s relationship"
-msgstr ""
+msgstr "%(from) s-%(to) s related to"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:1334
 #, python-format
 msgid "%(from)s-%(to)s relationships"
-msgstr ""
+msgstr "%(from) s-%(to) s related relations"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:1382
 msgid "Many-to-many relationship"
-msgstr ""
+msgstr "Many-to-Many Relationship"
 
 #. Translators: If found as last label character, these punctuation
 #. characters will prevent the default label_suffix to be appended to the label
 #: .\venv\Lib\site-packages\django\forms\boundfield.py:185
 msgid ":?.!"
-msgstr ""
+msgstr ":?.!"
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:95
 msgid "This field is required."
-msgstr ""
+msgstr "This Field is required."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:315
 msgid "Enter a whole number."
-msgstr ""
+msgstr "Enter a Whole Number."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:486
 #: .\venv\Lib\site-packages\django\forms\fields.py:1267
 msgid "Enter a valid date."
-msgstr ""
+msgstr "Enter a Valid Date."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:509
 #: .\venv\Lib\site-packages\django\forms\fields.py:1268
 msgid "Enter a valid time."
-msgstr ""
+msgstr "Enter a Valid Time."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:536
 msgid "Enter a valid date/time."
-msgstr ""
+msgstr "Enter a Valid Date/Time."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:570
 msgid "Enter a valid duration."
-msgstr ""
+msgstr "Enter a Valid Duration."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:571
 #, python-brace-format
 msgid "The number of days must be between {min_days} and {max_days}."
-msgstr ""
+msgstr "The Number of Days Must Be Between {Min_Days} and {max_days}."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:640
 msgid "No file was submitted. Check the encoding type on the form."
-msgstr ""
+msgstr "Do not file was submitted.Check The Enoding Type On The Form."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:641
 msgid "No file was submitted."
-msgstr ""
+msgstr "Do not file was submitted."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:642
 msgid "The submitted file is empty."
-msgstr ""
+msgstr "The Submitted File is Empty."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:644
 #, python-format
@@ -587,48 +958,50 @@ msgstr[1] ""
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:649
 msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr ""
+msgstr "PLEASE EITHER SUBMR A File or Check The Clear Checkbox, Not Both."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:717
 msgid ""
 "Upload a valid image. The file you uploaded was either not an image or a "
 "corrupted image."
 msgstr ""
+"Upload a Valid Image.The File You Uploaded was Eithher not an an image or a "
+"corrupted image."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:889
 #: .\venv\Lib\site-packages\django\forms\fields.py:975
 #: .\venv\Lib\site-packages\django\forms\models.py:1592
 #, python-format
 msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr ""
+msgstr "Select a Valid Choice.%(Value) s is not one of the available choices."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:977
 #: .\venv\Lib\site-packages\django\forms\fields.py:1096
 #: .\venv\Lib\site-packages\django\forms\models.py:1590
 msgid "Enter a list of values."
-msgstr ""
+msgstr "Enter a List of Values."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:1097
 msgid "Enter a complete value."
-msgstr ""
+msgstr "Enter a Complete Value."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:1339
 msgid "Enter a valid UUID."
-msgstr ""
+msgstr "Enter a Valid Uuid."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:1369
 msgid "Enter a valid JSON."
-msgstr ""
+msgstr "Entee Valid Json."
 
 #. Translators: This is the default suffix added to form field labels
 #: .\venv\Lib\site-packages\django\forms\forms.py:97
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #: .\venv\Lib\site-packages\django\forms\forms.py:239
 #, python-format
 msgid "(Hidden field %(name)s) %(error)s"
-msgstr ""
+msgstr "(Hidden Field %(Name) S) %(Error) S"
 
 #: .\venv\Lib\site-packages\django\forms\formsets.py:61
 #, python-format
@@ -636,6 +1009,8 @@ msgid ""
 "ManagementForm data is missing or has been tampered with. Missing fields: "
 "%(field_names)s. You may need to file a bug report if the issue persists."
 msgstr ""
+"ManagementForm Data is missing or haen tampered with.Missing Fields: "
+"%(Field_names) s.You May Need to file a bug report If the issue persists."
 
 #: .\venv\Lib\site-packages\django\forms\formsets.py:65
 #, python-format
@@ -654,21 +1029,21 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\forms\formsets.py:484
 #: .\venv\Lib\site-packages\django\forms\formsets.py:491
 msgid "Order"
-msgstr ""
+msgstr "Order"
 
 #: .\venv\Lib\site-packages\django\forms\formsets.py:499
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 #: .\venv\Lib\site-packages\django\forms\models.py:901
 #, python-format
 msgid "Please correct the duplicate data for %(field)s."
-msgstr ""
+msgstr "PLEASE correct the duplicate data for %(Field) s."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:906
 #, python-format
 msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr ""
+msgstr "Please the Duplicate Data for %(Field) S, which must be unique."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:913
 #, python-format
@@ -676,23 +1051,25 @@ msgid ""
 "Please correct the duplicate data for %(field_name)s which must be unique "
 "for the %(lookup)s in %(date_field)s."
 msgstr ""
+"PLEASE correct the duplicate data for %(Field_name) s which Must Be unique "
+"for the %(lookup) s in %(date_field) s."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:922
 msgid "Please correct the duplicate values below."
-msgstr ""
+msgstr "Please the Duplicate Values Below."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1359
 msgid "The inline value did not match the parent instance."
-msgstr ""
+msgstr "The Inline Value Did Not Match The Parent Instance."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1450
 msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr ""
+msgstr "Select a Valid Choice.That choice is not One of the Available Choices."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1594
 #, python-format
 msgid "“%(pk)s” is not a valid value."
-msgstr ""
+msgstr "\"%(Pk) s\" is not a Valid Value."
 
 #: .\venv\Lib\site-packages\django\forms\utils.py:229
 #, python-format
@@ -700,35 +1077,37 @@ msgid ""
 "%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
 "may be ambiguous or it may not exist."
 msgstr ""
+"%(datetime) s couldn’t be interpreted in time zone %(current_timezone) s;it "
+"may be ambiguous or it may not exist."
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:527
 msgid "Clear"
-msgstr ""
+msgstr "Clear"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:528
 msgid "Currently"
-msgstr ""
+msgstr "Currently"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:529
 msgid "Change"
-msgstr ""
+msgstr "CHANGE"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:866
 msgid "Unknown"
-msgstr ""
+msgstr "Unknown"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:867
 msgid "Yes"
-msgstr ""
+msgstr "Forks"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:868
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #. Translators: Please do not add spaces around commas.
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:873
 msgid "yes,no,maybe"
-msgstr ""
+msgstr "Yes, no, Maybe"
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:903
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:920
@@ -741,343 +1120,343 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:922
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s kb"
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:924
 #, python-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s mb"
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:926
 #, python-format
 msgid "%s GB"
-msgstr ""
+msgstr "%S GB"
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:928
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s tb"
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:930
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "%S PB"
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:74
 msgid "p.m."
-msgstr ""
+msgstr "p.m."
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:75
 msgid "a.m."
-msgstr ""
+msgstr "A.M."
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:80
 msgid "PM"
-msgstr ""
+msgstr "P.M"
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:81
 msgid "AM"
-msgstr ""
+msgstr "A.M"
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:153
 msgid "midnight"
-msgstr ""
+msgstr "Midnight"
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:155
 msgid "noon"
-msgstr ""
+msgstr "Noon"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:7
 msgid "Monday"
-msgstr ""
+msgstr "Monday"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:8
 msgid "Tuesday"
-msgstr ""
+msgstr "Tuesday"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:9
 msgid "Wednesday"
-msgstr ""
+msgstr "Wednesday"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:10
 msgid "Thursday"
-msgstr ""
+msgstr "Thursday"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:11
 msgid "Friday"
-msgstr ""
+msgstr "Friday"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:12
 msgid "Saturday"
-msgstr ""
+msgstr "Saturday"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:13
 msgid "Sunday"
-msgstr ""
+msgstr "Sunday"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:16
 msgid "Mon"
-msgstr ""
+msgstr "Mon"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:17
 msgid "Tue"
-msgstr ""
+msgstr "Tue"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:18
 msgid "Wed"
-msgstr ""
+msgstr "Wed"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:19
 msgid "Thu"
-msgstr ""
+msgstr "Thu"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:20
 msgid "Fri"
-msgstr ""
+msgstr "Fri"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:21
 msgid "Sat"
-msgstr ""
+msgstr "SAT"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:22
 msgid "Sun"
-msgstr ""
+msgstr "Sun"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:25
 msgid "January"
-msgstr ""
+msgstr "January"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:26
 msgid "February"
-msgstr ""
+msgstr "February"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:27
 msgid "March"
-msgstr ""
+msgstr "March"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:28
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:29
 msgid "May"
-msgstr ""
+msgstr "May"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:30
 msgid "June"
-msgstr ""
+msgstr "June"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:31
 msgid "July"
-msgstr ""
+msgstr "July"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:32
 msgid "August"
-msgstr ""
+msgstr "August"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:33
 msgid "September"
-msgstr ""
+msgstr "SEPTEMBER"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:34
 msgid "October"
-msgstr ""
+msgstr "October"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:35
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:36
 msgid "December"
-msgstr ""
+msgstr "December"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:39
 msgid "jan"
-msgstr ""
+msgstr "Jan"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:40
 msgid "feb"
-msgstr ""
+msgstr "feb"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:41
 msgid "mar"
-msgstr ""
+msgstr "sea"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:42
 msgid "apr"
-msgstr ""
+msgstr "APR"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:43
 msgid "may"
-msgstr ""
+msgstr "may"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:44
 msgid "jun"
-msgstr ""
+msgstr "jun"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:45
 msgid "jul"
-msgstr ""
+msgstr "jul"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:46
 msgid "aug"
-msgstr ""
+msgstr "AUG"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:47
 msgid "sep"
-msgstr ""
+msgstr "sep"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:48
 msgid "oct"
-msgstr ""
+msgstr "oct"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:49
 msgid "nov"
-msgstr ""
+msgstr "nov"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:50
 msgid "dec"
-msgstr ""
+msgstr "Dec"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:53
 msgctxt "abbrev. month"
 msgid "Jan."
-msgstr ""
+msgstr "Jan."
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:54
 msgctxt "abbrev. month"
 msgid "Feb."
-msgstr ""
+msgstr "Feb."
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:55
 msgctxt "abbrev. month"
 msgid "March"
-msgstr ""
+msgstr "March"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:56
 msgctxt "abbrev. month"
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:57
 msgctxt "abbrev. month"
 msgid "May"
-msgstr ""
+msgstr "May"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:58
 msgctxt "abbrev. month"
 msgid "June"
-msgstr ""
+msgstr "June"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:59
 msgctxt "abbrev. month"
 msgid "July"
-msgstr ""
+msgstr "July"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:60
 msgctxt "abbrev. month"
 msgid "Aug."
-msgstr ""
+msgstr "AUG."
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:61
 msgctxt "abbrev. month"
 msgid "Sept."
-msgstr ""
+msgstr "Sept."
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:62
 msgctxt "abbrev. month"
 msgid "Oct."
-msgstr ""
+msgstr "Oct."
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:63
 msgctxt "abbrev. month"
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:64
 msgctxt "abbrev. month"
 msgid "Dec."
-msgstr ""
+msgstr "Dec."
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:67
 msgctxt "alt. month"
 msgid "January"
-msgstr ""
+msgstr "January"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:68
 msgctxt "alt. month"
 msgid "February"
-msgstr ""
+msgstr "February"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:69
 msgctxt "alt. month"
 msgid "March"
-msgstr ""
+msgstr "March"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:70
 msgctxt "alt. month"
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:71
 msgctxt "alt. month"
 msgid "May"
-msgstr ""
+msgstr "May"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:72
 msgctxt "alt. month"
 msgid "June"
-msgstr ""
+msgstr "June"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:73
 msgctxt "alt. month"
 msgid "July"
-msgstr ""
+msgstr "July"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:74
 msgctxt "alt. month"
 msgid "August"
-msgstr ""
+msgstr "August"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:75
 msgctxt "alt. month"
 msgid "September"
-msgstr ""
+msgstr "SEPTEMBER"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:76
 msgctxt "alt. month"
 msgid "October"
-msgstr ""
+msgstr "October"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:77
 msgctxt "alt. month"
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:78
 msgctxt "alt. month"
 msgid "December"
-msgstr ""
+msgstr "December"
 
 #: .\venv\Lib\site-packages\django\utils\ipv6.py:20
 msgid "This is not a valid IPv6 address."
-msgstr ""
+msgstr "This is not a Valid IPv6 Address."
 
 #: .\venv\Lib\site-packages\django\utils\text.py:76
 #, python-format
 msgctxt "String to return when truncating text"
 msgid "%(truncated_text)s…"
-msgstr ""
+msgstr "%(truncated_text) s ..."
 
 #: .\venv\Lib\site-packages\django\utils\text.py:287
 msgid "or"
-msgstr ""
+msgstr "Or"
 
 #. Translators: This string is used as a separator between list elements
 #: .\venv\Lib\site-packages\django\utils\text.py:306
 #: .\venv\Lib\site-packages\django\utils\timesince.py:135
 msgid ", "
-msgstr ""
+msgstr ","
 
 #: .\venv\Lib\site-packages\django\utils\timesince.py:8
 #, python-format
@@ -1123,11 +1502,11 @@ msgstr[1] ""
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:29
 msgid "Forbidden"
-msgstr ""
+msgstr "Forbidden"
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:30
 msgid "CSRF verification failed. Request aborted."
-msgstr ""
+msgstr "CSRF Verification Failed.REQUEST abort."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:34
 msgid ""
@@ -1136,6 +1515,10 @@ msgid ""
 "required for security reasons, to ensure that your browser is not being "
 "hijacked by third parties."
 msgstr ""
+"You are Seeing this Message Because This https site requires “referer "
+"header” to be feel by your web browser, but none was for feeling.This Header "
+"is required for Security Reasons, to reure that your browser is not being "
+"hijacked by third parties."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:40
 msgid ""
@@ -1143,6 +1526,9 @@ msgid ""
 "enable them, at least for this site, or for HTTPS connections, or for “same-"
 "origin” requests."
 msgstr ""
+"If you have configured your browser to disable \"referer\" headers, please "
+"re-enhable them, at least for this site, or for https Connections, or for "
+"\"Same-Origin\" Requests."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:45
 msgid ""
@@ -1152,6 +1538,11 @@ msgid ""
 "If you’re concerned about privacy, use alternatives like <a "
 "rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
+"If you are using the <finish name = \"referer\" content = \"no-refererr\"> "
+"tag or including the \"refererr-political: no-refererr\" Header, please "
+"remave them.The CSRF Protection requirements the “referer” Header to do "
+"strict referer checking.If you’re concertned advocacy, use alternatives like "
+"<a rel = \"noreferrer\" ...> for links to third-parts sites."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:54
 msgid ""
@@ -1159,44 +1550,49 @@ msgid ""
 "submitting forms. This cookie is required for security reasons, to ensure "
 "that your browser is not being hijacked by third parties."
 msgstr ""
+"You are Seeing this Message Because This Site requires CSRF Cookie When "
+"Submitting Forms.This cookie is required for security reasons, to reure that "
+"your browser is not being hijacled by third parties."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:60
 msgid ""
 "If you have configured your browser to disable cookies, please re-enable "
 "them, at least for this site, or for “same-origin” requests."
 msgstr ""
+"If you have configured your browser to disable cookies, please Re-inable "
+"Them, at least for this site, or for \"Same-Origin\" requirements."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:66
 msgid "More information is available with DEBUG=True."
-msgstr ""
+msgstr "More information is avoilable with debug = true."
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:44
 msgid "No year specified"
-msgstr ""
+msgstr "No Year Specified"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:64
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:115
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:214
 msgid "Date out of range"
-msgstr ""
+msgstr "Date out of Range"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:94
 msgid "No month specified"
-msgstr ""
+msgstr "No month specified"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:147
 msgid "No day specified"
-msgstr ""
+msgstr "No Day Specified"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:194
 msgid "No week specified"
-msgstr ""
+msgstr "No Week Specified"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:353
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:384
 #, python-format
 msgid "No %(verbose_name_plural)s available"
-msgstr ""
+msgstr "No %(verbose_name_plural) s progable"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:680
 #, python-format
@@ -1204,58 +1600,60 @@ msgid ""
 "Future %(verbose_name_plural)s not available because "
 "%(class_name)s.allow_future is False."
 msgstr ""
+"Future %(verbose_name_plural) s notvailable scholary "
+"%(class_name) s.allow_future is false."
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:720
 #, python-format
 msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
-msgstr ""
+msgstr "INVALID DATE STRING \"%(Datestr) s\" Given format \"%(format) s\""
 
 #: .\venv\Lib\site-packages\django\views\generic\detail.py:56
 #, python-format
 msgid "No %(verbose_name)s found matching the query"
-msgstr ""
+msgstr "No %(Verbose_name) s Found Matching The Query"
 
 #: .\venv\Lib\site-packages\django\views\generic\list.py:70
 msgid "Page is not “last”, nor can it be converted to an int."
-msgstr ""
+msgstr "Page is not \"Last\", Nor Can It Be converted to an int."
 
 #: .\venv\Lib\site-packages\django\views\generic\list.py:77
 #, python-format
 msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr ""
+msgstr "INVALID Page ( %(Page_Number) s): %(Message) S"
 
 #: .\venv\Lib\site-packages\django\views\generic\list.py:173
 #, python-format
 msgid "Empty list and “%(class_name)s.allow_empty” is False."
-msgstr ""
+msgstr "Empty list and “%(class_name) S.allow_Empty” is false."
 
 #: .\venv\Lib\site-packages\django\views\static.py:49
 msgid "Directory indexes are not allowed here."
-msgstr ""
+msgstr "Directory Indexes Are Not Allowed Here."
 
 #: .\venv\Lib\site-packages\django\views\static.py:51
 #, python-format
 msgid "“%(path)s” does not exist"
-msgstr ""
+msgstr "\"%(Path) s\" does not exist"
 
 #: .\venv\Lib\site-packages\django\views\static.py:68
 #: .\venv\Lib\site-packages\django\views\templates\directory_index.html:8
 #: .\venv\Lib\site-packages\django\views\templates\directory_index.html:11
 #, python-format
 msgid "Index of %(directory)s"
-msgstr ""
+msgstr "Index of %(Directory) s"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:204
 msgid "The install worked successfully! Congratulations!"
-msgstr ""
+msgstr "The install worked successfully!Congratulations!"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
 #, python-format
 msgid ""
 "View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
 "target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
-msgstr ""
+msgstr "View <a href = \"https://docs.djangoproject.com/en/% Let"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
 #, python-format
@@ -1265,27 +1663,29 @@ msgid ""
 "rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
 "configured any URLs."
 msgstr ""
+"You are Seeing this Page Because <a href = \"https://docs.djangoproject.com/"
+"en/% Letting)s/ref/settings/#debug\" target = \"_ blank\" RefugAny URLs."
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
 msgid "Django Documentation"
-msgstr ""
+msgstr "DJANGO DOCUMENTATION"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:218
 msgid "Topics, references, &amp; how-to’s"
-msgstr ""
+msgstr "Topics, references, & amp;How-To’s"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:226
 msgid "Tutorial: A Polling App"
-msgstr ""
+msgstr "Tutorial: A polling app"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:227
 msgid "Get started with Django"
-msgstr ""
+msgstr "Get Started with Django"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:235
 msgid "Django Community"
-msgstr ""
+msgstr "Django Community"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
-msgstr ""
+msgstr "Connect, Get Help, or contributes"

@@ -1,7 +1,7 @@
     {% extends "base.html" %}
 {% load static %}
-
-{% block title %}Información - ChibchaWeb{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Información - ChibchaWeb" %}{% endblock %}
 
 {% block hero %}
 <!-- Hero Section Reconstruido -->
@@ -18,20 +18,20 @@
                                 <div class="hero-badge mb-4">
                                     <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
                                         <i class="bi bi-star-fill me-2"></i>
-                                        Hosting Premium Colombia
+                                        {% trans "Hosting Premium Colombia"%}
                                     </span>
                                 </div>
                                 
                                 <!-- Título principal -->
                                 <h1 class="hero-new-title text-white mb-4">
-                                    Tu sitio web merece el 
-                                    <span class="text-chibcha-accent">mejor hosting</span>
+                                    {% trans "Tu sitio web merece el"%} 
+                                    <span class="text-chibcha-accent">{% trans "mejor hosting"%}</span>
                                 </h1>
                                 
                                 <!-- Subtítulo -->
                                 <p class="hero-new-subtitle text-light mb-5">
-                                    Servidores SSD ultrarrápidos, SSL gratuito y soporte 24/7. 
-                                    Todo lo que necesitas para que tu proyecto digital triunfe.
+                                    {% trans "Servidores SSD ultrarrápidos, SSL gratuito y soporte 24/7."%}
+                                    {% trans "Todo lo que necesitas para que tu proyecto digital triunfe."%}
                                 </p>
                                 
                                 <!-- Métricas horizontales -->
@@ -42,7 +42,7 @@
                                                 <i class="bi bi-people-fill"></i>
                                             </div>
                                             <div class="metric-new-number">{{ estadisticas.clientes }}+</div>
-                                            <div class="metric-new-text">Clientes Activos</div>
+                                            <div class="metric-new-text">{% trans "Clientes Activos"%}</div>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-3">
@@ -51,7 +51,7 @@
                                                 <i class="bi bi-graph-up-arrow"></i>
                                             </div>
                                             <div class="metric-new-number">99.9%</div>
-                                            <div class="metric-new-text">Uptime</div>
+                                            <div class="metric-new-text">{% trans "Uptime"%}</div>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-3">
@@ -60,7 +60,7 @@
                                                 <i class="bi bi-lightning-charge-fill"></i>
                                             </div>
                                             <div class="metric-new-number">&lt;100ms</div>
-                                            <div class="metric-new-text">Respuesta</div>
+                                            <div class="metric-new-text">{% trans "Respuesta"%}</div>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-3">
@@ -69,7 +69,7 @@
                                                 <i class="bi bi-shield-fill-check"></i>
                                             </div>
                                             <div class="metric-new-number">SSL</div>
-                                            <div class="metric-new-text">Gratis</div>
+                                            <div class="metric-new-text">{% trans "Gratis"%}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -78,11 +78,11 @@
                                 <div class="hero-new-actions">
                                     <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-chibcha-accent btn-lg me-3 px-4">
                                         <i class="bi bi-rocket-takeoff me-2"></i>
-                                        Comenzar Gratis
+                                        {% trans "Comenzar Gratis"%}
                                     </a>
                                     <a href="#planes" class="btn btn-outline-light btn-lg px-4">
                                         <i class="bi bi-grid-3x3-gap me-2"></i>
-                                        Ver Planes
+                                        {% trans "Ver Planes"%}
                                     </a>
                                 </div>
                             </div>
@@ -97,29 +97,29 @@
                     <img src="{% static 'img/textoBlanco.svg' %}" alt="ChibchaWeb" class="hero-logo-new img-fluid">
                     <div class="hero-logo-text mt-4">
                         <h4 class="text-chibcha-dark mb-3">ChibchaWeb</h4>
-                        <p class="text-chibcha-medium mb-4 fw-bold">Hosting Profesional Colombiano</p>
+                        <p class="text-chibcha-medium mb-4 fw-bold">{% trans "Hosting Profesional Colombiano"%}</p>
                         
                         <!-- Información convincente solo texto -->
                         <div class="company-info-text">
                             <p class="text-chibcha-dark mb-3">
-                                <strong>Más de 5 años</strong> siendo líderes en hosting en Colombia con tecnología de vanguardia.
+                                <strong>{% trans "Más de 5 años"%}</strong> {% trans "siendo líderes en hosting en Colombia con tecnología de vanguardia."%}
                             </p>
                             
                             <p class="text-chibcha-medium mb-3">
-                                Servidores SSD NVMe ultrarrápidos con <strong>99.9% de disponibilidad garantizada</strong> y soporte técnico especializado 24/7.
+                                {% trans "Servidores SSD NVMe ultrarrápidos con "%}<strong>99.9% {% trans "de disponibilidad garantizada"%}</strong> {% trans "y soporte técnico especializado 24/7."%}
                             </p>
                             
                             <p class="text-chibcha-dark mb-4">
-                                Nuestro equipo colombiano te acompaña en cada paso para que tu proyecto digital <strong>siempre esté disponible</strong>.
+                                {% trans "Nuestro equipo colombiano te acompaña en cada paso para que tu proyecto digital "%}<strong>{% trans "siempre esté disponible"%}</strong>.
                             </p>
                             
                             <!-- Testimonial simple -->
                             <div class="testimonial-text p-3 bg-white rounded-3">
                                 <p class="small text-chibcha-dark mb-2 fst-italic">
-                                    "El mejor hosting que he usado en Colombia. Rápido, confiable y con excelente soporte técnico."
+                                    "{% trans "El mejor hosting que he usado en Colombia. Rápido, confiable y con excelente soporte técnico."%}"
                                 </p>
                                 <p class="small text-chibcha-medium mb-0">
-                                    <strong>María González, CEO Digital Solutions</strong>
+                                    <strong>{% trans "María González, CEO Digital Solutions"%}</strong>
                                 </p>
                             </div>
                         </div>
@@ -136,8 +136,8 @@
 <section class="services-simple py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <p class="section-subtitle">Todo lo que necesitas para tu proyecto web</p>
+            <h2 class="section-title">{% trans "Nuestros Servicios"%}</h2>
+            <p class="section-subtitle">{% trans "Todo lo que necesitas para tu proyecto web"%}</p>
         </div>
         
         <div class="row g-4">
@@ -146,8 +146,8 @@
                     <div class="service-icon-simple mb-3">
                         <i class="bi bi-server"></i>
                     </div>
-                    <h5>Hosting Premium</h5>
-                    <p>Servidores SSD NVMe ultrarrápidos</p>
+                    <h5>{% trans "Hosting Premium"%}</h5>
+                    <p>{% trans "Servidores SSD NVMe ultrarrápidos"%}</p>
                 </div>
             </div>
             
@@ -156,8 +156,8 @@
                     <div class="service-icon-simple mb-3">
                         <i class="bi bi-shield-check"></i>
                     </div>
-                    <h5>SSL Gratuito</h5>
-                    <p>Certificados SSL automáticos</p>
+                    <h5>{% trans "SSL Gratuito"%}</h5>
+                    <p>{% trans "Certificados SSL automáticos"%}</p>
                 </div>
             </div>
             
@@ -166,8 +166,8 @@
                     <div class="service-icon-simple mb-3">
                         <i class="bi bi-headset"></i>
                     </div>
-                    <h5>Soporte 24/7</h5>
-                    <p>Asistencia técnica especializada</p>
+                    <h5>{% trans "Soporte 24/7"%}</h5>
+                    <p>{% trans "Asistencia técnica especializada"%}</p>
                 </div>
             </div>
             
@@ -176,8 +176,8 @@
                     <div class="service-icon-simple mb-3">
                         <i class="bi bi-cloud-upload"></i>
                     </div>
-                    <h5>Backup Automático</h5>
-                    <p>Respaldos diarios seguros</p>
+                    <h5>{% trans "Backup Automático"%}</h5>
+                    <p>{% trans "Respaldos diarios seguros"%}</p>
                 </div>
             </div>
         </div>
@@ -188,8 +188,8 @@
 <section id="planes" class="plans-simple py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">Planes de Hosting</h2>
-            <p class="section-subtitle">Elige el plan perfecto para tu proyecto</p>
+            <h2 class="section-title">{% trans "Planes de Hosting"%}</h2>
+            <p class="section-subtitle">{% trans "Elige el plan perfecto para tu proyecto"%}</p>
         </div>
         
         <div class="row g-4 justify-content-center">
@@ -201,16 +201,16 @@
                         <div class="plan-price-simple">
                             <span class="currency">$</span>
                             <span class="amount">{{ planes.Plata.precio_mensual }}</span>
-                            <span class="period">/mes</span>
+                            <span class="period">/{% trans "mes"%}</span>
                         </div>
                     </div>
                     <div class="plan-features">
                         <ul class="list-unstyled">
-                            <li><i class="bi bi-check text-success"></i> {{ planes.Plata.webs }} Sitio Web</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Plata.webs }} {% trans "Sitio Web"%}</li>
                             <li><i class="bi bi-check text-success"></i> {{ planes.Plata.almacenamiento }} SSD</li>
-                            <li><i class="bi bi-check text-success"></i> {{ planes.Plata.bases_datos }} Base de Datos</li>
-                            <li><i class="bi bi-check text-success"></i> SSL Gratuito</li>
-                            <li><i class="bi bi-check text-success"></i> Soporte 24/7</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Plata.bases_datos }} {% trans "Base de Datos"%}</li>
+                            <li><i class="bi bi-check text-success"></i> SSL {% trans "Gratuito"%}</li>
+                            <li><i class="bi bi-check text-success"></i> {% trans "Soporte"%} 24/7</li>
                         </ul>
                     </div>
                 </div>
@@ -219,22 +219,22 @@
             <!-- Plan Professional - Color Chibcha Accent -->
             <div class="col-lg-4 col-md-6">
                 <div class="plan-card-simple plan-professional featured">
-                    <div class="plan-badge">Más Popular</div>
+                    <div class="plan-badge">{% trans "Más Popular"%}</div>
                     <div class="plan-header-simple">
-                        <h4>Professional</h4>
+                        <h4>{% trans "Professional"%}</h4>
                         <div class="plan-price-simple">
                             <span class="currency">$</span>
                             <span class="amount">{{ planes.Platino.precio_mensual }}</span>
-                            <span class="period">/mes</span>
+                            <span class="period">/{% trans "mes"%}</span>
                         </div>
                     </div>
                     <div class="plan-features">
                         <ul class="list-unstyled">
-                            <li><i class="bi bi-check text-success"></i> {{ planes.Platino.webs }} Sitios Web</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Platino.webs }} {% trans "Sitios Web"%}</li>
                             <li><i class="bi bi-check text-success"></i> {{ planes.Platino.almacenamiento }} SSD</li>
-                            <li><i class="bi bi-check text-success"></i> {{ planes.Platino.bases_datos }} Bases de Datos</li>
-                            <li><i class="bi bi-check text-success"></i> Email Marketing</li>
-                            <li><i class="bi bi-check text-success"></i> CDN Global</li>
+                            <li><i class="bi bi-check text-success"></i> {{ planes.Platino.bases_datos }} {% trans "Bases de Datos"%}</li>
+                            <li><i class="bi bi-check text-success"></i> {% trans "Email Marketing"%}</li>
+                            <li><i class="bi bi-check text-success"></i> {% trans "CDN Global"%}</li>
                         </ul>
                     </div>
                 </div>
@@ -248,16 +248,16 @@
                         <div class="plan-price-simple">
                             <span class="currency">$</span>
                             <span class="amount">{{ planes.Oro.precio_mensual }}</span>
-                            <span class="period">/mes</span>
+                            <span class="period">/{% trans "mes"%}</span>
                         </div>
                     </div>
                     <div class="plan-features">
                         <ul class="list-unstyled">
-                            <li><i class="bi bi-check text-success"></i> Sitios Ilimitados</li>
+                            <li><i class="bi bi-check text-success"></i> {% trans "Sitios Ilimitados"%}</li>
                             <li><i class="bi bi-check text-success"></i> {{ planes.Oro.almacenamiento }} SSD</li>
-                            <li><i class="bi bi-check text-success"></i> Bases Ilimitadas</li>
-                            <li><i class="bi bi-check text-success"></i> Soporte Prioritario</li>
-                            <li><i class="bi bi-check text-success"></i> Backup Avanzado</li>
+                            <li><i class="bi bi-check text-success"></i> {% trans "Bases Ilimitadas"%}</li>
+                            <li><i class="bi bi-check text-success"></i> {% trans "Soporte Prioritario"%}</li>
+                            <li><i class="bi bi-check text-success"></i> {% trans "Backup Avanzado"%}</li>
                         </ul>
                     </div>
                 </div>
@@ -271,12 +271,12 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">
-                <h3>¿Listo para comenzar?</h3>
-                <p class="mb-0">Únete a nuestros {{ estadisticas.clientes }} clientes satisfechos. Activa tu hosting en minutos.</p>
+                <h3>{% trans "¿Listo para comenzar?"%}</h3>
+                <p class="mb-0">{% trans "Únete a nuestros"%} {{ estadisticas.clientes }} {% trans "clientes satisfechos. Activa tu hosting en minutos"%}.</p>
             </div>
             <div class="col-lg-4 text-lg-end">
                 <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-chibcha-primary btn-lg">
-                    Comenzar Ahora
+                    {% trans "Comenzar Ahora"%}
                 </a>
             </div>
         </div>
