@@ -54,7 +54,7 @@ class ClienteLoginView(LoginView):
             if user.cliente.es_distribuidor:
                 return reverse_lazy('distribuidores:dashboard')
             else:
-                return reverse_lazy('clientes:perfil')
+                return reverse_lazy('clientes:home_cliente')
         return reverse_lazy('home')    
 
 @login_required
