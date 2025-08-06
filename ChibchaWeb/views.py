@@ -64,10 +64,11 @@ class ClienteLoginView(LoginView):
     def get_success_url(self):
         user = self.request.user
         if hasattr(user, 'cliente'):
-            if user.cliente.es_distribuidor:
+            # Verificar si es distribuidor Y tiene perfil de distribuidor
+            if user.cliente.es_distribuidor and hasattr(user.cliente, 'perfil_distribuidor'):
                 return reverse_lazy('distribuidores:dashboard')
             else:
-                return reverse_lazy('clientes:home_cliente')
+                return reverse_lazy('clientes:home_clientes')
         return reverse_lazy('home')    
 
 @login_required

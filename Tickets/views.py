@@ -32,18 +32,18 @@ def crear_ticket(request):
                 estado=estado_inicial
             )
             
-            return redirect('tickets:mis_tickets')
+            return redirect('tickets:tickets_cliente')
     else:
         form = TicketForm()
 
-    return render(request, 'tickets/crear_ticket.html', {'form': form})
+    return render(request, 'crear_ticket.html', {'form': form})
 
 
 @cliente_required
-def mis_tickets(request):
+def tickets_cliente(request):
     cliente = request.cliente
     tickets = Ticket.objects.filter(cliente=cliente).order_by('-fechar_creacion')
-    return render(request, 'tickets/mis_tickets.html', {'tickets': tickets})
+    return render(request, 'tickets_cliente.html', {'tickets': tickets})
 
 def obtener_estado_actual(self):
     ultima = self.historial.order_by('-fecha_modificacion').first()

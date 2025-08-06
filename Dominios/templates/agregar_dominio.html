@@ -1,0 +1,324 @@
+{% extends "base_clientes.html" %}
+{% load static %}
+
+{% block title %}Agregar Dominio - ChibchaWeb{% endblock %}
+
+{% block content %}
+<!-- Header del Agregar Dominio -->
+<section class="domain-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="domain-info">
+                    <div class="domain-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-plus me-2"></i>Nuevo Dominio
+                        </span>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-3">
+                        Agregar Nuevo Dominio
+                    </h1>
+                    <p class="lead mb-4">
+                        Agrega un nuevo dominio a tu plan de hosting
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="domain-icon">
+                    <i class="fas fa-globe fa-5x text-chibcha-accent"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenido del Formulario -->
+<section class="domain-content py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Información del cliente -->
+                <div class="alert alert-info mb-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <strong><i class="fas fa-user me-2"></i>Cliente:</strong> 
+                            {{ cliente.user.get_full_name|default:cliente.user.username }}
+                        </div>
+                        <div class="col-md-6">
+                            <strong><i class="fas fa-star me-2"></i>Plan Activo:</strong> 
+                            {{ cliente.plan|capfirst }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <h3 class="text-chibcha-dark">
+                                <i class="fas fa-link me-2"></i>
+                                Configurar Nuevo Dominio
+                            </h3>
+                            <p class="text-muted">
+                                Ingresa el dominio que deseas agregar a tu plan de hosting
+                            </p>
+                        </div>
+
+                        <!-- Indicadores de pasos -->
+                        <div class="validation-steps mb-4">
+                            <div class="step {% if not dominio_validado %}active{% else %}completed{% endif %}">
+                                <div class="step-number">1</div>
+                                <span>Ingresa tu dominio</span>
+                            </div>
+                            <div class="step {% if dominio_validado and not dominio_disponible %}active{% elif dominio_validado and dominio_disponible %}completed{% endif %}">
+                                <div class="step-number">2</div>
+                                <span>Validar disponibilidad</span>
+                            </div>
+                            <div class="step {% if dominio_validado and dominio_disponible %}active{% endif %}">
+                                <div class="step-number">3</div>
+                                <span>Agregar a tu cuenta</span>
+                            </div>
+                        </div>
+
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+                            
+                            <div class="mb-4">
+                                <label for="{{ form.dominio.id_for_label }}" class="form-label fw-bold">
+                                    <i class="fas fa-globe me-2"></i>{{ form.dominio.label }}
+                                </label>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bg-chibcha-accent text-dark">
+                                        <i class="fas fa-link"></i>
+                                    </span>
+                                    {% if dominio_valor %}
+                                        <input type="text" class="form-control" name="dominio" value="{{ dominio_valor }}" placeholder="{{ form.dominio.field.widget.attrs.placeholder }}" required>
+                                    {% else %}
+                                        {{ form.dominio }}
+                                    {% endif %}
+                                </div>
+                                {% if form.dominio.help_text %}
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i>{{ form.dominio.help_text }}
+                                    </div>
+                                {% endif %}
+                                {% if form.dominio.errors %}
+                                    <div class="alert alert-danger mt-2">
+                                        {% for error in form.dominio.errors %}
+                                            <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Resultado de la validación -->
+                            {% if dominio_validado %}
+                                <div class="mb-4">
+                                    {% if dominio_disponible %}
+                                        <div class="alert alert-success">
+                                            <i class="fas fa-check-circle me-2"></i>
+                                            <strong>¡Excelente!</strong> El dominio "{{ dominio_valor }}" está disponible y listo para usar.
+                                            <div class="mt-2">
+                                                <small>✓ Dominio disponible para registro</small><br>
+                                                <small>✓ Listo para configurar hosting</small><br>
+                                                <small>✓ SSL gratuito incluido</small>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="alert alert-warning">
+                                            <i class="fas fa-exclamation-triangle me-2"></i>
+                                            <strong>Dominio en uso:</strong> "{{ dominio_valor }}" ya está siendo utilizado.
+                                            <div class="mt-2">
+                                                <small><strong>¿Qué puedes hacer?</strong></small><br>
+                                                <small>• Elige un dominio diferente que esté disponible</small><br>
+                                                <small>• Si este dominio te pertenece, <a href="{% url 'tickets:crear_ticket' %}" class="text-warning"><u>contacta a soporte</u></a> para transferirlo</small><br>
+                                                <small>• Prueba con una extensión diferente (.com, .net, .org, etc.)</small>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <button type="submit" name="accion" value="validar" class="btn btn-outline-chibcha-primary btn-lg w-100">
+                                        <i class="fas fa-search me-2"></i>
+                                        Validar Disponibilidad
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    {% if dominio_validado and dominio_disponible %}
+                                        <button type="submit" name="accion" value="agregar" class="btn btn-chibcha-primary btn-lg w-100">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Agregar a Mi Cuenta
+                                        </button>
+                                    {% elif dominio_validado and not dominio_disponible %}
+                                        <button type="button" class="btn btn-danger btn-lg w-100" disabled title="Este dominio ya está en uso">
+                                            <i class="fas fa-times me-2"></i>
+                                            Dominio No Disponible
+                                        </button>
+                                    {% else %}
+                                        <button type="button" class="btn btn-secondary btn-lg w-100" disabled title="Primero valida la disponibilidad del dominio">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Agregar Dominio
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="d-grid">
+                                <a href="{% url 'clientes:mis_hosts' %}" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left me-2"></i>
+                                    Volver a Mis Hosts
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información Adicional -->
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <div class="info-card text-center">
+                    <div class="info-icon mb-3">
+                        <i class="fas fa-shield-alt fa-2x text-success"></i>
+                    </div>
+                    <h5>SSL Automático</h5>
+                    <p class="text-muted">
+                        Certificado SSL gratuito incluido con tu dominio
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-card text-center">
+                    <div class="info-icon mb-3">
+                        <i class="fas fa-rocket fa-2x text-chibcha-accent"></i>
+                    </div>
+                    <h5>Configuración Rápida</h5>
+                    <p class="text-muted">
+                        Tu dominio se configurará automáticamente en nuestros servidores
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info-card text-center">
+                    <div class="info-icon mb-3">
+                        <i class="fas fa-headset fa-2x text-primary"></i>
+                    </div>
+                    <h5>Soporte 24/7</h5>
+                    <p class="text-muted">
+                        Nuestro equipo te ayudará con cualquier configuración
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nota Importante -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Importante:</strong> Al agregar el dominio, nuestro equipo recibirá una notificación para configurar los servicios de hosting correspondientes.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.info-card {
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    transition: transform 0.2s ease;
+    height: 100%;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.domain-icon {
+    opacity: 0.8;
+}
+
+.input-group-lg .input-group-text {
+    border-color: #F4C542;
+}
+
+.input-group-lg .form-control:focus {
+    border-color: #F4C542;
+    box-shadow: 0 0 0 0.2rem rgba(244, 197, 66, 0.25);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 1rem 1.5rem;
+}
+
+.alert-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+    border-left: 4px solid #198754;
+}
+
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border-left: 4px solid #ffc107;
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-left: 4px solid #dc3545;
+}
+
+.validation-steps {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step-number {
+    background: #6c757d;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    margin-right: 0.75rem;
+}
+
+.step.active .step-number {
+    background: #F4C542;
+    color: #2f3338;
+}
+
+.step.completed .step-number {
+    background: #198754;
+}
+</style>
+{% endblock %}

@@ -71,6 +71,7 @@ TEMPLATES = [
             BASE_DIR / 'ChibchaWeb' / 'templates',
             BASE_DIR / 'Clientes' / 'templates',
             BASE_DIR / 'Empleados' / 'templates',
+            BASE_DIR / 'Tickets' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

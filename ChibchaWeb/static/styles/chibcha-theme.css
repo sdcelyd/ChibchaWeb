@@ -1198,6 +1198,7 @@
 
 /* Responsive explosivo */
 @media (max-width: 768px) {
+    
     .hero-title-explosive {
         font-size: 2.5rem;
     }
@@ -2297,6 +2298,7 @@ body {
 
 /* Utilidades responsive */
 @media (max-width: 1199.98px) {
+    
     .hero-new-title {
         font-size: 3rem;
     }

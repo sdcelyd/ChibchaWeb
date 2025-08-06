@@ -57,7 +57,19 @@ def borrar_cliente(request):
 
 @cliente_required
 def mis_hosts(request):
-    return render(request, 'mis_hosts.html')  
+    cliente = request.cliente
+    if not cliente.suscripcion_activa:
+        messages.warning(request, "Necesitas una suscripción activa para acceder a tus hosts.")
+        return redirect('clientes:home_clientes')
+    
+    # Obtener los dominios del cliente
+    from Dominios.models import Dominios
+    dominios = Dominios.objects.filter(clienteId=cliente)
+    
+    return render(request, 'mis_hosts.html', {
+        'cliente': cliente,
+        'dominios': dominios
+    })  
 
 @cliente_required
 def editar_cliente(request, cliente_id):
@@ -69,45 +81,90 @@ def editar_cliente(request, cliente_id):
         return redirect('clientes:detalle_cliente')
 
     if request.method == 'POST':
-        # Actualizar campos del User
-        cliente.user.username = request.POST.get('username', cliente.user.username)
-        cliente.user.first_name = request.POST.get('first_name', cliente.user.first_name)
-        cliente.user.last_name = request.POST.get('last_name', cliente.user.last_name)
-        cliente.user.email = request.POST.get('email', cliente.user.email)
+        from django.contrib.auth.models import User
         
-        # Actualizar contraseña si se proporcionó
-        new_password = request.POST.get('password')
-        if new_password:
-            cliente.user.set_password(new_password)
-            # Mantener la sesión activa después del cambio de contraseña
-            from django.contrib.auth import update_session_auth_hash
-            update_session_auth_hash(request, cliente.user)
+        new_username = request.POST.get('username', '').strip()
+        new_email = request.POST.get('email', '').strip()
         
-        cliente.user.save()
+        # Validar que los campos requeridos no estén vacíos
+        if not new_username:
+            messages.error(request, "El nombre de usuario es obligatorio.")
+            return render(request, 'editar.html', {'cliente': cliente})
+            
+        if not new_email:
+            messages.error(request, "El email es obligatorio.")
+            return render(request, 'editar.html', {'cliente': cliente})
         
-        # Actualizar campos del Cliente
-        cliente.telefono = request.POST.get('telefono', cliente.telefono)
-        cliente.save()
+        # Verificar si el nombre de usuario ya existe (excluyendo el usuario actual)
+        if new_username != cliente.user.username:
+            if User.objects.filter(username=new_username).exists():
+                messages.error(request, f"El nombre de usuario '{new_username}' ya está en uso. Por favor elige otro.")
+                return render(request, 'editar.html', {'cliente': cliente})
         
-        messages.success(request, "Perfil actualizado exitosamente.")
-        return redirect('clientes:detalle_cliente')
+        # Verificar si el email ya existe (excluyendo el usuario actual)
+        if new_email != cliente.user.email:
+            if User.objects.filter(email=new_email).exists():
+                messages.error(request, f"El email '{new_email}' ya está en uso. Por favor elige otro.")
+                return render(request, 'editar.html', {'cliente': cliente})
+        
+        try:
+            # Actualizar campos del User
+            cliente.user.username = new_username
+            cliente.user.first_name = request.POST.get('first_name', '').strip()
+            cliente.user.last_name = request.POST.get('last_name', '').strip()
+            cliente.user.email = new_email
+            
+            # Actualizar contraseña si se proporcionó
+            new_password = request.POST.get('password', '').strip()
+            if new_password:
+                if len(new_password) < 8:
+                    messages.error(request, "La contraseña debe tener al menos 8 caracteres.")
+                    return render(request, 'editar.html', {'cliente': cliente})
+                    
+                cliente.user.set_password(new_password)
+                # Mantener la sesión activa después del cambio de contraseña
+                from django.contrib.auth import update_session_auth_hash
+                update_session_auth_hash(request, cliente.user)
+                messages.info(request, "Tu contraseña ha sido actualizada correctamente.")
+            
+            cliente.user.save()
+            
+            # Actualizar campos del Cliente
+            cliente.telefono = request.POST.get('telefono', '').strip()
+            cliente.save()
+            
+            messages.success(request, "¡Perfil actualizado exitosamente!")
+            return redirect('clientes:perfil')
+            
+        except Exception as e:
+            messages.error(request, f"Error al actualizar el perfil: {str(e)}")
+            return render(request, 'editar.html', {'cliente': cliente})
 
     return render(request, 'editar.html', {'cliente': cliente})
 
-@login_required
+@cliente_required
 def quiero_ser_distribuidor(request):
-    return render(request, 'quiero_ser_distribuidor.html')
+    cliente = request.cliente
+    return render(request, 'quiero_ser_distribuidor.html', {'cliente': cliente})
 
-@login_required
+@cliente_required
 def hacer_distribuidor(request):
     if request.method == 'POST':
-        cliente = Cliente.objects.get(user=request.user)
+        cliente = request.cliente  # Usar el cliente del decorador
+        
+        # Verificar que tenga suscripción activa antes de hacerlo distribuidor
+        if not cliente.suscripcion_activa:
+            messages.error(request, "Necesitas una suscripción activa para convertirte en distribuidor.")
+            return redirect('clientes:quiero_ser_distribuidor')
+            
         if not cliente.es_distribuidor:
             cliente.es_distribuidor = True
             cliente.save()  # Aquí se dispara la señal
+            messages.success(request, "¡Felicidades! Ahora eres distribuidor de ChibchaWeb.")
         return redirect('clientes:distribuidor_exito')  
     return redirect('clientes:quiero_ser_distribuidor')  
 
-@login_required
+@cliente_required
 def distribuidor_exito(request):
-    return render(request, 'distribuidor_exito.html')
+    cliente = request.cliente
+    return render(request, 'distribuidor_exito.html', {'cliente': cliente})

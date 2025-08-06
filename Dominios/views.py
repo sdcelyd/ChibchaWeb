@@ -1,8 +1,12 @@
-#import requests
-from django.shortcuts import render
+import requests
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import VerificarURLForm
+from django.contrib import messages
+from django.utils import timezone
+from ChibchaWeb.decorators import cliente_required
+from .forms import VerificarURLForm, AgregarDominioForm
+from .models import Dominios
 import xml.etree.ElementTree as ET
 
 def verificar_url(request):
@@ -51,3 +55,141 @@ def generar_xml(request):
     response = HttpResponse(xml_bytes, content_type='application/xml')
     response['Content-Disposition'] = f'attachment; filename=Solicitud_{user.username}.xml'
     return response
+
+@cliente_required
+def agregar_dominio(request):
+    """
+    Vista para que los clientes agreguen dominios a su cuenta
+    """
+    cliente = request.cliente
+    
+    # Verificar que tenga suscripción activa
+    if not cliente.suscripcion_activa:
+        messages.warning(request, "Necesitas una suscripción activa para agregar dominios.")
+        return redirect('clientes:home_clientes')
+    
+    # Verificar límite de dominios según el plan
+    if not cliente.puede_agregar_dominios:
+        messages.error(request, f"Has alcanzado el límite de dominios para tu plan {cliente.plan} ({cliente.limite_dominios} dominios). Considera actualizar tu plan para agregar más dominios.")
+        return redirect('clientes:mis_hosts')
+    
+    form = AgregarDominioForm()
+    dominio_validado = False
+    dominio_disponible = False
+    dominio_valor = ""
+    
+    if request.method == 'POST':
+        form = AgregarDominioForm(request.POST)
+        accion = request.POST.get('accion')
+        
+        if form.is_valid():
+            dominio = form.cleaned_data['dominio']
+            dominio_valor = dominio
+            
+            # Verificar si el dominio ya existe en nuestra base de datos
+            if Dominios.objects.filter(nombreDominio=dominio).exists():
+                messages.error(request, f"El dominio '{dominio}' ya está registrado en nuestro sistema.")
+                return render(request, 'agregar_dominio.html', {
+                    'form': form, 
+                    'cliente': cliente,
+                    'dominio_validado': False,
+                    'dominio_disponible': False,
+                    'dominio_valor': dominio_valor
+                })
+            
+            if accion == 'validar':
+                # Solo validar disponibilidad
+                try:
+                    response = requests.get(f"http://{dominio}", timeout=3)
+                    if response.status_code == 200:
+                        dominio_validado = True
+                        dominio_disponible = False
+                        messages.warning(request, f"El dominio '{dominio}' está actualmente en uso. Si este dominio te pertenece y quieres transferirlo a ChibchaWeb, contacta a nuestro soporte.")
+                    else:
+                        dominio_validado = True
+                        dominio_disponible = True
+                        messages.success(request, f"¡Excelente! El dominio '{dominio}' está disponible y listo para configurar.")
+                except requests.RequestException:
+                    dominio_validado = True
+                    dominio_disponible = True
+                    messages.success(request, f"¡Perfecto! El dominio '{dominio}' está disponible y listo para usar en tu hosting.")
+                    
+            elif accion == 'agregar':
+                # Verificar disponibilidad antes de agregar
+                try:
+                    response = requests.get(f"http://{dominio}", timeout=3)
+                    if response.status_code == 200:
+                        messages.error(request, f"No se puede agregar el dominio '{dominio}' porque está siendo utilizado activamente. Por favor, elige un dominio diferente o contacta a soporte si este dominio te pertenece.")
+                        return render(request, 'agregar_dominio.html', {
+                            'form': form, 
+                            'cliente': cliente,
+                            'dominio_validado': True,
+                            'dominio_disponible': False,
+                            'dominio_valor': dominio_valor
+                        })
+                except requests.RequestException:
+                    # Dominio no responde, se puede agregar
+                    pass
+                
+                # Crear el registro del dominio
+                nuevo_dominio = Dominios.objects.create(
+                    clienteId=cliente,
+                    nombreDominio=dominio
+                )
+                
+                # Generar XML para uso interno
+                generar_xml_interno(cliente, dominio)
+                
+                messages.success(request, f"¡Perfecto! El dominio '{dominio}' ha sido agregado exitosamente a tu cuenta.")
+                return redirect('clientes:mis_hosts')
+    
+    return render(request, 'agregar_dominio.html', {
+        'form': form, 
+        'cliente': cliente,
+        'dominio_validado': dominio_validado,
+        'dominio_disponible': dominio_disponible,
+        'dominio_valor': dominio_valor
+    })
+
+def generar_xml_interno(cliente, dominio):
+    """
+    Genera un XML interno para el equipo de ChibchaWeb
+    """
+    root = ET.Element('SolicitudDominio')
+    ET.SubElement(root, 'Cliente').text = cliente.user.get_full_name() or cliente.user.username
+    ET.SubElement(root, 'Email').text = cliente.user.email
+    ET.SubElement(root, 'UserId').text = str(cliente.user.id)
+    ET.SubElement(root, 'ClienteId').text = str(cliente.id)
+    ET.SubElement(root, 'Dominio').text = dominio
+    ET.SubElement(root, 'Plan').text = cliente.plan or "N/A"
+    ET.SubElement(root, 'FechaSolicitud').text = str(timezone.now())
+    
+    # Guardar XML en directorio interno (opcional)
+    xml_string = ET.tostring(root, encoding='utf-8', xml_declaration=True)
+    
+    # Aquí podrías guardar el XML en un directorio específico para el equipo
+    # Por ahora, solo lo generamos en memoria
+
+@cliente_required
+def eliminar_dominio(request, dominio_id):
+    """
+    Vista para eliminar dominios del cliente
+    """
+    cliente = request.cliente
+    
+    try:
+        dominio = Dominios.objects.get(id=dominio_id, clienteId=cliente)
+    except Dominios.DoesNotExist:
+        messages.error(request, "El dominio no existe o no te pertenece.")
+        return redirect('clientes:mis_hosts')
+    
+    if request.method == 'POST':
+        nombre_dominio = dominio.nombreDominio
+        dominio.delete()
+        messages.success(request, f"El dominio '{nombre_dominio}' ha sido eliminado de tu cuenta exitosamente.")
+        return redirect('clientes:mis_hosts')
+    
+    return render(request, 'eliminar_dominio.html', {
+        'dominio': dominio,
+        'cliente': cliente
+    })

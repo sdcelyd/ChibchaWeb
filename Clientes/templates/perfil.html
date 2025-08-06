@@ -74,9 +74,9 @@
                         </div>
                         <hr>
                         <div class="text-center">
-                            <button class="btn btn-chibcha-primary">
+                            <a href="{% url 'clientes:editar_cliente' cliente.id %}" class="btn btn-chibcha-primary">
                                 <i class="fas fa-edit me-2"></i>Editar Información
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -156,22 +156,38 @@
                 <div class="quick-actions-profile">
                     <h4 class="text-center mb-4">Acciones Rápidas</h4>
                     <div class="actions-grid">
-                        <a href="{% url 'clientes:mis_hosts' %}" class="action-item">
-                            <i class="fas fa-globe"></i>
-                            <span>Mis Hosts</span>
-                        </a>
+                        {% if cliente.suscripcion_activa %}
+                            <a href="{% url 'clientes:mis_hosts' %}" class="action-item">
+                                <i class="fas fa-globe"></i>
+                                <span>Mis Hosts</span>
+                            </a>
+                        {% else %}
+                            <div class="action-item disabled" title="Requiere suscripción activa">
+                                <i class="fas fa-lock"></i>
+                                <span>Mis Hosts</span>
+                            </div>
+                        {% endif %}
+                        
                         <a href="{% url 'tickets:crear_ticket' %}" class="action-item">
                             <i class="fas fa-headset"></i>
                             <span>Crear Ticket</span>
                         </a>
-                        <a href="{% url 'verificar-url' %}" class="action-item">
-                            <i class="fas fa-search"></i>
-                            <span>Verificar Dominio</span>
-                        </a>
-                        <a href="#" class="action-item">
-                            <i class="fas fa-download"></i>
-                            <span>Backups</span>
-                        </a>
+                        
+                        {% if cliente.suscripcion_activa %}
+                            <a href="{% url 'verificar-url' %}" class="action-item">
+                                <i class="fas fa-search"></i>
+                                <span>Verificar Dominio</span>
+                            </a>
+                            <a href="#" class="action-item">
+                                <i class="fas fa-download"></i>
+                                <span>Backups</span>
+                            </a>
+                        {% else %}
+                            <div class="action-item disabled" title="Requiere suscripción activa">
+                                <i class="fas fa-lock"></i>
+                                <span>Funciones Premium</span>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
