@@ -1,0 +1,43 @@
+{% extends "base_clientes.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Compra de Paquetes de Páginas</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3 text-center">
+            <label for="cantidad" class="form-label fs-5">¿Cuántas páginas deseas comprar?</label>
+            <input type="number" name="cantidad" id="cantidad" class="form-control w-50 mx-auto" min="1" required>
+            <div class="form-text">Cada página tiene un valor de <strong>$X</strong>. A más páginas, mayores beneficios.</div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-5">Continuar</button>
+        </div>
+    </form>
+
+    <!-- Tarjetas informativas de beneficios -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5 mb-3">
+            <div class="card border-primary shadow-sm">
+                <div class="card-body text-center">
+                    <h4 class="card-title text-primary">Distribuidor Básico</h4>
+                    <p class="card-text">Obtén una comisión del <strong>10%</strong> por cada venta realizada.</p>
+                    <p class="text-muted">Perfecto para comenzar a generar ingresos como distribuidor.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 mb-3">
+            <div class="card border-success shadow-sm">
+                <div class="card-body text-center">
+                    <h4 class="card-title text-success">Distribuidor Premium</h4>
+                    <p class="card-text">Obtén una comisión del <strong>15%</strong> por cada venta realizada.</p>
+                    <p class="text-muted">Mayor beneficio para distribuidores activos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

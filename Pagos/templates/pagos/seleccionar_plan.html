@@ -1,36 +1,49 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
+
 {% block content %}
-<h2>Selecciona un plan</h2>
+<div class="container py-4">
+    <h2 class="text-center mb-4">Selecciona un plan</h2>
 
-<form method="post">
-    {% csrf_token %}
-    <div style="display: flex; gap: 20px;">
-        {% for clave, datos in planes.items %}
-            <label style="border: 1px solid #ccc; padding: 20px; width: 30%;">
-                <input type="radio" name="plan" value="{{ clave }}" required>
-                <h3>{{ datos.nombre }}</h3>
-                <p><strong>Mensual:</strong> ${{ datos.precio_mensual }}</p>
-                <p><strong>Semestral:</strong> ${{ datos.precio_semestral }}</p>
-                <p><strong>Anual:</strong> ${{ datos.precio_anual }}</p>
-                <!-- ... -->
-            </label>
-        {% endfor %}
-    </div>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="row justify-content-center">
+            {% for clave, datos in planes.items %}
+            <div class="col-md-4 mb-4">
+                <input type="radio" class="btn-check" name="plan" id="plan_{{ clave }}" value="{{ clave }}" required autocomplete="off">
+                <label class="card text-center shadow btn btn-outline-primary w-100" for="plan_{{ clave }}">
+                    <div class="card-body">
+                        <h4 class="card-title text-uppercase">
+                            {% if clave == "plata" %}Plata{% elif clave == "oro" %}Oro{% elif clave == "platino" %}Platino{% else %}{{ datos.nombre }}{% endif %}
+                        </h4>
+                        <p class="card-text"><strong>Mensual:</strong> ${{ datos.precio_mensual }}</p>
+                        <p class="card-text"><strong>Semestral:</strong> ${{ datos.precio_semestral }}</p>
+                        <p class="card-text"><strong>Anual:</strong> ${{ datos.precio_anual }}</p>
+                    </div>
+                </label>
+            </div>
+            {% endfor %}
+        </div>
 
-    <!-- Nueva sección para modalidad -->
-    <div style="margin-top: 20px;">
-        <label for="modalidad">Modalidad:</label>
-        <select name="modalidad" required>
-            <option value="">Seleccione una modalidad</option>
-            <option value="mensual">Mensual</option>
-            <option value="semestral">Semestral</option>
-            <option value="anual">Anual</option>
-        </select>
-    </div>
+        <!-- Modalidad como botones -->
+        <div class="text-center mt-4">
+            <label class="form-label d-block mb-2">Modalidad:</label>
+            <div class="btn-group" role="group" aria-label="Modalidad">
+                <input type="radio" class="btn-check" name="modalidad" id="mensual" value="mensual" required autocomplete="off">
+                <label class="btn btn-outline-secondary" for="mensual">Mensual</label>
 
-    <div style="text-align: center; margin-top: 20px;">
-        <button type="submit">Continuar</button>
-    </div>
-</form>
+                <input type="radio" class="btn-check" name="modalidad" id="semestral" value="semestral" required autocomplete="off">
+                <label class="btn btn-outline-secondary" for="semestral">Semestral</label>
+
+                <input type="radio" class="btn-check" name="modalidad" id="anual" value="anual" required autocomplete="off">
+                <label class="btn btn-outline-secondary" for="anual">Anual</label>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-5">Continuar</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

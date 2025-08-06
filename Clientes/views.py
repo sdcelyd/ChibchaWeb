@@ -21,7 +21,7 @@ def registrar_cliente(request):
         form = RegistroClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('clientes:registro_exitoso')  # Asegúrate de tener esta ruta en urls.py
+            return redirect('clientes:registro_exitoso') 
     else:
         form = RegistroClienteForm()
 
@@ -93,3 +93,21 @@ def editar_cliente(request, cliente_id):
         return redirect('clientes:detalle_cliente')
 
     return render(request, 'editar.html', {'cliente': cliente})
+
+@login_required
+def quiero_ser_distribuidor(request):
+    return render(request, 'quiero_ser_distribuidor.html')
+
+@login_required
+def hacer_distribuidor(request):
+    if request.method == 'POST':
+        cliente = Cliente.objects.get(user=request.user)
+        if not cliente.es_distribuidor:
+            cliente.es_distribuidor = True
+            cliente.save()  # Aquí se dispara la señal
+        return redirect('clientes:distribuidor_exito')  
+    return redirect('clientes:quiero_ser_distribuidor')  
+
+@login_required
+def distribuidor_exito(request):
+    return render(request, 'distribuidor_exito.html')
