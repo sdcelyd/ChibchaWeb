@@ -9,6 +9,16 @@ from django.contrib import messages
 from .forms import ClienteForm
 from django.views.decorators.http import require_POST
 from ChibchaWeb.decorators import cliente_required
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
+from django.core.mail import send_mail
+from django.urls import reverse
+from django.contrib.auth.models import User
+from django.shortcuts import render
+from django.utils.http import urlsafe_base64_decode
+
+
 
 
 @cliente_required
@@ -20,12 +30,45 @@ def registrar_cliente(request):
     if request.method == 'POST':
         form = RegistroClienteForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('clientes:registro_exitoso') 
+            user = form.save()
+            # Crear token
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            # Construir URL de activación
+            activation_link = request.build_absolute_uri(
+                reverse('clientes:activar_cuenta', kwargs={'uidb64': uid, 'token': token})
+            )
+            # Enviar correo
+            send_mail(
+                subject='Activa tu cuenta',
+                message=f'Hola {user.first_name}, activa tu cuenta haciendo clic en el siguiente enlace: {activation_link}',
+                from_email='no-reply@tusitio.com',
+                recipient_list=[user.email],
+                fail_silently=False,
+            )
+            return redirect('clientes:registro_exitoso')  # Puedes mostrar un mensaje tipo: "Revisa tu correo"
     else:
         form = RegistroClienteForm()
 
     return render(request, 'registro.html', {'form': form})
+
+def activar_cuenta(request, uidb64, token):
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        return render(request, 'activacion_exitosa.html')
+    else:
+        return render(request, 'activacion_fallida.html')
+
+
+def registro_exitoso(request):
+    return render(request, 'exito.html')  
 
 @cliente_required
 def detalle_cliente(request):
