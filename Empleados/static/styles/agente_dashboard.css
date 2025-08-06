@@ -81,3 +81,55 @@
 .text-warning {
     color: #eab21b !important;
 }
+
+/* Estilos para la mini información del agente */
+.agente-info {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.agente-info:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.agente-info h6 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.agente-info p {
+    transition: color 0.2s ease;
+}
+
+.agente-info p:hover {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.agente-info .text-info {
+    filter: drop-shadow(0 0 3px rgba(23, 162, 184, 0.4));
+}
+
+.agente-info .btn {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.agente-info .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.agente-info .btn-warning {
+    background: linear-gradient(45deg, #eab21b, #f39c12);
+    color: #1b1215;
+    font-weight: bold;
+}
+
+.agente-info .btn-success {
+    background: linear-gradient(45deg, #28a745, #20c997);
+}

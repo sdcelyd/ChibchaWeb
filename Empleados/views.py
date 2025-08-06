@@ -16,6 +16,142 @@ from .models import Empleado
 from Tickets.models import Ticket, Estado, HistoriaTicket
 
 
+# Helper functions para eliminar código repetitivo
+def obtener_tickets_asignados_empleado(empleado):
+    """Obtiene los IDs de tickets asignados a un empleado específico"""
+    return HistoriaTicket.objects.filter(
+        empleado=empleado
+    ).values_list('ticket__idTicket', flat=True).distinct()
+
+
+def obtener_ultimo_estado_ticket(ticket):
+    """Obtiene el último estado de un ticket específico"""
+    return HistoriaTicket.objects.filter(
+        ticket=ticket
+    ).order_by('-fecha_modificacion', '-idCambioTicket').first()
+
+
+def obtener_historial_ticket(ticket):
+    """Obtiene el historial completo de un ticket"""
+    return HistoriaTicket.objects.filter(
+        ticket=ticket
+    ).order_by('-fecha_modificacion').select_related('empleado__user', 'estado')
+
+
+def procesar_tickets_con_estado(tickets_queryset):
+    """Procesa una lista de tickets y obtiene su estado actual"""
+    tickets_con_estado = []
+    for ticket in tickets_queryset:
+        ultimo_estado = obtener_ultimo_estado_ticket(ticket)
+        
+        tickets_con_estado.append({
+            'ticket': ticket,
+            'estado_actual': ultimo_estado.estado if ultimo_estado else None,
+            'fecha_ultima_modificacion': ultimo_estado.fecha_modificacion if ultimo_estado else None
+        })
+    
+    return tickets_con_estado
+
+
+def procesar_tickets_para_agente(tickets_queryset, agente):
+    """Procesa tickets específicamente para un agente con información adicional"""
+    tickets_con_info = []
+    for ticket in tickets_queryset:
+        ultimo_estado = obtener_ultimo_estado_ticket(ticket)
+        historial = obtener_historial_ticket(ticket)
+        
+        tickets_con_info.append({
+            'ticket': ticket,
+            'estado_actual': ultimo_estado.estado if ultimo_estado else None,
+            'fecha_ultima_modificacion': ultimo_estado.fecha_modificacion if ultimo_estado else None,
+            'historial': historial,
+            'puede_resolver': ultimo_estado and ultimo_estado.estado.nombreEstado == 'En Proceso',
+            'puede_escalar': ultimo_estado and ultimo_estado.estado.nombreEstado == 'En Proceso' and agente.nivel < 3
+        })
+    
+    return tickets_con_info
+
+
+def obtener_tickets_asignados_por_nivel(supervisor_nivel):
+    """Obtiene información de tickets asignados a agentes del nivel del supervisor"""
+    # Obtenemos la última entrada del historial para cada ticket que tenga un empleado asignado
+    ultimas_historias = HistoriaTicket.objects.filter(
+        empleado__isnull=False
+    ).values('ticket__idTicket').annotate(
+        ultima_fecha=Max('fecha_modificacion')
+    )
+    
+    tickets_asignados_info = {}
+    # Para cada ticket con una última entrada, verificamos si el empleado asignado es de este nivel
+    for historia in ultimas_historias:
+        ticket_id = historia['ticket__idTicket']
+        ultima_fecha = historia['ultima_fecha']
+        
+        # Buscamos la entrada más reciente con esa fecha para ese ticket
+        ultima_entrada = HistoriaTicket.objects.filter(
+            ticket__idTicket=ticket_id,
+            fecha_modificacion=ultima_fecha
+        ).order_by('-idCambioTicket').first()
+        
+        if ultima_entrada and ultima_entrada.empleado and ultima_entrada.empleado.nivel == supervisor_nivel:
+            tickets_asignados_info[ticket_id] = ultima_entrada
+    
+    return tickets_asignados_info
+
+
+def obtener_tickets_sin_asignar_por_nivel(supervisor_nivel, tickets_asignados_ids):
+    """Obtiene tickets sin asignar según el nivel del supervisor"""
+    if supervisor_nivel == 1:
+        # Para nivel 1: tickets no asignados y no escalados
+        tickets_escalados_desde_este_nivel = HistoriaTicket.objects.filter(
+            modDescripcion__contains=f'escalado del nivel {supervisor_nivel} al nivel'
+        ).values_list('ticket__idTicket', flat=True).distinct()
+        
+        tickets_escalados_a_otros_niveles = HistoriaTicket.objects.filter(
+            modDescripcion__contains='escalado al nivel'
+        ).exclude(
+            modDescripcion__contains='escalado al nivel 1'
+        ).values_list('ticket__idTicket', flat=True).distinct()
+        
+        todos_tickets_escalados = set(tickets_escalados_desde_este_nivel) | set(tickets_escalados_a_otros_niveles)
+        
+        return Ticket.objects.exclude(
+            idTicket__in=tickets_asignados_ids
+        ).exclude(
+            idTicket__in=list(todos_tickets_escalados)
+        )
+    else:
+        # Para niveles superiores: tickets escalados a este nivel específico
+        patron_escalamiento = f'al nivel {supervisor_nivel}'
+        tickets_escalados = HistoriaTicket.objects.filter(
+            modDescripcion__contains=patron_escalamiento
+        ).order_by('-fecha_modificacion')
+        
+        ticket_ids = []
+        for entrada in tickets_escalados:
+            ticket_id = entrada.ticket.idTicket
+            
+            if ticket_id in tickets_asignados_ids:
+                continue
+            
+            entrada_mas_reciente = HistoriaTicket.objects.filter(
+                ticket__idTicket=ticket_id
+            ).order_by('-fecha_modificacion', '-idCambioTicket').first()
+            
+            if entrada_mas_reciente and entrada_mas_reciente.idCambioTicket == entrada.idCambioTicket:
+                ticket_ids.append(ticket_id)
+        
+        return Ticket.objects.filter(idTicket__in=ticket_ids)
+
+
+def validar_ticket_asignado_a_empleado(ticket, empleado):
+    """Valida si un ticket está asignado a un empleado específico"""
+    return HistoriaTicket.objects.filter(
+        ticket=ticket,
+        empleado=empleado
+    ).exists()
+
+
 class EmpleadoLoginView(LoginView):
     template_name = 'logEmpleados.html'
     
@@ -98,133 +234,33 @@ class SupervisorDashboardView(TemplateView):
             activo=True
         ).select_related('user')
         
-        tickets_asignados_info = {}
+        # Calcular tickets asignados por agente
+        agentes_con_tickets = []
+        for agente in agentes_mismo_nivel:
+            tickets_asignados_ids = obtener_tickets_asignados_empleado(agente)
+            agentes_con_tickets.append({
+                'agente': agente,
+                'tickets_count': len(tickets_asignados_ids)
+            })
         
-        # Obtenemos la última entrada del historial para cada ticket que tenga un empleado asignado
-        ultimas_historias = HistoriaTicket.objects.filter(
-            empleado__isnull=False
-        ).values('ticket__idTicket').annotate(
-            ultima_fecha=Max('fecha_modificacion')
-        )
-        
-        # Para cada ticket con una última entrada, verificamos si el empleado asignado es de este nivel
-        for historia in ultimas_historias:
-            ticket_id = historia['ticket__idTicket']
-            ultima_fecha = historia['ultima_fecha']
-            
-            # Buscamos la entrada más reciente con esa fecha para ese ticket
-            ultima_entrada = HistoriaTicket.objects.filter(
-                ticket__idTicket=ticket_id,
-                fecha_modificacion=ultima_fecha
-            ).order_by('-idCambioTicket').first()
-            
-            if ultima_entrada and ultima_entrada.empleado and ultima_entrada.empleado.nivel == supervisor.nivel:
-                tickets_asignados_info[ticket_id] = ultima_entrada
-        
-        # Convertimos a lista de IDs para usar en consultas
+        # Obtener información de tickets asignados por nivel
+        tickets_asignados_info = obtener_tickets_asignados_por_nivel(supervisor.nivel)
         tickets_asignados_ids = list(tickets_asignados_info.keys())
         
-        if supervisor.nivel == 1:
-            # Para nivel 1: tickets nuevos sin asignar a ningún empleado
-            tickets_sin_asignar_query = Ticket.objects.filter(
-                ~Q(idTicket__in=tickets_asignados_ids)  # Excluir los ya asignados
-            ).filter(
-                # Solo incluir tickets que no tengan ninguna asignación o solo tengan entradas sin empleado
-                ~Q(idTicket__in=HistoriaTicket.objects.filter(
-                    empleado__isnull=False
-                ).exclude(
-                    empleado__nivel=supervisor.nivel
-                ).values_list('ticket__idTicket', flat=True))
-            )
-        else:
-            # Para niveles superiores: tickets escalados a este nivel específico y que no estén asignados
-            # Obtenemos los tickets que tienen una entrada de escalamiento al nivel actual
-            ultimas_entradas = {}
-            
-            # Modificamos la búsqueda para ser más flexible con el formato del mensaje de escalamiento
-            # Buscamos específicamente tickets escalados AL nivel del supervisor (no DESDE ese nivel)
-            patron_escalamiento = f'al nivel {supervisor.nivel}'  # Cambiado para ser más específico
-            
-            # Primera estrategia: buscar entradas que contengan el patrón específico
-            todas_entradas = HistoriaTicket.objects.filter(
-                modDescripcion__contains=patron_escalamiento
-            ).order_by('-fecha_modificacion')
-            
-            # Segunda estrategia: si no hay resultados, buscar por expresión regular más general
-            if todas_entradas.count() == 0:
-                print(f"No se encontraron tickets con el patrón exacto. Probando búsqueda alternativa...")
-                todas_entradas = HistoriaTicket.objects.filter(
-                    Q(modDescripcion__contains=f'escalado') & 
-                    Q(modDescripcion__contains=f'al nivel {supervisor.nivel}')
-                ).order_by('-fecha_modificacion')
-            
-            # Imprimimos para depuración (en desarrollo)
-            print(f"Búsqueda para supervisor nivel {supervisor.nivel}")
-            print(f"Patrón de búsqueda principal: '{patron_escalamiento}'")
-            print(f"Tickets encontrados: {todas_entradas.count()}")
-            
-            # Para cada ticket, imprimimos detalles para depuración
-            for entrada in todas_entradas:
-                print(f"Ticket ID: {entrada.ticket.idTicket}, Descripción: {entrada.modDescripcion}")
-                print(f"Fecha modificación: {entrada.fecha_modificacion}, Empleado: {entrada.empleado}")
-                print(f"Estado: {entrada.estado.nombreEstado if entrada.estado else 'Sin estado'}")
-            
-            # Para cada ticket, nos quedamos con la entrada más reciente
-            ticket_ids = []
-            for entrada in todas_entradas:
-                ticket_id = entrada.ticket.idTicket
-                
-                # Verificamos si el ticket está en la lista de asignados basada en la última entrada del historial
-                if ticket_id in tickets_asignados_ids:
-                    # Si está asignado, imprimimos para depuración
-                    print(f"Ticket {ticket_id} ya está asignado a un agente de nivel {supervisor.nivel}")
-                    continue
-                
-                # Si aún no hemos procesado este ticket
-                if ticket_id not in ultimas_entradas:
-                    ultimas_entradas[ticket_id] = entrada
-                    
-                    # Verificamos que esta entrada de escalamiento sea la última acción en el ticket
-                    # Es decir, no debe haber entradas más recientes que esta
-                    entradas_posteriores = HistoriaTicket.objects.filter(
-                        ticket__idTicket=ticket_id,
-                        fecha_modificacion__gt=entrada.fecha_modificacion
-                    )
-                    
-                    if entradas_posteriores.exists():
-                        print(f"Ticket {ticket_id} tiene entradas posteriores al escalamiento")
-                        continue
-                    
-                    # Si llegamos aquí, el ticket está escalado y no asignado
-                    ticket_ids.append(ticket_id)
-                    print(f"Agregando ticket {ticket_id} - {entrada.modDescripcion}")
-            
-            # Finalizamos la consulta para obtener los tickets
-            tickets_sin_asignar_query = Ticket.objects.filter(idTicket__in=ticket_ids)
-            
-            # Log para depuración
-            print(f"IDs de tickets a mostrar: {ticket_ids}")
-            print(f"Cantidad de tickets a mostrar: {len(ticket_ids)}")
-            
-        tickets_sin_asignar = tickets_sin_asignar_query.select_related('cliente')
+        # Obtener tickets sin asignar
+        tickets_sin_asignar = obtener_tickets_sin_asignar_por_nivel(
+            supervisor.nivel, 
+            tickets_asignados_ids
+        ).select_related('cliente')
         
-        # Verificación final
-        print(f"Tickets sin asignar (QuerySet): {tickets_sin_asignar.count()}")
-        for t in tickets_sin_asignar:
-            print(f"Ticket en QuerySet final: ID={t.idTicket}, Nombre={t.nombreTicket}")
-        
-        # Obtener tickets asignados a agentes de este nivel con información completa
-        # Utilizamos los IDs que ya calculamos antes
+        # Obtener tickets asignados con información completa
         tickets_asignados_query = Ticket.objects.filter(
             idTicket__in=tickets_asignados_ids
         ).select_related('cliente')
         
-        # Crear lista con información de asignación y estado
         tickets_asignados_info_list = []
         for ticket in tickets_asignados_query:
-            # Usamos la entrada que ya encontramos anteriormente
             ultima_historia = tickets_asignados_info.get(ticket.idTicket)
-            
             if ultima_historia:
                 tickets_asignados_info_list.append({
                     'ticket': ticket,
@@ -233,11 +269,14 @@ class SupervisorDashboardView(TemplateView):
                     'fecha_asignacion': ultima_historia.fecha_modificacion
                 })
 
-        context['empleado'] = supervisor
-        context['agentes'] = agentes_mismo_nivel
-        context['tickets_sin_asignar'] = tickets_sin_asignar
-        context['tickets_asignados'] = tickets_asignados_info_list
-        context['nivel_supervisor'] = supervisor.nivel
+        context.update({
+            'empleado': supervisor,
+            'agentes': agentes_mismo_nivel,
+            'agentes_con_tickets': agentes_con_tickets,
+            'tickets_sin_asignar': tickets_sin_asignar,
+            'tickets_asignados': tickets_asignados_info_list,
+            'nivel_supervisor': supervisor.nivel
+        })
         
         return context
 
@@ -251,36 +290,25 @@ class AgenteDashboardView(TemplateView):
         agente = self.request.user.empleado
         
         # Obtener tickets asignados a este agente
-        tickets_asignados_ids = HistoriaTicket.objects.filter(
-            empleado=agente
-        ).values_list('ticket__idTicket', flat=True).distinct()
-        
+        tickets_asignados_ids = obtener_tickets_asignados_empleado(agente)
         tickets_asignados = Ticket.objects.filter(
             idTicket__in=tickets_asignados_ids
         ).select_related('cliente')
         
-        # Obtener el estado actual de cada ticket
-        tickets_con_estado = []
-        for ticket in tickets_asignados:
-            ultimo_estado = HistoriaTicket.objects.filter(
-                ticket=ticket
-            ).order_by('-fecha_modificacion', '-idCambioTicket').first()
-            
-            tickets_con_estado.append({
-                'ticket': ticket,
-                'estado': ultimo_estado.estado if ultimo_estado else None,
-                'fecha_modificacion': ultimo_estado.fecha_modificacion if ultimo_estado else None
-            })
+        # Procesar tickets con su estado actual
+        tickets_con_estado = procesar_tickets_con_estado(tickets_asignados)
         
-        # Separar tickets por estado (solo "En Proceso" como pendientes)
-        tickets_pendientes = [t for t in tickets_con_estado if t['estado'] and t['estado'].nombreEstado == 'En Proceso']
-        tickets_completados = [t for t in tickets_con_estado if t['estado'] and t['estado'].nombreEstado == 'Resuelto']
+        # Separar tickets por estado
+        tickets_pendientes = [t for t in tickets_con_estado if t['estado_actual'] and t['estado_actual'].nombreEstado == 'En Proceso']
+        tickets_completados = [t for t in tickets_con_estado if t['estado_actual'] and t['estado_actual'].nombreEstado == 'Resuelto']
         
-        context['empleado'] = agente
-        context['usuario'] = agente.user
-        context['tickets_pendientes'] = tickets_pendientes
-        context['tickets_completados'] = tickets_completados
-        context['total_tickets'] = len(tickets_con_estado)
+        context.update({
+            'empleado': agente,
+            'usuario': agente.user,
+            'tickets_pendientes': tickets_pendientes,
+            'tickets_completados': tickets_completados,
+            'total_tickets': len(tickets_con_estado)
+        })
         
         return context
 
@@ -293,44 +321,25 @@ class MisTicketsView(TemplateView):
         context = super().get_context_data(**kwargs)
         agente = self.request.user.empleado
         
-            # Obtener todos los tickets asignados a este agente
-        tickets_asignados_ids = HistoriaTicket.objects.filter(
-            empleado=agente
-        ).values_list('ticket__idTicket', flat=True).distinct()
-        
+        # Obtener tickets asignados a este agente
+        tickets_asignados_ids = obtener_tickets_asignados_empleado(agente)
         tickets_asignados = Ticket.objects.filter(
             idTicket__in=tickets_asignados_ids
         ).select_related('cliente')
         
-        # Obtener el estado actual de cada ticket con toda la información del historial
-        tickets_con_info = []
-        for ticket in tickets_asignados:
-            ultimo_estado = HistoriaTicket.objects.filter(
-                ticket=ticket
-            ).order_by('-fecha_modificacion', '-idCambioTicket').first()
-            
-            # Obtener el historial completo del ticket
-            historial = HistoriaTicket.objects.filter(
-                ticket=ticket
-            ).order_by('-fecha_modificacion').select_related('empleado__user', 'estado')
-            
-            tickets_con_info.append({
-                'ticket': ticket,
-                'estado_actual': ultimo_estado.estado if ultimo_estado else None,
-                'fecha_ultima_modificacion': ultimo_estado.fecha_modificacion if ultimo_estado else None,
-                'historial': historial,
-                'puede_resolver': ultimo_estado and ultimo_estado.estado.nombreEstado == 'En Proceso',
-                'puede_escalar': ultimo_estado and ultimo_estado.estado.nombreEstado == 'En Proceso' and agente.nivel < 3  # Suponiendo máximo 3 niveles
-            })
+        # Procesar tickets con información completa para agente
+        tickets_con_info = procesar_tickets_para_agente(tickets_asignados, agente)
         
-        # Separar por estado (sin "Cerrado", solo "Resuelto")
+        # Separar por estado
         tickets_pendientes = [t for t in tickets_con_info if t['estado_actual'] and t['estado_actual'].nombreEstado == 'En Proceso']
         tickets_resueltos = [t for t in tickets_con_info if t['estado_actual'] and t['estado_actual'].nombreEstado == 'Resuelto']
         
-        context['agente'] = agente
-        context['tickets_pendientes'] = tickets_pendientes
-        context['tickets_resueltos'] = tickets_resueltos
-        context['total_tickets'] = len(tickets_con_info)
+        context.update({
+            'agente': agente,
+            'tickets_pendientes': tickets_pendientes,
+            'tickets_resueltos': tickets_resueltos,
+            'total_tickets': len(tickets_con_info)
+        })
         
         return context
 
@@ -346,17 +355,12 @@ def resolver_ticket(request):
         if not ticket_id:
             return JsonResponse({'success': False, 'error': 'ID de ticket requerido'})
         
-        # Obtener el ticket y verificar que está asignado al agente
+        # Obtener el ticket y el agente
         ticket = Ticket.objects.get(idTicket=ticket_id)
         agente = request.user.empleado
         
         # Verificar que el ticket está asignado a este agente
-        ticket_asignado = HistoriaTicket.objects.filter(
-            ticket=ticket,
-            empleado=agente
-        ).exists()
-        
-        if not ticket_asignado:
+        if not validar_ticket_asignado_a_empleado(ticket, agente):
             return JsonResponse({'success': False, 'error': 'No tienes permisos para resolver este ticket'})
         
         # Obtener o crear el estado "Resuelto"
@@ -405,19 +409,14 @@ def escalar_ticket(request):
         agente = request.user.empleado
         
         # Verificar que el ticket está asignado a este agente
-        ticket_asignado = HistoriaTicket.objects.filter(
-            ticket=ticket,
-            empleado=agente
-        ).exists()
-        
-        if not ticket_asignado:
+        if not validar_ticket_asignado_a_empleado(ticket, agente):
             return JsonResponse({'success': False, 'error': 'No tienes permisos para escalar este ticket'})
         
         # Verificar que se puede escalar (no está en el nivel máximo)
         if agente.nivel >= 3:  # Suponiendo máximo 3 niveles
             return JsonResponse({'success': False, 'error': 'No se puede escalar desde el nivel máximo'})
         
-        # Obtener o crear el estado "En espera" para el escalamiento (el supervisor del siguiente nivel lo asignará)
+        # Obtener o crear el estado "En espera"
         estado_espera, created = Estado.objects.get_or_create(
             nombreEstado='En espera',
             defaults={'idEstado': 1}
@@ -425,26 +424,17 @@ def escalar_ticket(request):
         
         # Crear entrada en HistoriaTicket para el escalamiento
         nivel_destino = agente.nivel + 1
-        
-        # Formato estandarizado con "al nivel X" para que solo lo vea el supervisor correcto
-        # IMPORTANTE: Usamos "al nivel X" para que coincida exactamente con la búsqueda del supervisor
         descripcion = f'Ticket escalado del nivel {agente.nivel} al nivel {nivel_destino} por {agente.user.get_full_name() or agente.user.username}'
         if comentario:
             descripcion += f'. Motivo: {comentario}'
         
-        # Registrar el escalamiento en el historial
-        escalamiento = HistoriaTicket.objects.create(
+        HistoriaTicket.objects.create(
             modDescripcion=descripcion,
             fecha_modificacion=timezone.now().date(),
             empleado=None,  # Al escalar, queda sin asignar para el siguiente nivel
             ticket=ticket,
             estado=estado_espera
         )
-        
-        # Para propósitos de depuración
-        print(f"Ticket {ticket.idTicket} escalado al nivel {nivel_destino}")
-        print(f"Descripción: {descripcion}")
-        print(f"ID de historia: {escalamiento.idCambioTicket}")
         
         return JsonResponse({
             'success': True,
@@ -537,3 +527,166 @@ class EmpleadoLogoutView(LogoutView):
         # Forzar logout y redirección manual si es necesario
         logout(request)
         return redirect('/empleados/log/')
+
+@login_required
+@empleado_required
+def obtener_detalles_ticket(request, ticket_id):
+    """Vista para obtener los detalles completos de un ticket incluyendo su historial"""
+    try:
+        ticket = Ticket.objects.select_related('cliente__user').get(idTicket=ticket_id)
+        
+        # Obtener el historial del ticket
+        historial = HistoriaTicket.objects.select_related(
+            'estado', 'empleado__user'
+        ).filter(ticket=ticket).order_by('fecha_modificacion')
+        
+        # Obtener el estado actual (último cambio)
+        ultimo_estado = historial.last()
+        estado_actual = ultimo_estado.estado.nombreEstado if ultimo_estado and ultimo_estado.estado else 'Sin estado'
+        
+        # Obtener el empleado asignado actual
+        empleado_asignado = ultimo_estado.empleado if ultimo_estado and ultimo_estado.empleado else None
+        
+        # Preparar datos del ticket
+        ticket_data = {
+            'id': ticket.idTicket,
+            'numero': f'TCK-{str(ticket.idTicket).zfill(4)}',
+            'nombre': ticket.nombreTicket,
+            'descripcion': ticket.descripcionTicket,
+            'fecha_creacion': ticket.fechar_creacion.strftime('%Y-%m-%d %H:%M:%S'),
+            'cliente': f"{ticket.cliente.user.first_name} {ticket.cliente.user.last_name}".strip() or ticket.cliente.user.username,
+            'estado_actual': estado_actual,
+            'empleado_asignado': f"{empleado_asignado.user.first_name} {empleado_asignado.user.last_name}".strip() or empleado_asignado.user.username if empleado_asignado else 'Sin asignar',
+            'fecha_asignacion': ultimo_estado.fecha_modificacion.strftime('%Y-%m-%d %H:%M:%S') if ultimo_estado else None,
+        }
+        
+        # Preparar historial
+        historial_data = []
+        for cambio in historial:
+            empleado_nombre = 'Sistema'
+            if cambio.empleado:
+                empleado_nombre = f"{cambio.empleado.user.first_name} {cambio.empleado.user.last_name}".strip() or cambio.empleado.user.username
+            
+            # Determinar el tipo de evento para el timeline
+            tipo = 'info'
+            if cambio.estado:
+                if cambio.estado.nombreEstado == 'Resuelto':
+                    tipo = 'success'
+                elif cambio.estado.nombreEstado in ['En Proceso', 'Asignado']:
+                    tipo = 'warning'
+                elif cambio.estado.nombreEstado in ['Cerrado', 'Cancelado']:
+                    tipo = 'danger'
+            
+            historial_data.append({
+                'fecha': cambio.fecha_modificacion.strftime('%Y-%m-%d %H:%M:%S'),
+                'estado': cambio.estado.nombreEstado if cambio.estado else 'Cambio',
+                'usuario': empleado_nombre,
+                'tipo': tipo,
+                'comentario': cambio.modDescripcion or 'Sin comentarios adicionales'
+            })
+        
+        return JsonResponse({
+            'success': True,
+            'ticket': ticket_data,
+            'historial': historial_data
+        })
+        
+    except Ticket.DoesNotExist:
+        return JsonResponse({
+            'success': False,
+            'error': 'Ticket no encontrado'
+        }, status=404)
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': f'Error al obtener detalles del ticket: {str(e)}'
+        }, status=500)
+
+
+@login_required
+@supervisor_required
+def obtener_detalles_empleado(request, empleado_id):
+    """Vista para obtener los detalles completos de un empleado incluyendo sus estadísticas"""
+    try:
+        empleado = Empleado.objects.select_related('user').get(id=empleado_id)
+        supervisor = request.user.empleado
+        
+        # Verificar que el empleado pertenece al mismo nivel que el supervisor
+        if empleado.nivel != supervisor.nivel:
+            return JsonResponse({
+                'success': False,
+                'error': 'No tienes permisos para ver este empleado'
+            }, status=403)
+        
+        # Obtener tickets asignados usando helper function
+        tickets_asignados_ids = obtener_tickets_asignados_empleado(empleado)
+        total_tickets = len(tickets_asignados_ids)
+        
+        # Inicializar estadísticas
+        tickets_resueltos = 0
+        tickets_pendientes = 0
+        tickets_recientes = []
+        
+        if total_tickets > 0:
+            # Obtener tickets y procesar con helper function
+            tickets_asignados = Ticket.objects.filter(
+                idTicket__in=tickets_asignados_ids
+            ).select_related('cliente__user')
+            
+            tickets_con_estado = procesar_tickets_con_estado(tickets_asignados)
+            
+            # Contar por estado
+            for ticket_info in tickets_con_estado:
+                if ticket_info['estado_actual']:
+                    if ticket_info['estado_actual'].nombreEstado == 'Resuelto':
+                        tickets_resueltos += 1
+                    elif ticket_info['estado_actual'].nombreEstado == 'En Proceso':
+                        tickets_pendientes += 1
+            
+            # Obtener los últimos 5 tickets del empleado
+            ultimos_tickets = tickets_asignados.order_by('-fechar_creacion')[:5]
+            for ticket in ultimos_tickets:
+                ultimo_estado = obtener_ultimo_estado_ticket(ticket)
+                
+                tickets_recientes.append({
+                    'id': ticket.idTicket,
+                    'numero': f'TCK-{str(ticket.idTicket).zfill(4)}',
+                    'cliente': f"{ticket.cliente.user.first_name} {ticket.cliente.user.last_name}".strip() or ticket.cliente.user.username,
+                    'estado': ultimo_estado.estado.nombreEstado if ultimo_estado and ultimo_estado.estado else 'Sin estado',
+                    'fecha': ticket.fechar_creacion.strftime('%d/%m/%Y')
+                })
+        
+        # Preparar datos del empleado
+        empleado_data = {
+            'id': empleado.id,
+            'nombre_completo': f"{empleado.user.first_name} {empleado.user.last_name}".strip() or empleado.user.username,
+            'username': empleado.user.username,
+            'email': empleado.user.email,
+            'telefono': str(empleado.telefono) if empleado.telefono else 'No disponible',
+            'activo': empleado.activo,
+            'rol': empleado.get_rol_display(),
+            'nivel': empleado.nivel,
+            'fecha_ingreso': empleado.user.date_joined.strftime('%d/%m/%Y'),
+            'estadisticas': {
+                'tickets_asignados': total_tickets,
+                'tickets_resueltos': tickets_resueltos,
+                'tickets_pendientes': tickets_pendientes
+            },
+            'tickets_recientes': tickets_recientes
+        }
+        
+        return JsonResponse({
+            'success': True,
+            'empleado': empleado_data
+        })
+        
+    except Empleado.DoesNotExist:
+        return JsonResponse({
+            'success': False,
+            'error': 'Empleado no encontrado'
+        }, status=404)
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': f'Error al obtener detalles del empleado: {str(e)}'
+        }, status=500)

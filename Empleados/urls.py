@@ -13,5 +13,7 @@ urlpatterns = [
     path('asignar-ticket/', views.asignar_ticket, name='asignar_ticket'),
     path('resolver-ticket/', views.resolver_ticket, name='resolver_ticket'),
     path('escalar-ticket/', views.escalar_ticket, name='escalar_ticket'),
+    path('ticket/<int:ticket_id>/detalles/', views.obtener_detalles_ticket, name='obtener_detalles_ticket'),
+    path('empleado/<int:empleado_id>/detalles/', views.obtener_detalles_empleado, name='obtener_detalles_empleado'),
     path('logout/', views.EmpleadoLogoutView.as_view(), name='logout'),
 ]
