@@ -10,6 +10,8 @@ from .forms import VerificarURLForm, AgregarDominioForm
 from .models import Dominios
 import xml.etree.ElementTree as ET
 from Pagos.models import PagoDistribuidor
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 def verificar_url(request):
     resultado = None
@@ -207,9 +209,14 @@ def generar_xml_interno(cliente, dominio):
     
     # Guardar XML en directorio interno (opcional)
     xml_string = ET.tostring(root, encoding='utf-8', xml_declaration=True)
-    
-    # Aquí podrías guardar el XML en un directorio específico para el equipo
-    # Por ahora, solo lo generamos en memoria
+    email = EmailMessage(
+        subject="Solicitud de Dominio - ChibchaWeb",
+        body="Adjunto XML de solicitud de dominio.",
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        to=[settings.EMAIL_PRUEBA],  # O cualquier destinatario
+    )
+    email.attach('solicitud_dominio.xml', xml_string, 'application/xml')
+    email.send()
 
 @cliente_required
 def eliminar_dominio(request, dominio_id):

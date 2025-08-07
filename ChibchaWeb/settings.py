@@ -170,6 +170,7 @@ LOGOUT_REDIRECT_URL = '/login/'  # A dónde va después del logout
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PRUEBA = 'cruzramirezdanielricardo@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'chibchamail@gmail.com'  # Tu correo
