@@ -2,3 +2,7 @@ django
 django-crispy-forms
 crispy_bootstrap5
 requests
+pandas
+xlsxwriter
+reportlab
+openpyxl

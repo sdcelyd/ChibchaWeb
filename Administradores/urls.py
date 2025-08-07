@@ -25,4 +25,9 @@ urlpatterns = [
     
     # API para gráficos
     path('api/graficos/', views.api_datos_grafico, name='api_datos_grafico'),
+
+    # Exportación de pagos
+    path('estadisticas/pagos/export/csv/', views.exportar_pagos_csv, name='exportar_pagos_csv'),
+    path('estadisticas/pagos/export/excel/', views.exportar_pagos_excel, name='exportar_pagos_excel'),
+    path('estadisticas/pagos/export/pdf/', views.exportar_pagos_pdf, name='exportar_pagos_pdf'),
 ]

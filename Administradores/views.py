@@ -19,7 +19,20 @@ from Clientes.models import Cliente
 from Empleados.models import Empleado  
 from Pagos.models import Pago
 #from .forms import CrearUsuarioForm, EditarUsuarioForm
-
+import csv
+import io
+import pandas as pd
+from django.http import HttpResponse
+from reportlab.pdfgen import canvas
+import openpyxl
+from openpyxl.styles import Font, Alignment, PatternFill
+from reportlab.lib.pagesizes import letter, A4
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.units import inch
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER, TA_LEFT
+from io import BytesIO
 
 class AdministradorLoginView(LoginView):
     template_name = 'administradores/login.html'
@@ -488,3 +501,196 @@ def api_datos_grafico(request):
         })
     
     return JsonResponse({'error': 'Tipo de gráfico no válido'}, status=400)
+
+@admin_permission_required('puede_ver_estadisticas')
+def exportar_pagos_csv(request):
+    """Exportar datos de pagos a CSV"""
+    response = HttpResponse(content_type='text/csv; charset=utf-8')
+    response['Content-Disposition'] = 'attachment; filename="pagos.csv"'
+    response.write('\ufeff')  # BOM para UTF-8
+    
+    writer = csv.writer(response)
+    
+    # Encabezados
+    writer.writerow([
+        'ID Pago', 'Cliente', 'Email Cliente', 'Monto', 
+        'Fecha', 'Estado', 'Método Pago', 'Plan'
+    ])
+    
+    # Obtener pagos con información del cliente
+    pagos = Pago.objects.all().select_related(
+        'cliente__user'
+    ).order_by('-fecha')
+    
+    for pago in pagos:
+        writer.writerow([
+            pago.pagoId,
+            f"{pago.cliente.user.first_name} {pago.cliente.user.last_name}".strip() or pago.cliente.user.username,
+            pago.cliente.user.email,
+            pago.monto,
+            pago.fecha.strftime('%Y-%m-%d %H:%M'),
+            getattr(pago, 'estado', 'Completado'),
+            getattr(pago, 'metodo_pago', 'N/A'),
+            getattr(pago.cliente, 'plan', 'N/A')
+        ])
+    
+    return response
+
+
+@admin_permission_required('puede_ver_estadisticas')
+def exportar_pagos_excel(request):
+    """Exportar datos de pagos a Excel"""
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "Pagos"
+    
+    # Estilos
+    header_font = Font(bold=True, color="FFFFFF")
+    header_fill = PatternFill(start_color="28a745", end_color="28a745", fill_type="solid")
+    header_alignment = Alignment(horizontal="center", vertical="center")
+    
+    # Encabezados
+    headers = [
+        'ID Pago', 'Cliente', 'Email Cliente', 'Monto', 
+        'Fecha', 'Estado', 'Método Pago', 'Plan'
+    ]
+    
+    for col, header in enumerate(headers, 1):
+        cell = ws.cell(row=1, column=col, value=header)
+        cell.font = header_font
+        cell.fill = header_fill
+        cell.alignment = header_alignment
+    
+    # Datos
+    pagos = Pago.objects.all().select_related(
+        'cliente__user'
+    ).order_by('-fecha')
+    
+    for row, pago in enumerate(pagos, 2):
+        data_row = [
+            pago.pagoId,
+            f"{pago.cliente.user.first_name} {pago.cliente.user.last_name}".strip() or pago.cliente.user.username,
+            pago.cliente.user.email,
+            float(pago.monto),
+            pago.fecha.strftime('%Y-%m-%d %H:%M'),
+            getattr(pago, 'estado', 'Completado'),
+            getattr(pago, 'metodo_pago', 'N/A'),
+            getattr(pago.cliente, 'plan', 'N/A')
+        ]
+        
+        for col, value in enumerate(data_row, 1):
+            ws.cell(row=row, column=col, value=value)
+    
+    # Ajustar ancho de columnas
+    for column in ws.columns:
+        max_length = 0
+        column_letter = column[0].column_letter
+        for cell in column:
+            try:
+                if len(str(cell.value)) > max_length:
+                    max_length = len(str(cell.value))
+            except:
+                pass
+        adjusted_width = min(max_length + 2, 50)
+        ws.column_dimensions[column_letter].width = adjusted_width
+    
+    # Crear respuesta HTTP
+    response = HttpResponse(
+        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    )
+    response['Content-Disposition'] = 'attachment; filename="pagos.xlsx"'
+    
+    wb.save(response)
+    return response
+
+
+@admin_permission_required('puede_ver_estadisticas')
+def exportar_pagos_pdf(request):
+    """Exportar datos de pagos a PDF"""
+    buffer = BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=A4, rightMargin=72, leftMargin=72,
+                          topMargin=72, bottomMargin=18)
+    
+    styles = getSampleStyleSheet()
+    title_style = ParagraphStyle(
+        'CustomTitle',
+        parent=styles['Heading1'],
+        fontSize=18,
+        spaceAfter=30,
+        alignment=TA_CENTER
+    )
+    
+    story = []
+    
+    # Título
+    title = Paragraph("Reporte de Pagos", title_style)
+    story.append(title)
+    story.append(Spacer(1, 12))
+    
+    # Fecha de generación
+    fecha = timezone.now().strftime('%d/%m/%Y %H:%M')
+    fecha_p = Paragraph(f"<b>Fecha de generación:</b> {fecha}", styles['Normal'])
+    story.append(fecha_p)
+    story.append(Spacer(1, 12))
+    
+    # Obtener datos
+    pagos = Pago.objects.all().select_related(
+        'cliente__user'
+    ).order_by('-fecha')[:100]  # Limitar a 100 registros más recientes
+    
+    # Estadísticas
+    total_pagos = Pago.objects.count()
+    total_ingresos = Pago.objects.aggregate(total=Sum('monto'))['total'] or 0
+    
+    stats_text = f"""
+    <b>Estadísticas Generales:</b><br/>
+    • Total de pagos: {total_pagos}<br/>
+    • Ingresos totales: ${total_ingresos:,.2f}<br/>
+    • Promedio por pago: ${(total_ingresos/total_pagos if total_pagos > 0 else 0):,.2f}<br/>
+    <i>Mostrando los 100 pagos más recientes</i>
+    """
+    
+    story.append(Paragraph(stats_text, styles['Normal']))
+    story.append(Spacer(1, 20))
+    
+    # Crear tabla
+    data = [['ID', 'Cliente', 'Monto', 'Fecha', 'Plan']]
+    
+    for pago in pagos:
+        cliente_nombre = f"{pago.cliente.user.first_name} {pago.cliente.user.last_name}".strip() or pago.cliente.user.username
+        data.append([
+            str(pago.pagoId),
+            cliente_nombre,
+            f"${pago.monto:,.2f}",
+            pago.fecha.strftime('%d/%m/%Y'),
+            getattr(pago.cliente, 'plan', 'N/A')
+        ])
+    
+    # Crear tabla con estilos
+    table = Table(data, colWidths=[0.8*inch, 2*inch, 1*inch, 1.2*inch, 1*inch])
+    table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.darkgreen),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('FONTSIZE', (0, 0), (-1, 0), 11),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+        ('BACKGROUND', (0, 1), (-1, -1), colors.lightgrey),
+        ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
+        ('FONTSIZE', (0, 1), (-1, -1), 9),
+        ('GRID', (0, 0), (-1, -1), 1, colors.black),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+    ]))
+    
+    story.append(table)
+    
+    # Construir PDF
+    doc.build(story)
+    pdf = buffer.getvalue()
+    buffer.close()
+    
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="pagos.pdf"'
+    response.write(pdf)
+    
+    return response
