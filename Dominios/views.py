@@ -4,10 +4,12 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils import timezone
+from ChibchaWeb import settings
 from ChibchaWeb.decorators import cliente_required
 from .forms import VerificarURLForm, AgregarDominioForm
 from .models import Dominios
 import xml.etree.ElementTree as ET
+from Pagos.models import PagoDistribuidor
 
 def verificar_url(request):
     resultado = None
@@ -150,6 +152,21 @@ def agregar_dominio(request):
                     if distribuidor.paginas_disponibles > 0:
                         distribuidor.paginas_vendidas += 1
                         distribuidor.save()
+                        # Calcular comisión y registrar pago negativo
+                        precio_base = settings.PRECIO_POR_PAGINA_DISTRIBUIDOR
+                        monto_comision = -precio_base * distribuidor.comision  # Negativo por agregar
+                        pago = PagoDistribuidor.objects.filter(cliente=cliente).order_by('-fecha').first()
+                        if pago:
+                            direc = pago.direccion         # Instancia de Direccion o None
+                            tarjeta = pago.tarjeta_usada  
+                        PagoDistribuidor.objects.create(
+                            cliente=cliente,
+                            monto=monto_comision,
+                            cantidad_paginas=1,
+                            tarjeta_usada=tarjeta,
+                            direccion=direc,
+                            descripcion=f"Comisión por agregar dominio '{dominio}'"
+                        )
                         messages.info(request, f"Se ha usado 1 espacio de tu paquete de distribuidor. Tienes {distribuidor.paginas_disponibles - 1} espacios restantes.")
                     else:
                         # Esto no debería pasar si se valida correctamente en el frontend
@@ -223,6 +240,20 @@ def eliminar_dominio(request, dominio_id):
             if distribuidor.paginas_vendidas > 0:
                 distribuidor.paginas_vendidas -= 1
                 distribuidor.save()
+                precio_base = settings.PRECIO_POR_PAGINA_DISTRIBUIDOR
+                monto_comision = precio_base * distribuidor.comision  # Negativo por agregar
+                pago = PagoDistribuidor.objects.filter(cliente=cliente).order_by('-fecha').first()
+                if pago:
+                    direc = pago.direccion         # Instancia de Direccion o None
+                    tarjeta = pago.tarjeta_usada  
+                    PagoDistribuidor.objects.create(
+                        cliente=cliente,
+                        monto=monto_comision,
+                        cantidad_paginas=1,
+                        tarjeta_usada=tarjeta,
+                        direccion=direc,
+                        descripcion=f"Comisión por eliminar dominio '{dominio}'"
+                    )
                 messages.info(request, f"Se ha liberado 1 espacio en tu paquete de distribuidor. Tienes {distribuidor.paginas_disponibles} espacios disponibles.")
         
         dominio.delete()
