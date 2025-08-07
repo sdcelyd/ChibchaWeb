@@ -1,16 +1,17 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="card shadow-lg p-4">
         <div class="card-body text-center">
-            <h2 class="card-title text-success mb-4">¡Compra completada!</h2>
-            <p class="lead">Has adquirido exitosamente tu paquete de páginas.</p>
-            <p>Gracias por trabajar con nosotros como distribuidor.</p>
+            <h2 class="card-title text-success mb-4">{% trans "¡Compra completada!" %}</h2>
+            <p class="lead">{% trans "Has adquirido exitosamente tu paquete de páginas." %}</p>
+            <p>{% trans "Gracias por trabajar con nosotros como distribuidor." %}</p>
 
             <a href="{% url 'distribuidores:dashboard' %}" class="btn btn-primary mt-3">
-                Ir al panel principal
+                {% trans "Ir al panel principal" %}
             </a>
         </div>
     </div>

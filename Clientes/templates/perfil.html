@@ -1,9 +1,9 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
-
+{% load i18n %}
 {% block content %}
-<title>Mi Perfil - ChibchaWeb</title>
+<title>{% trans "Mi Perfil" %} - ChibchaWeb</title>
 
 <!-- Header del Perfil -->
 <section class="profile-header bg-gradient-chibcha text-white py-5">
@@ -13,14 +13,14 @@
                 <div class="profile-info">
                     <div class="profile-badge mb-3">
                         <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
-                            <i class="fas fa-user me-2"></i>Mi Perfil
+                            <i class="fas fa-user me-2"></i>{% trans "Mi Perfil" %}
                         </span>
                     </div>
                     <h1 class="display-6 fw-bold mb-3">
                         {{ cliente.user.get_full_name|default:cliente.user.username }}
                     </h1>
                     <p class="lead mb-4">
-                        Gestiona tu información personal y configuraciones de cuenta
+                        {% trans "Gestiona tu información personal y configuraciones de cuenta" %}
                     </p>
                 </div>
             </div>
@@ -43,31 +43,31 @@
             <div class="col-lg-8">
                 <div class="profile-card">
                     <div class="card-header-custom">
-                        <h4><i class="fas fa-user me-2"></i>Información Personal</h4>
+                        <h4><i class="fas fa-user me-2"></i>{% trans "Información Personal" %}</h4>
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="info-item">
-                                    <label class="info-label">Nombre de Usuario</label>
+                                    <label class="info-label">{% trans "Nombre de Usuario" %}</label>
                                     <div class="info-value">{{ cliente.user.username }}</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-item">
-                                    <label class="info-label">Email</label>
+                                    <label class="info-label">{% trans "Email" %}</label>
                                     <div class="info-value">{{ cliente.user.email }}</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-item">
-                                    <label class="info-label">Nombre Completo</label>
+                                    <label class="info-label">{% trans "Nombre Completo" %}</label>
                                     <div class="info-value">{{ cliente.user.get_full_name|default:"No especificado" }}</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-item">
-                                    <label class="info-label">Teléfono</label>
+                                    <label class="info-label">{% trans "Teléfono" %}</label>
                                     <div class="info-value">{{ cliente.telefono|default:"No especificado" }}</div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                         <hr>
                         <div class="text-center">
                             <a href="{% url 'clientes:editar_cliente' cliente.id %}" class="btn btn-chibcha-primary">
-                                <i class="fas fa-edit me-2"></i>Editar Información
+                                <i class="fas fa-edit me-2"></i>{% trans "Editar Información" %}
                             </a>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                 <!-- Estado de la Cuenta -->
                 <div class="profile-card mb-4">
                     <div class="card-header-custom">
-                        <h5><i class="fas fa-shield-alt me-2"></i>Estado de Cuenta</h5>
+                        <h5><i class="fas fa-shield-alt me-2"></i>{% trans "Estado de Cuenta" %}</h5>
                     </div>
                     <div class="card-body text-center">
                         <div class="account-status">
@@ -95,8 +95,8 @@
                                 <i class="fas fa-check-circle text-success"></i>
                             </div>
                             <div class="status-text">
-                                <strong>Cuenta Verificada</strong>
-                                <p class="text-muted mb-0">Tu cuenta está activa y verificada</p>
+                                <strong>{% trans "Cuenta Verificada" %}</strong>
+                                <p class="text-muted mb-0">{% trans "Tu cuenta está activa y verificada" %}</p>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                 <!-- Plan de Suscripción -->
                 <div class="profile-card">
                     <div class="card-header-custom">
-                        <h5><i class="fas fa-star me-2"></i>Mi Plan</h5>
+                        <h5><i class="fas fa-star me-2"></i>{% trans "Mi Plan" %}</h5>
                     </div>
                     <div class="card-body">
                         {% if cliente.suscripcion_activa %}
@@ -113,23 +113,23 @@
                                 <div class="plan-info">
                                     <div class="plan-name">{{ cliente.plan|capfirst }}</div>
                                     <div class="plan-status">
-                                        <span class="badge bg-success">Activo</span>
+                                        <span class="badge bg-success">{% trans "Activo" %}</span>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="plan-details">
                                     <div class="detail-item">
-                                        <small class="text-muted">Inicio:</small>
+                                        <small class="text-muted">{% trans "Inicio" %}:</small>
                                         <div>{{ cliente.fecha_inicio_suscripcion|date:"d M Y" }}</div>
                                     </div>
                                     <div class="detail-item">
-                                        <small class="text-muted">Vencimiento:</small>
+                                        <small class="text-muted">{% trans "Vencimiento" %}:</small>
                                         <div>{{ cliente.fecha_fin_suscripcion|date:"d M Y" }}</div>
                                     </div>
                                 </div>
                                 <div class="text-center mt-3">
                                     <a href="{% url 'home' %}#planes" class="btn btn-outline-chibcha-primary btn-sm">
-                                        <i class="fas fa-upgrade me-1"></i>Cambiar Plan
+                                        <i class="fas fa-upgrade me-1"></i>{% trans "Cambiar Plan" %}
                                     </a>
                                 </div>
                             </div>
@@ -138,10 +138,10 @@
                                 <div class="inactive-icon">
                                     <i class="fas fa-exclamation-triangle text-warning"></i>
                                 </div>
-                                <h6 class="mt-2">Sin Suscripción</h6>
-                                <p class="text-muted small">No tienes una suscripción activa</p>
+                                <h6 class="mt-2">{% trans "Sin Suscripción" %}</h6>
+                                <p class="text-muted small">{% trans "No tienes una suscripción activa" %}</p>
                                 <a href="{% url 'pagos:seleccionar_plan' %}" class="btn btn-chibcha-primary btn-sm">
-                                    <i class="fas fa-plus me-1"></i>Obtener Plan
+                                    <i class="fas fa-plus me-1"></i>{% trans "Obtener Plan" %}
                                 </a>
                             </div>
                         {% endif %}
@@ -154,38 +154,38 @@
         <div class="row mt-5">
             <div class="col-12">
                 <div class="quick-actions-profile">
-                    <h4 class="text-center mb-4">Acciones Rápidas</h4>
+                    <h4 class="text-center mb-4">{% trans "Acciones Rápidas" %}</h4>
                     <div class="actions-grid">
                         {% if cliente.suscripcion_activa %}
                             <a href="{% url 'clientes:mis_hosts' %}" class="action-item">
                                 <i class="fas fa-globe"></i>
-                                <span>Mis Hosts</span>
+                                <span>{% trans "Mis Hosts" %}</span>
                             </a>
                         {% else %}
                             <div class="action-item disabled" title="Requiere suscripción activa">
                                 <i class="fas fa-lock"></i>
-                                <span>Mis Hosts</span>
+                                <span>{% trans "Mis Hosts" %}</span>
                             </div>
                         {% endif %}
                         
                         <a href="{% url 'tickets:crear_ticket' %}" class="action-item">
                             <i class="fas fa-headset"></i>
-                            <span>Crear Ticket</span>
+                            <span>{% trans "Crear Ticket" %}</span>
                         </a>
                         
                         {% if cliente.suscripcion_activa %}
                             <a href="{% url 'verificar-url' %}" class="action-item">
                                 <i class="fas fa-search"></i>
-                                <span>Verificar Dominio</span>
+                                <span>{% trans "Verificar Dominio" %}</span>
                             </a>
                             <a href="#" class="action-item">
                                 <i class="fas fa-download"></i>
-                                <span>Backups</span>
+                                <span>{% trans "Backups" %}</span>
                             </a>
                         {% else %}
                             <div class="action-item disabled" title="Requiere suscripción activa">
                                 <i class="fas fa-lock"></i>
-                                <span>Funciones Premium</span>
+                                <span>{% trans "Funciones Premium" %}</span>
                             </div>
                         {% endif %}
                     </div>

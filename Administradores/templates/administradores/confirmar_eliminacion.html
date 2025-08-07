@@ -1,13 +1,13 @@
 {% extends 'administradores/base.html' %}
-
-{% block title %}Confirmar Eliminación - Admin Panel{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Confirmar Eliminación - Admin Panel" %}{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2 text-danger"><i class="fas fa-exclamation-triangle"></i> Confirmar Eliminación</h1>
+    <h1 class="h2 text-danger"><i class="fas fa-exclamation-triangle"></i> {% trans "Confirmar Eliminación" %}</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <a href="{% url 'administradores:gestionar_usuarios' %}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left"></i> Volver
+            <i class="fas fa-arrow-left"></i> {% trans "Volver" %}
         </a>
     </div>
 </div>
@@ -16,15 +16,15 @@
     <div class="col-md-8">
         <div class="card border-danger">
             <div class="card-header bg-danger text-white">
-                <h5 class="mb-0"><i class="fas fa-trash"></i> Eliminar Usuario</h5>
+                <h5 class="mb-0"><i class="fas fa-trash"></i> {% trans "Eliminar Usuario" %}</h5>
             </div>
             <div class="card-body">
                 <div class="alert alert-danger" role="alert">
                     <i class="fas fa-exclamation-triangle fa-2x float-start me-3"></i>
                     <h4 class="alert-heading">¡Atención!</h4>
-                    <p>Estás a punto de eliminar permanentemente el siguiente usuario:</p>
+                    <p>{% trans "Estás a punto de eliminar permanentemente el siguiente usuario" %}:</p>
                     <hr>
-                    <p class="mb-0">Esta acción <strong>NO SE PUEDE DESHACER</strong>.</p>
+                    <p class="mb-0">{% trans "Esta acción" %} <strong>{% trans "NO SE PUEDE DESHACER" %}</strong>.</p>
                 </div>
 
                 <!-- User Information -->
@@ -32,40 +32,40 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <h6><i class="fas fa-user"></i> Información Básica:</h6>
+                                <h6><i class="fas fa-user"></i> {% trans "Información Básica" %}:</h6>
                                 <ul class="list-unstyled">
-                                    <li><strong>Usuario:</strong> {{ user_obj.username }}</li>
-                                    <li><strong>Email:</strong> {{ user_obj.email }}</li>
-                                    <li><strong>Nombre:</strong> {{ user_obj.get_full_name|default:"No especificado" }}</li>
-                                    <li><strong>Registro:</strong> {{ user_obj.date_joined|date:"d/m/Y H:i" }}</li>
+                                    <li><strong>{% trans "Usuario" %}:</strong> {{ user_obj.username }}</li>
+                                    <li><strong>{% trans "Email" %}:</strong> {{ user_obj.email }}</li>
+                                    <li><strong>{% trans "Nombre" %}:</strong> {{ user_obj.get_full_name|default:"No especificado" }}</li>
+                                    <li><strong>{% trans "Registro" %}:</strong> {{ user_obj.date_joined|date:"d/m/Y H:i" }}</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
-                                <h6><i class="fas fa-info-circle"></i> Detalles:</h6>
+                                <h6><i class="fas fa-info-circle"></i> {% trans "Detalles" %}:</h6>
                                 <ul class="list-unstyled">
-                                    <li><strong>Tipo:</strong> 
+                                    <li><strong>{% trans "Tipo" %}:</strong> 
                                         {% if user_obj.cliente %}
-                                            <span class="badge bg-info">Cliente</span>
+                                            <span class="badge bg-info">{% trans "Cliente" %}</span>
                                         {% elif user_obj.empleado %}
-                                            <span class="badge bg-success">Empleado</span>
+                                            <span class="badge bg-success">{% trans "Empleado" %}</span>
                                         {% elif user_obj.administrador %}
-                                            <span class="badge bg-danger">Administrador</span>
+                                            <span class="badge bg-danger">{% trans "Administrador" %}</span>
                                         {% else %}
-                                            <span class="badge bg-secondary">Usuario Base</span>
+                                            <span class="badge bg-secondary">{% trans "Usuario Base" %}</span>
                                         {% endif %}
                                     </li>
-                                    <li><strong>Estado:</strong> 
+                                    <li><strong>{% trans "Estado" %}:</strong> 
                                         {% if user_obj.is_active %}
-                                            <span class="badge bg-success">Activo</span>
+                                            <span class="badge bg-success">{% trans "Activo" %}</span>
                                         {% else %}
-                                            <span class="badge bg-secondary">Inactivo</span>
+                                            <span class="badge bg-secondary">{% trans "Inactivo" %}</span>
                                         {% endif %}
                                     </li>
-                                    <li><strong>Último acceso:</strong> 
+                                    <li><strong>{% trans "Último acceso" %}:</strong> 
                                         {% if user_obj.last_login %}
                                             {{ user_obj.last_login|date:"d/m/Y H:i" }}
                                         {% else %}
-                                            <span class="text-muted">Nunca</span>
+                                            <span class="text-muted">{% trans "Nunca" %}</span>
                                         {% endif %}
                                     </li>
                                 </ul>
@@ -77,20 +77,20 @@
                 <!-- Warning about related data -->
                 <div class="alert alert-warning mt-3" role="alert">
                     <i class="fas fa-info-circle"></i>
-                    <strong>Datos relacionados:</strong>
-                    Al eliminar este usuario también se eliminarán:
+                    <strong>{% trans "Datos relacionados" %}:</strong>
+                    {% trans "Al eliminar este usuario también se eliminarán" %}:
                     <ul class="mb-0 mt-2">
                         {% if user_obj.cliente %}
-                            <li>Su perfil de cliente</li>
-                            <li>Sus direcciones registradas</li>
-                            <li>Sus tarjetas de crédito</li>
-                            <li>Historial de pagos (se mantendrán para auditoría)</li>
+                            <li>{% trans "Su perfil de cliente" %}</li>
+                            <li>{% trans "Sus direcciones registradas" %}</li>
+                            <li>{% trans "Sus tarjetas de crédito" %}</li>
+                            <li>{% trans "Historial de pagos (se mantendrán para auditoría)" %}</li>
                         {% endif %}
                         {% if user_obj.empleado %}
-                            <li>Su perfil de empleado</li>
+                            <li>{% trans "Su perfil de empleado" %}</li>
                         {% endif %}
                         {% if user_obj.administrador %}
-                            <li>Su perfil de administrador</li>
+                            <li>{% trans "Su perfil de administrador" %}</li>
                         {% endif %}
                     </ul>
                 </div>
@@ -102,20 +102,20 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="confirmDelete" required>
                             <label class="form-check-label" for="confirmDelete">
-                                Confirmo que he leído las advertencias y deseo eliminar este usuario permanentemente
+                               {% trans " Confirmo que he leído las advertencias y deseo eliminar este usuario permanentemente" %}
                             </label>
                         </div>
                     </div>
 
                     <div class="d-flex justify-content-end gap-2">
                         <a href="{% url 'administradores:gestionar_usuarios' %}" class="btn btn-secondary">
-                            <i class="fas fa-times"></i> Cancelar
+                            <i class="fas fa-times"></i>{% trans " Cancelar" %}
                         </a>
                         <a href="{% url 'administradores:editar_usuario' user_obj.id %}" class="btn btn-info">
-                            <i class="fas fa-edit"></i> Editar en su lugar
+                            <i class="fas fa-edit"></i> {% trans "Editar en su lugar" %}
                         </a>
                         <button type="submit" class="btn btn-danger" id="deleteButton" disabled>
-                            <i class="fas fa-trash"></i> Eliminar Definitivamente
+                            <i class="fas fa-trash"></i> {% trans "Eliminar Definitivamente" %}
                         </button>
                     </div>
                 </form>

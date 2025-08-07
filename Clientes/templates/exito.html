@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block title %}Registro Exitoso - ChibchaWeb{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Registro Exitoso" %} - ChibchaWeb{% endblock %}
 
 {% block content %}
 <div class="container mt-5 mb-5">
@@ -11,17 +11,17 @@
                     <div class="mb-4">
                         <i class="fas fa-envelope-circle-check text-primary" style="font-size: 4rem;"></i>
                     </div>
-                    <h1 class="card-title text-success mb-3">¡Registro exitoso!</h1>
-                    <p class="card-text lead mb-4">Gracias por registrarte en <strong>ChibchaWeb</strong>.</p>
+                    <h1 class="card-title text-success mb-3">¡{% trans "Registro exitoso" %}!</h1>
+                    <p class="card-text lead mb-4">{% trans "Gracias por registrarte en " %}<strong>ChibchaWeb</strong>.</p>
                     <p class="text-muted mb-4">
-                        Hemos enviado un enlace de activación a tu correo electrónico.
+                        {% trans "Hemos enviado un enlace de activación a tu correo electrónico" %}.
                         <br>
-                        Revisa tu bandeja de entrada (y la carpeta de spam) para activar tu cuenta.
+                        {% trans "Revisa tu bandeja de entrada (y la carpeta de spam) para activar tu cuenta" %}.
                     </p>
                     
                     <div class="d-grid gap-2">
                         <a href="{% url 'home' %}" class="btn btn-outline-secondary">
-                            <i class="fas fa-home me-2"></i>Volver al Inicio
+                            <i class="fas fa-home me-2"></i>{% trans "Volver al Inicio" %}
                         </a>
                     </div>
                 </div>

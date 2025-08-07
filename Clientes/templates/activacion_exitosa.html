@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-
-{% block title %}Cuenta Activada{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Cuenta Activada" %}{% endblock %}
 
 {% block content %}
 <div class="container mt-5 mb-5 text-center">
     <div class="card shadow p-5">
-        <h2 class="text-success mb-3">¡Tu cuenta ha sido activada!</h2>
-        <p>Ahora puedes iniciar sesión y comenzar a usar nuestros servicios.</p>
-        <a href="{% url 'login' %}" class="btn btn-primary mt-3">Iniciar sesión</a>
+        <h2 class="text-success mb-3">¡{% trans "Tu cuenta ha sido activada" %}!</h2>
+        <p>{% trans "Ahora puedes iniciar sesión y comenzar a usar nuestros servicios" %}.</p>
+        <a href="{% url 'login' %}" class="btn btn-primary mt-3">{% trans "Iniciar sesión" %}</a>
     </div>
 </div>
 {% endblock %}

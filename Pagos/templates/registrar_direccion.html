@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Registrar Dirección - ChibchaWeb{% endblock %}
+{% block title %}{% trans "Registrar Dirección - ChibchaWeb" %}{% endblock %}
 
 {% block content %}
 <div class="container mt-5 mb-5">
@@ -9,7 +10,7 @@
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
                     <h4 class="mb-0">
-                        <i class="fas fa-map-marker-alt me-2"></i>Registrar Nueva Dirección
+                        <i class="fas fa-map-marker-alt me-2"></i>{% trans "Registrar Nueva Dirección" %}
                     </h4>
                 </div>
                 <div class="card-body">
@@ -18,9 +19,10 @@
                         <div class="d-flex align-items-center">
                             <i class="fas fa-exclamation-triangle text-warning me-2"></i>
                             <div>
-                                <strong>Plan pendiente:</strong> Tienes el plan <strong>{{ request.session.plan_pendiente }}</strong> 
-                                en modalidad <strong>{{ request.session.modalidad_pendiente }}</strong> esperando. 
-                                Completa el registro de tu dirección para continuar.
+                                <strong>{% trans "Plan pendiente:" %}</strong>
+                                {% trans "Tienes el plan" %} <strong>{{ request.session.plan_pendiente }}</strong> 
+                                {% trans "en modalidad" %} <strong>{{ request.session.modalidad_pendiente }}</strong> 
+                                {% trans "esperando. Completa el registro de tu dirección para continuar." %}
                             </div>
                         </div>
                     </div>
@@ -32,21 +34,21 @@
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label for="id_ubicacion" class="form-label">
-                                    <i class="fas fa-home me-1"></i>Dirección Completa
+                                    <i class="fas fa-home me-1"></i>{% trans "Dirección Completa" %}
                                 </label>
                                 <input type="text" 
                                        class="form-control" 
                                        id="id_ubicacion" 
                                        name="ubicacion" 
-                                       placeholder="Ej: Calle 123 #45-67"
+                                       placeholder="{% trans 'Ej: Calle 123 #45-67' %}"
                                        required>
                                 <div class="form-text">
                                     <div id="formato-direccion">
-                                        <small>Formatos válidos:</small>
+                                        <small>{% trans "Formatos válidos:" %}</small>
                                         <ul class="small text-muted mt-1">
-                                            <li><strong>Colombia:</strong> Calle 123 #45-67, Carrera 7 #12-34</li>
-                                            <li><strong>Ecuador:</strong> Av. 10 de Agosto 123, Calle García Moreno 45</li>
-                                            <li><strong>Perú:</strong> Jr. Lima 123, Av. Arequipa 456</li>
+                                            <li><strong>{% trans "Colombia:" %}</strong> {% trans "Calle 123 #45-67, Carrera 7 #12-34" %}</li>
+                                            <li><strong>{% trans "Ecuador:" %}</strong> {% trans "Av. 10 de Agosto 123, Calle García Moreno 45" %}</li>
+                                            <li><strong>{% trans "Perú:" %}</strong> {% trans "Jr. Lima 123, Av. Arequipa 456" %}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -56,7 +58,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="id_codigoPostal" class="form-label">
-                                    <i class="fas fa-mail-bulk me-1"></i>Código Postal
+                                    <i class="fas fa-mail-bulk me-1"></i>{% trans "Código Postal" %}
                                 </label>
                                 <input type="text" 
                                        class="form-control" 
@@ -69,10 +71,10 @@
                             
                             <div class="col-md-6 mb-3">
                                 <label for="id_pais" class="form-label">
-                                    <i class="fas fa-flag me-1"></i>País
+                                    <i class="fas fa-flag me-1"></i>{% trans "País" %}
                                 </label>
                                 <select class="form-select" id="id_pais" name="pais" required>
-                                    <option value="">Selecciona un país</option>
+                                    <option value="">{% trans "Selecciona un país" %}</option>
                                     {% for pais in paises %}
                                         <option value="{{ pais.paisId }}">{{ pais.nombre }}</option>
                                     {% endfor %}
@@ -82,10 +84,10 @@
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="{% url 'clientes:detalle_cliente' %}" class="btn btn-secondary me-md-2">
-                                <i class="fas fa-arrow-left me-1"></i>Cancelar
+                                <i class="fas fa-arrow-left me-1"></i>{% trans "Cancelar" %}
                             </a>
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-1"></i>Guardar Dirección
+                                <i class="fas fa-save me-1"></i>{% trans "Guardar Dirección" %}
                             </button>
                         </div>
                     </form>

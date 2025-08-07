@@ -20,86 +20,86 @@ msgstr ""
 
 #: .\Administradores\templates\administradores\base.html:8
 msgid "Panel de Administración - ChibchaWeb"
-msgstr "Administration Panel - ChibchaWeb"
+msgstr "Painel de Administração - Chibchaweb"
 
 #: .\Administradores\templates\administradores\base.html:20
 msgid "Admin ChibchaWeb"
-msgstr "Admin - ChibchaWeb"
+msgstr "Admin Chibchaweb"
 
 #: .\Administradores\templates\administradores\base.html:34
 #: .\Empleados\templates\agente_dashboard.html:99
 #: .\Empleados\templates\mis_tickets.html:94
 #: .\Empleados\templates\supervisor_dashboard.html:102
 msgid "Cerrar Sesión"
-msgstr "Logout"
+msgstr "Sessão próxima"
 
 #: .\Administradores\templates\administradores\base.html:51
 msgid " Dashboard"
-msgstr "Dashboard"
+msgstr "Painel"
 
 #: .\Administradores\templates\administradores\base.html:58
 msgid "Gestión de Usuarios"
-msgstr "User management"
+msgstr "Gerenciamento de usuários"
 
 #: .\Administradores\templates\administradores\base.html:64
 #: .\Administradores\templates\administradores\dashboard.html:212
 msgid "Ver Usuarios"
-msgstr "See users"
+msgstr "Veja usuários"
 
 #: .\Administradores\templates\administradores\base.html:70
 #: .\Administradores\templates\administradores\crear_usuario.html:152
 #: .\Administradores\templates\administradores\dashboard.html:206
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:11
 msgid "Crear Usuario"
-msgstr "Create user"
+msgstr "Criar usuário"
 
 #: .\Administradores\templates\administradores\base.html:78
 #: .\Administradores\templates\administradores\dashboard.html:221
 msgid "Estadísticas"
-msgstr "Statistics"
+msgstr "Estatística"
 
 #: .\Administradores\templates\administradores\base.html:84
 msgid "Pagos e Ingresos"
-msgstr "Payments and income"
+msgstr "Pagamentos e renda"
 
 #: .\Administradores\templates\administradores\base.html:90
 msgid "Usuarios"
-msgstr "Users"
+msgstr "Usuários"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:3
 msgid "Confirmar Eliminación - Admin Panel"
-msgstr "Confirm elimination - admin panel"
+msgstr "Confirme Eliminação - Painel de Administração"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:7
 msgid "Confirmar Eliminación"
-msgstr "Confirm Deletion"
+msgstr "Confirme a eliminação"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:10
 #: .\Administradores\templates\administradores\crear_usuario.html:10
 #: .\Administradores\templates\administradores\editar_usuario.html:10
 msgid "Volver"
-msgstr "Return"
+msgstr "Retornar"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:19
 #: .\Administradores\templates\administradores\editar_usuario.html:299
 msgid "Eliminar Usuario"
-msgstr "Delete user"
+msgstr "Excluir usuário"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:25
 msgid "Estás a punto de eliminar permanentemente el siguiente usuario"
-msgstr "You are about to permanently eliminate the following user"
+msgstr "Você está prestes a eliminar permanentemente o seguinte usuário"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:27
 msgid "Esta acción"
-msgstr "This action"
+msgstr "Esta ação"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:27
 msgid "NO SE PUEDE DESHACER"
-msgstr "You cannot undo"
+msgstr "Você não pode desfazer"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:35
 msgid "Información Básica"
-msgstr "Basic Information"
+msgstr "Informações básicas"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:37
 #: .\Administradores\templates\administradores\editar_usuario.html:191
@@ -110,7 +110,7 @@ msgstr "Basic Information"
 #: .\Empleados\templates\logEmpleados.html:39
 #: .\Empleados\templates\supervisor_dashboard.html:414
 msgid "Usuario"
-msgstr "User"
+msgstr "Usuário"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:38
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:79
@@ -138,21 +138,21 @@ msgstr "E-mail"
 #: .\Empleados\templates\supervisor_dashboard.html:536
 #: .\Tickets\templates\tickets_cliente.html:57
 msgid "Nombre"
-msgstr "Name"
+msgstr "Nome"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:40
 #: .\Administradores\templates\administradores\editar_usuario.html:207
 msgid "Registro"
-msgstr "Register"
+msgstr "Registro"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:44
 msgid "Detalles"
-msgstr "Details"
+msgstr "Detalhes"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:46
 #: .\Administradores\templates\administradores\editar_usuario.html:194
 msgid "Tipo"
-msgstr "Guy"
+msgstr "Cara"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:48
 #: .\Administradores\templates\administradores\crear_usuario.html:170
@@ -170,25 +170,25 @@ msgstr "Guy"
 #: .\Empleados\templates\supervisor_dashboard.html:581
 #: .\Empleados\templates\supervisor_dashboard.html:701
 msgid "Cliente"
-msgstr "Customer"
+msgstr "Cliente"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:50
 #: .\Administradores\templates\administradores\crear_usuario.html:174
 #: .\Administradores\templates\administradores\editar_usuario.html:199
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:106
 msgid "Empleado"
-msgstr "Employee"
+msgstr "Funcionário"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:52
 #: .\Administradores\templates\administradores\crear_usuario.html:178
 #: .\Administradores\templates\administradores\editar_usuario.html:201
 msgid "Administrador"
-msgstr "Administrator"
+msgstr "Administrador"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:54
 #: .\Administradores\templates\administradores\editar_usuario.html:203
 msgid "Usuario Base"
-msgstr "Base user"
+msgstr "Usuário base"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:57
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:82
@@ -203,7 +203,7 @@ msgstr "Base user"
 #: .\Empleados\templates\supervisor_dashboard.html:702
 #: .\Tickets\templates\tickets_cliente.html:66
 msgid "Estado"
-msgstr "State"
+msgstr "Estado"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:59
 #: .\Administradores\templates\administradores\editar_usuario.html:222
@@ -216,7 +216,7 @@ msgstr "State"
 #: .\Empleados\templates\agente_dashboard.html:315
 #: .\Empleados\templates\supervisor_dashboard.html:429
 msgid "Activo"
-msgstr "Asset"
+msgstr "Ativo"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:61
 #: .\Administradores\templates\administradores\editar_usuario.html:224
@@ -227,83 +227,82 @@ msgstr "Asset"
 #: .\Empleados\templates\agente_dashboard.html:317
 #: .\Empleados\templates\supervisor_dashboard.html:431
 msgid "Inactivo"
-msgstr "Idle"
+msgstr "Parado"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:64
 msgid "Último acceso"
-msgstr "Last access"
+msgstr "Último acesso"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:68
 #: .\Administradores\templates\administradores\editar_usuario.html:215
 msgid "Nunca"
-msgstr "Never"
+msgstr "Nunca"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:80
 msgid "Datos relacionados"
-msgstr "Related data"
+msgstr "Dados relacionados"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:81
 msgid "Al eliminar este usuario también se eliminarán"
-msgstr "By eliminating this user will also be deleted"
+msgstr "Ao eliminar este usuário também será excluído"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:84
 msgid "Su perfil de cliente"
-msgstr "Your customer profile"
+msgstr "Seu perfil de cliente"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:85
 msgid "Sus direcciones registradas"
-msgstr "Its registered addresses"
+msgstr "Seus endereços registrados"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:86
 msgid "Sus tarjetas de crédito"
-msgstr "Your credit cards"
+msgstr "Seus cartões de crédito"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:87
 msgid "Historial de pagos (se mantendrán para auditoría)"
-msgstr "Payment history (they will be maintained for audit)"
+msgstr "Histórico de pagamentos (eles serão mantidos para auditoria)"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:90
 msgid "Su perfil de empleado"
-msgstr "Your employee profile"
+msgstr "Seu perfil de funcionário"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:93
 msgid "Su perfil de administrador"
-msgstr "Your administrator profile"
+msgstr "Seu perfil de administrador"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:105
 msgid ""
 " Confirmo que he leído las advertencias y deseo eliminar este usuario "
 "permanentemente"
 msgstr ""
-"I confirm that I have read the warnings and I want to eliminate this user "
-"permanently"
+"Confirmo que li os avisos e quero eliminar este usuário permanentemente"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:112
 msgid " Cancelar"
-msgstr "Cancel"
+msgstr "Cancelar"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:115
 msgid "Editar en su lugar"
-msgstr "Edit"
+msgstr "Editar"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:118
 #: .\Clientes\templates\detalle_cliente.html:292
 msgid "Eliminar Definitivamente"
-msgstr "Definitely eliminate"
+msgstr "Definitivamente eliminar"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:3
 msgid "Crear Usuario - Admin Panel"
-msgstr "Create User - Admin Panel"
+msgstr "Criar usuário - painel de administração"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:7
 msgid "Crear Nuevo Usuario"
-msgstr "Create new user"
+msgstr "Crie novo usuário"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:19
 #: .\Administradores\templates\administradores\editar_usuario.html:19
 #: .\Administradores\templates\administradores\editar_usuario.html:187
 msgid "Información del Usuario"
-msgstr "User Information"
+msgstr "Informações do usuário"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:149
 #: .\Administradores\templates\administradores\editar_usuario.html:172
@@ -314,39 +313,39 @@ msgstr "User Information"
 #: .\Pagos\templates\registrar_direccion.html:87
 #: .\Pagos\templates\registrar_tarjeta.html:107
 msgid "Cancelar"
-msgstr "Cancel"
+msgstr "Cancelar"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:164
 msgid "Información"
-msgstr "Configuration"
+msgstr "Informação"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:167
 msgid "Tipos de Usuario"
-msgstr "Information"
+msgstr "Tipos de usuário"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:171
 msgid "Puede contratar servicios de hosting"
-msgstr "You can hire hosting services"
+msgstr "Você pode contratar serviços de hospedagem"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:175
 msgid "Personal de soporte y supervisión"
-msgstr "Support and supervision staff"
+msgstr "Equipe de apoio e supervisão"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:179
 msgid "Acceso completo al sistema"
-msgstr "Full access to the system"
+msgstr "Acesso total ao sistema"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:183
 msgid "Roles de Empleado"
-msgstr "Employee Roles"
+msgstr "Funções de funcionários"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:186
 msgid "Agente"
-msgstr "Agent"
+msgstr "Agente"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:186
 msgid "Soporte básico al cliente (Nivel 1)"
-msgstr "Basic customer support (level 1)"
+msgstr "Suporte básico ao cliente (nível 1)"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:189
 msgid "Supervisor"
@@ -354,118 +353,119 @@ msgstr "Supervisor"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:189
 msgid "Gestión de agentes y escalación (Nivel 2-3)"
-msgstr "Agents and scaling management (level 2-3)"
+msgstr "Agentes e gerenciamento de escala (nível 2-3)"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:195
 msgid "Tip"
-msgstr "Tip"
+msgstr "Dica"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:195
 msgid ""
 "El teléfono es opcional. Los empleados se crean con nivel 1 por defecto."
-msgstr "The phone is optional.Employees are created with level 1 by default."
+msgstr ""
+"O telefone é opcional.Os funcionários são criados com o nível 1 por padrão."
 
 #: .\Administradores\templates\administradores\dashboard.html:3
 msgid "Dashboard - Admin Panel"
-msgstr "Dashboard - Admin Panel"
+msgstr "Painel - painel de administração"
 
 #: .\Administradores\templates\administradores\dashboard.html:11
 msgid " Este mes"
-msgstr "This month"
+msgstr "Este mês"
 
 #: .\Administradores\templates\administradores\dashboard.html:14
 #: .\Empleados\templates\supervisor_dashboard.html:518
 msgid "Esta semana"
-msgstr "This week"
+msgstr "Essa semana"
 
 #: .\Administradores\templates\administradores\dashboard.html:15
 #: .\Empleados\templates\supervisor_dashboard.html:521
 msgid "Este mes"
-msgstr "This month"
+msgstr "Este mês"
 
 #: .\Administradores\templates\administradores\dashboard.html:16
 msgid "Este año"
-msgstr "This year"
+msgstr "Este ano"
 
 #: .\Administradores\templates\administradores\dashboard.html:30
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:29
 msgid "Total Clientes"
-msgstr "Total customers"
+msgstr "Total de clientes"
 
 #: .\Administradores\templates\administradores\dashboard.html:48
 #: .\ChibchaWeb\templates\informacion.html:45
 msgid "Clientes Activos"
-msgstr "Active customers"
+msgstr "Clientes ativos"
 
 #: .\Administradores\templates\administradores\dashboard.html:66
 msgid "Total Empleados"
-msgstr "Total Employees"
+msgstr "Total de funcionários"
 
 #: .\Administradores\templates\administradores\dashboard.html:84
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:60
 msgid "Ingresos Totales"
-msgstr "Total income"
+msgstr "Renda total"
 
 #: .\Administradores\templates\administradores\dashboard.html:106
 msgid " Ingresos del Último Mes"
-msgstr "Last month income"
+msgstr "Renda do mês passado"
 
 #: .\Administradores\templates\administradores\dashboard.html:120
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:91
 msgid "Distribución de Usuarios"
-msgstr "User distribution"
+msgstr "Distribuição do usuário"
 
 #: .\Administradores\templates\administradores\dashboard.html:137
 msgid "Actividad Reciente"
-msgstr "Recent activity"
+msgstr "Atividade recente"
 
 #: .\Administradores\templates\administradores\dashboard.html:150
 msgid "Nuevo usuario registrado"
-msgstr "New registered user"
+msgstr "Novo usuário registrado"
 
 #: .\Administradores\templates\administradores\dashboard.html:151
 msgid "Hace 5 minutos"
-msgstr "5 minutes ago"
+msgstr "5 minutos atrás"
 
 #: .\Administradores\templates\administradores\dashboard.html:164
 msgid "Nuevo pago procesado"
-msgstr "New processed payment"
+msgstr "Novo pagamento processado"
 
 #: .\Administradores\templates\administradores\dashboard.html:165
 msgid "Hace 12 minutos"
-msgstr "12 minutes ago"
+msgstr "12 minutos atrás"
 
 #: .\Administradores\templates\administradores\dashboard.html:178
 msgid "Plan actualizado"
-msgstr "Updated plan"
+msgstr "Plano atualizado"
 
 #: .\Administradores\templates\administradores\dashboard.html:179
 msgid "Hace 1 hora"
-msgstr "1 hour ago"
+msgstr "1 hora atrás"
 
 #: .\Administradores\templates\administradores\dashboard.html:186
 msgid "Ver toda la actividad"
-msgstr "See all the activity"
+msgstr "Veja toda a atividade"
 
 #: .\Administradores\templates\administradores\dashboard.html:197
 #: .\Clientes\templates\home_clientes.html:161
 #: .\Clientes\templates\perfil.html:157
 #: .\Empleados\templates\supervisor_dashboard.html:192
 msgid "Acciones Rápidas"
-msgstr "Rapid actions"
+msgstr "Ações rápidas"
 
 #: .\Administradores\templates\administradores\dashboard.html:227
 #: .\Empleados\templates\supervisor_dashboard.html:213
 msgid "Reportes"
-msgstr "Reports"
+msgstr "Relatórios"
 
 #: .\Administradores\templates\administradores\dashboard.html:239
 msgid "Estado del Sistema"
-msgstr "SERVICE STATE"
+msgstr "Status do sistema"
 
 #: .\Administradores\templates\administradores\dashboard.html:244
 msgid "Servidor Web"
-msgstr "Website"
+msgstr "Servidor da web"
 
 #: .\Administradores\templates\administradores\dashboard.html:245
 #: .\Administradores\templates\administradores\dashboard.html:249
@@ -476,11 +476,11 @@ msgstr "On-line"
 #: .\Administradores\templates\administradores\dashboard.html:248
 #: .\ChibchaWeb\templates\informacion.html:211
 msgid "Base de Datos"
-msgstr "Database"
+msgstr "Banco de dados"
 
 #: .\Administradores\templates\administradores\dashboard.html:252
 msgid "Procesamiento de Pagos"
-msgstr "Payment processing"
+msgstr "Processamento de pagamento"
 
 #: .\Administradores\templates\administradores\dashboard.html:256
 #: .\Clientes\templates\home_clientes.html:181
@@ -490,7 +490,7 @@ msgstr "Backups"
 
 #: .\Administradores\templates\administradores\dashboard.html:257
 msgid "Programado"
-msgstr "Programmed"
+msgstr "Programado"
 
 #: .\Administradores\templates\administradores\dashboard.html:273
 msgid "Ene"
@@ -498,11 +498,11 @@ msgstr "Jan"
 
 #: .\Administradores\templates\administradores\dashboard.html:273
 msgid "Feb"
-msgstr "Feb."
+msgstr "Fevereiro"
 
 #: .\Administradores\templates\administradores\dashboard.html:273
 msgid "Mar"
-msgstr "March"
+msgstr "Mar"
 
 #: .\Administradores\templates\administradores\dashboard.html:274
 msgid "Abr"
@@ -511,94 +511,94 @@ msgstr "Apr"
 #: .\Administradores\templates\administradores\dashboard.html:274
 #: .\venv\Lib\site-packages\django\utils\dates.py:29
 msgid "May"
-msgstr "May"
+msgstr "Poderia"
 
 #: .\Administradores\templates\administradores\dashboard.html:274
 msgid "Jun"
-msgstr "June"
+msgstr "Jun"
 
 #: .\Administradores\templates\administradores\dashboard.html:274
 msgid "Jul"
-msgstr "July"
+msgstr "Jul"
 
 #: .\Administradores\templates\administradores\dashboard.html:277
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:225
 msgid "Ingresos"
-msgstr "Income"
+msgstr "Renda"
 
 #: .\Administradores\templates\administradores\dashboard.html:311
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:254
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:46
 msgid "Clientes"
-msgstr "Customers"
+msgstr "Clientes"
 
 #: .\Administradores\templates\administradores\dashboard.html:311
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:47
 msgid "Empleados"
-msgstr "Employee"
+msgstr "Funcionários"
 
 #: .\Administradores\templates\administradores\dashboard.html:311
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:48
 msgid "Administradores"
-msgstr "Administrators"
+msgstr "Administradores"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:3
 msgid "Editar Usuario - Admin Panel"
-msgstr "Edit User - Admin Panel"
+msgstr "Editar usuário - painel de administração"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:7
 msgid "Editar Usuario"
-msgstr "Edit user"
+msgstr "Editar usuário"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:137
 msgid "Cuenta Django Activa"
-msgstr "Active Django account"
+msgstr "Conta de Django ativo"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:143
 msgid "Controla si el usuario puede iniciar sesión"
-msgstr "Control if the user can log in"
+msgstr "Controle se o usuário puder fazer login"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:151
 msgid "Perfil Activo"
-msgstr "Active Profile"
+msgstr "Perfil ativo"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:157
 msgid "Controla si el perfil específico está activo"
-msgstr "Control if the specific profile is active"
+msgstr "Controle se o perfil específico estiver ativo"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:175
 #: .\Clientes\templates\editar.html:198
 msgid "Guardar Cambios"
-msgstr "Save changes"
+msgstr "Salvar alterações"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:210
 msgid "Último login"
-msgstr "Last login"
+msgstr "Último login"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:219
 msgid "Estado Django"
-msgstr "Django State"
+msgstr "Estado de Django"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:228
 msgid "Estado Perfil"
-msgstr "Profile"
+msgstr "Estado de perfil"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:257
 msgid "Info Cliente"
-msgstr "Customer info"
+msgstr "Informações do cliente"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:259
 msgid "Suscripción"
-msgstr "Subscription"
+msgstr "Subscrição"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:262
 msgid "Sí"
-msgstr "Yeah"
+msgstr "Sim"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:264
 #: .\venv\Lib\site-packages\django\forms\widgets.py:868
 msgid "No"
-msgstr "No"
+msgstr "Não"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:268
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:224
@@ -611,17 +611,17 @@ msgstr "No"
 #: .\Pagos\templates\resumen_pago.html:18
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:18
 msgid "Plan"
-msgstr "Plans"
+msgstr "Plano"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:276
 msgid "Info Empleado"
-msgstr "Employee Info"
+msgstr "Info funcionário"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:278
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:194
 #: .\Empleados\templates\agente_dashboard.html:300
 msgid "Rol"
-msgstr "Role"
+msgstr "Papel"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:280
 #: .\Administradores\templates\administradores\editar_usuario.html:281
@@ -638,7 +638,7 @@ msgstr "Role"
 #: .\Empleados\templates\supervisor_dashboard.html:396
 #: .\Empleados\templates\supervisor_dashboard.html:669
 msgid "Nivel"
-msgstr "Level"
+msgstr "Nível"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:282
 #: .\Clientes\templates\editar.html:145 .\Clientes\templates\perfil.html:70
@@ -646,96 +646,97 @@ msgstr "Level"
 #: .\Empleados\templates\agente_dashboard.html:323
 #: .\Empleados\templates\supervisor_dashboard.html:665
 msgid "Teléfono"
-msgstr "Phone"
+msgstr "Telefone"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:292
 msgid "Zona de Peligro"
-msgstr "Danger zone"
+msgstr "Zona de perigo"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:295
 msgid "Las siguientes acciones son irreversibles"
-msgstr "The following actions are irreversible"
+msgstr "As seguintes ações são irreversíveis"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:298
 msgid ""
 "¿Estás seguro de eliminar este usuario? Esta acción no se puede deshacer."
-msgstr "Are you sure to delete this user?This action cannot be undone."
+msgstr ""
+"Você tem certeza de excluir este usuário?Esta ação não pode ser desfeita."
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:3
 msgid "Estadísticas de Pagos - Admin Panel"
-msgstr "Payment Statistics - Admin Panel"
+msgstr "Estatísticas de pagamento - painel de administração"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:7
 msgid "Estadísticas de Pagos e Ingresos"
-msgstr "Payment and income statistics"
+msgstr "Estatísticas de pagamento e renda"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:10
 msgid "Imprimir"
-msgstr "Print"
+msgstr "Imprimir"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:18
 msgid "Filtros de Período"
-msgstr "Period filters"
+msgstr "Filtros de período"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:23
 msgid "Período Predefinido"
-msgstr "Predefined period"
+msgstr "Período predefinido"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:25
 msgid "Últimos 7 días"
-msgstr "Last 7 days"
+msgstr "Últimos 7 dias"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:26
 msgid "Últimos 30 días"
-msgstr "Last 30 days"
+msgstr "Últimos 30 dias"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:27
 msgid "Últimos 3 meses"
-msgstr "Last 3 months"
+msgstr "Últimos 3 meses"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:28
 msgid "Último año"
-msgstr "Last year"
+msgstr "Ano passado"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:29
 msgid "Personalizado"
-msgstr "Personalized"
+msgstr "Personalizado"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:33
 msgid "Fecha Inicio"
-msgstr "Start Date"
+msgstr "Data inicial"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:37
 msgid "Fecha Fin"
-msgstr "End date"
+msgstr "Data de término"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:44
 msgid "Filtrar"
-msgstr "Filter"
+msgstr "Filtro"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:80
 msgid " Total Transacciones"
-msgstr "Total transactions"
+msgstr "Total de transações"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:98
 msgid "Promedio por Transacción"
-msgstr "Average by transaction"
+msgstr "Média por transação"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:118
 msgid " Crecimiento"
-msgstr "Growth"
+msgstr "Crescimento"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:138
 msgid "Ingresos por Día"
-msgstr "Income per day"
+msgstr "Renda por dia"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:152
 msgid " Ingresos por Plan"
-msgstr "Plan income"
+msgstr "Planeje receita"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:169
 msgid "Top 10 Clientes por Ingresos"
-msgstr "Top 10 customers for income"
+msgstr "10 principais clientes para renda"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:179
 #: .\Empleados\templates\agente_dashboard.html:66
@@ -746,101 +747,101 @@ msgstr "Total"
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:180
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:226
 msgid "Transacciones"
-msgstr "Transactions"
+msgstr "Transações"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:200
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:249
 msgid "No hay datos disponibles"
-msgstr "No data available"
+msgstr "Nenhum dado disponível"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:216
 msgid "Ingresos por Plan de Hosting"
-msgstr "Revenue per Hosting Plan"
+msgstr "Renda do plano de hospedagem"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:265
 msgid "Exportar Datos"
-msgstr "Export data"
+msgstr "Dados de exportação"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:271
 msgid "Descarga los datos en diferentes formatos"
-msgstr "Download data in different formats"
+msgstr "Baixar dados em diferentes formatos"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:287
 msgid "Nota"
-msgstr "Note"
+msgstr "Observação"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:287
 msgid "Los reportes incluyen todos los datos del período seleccionado."
-msgstr "Reports include all selected period data."
+msgstr "Os relatórios incluem todos os dados do período selecionado."
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:3
 msgid "Estadísticas de Usuarios - Admin Panel"
-msgstr "Users Statistics - Admin Panel"
+msgstr "Estatísticas dos usuários - painel de administração"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:7
 msgid " Estadísticas de Usuarios"
-msgstr "User statistics"
+msgstr "Estatísticas do usuário"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:11
 msgid "Exportar"
-msgstr "Export"
+msgstr "Exportar"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:14
 msgid "Actualizar"
-msgstr "Update"
+msgstr "Atualizar"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:48
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:146
 msgid "Con Suscripción"
-msgstr "With Subscription"
+msgstr "Com assinatura"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:52
 msgid "del total"
-msgstr "of the total"
+msgstr "do total"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:70
 msgid " Total Empleados"
-msgstr "Total Employees"
+msgstr "Total de funcionários"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:73
 msgid " activos"
-msgstr "assets"
+msgstr "ativos"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:101
 msgid " Clientes"
-msgstr "Customers"
+msgstr "Clientes"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:104
 msgid " Empleados"
-msgstr "Employee Portal"
+msgstr "Funcionários"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:117
 msgid " Distribución por Planes"
-msgstr "Distribution by plans"
+msgstr "Distribuição por planos"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:141
 msgid "Estado de Clientes"
-msgstr "Customer status"
+msgstr "Status do cliente"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:157
 msgid "Nuevos (30 días)"
-msgstr "New (30 days)"
+msgstr "Novo (30 dias)"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:172
 msgid "Nuevos clientes este mes"
-msgstr "New customers this month"
+msgstr "Novos clientes este mês"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:186
 msgid "Empleados por Rol"
-msgstr "Employees by role"
+msgstr "Funcionários por função"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:195
 msgid " Cantidad"
-msgstr "Amount"
+msgstr "Quantia"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:196
 msgid "Porcentaje"
-msgstr "Percentage"
+msgstr "Percentagem"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:197
 msgid " Visual"
@@ -848,16 +849,16 @@ msgstr "Visual"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:229
 msgid "No hay empleados registrados"
-msgstr "There are no registered employees"
+msgstr "Não há funcionários registrados"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:245
 msgid " Clientes por Plan"
-msgstr "Customers per plan"
+msgstr "Clientes por plano"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:255
 #, python-format
 msgid " %% del Total"
-msgstr "%% of the total"
+msgstr ""
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:256
 msgid "Visual"
@@ -865,112 +866,112 @@ msgstr "Visual"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:288
 msgid "No hay planes activos"
-msgstr "There are no active plans"
+msgstr "Não há planos ativos"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:306
 msgid " Resumen General del Sistema"
-msgstr "General System Summary"
+msgstr "Resumo do sistema geral"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:313
 msgid "Total Usuarios Registrados"
-msgstr "Total registered users"
+msgstr "Total de usuários registrados"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:319
 msgid "Tasa de Conversión a Suscripción"
-msgstr "Subscription conversion rate"
+msgstr "Taxa de conversão de assinatura"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:323
 msgid "Registros Últimos 30 Días"
-msgstr "Last 30 days records"
+msgstr "Últimos 30 dias registros"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:333
 msgid "Empleados Activos"
-msgstr "Active Employees"
+msgstr "Funcionários ativos"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:341
 msgid "Insights:"
-msgstr "Insights:"
+msgstr "Percepções:"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:344
 msgid "Crecimiento"
-msgstr "Growth"
+msgstr "Crescimento"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:345
 msgid " nuevos clientes en los últimos 30 días"
-msgstr "new customers in the last 30 days"
+msgstr "Novos clientes nos últimos 30 dias"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:348
 msgid "Adopción"
-msgstr "Adoption"
+msgstr "Adoção"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:349
 msgid "de los clientes tienen suscripción activa"
-msgstr "of customers have active subscription"
+msgstr "de clientes têm assinatura ativa"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:352
 msgid "Equipo"
-msgstr "Equipment"
+msgstr "Equipamento"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:353
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:177
 msgid "de "
-msgstr "of"
+msgstr "de"
 
 #: .\Administradores\templates\administradores\estadisticas_usuarios.html:353
 msgid "empleados están activos"
-msgstr "employees are active"
+msgstr "Os funcionários estão ativos"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:4
 msgid "Gestionar Usuarios - Admin Panel"
-msgstr "Manage users - admin panel"
+msgstr "Gerenciar usuários - painel de administração"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:8
 msgid "Gestionar Usuarios"
-msgstr "Manage users"
+msgstr "Gerenciar usuários"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:23
 msgid "Total Usuarios"
-msgstr "Total Users"
+msgstr "Usuários totais"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:38
 msgid "Filtros"
-msgstr "Filters"
+msgstr "Filtros"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:43
 msgid "Tipo de Usuario"
-msgstr "User Type"
+msgstr "Tipo de usuário"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:45
 msgid "Todos"
-msgstr "All"
+msgstr "Todos"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:52
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:60
 msgid "Buscar"
-msgstr "Look for"
+msgstr "Procurar"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:71
 msgid "Lista de Usuarios"
-msgstr "List of users"
+msgstr "Lista de usuários"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:80
 #: .\Clientes\templates\perfil.html:64
 msgid "Nombre Completo"
-msgstr "Full name"
+msgstr "Nome completo"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:81
 msgid " Tipo"
-msgstr "Guy"
+msgstr "Cara"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:83
 msgid " Registro"
-msgstr "Register"
+msgstr "Registro"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:84
 #: .\Empleados\templates\mis_tickets.html:301
 #: .\Tickets\templates\tickets_cliente.html:68
 msgid "Acciones"
-msgstr "Actions"
+msgstr "Ações"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:110
 msgid "Admin"
@@ -979,292 +980,294 @@ msgstr "Admin"
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:150
 msgid ""
 "No se encontraron usuarios que coincidan con los criterios de búsqueda."
-msgstr "No users were found that coincide with the search criteria."
+msgstr ""
+"Não foram encontrados usuários que coincidem com os critérios de pesquisa."
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:177
 msgid " Página "
-msgstr "Page"
+msgstr "Página"
 
 #: .\Administradores\templates\administradores\login.html:8
 msgid "Acceso Administradores - ChibchaWeb"
-msgstr "Administrators access - Chibchaweb"
+msgstr "Acesso aos administradores - Chibchaweb"
 
 #: .\Administradores\templates\administradores\login.html:104
 msgid "Panel de Administración"
-msgstr "Portal Administrators"
+msgstr "Painel de administração"
 
 #: .\Administradores\templates\administradores\login.html:106
 msgid "Acceso Seguro"
-msgstr "Safe access"
+msgstr "Acesso seguro"
 
 #: .\Administradores\templates\administradores\login.html:131
 #: .\ChibchaWeb\templates\login.html:21
 #: .\Empleados\templates\logEmpleados.html:53
 msgid "Contraseña"
-msgstr "Password"
+msgstr "Senha"
 
 #: .\Administradores\templates\administradores\login.html:138
 #: .\ChibchaWeb\templates\login.html:24
 msgid "Ingresar"
-msgstr "Login"
+msgstr "Entrar"
 
 #: .\Administradores\templates\administradores\login.html:145
 #: .\ChibchaWeb\templates\base.html:50 .\Clientes\templates\perfil.html:122
 msgid "Inicio"
-msgstr "Start"
+msgstr "Começar"
 
 #: .\Administradores\templates\administradores\login.html:148
 msgid "Portal Clientes"
-msgstr "Portal Administrators"
+msgstr "Portal do cliente"
 
 #: .\Administradores\templates\administradores\login.html:152
 #: .\ChibchaWeb\templates\login.html:29
 msgid "Portal Empleados"
-msgstr "Employee Portal"
+msgstr "Funcionários do portal"
 
 #: .\ChibchaWeb\settings.py:128
 msgid "Español"
-msgstr "Spanish"
+msgstr "Espanhol"
 
 #: .\ChibchaWeb\settings.py:129
 msgid "English"
-msgstr "English"
+msgstr "Inglês"
 
 #: .\ChibchaWeb\settings.py:130
 msgid "Português"
-msgstr "Portuguese"
+msgstr "Português"
 
 #: .\ChibchaWeb\templates\base.html:20
 msgid "Hosting Profesional"
-msgstr "Professional hosting"
+msgstr "Hospedagem profissional"
 
 #: .\ChibchaWeb\templates\base.html:55 .\ChibchaWeb\templates\base.html:168
 msgid "Dominios"
-msgstr "Domains"
+msgstr "Domínios"
 
 #: .\ChibchaWeb\templates\base.html:60 .\ChibchaWeb\templates\base.html:167
 msgid "Planes"
-msgstr "Plans"
+msgstr "Planos"
 
 #: .\ChibchaWeb\templates\base.html:65 .\ChibchaWeb\templates\base.html:184
 msgid "Contacto"
-msgstr "Contact"
+msgstr "Contato"
 
 #: .\ChibchaWeb\templates\base.html:81
 #: .\Clientes\templates\base_clientes.html:87
 msgid "Mi cuenta"
-msgstr "My account"
+msgstr "Minha conta"
 
 #: .\ChibchaWeb\templates\base.html:84
 #: .\Clientes\templates\base_clientes.html:90
 msgid "Perfil"
-msgstr "Profile"
+msgstr "Perfil"
 
 #: .\ChibchaWeb\templates\base.html:85
 #: .\Clientes\templates\base_clientes.html:94
 msgid "Configuración"
-msgstr "Configuration"
+msgstr "Configuração"
 
 #: .\ChibchaWeb\templates\base.html:86
 #: .\Clientes\templates\base_clientes.html:95
 #: .\Clientes\templates\home_clientes.html:101
 #: .\Clientes\templates\perfil.html:173
 msgid "Crear Ticket"
-msgstr "Create Ticket"
+msgstr "Crie bilhete"
 
 #: .\ChibchaWeb\templates\base.html:92
 #: .\Clientes\templates\base_clientes.html:100
 msgid "Cerrar sesión"
-msgstr "Logout"
+msgstr "Sessão próxima"
 
 #: .\ChibchaWeb\templates\base.html:103 .\ChibchaWeb\templates\login.html:13
 #: .\Clientes\templates\activacion_exitosa.html:10
 msgid "Iniciar sesión"
-msgstr "Login"
+msgstr "Conecte-se"
 
 #: .\ChibchaWeb\templates\base.html:106 .\ChibchaWeb\templates\login.html:28
 msgid "Registrarse"
-msgstr "Register"
+msgstr "Registrar"
 
 #: .\ChibchaWeb\templates\base.html:121
 msgid "Bienvenido a ChibchaWeb"
-msgstr "Welcome to Chibchaweb"
+msgstr "Bem -vindo ao Chibchaweb"
 
 #: .\ChibchaWeb\templates\base.html:122
 msgid "Tu sitio #1 de hosting profesional en Colombia"
-msgstr "Your professional hosting site in Colombia"
+msgstr "Seu site de hospedagem profissional na Colômbia"
 
 #: .\ChibchaWeb\templates\base.html:125
 msgid "Empieza ahora"
-msgstr "Start now"
+msgstr "Comece agora"
 
 #: .\ChibchaWeb\templates\base.html:128
 msgid "Ver planes"
-msgstr "See plans"
+msgstr "Veja planos"
 
 #: .\ChibchaWeb\templates\base.html:154
 msgid ""
 "Soluciones de hosting profesional para empresas y emprendedores en Colombia."
 " Más de 10 años de experiencia en el sector"
 msgstr ""
-"Professional hosting solutions for companies and entrepreneurs in "
-"Colombia.More than 10 years of experience in the sector"
+"Soluções profissionais de hospedagem para empresas e empreendedores na "
+"Colômbia.Mais de 10 anos de experiência no setor"
 
 #: .\ChibchaWeb\templates\base.html:164
 msgid "Servicios"
-msgstr "Services"
+msgstr "Serviços"
 
 #: .\ChibchaWeb\templates\base.html:166
 msgid "Hosting Web"
-msgstr "Web hosting"
+msgstr "Hospedagem na web"
 
 #: .\ChibchaWeb\templates\base.html:174 .\ChibchaWeb\templates\base.html:199
 #: .\ChibchaWeb\templates\informacion.html:213
 msgid "Soporte"
-msgstr "Medium"
+msgstr "Médio"
 
 #: .\ChibchaWeb\templates\base.html:176
 msgid "Centro de Ayuda"
-msgstr "Help center"
+msgstr "Centro de ajuda"
 
 #: .\ChibchaWeb\templates\base.html:177
 msgid "Documentación"
-msgstr "Documentation"
+msgstr "Documentação"
 
 #: .\ChibchaWeb\templates\base.html:178
 msgid "Tickets"
-msgstr "Tickets"
+msgstr "Ingressos"
 
 #: .\ChibchaWeb\templates\base.html:179
 msgid "Estado del Servicio"
-msgstr "SERVICE STATE"
+msgstr "Estado de serviço"
 
 #: .\ChibchaWeb\templates\base.html:208
 #: .\Clientes\templates\base_clientes.html:117
 msgid "Todos los derechos reservados"
-msgstr "All rights reserved"
+msgstr "Todos os direitos reservados"
 
 #: .\ChibchaWeb\templates\base.html:212
 msgid "Términos de servicio"
-msgstr "Terms of service"
+msgstr "Termos de Serviço"
 
 #: .\ChibchaWeb\templates\base.html:214
 msgid "Política de privacidad"
-msgstr "Privacy Policy"
+msgstr "política de Privacidade"
 
 #: .\ChibchaWeb\templates\base.html:216
 msgid "Cookies"
-msgstr "Cookies"
+msgstr "Biscoitos"
 
 #: .\ChibchaWeb\templates\exitologin.html:3
 msgid "Inicio de Sesión Exitoso"
-msgstr "Successful Login"
+msgstr "Login bem -sucedido"
 
 #: .\ChibchaWeb\templates\exitologin.html:14
 msgid "Inicio de sesión exitoso"
-msgstr "Successful Login"
+msgstr "Login bem -sucedido"
 
 #: .\ChibchaWeb\templates\exitologin.html:15
 msgid "Bienvenido"
-msgstr "Welcome"
+msgstr "Bem-vindo"
 
 #: .\ChibchaWeb\templates\exitologin.html:19
 msgid "Ver Mi Perfil"
-msgstr "See my profile"
+msgstr "Veja meu perfil"
 
 #: .\ChibchaWeb\templates\exitologin.html:22
 msgid "Ir al Inicio"
-msgstr "Go to the beginning"
+msgstr "Vá para o começo"
 
 #: .\ChibchaWeb\templates\informacion.html:4
 msgid "Información - ChibchaWeb"
-msgstr "Information - ChibchaWeb"
+msgstr "Informações - Chibchaweb"
 
 #: .\ChibchaWeb\templates\informacion.html:21
 msgid "Hosting Premium Colombia"
-msgstr "Hosting Premium Colombia"
+msgstr "Hospedando Colômbia premium"
 
 #: .\ChibchaWeb\templates\informacion.html:27
 msgid "Tu sitio web merece el"
-msgstr "Your website deserves the"
+msgstr "Seu site merece o"
 
 #: .\ChibchaWeb\templates\informacion.html:28
 msgid "mejor hosting"
-msgstr "Best Hosting"
+msgstr "Melhor hospedagem"
 
 #: .\ChibchaWeb\templates\informacion.html:33
 msgid "Servidores SSD ultrarrápidos, SSL gratuito y soporte 24/7."
-msgstr "Ultra-fast SSD servers, free SSL, and 24/7 support."
+msgstr "Servidores SSD ultra -gravados, SSL gratuito e suporte 24/7."
 
 #: .\ChibchaWeb\templates\informacion.html:34
 msgid "Todo lo que necesitas para que tu proyecto digital triunfe."
-msgstr "Everything you need to make your digital project a success."
+msgstr "Tudo o que você precisa para o seu projeto digital ter sucesso."
 
 #: .\ChibchaWeb\templates\informacion.html:54
 msgid "Uptime"
-msgstr "Uptime"
+msgstr "Tempo de atividade"
 
 #: .\ChibchaWeb\templates\informacion.html:63
 msgid "Respuesta"
-msgstr "Answer"
+msgstr "Responder"
 
 #: .\ChibchaWeb\templates\informacion.html:72
 msgid "Gratis"
-msgstr "Free"
+msgstr "Livre"
 
 #: .\ChibchaWeb\templates\informacion.html:81
 msgid "Comenzar Gratis"
-msgstr "Start for free"
+msgstr "Comece gratuitamente"
 
 #: .\ChibchaWeb\templates\informacion.html:85
 #: .\Clientes\templates\home_clientes.html:33
 #: .\Clientes\templates\mis_hosts.html:171
 #: .\Clientes\templates\quiero_ser_distribuidor.html:34
 msgid "Ver Planes"
-msgstr "See plans"
+msgstr "Veja planos"
 
 #: .\ChibchaWeb\templates\informacion.html:100
 msgid "Hosting Profesional Colombiano"
-msgstr "Colombian professional hosting"
+msgstr "Hospedagem profissional colombiana"
 
 #: .\ChibchaWeb\templates\informacion.html:105
 msgid "Más de 5 años"
-msgstr "More than 5 years"
+msgstr "Mais de 5 anos"
 
 #: .\ChibchaWeb\templates\informacion.html:105
 msgid "siendo líderes en hosting en Colombia con tecnología de vanguardia."
-msgstr "being leaders in Hosting in Colombia with avant -garde technology."
+msgstr "ser líderes na hospedagem na Colômbia com a tecnologia Avant -Garde."
 
 #: .\ChibchaWeb\templates\informacion.html:109
 msgid "Servidores SSD NVMe ultrarrápidos con "
-msgstr "Ultra -granted SSD NVME servers with"
+msgstr "Servidores NVME Ultra -Geral SSD com"
 
 #: .\ChibchaWeb\templates\informacion.html:109
 msgid "de disponibilidad garantizada"
-msgstr "of guaranteed availability"
+msgstr "de disponibilidade garantida"
 
 #: .\ChibchaWeb\templates\informacion.html:109
 msgid "y soporte técnico especializado 24/7."
-msgstr "and specialized technical support 24/7."
+msgstr "e suporte técnico especializado 24/7."
 
 #: .\ChibchaWeb\templates\informacion.html:113
 msgid ""
 "Nuestro equipo colombiano te acompaña en cada paso para que tu proyecto "
 "digital "
 msgstr ""
-"Our Colombian team accompanies you in each step so that your digital project"
+"Nossa equipe colombiana o acompanha em cada etapa para que seu projeto "
+"digital"
 
 #: .\ChibchaWeb\templates\informacion.html:113
 msgid "siempre esté disponible"
-msgstr "is always available"
+msgstr "está sempre disponível"
 
 #: .\ChibchaWeb\templates\informacion.html:119
 msgid ""
 "El mejor hosting que he usado en Colombia. Rápido, confiable y con excelente"
 " soporte técnico."
 msgstr ""
-"The best hosting I have used in Colombia.Fast, reliable and with excellent "
-"technical support."
+"A melhor hospedagem que usei na Colômbia.Rápido, confiável e com excelente "
+"suporte técnico."
 
 #: .\ChibchaWeb\templates\informacion.html:122
 msgid "María González, CEO Digital Solutions"
@@ -1272,182 +1275,182 @@ msgstr "María González, CEO Digital Solutions"
 
 #: .\ChibchaWeb\templates\informacion.html:139
 msgid "Nuestros Servicios"
-msgstr "Our services"
+msgstr "Nossos serviços"
 
 #: .\ChibchaWeb\templates\informacion.html:140
 msgid "Todo lo que necesitas para tu proyecto web"
-msgstr "Everything you need for your web project"
+msgstr "Tudo o que você precisa para o seu projeto da web"
 
 #: .\ChibchaWeb\templates\informacion.html:149
 #: .\Pagos\templates\seleccionar_plan.html:15
 msgid "Hosting Premium"
-msgstr "Premium hosting"
+msgstr "Hospedagem premium"
 
 #: .\ChibchaWeb\templates\informacion.html:150
 msgid "Servidores SSD NVMe ultrarrápidos"
-msgstr "Ultra -granted SSD NVME servers"
+msgstr "Servidores SSD NVME ultra -gravados"
 
 #: .\ChibchaWeb\templates\informacion.html:159
 msgid "SSL Gratuito"
-msgstr "Free SSL"
+msgstr "Ssl grátis"
 
 #: .\ChibchaWeb\templates\informacion.html:160
 msgid "Certificados SSL automáticos"
-msgstr "Automatic SSL certificates"
+msgstr "Certificados SSL automáticos"
 
 #: .\ChibchaWeb\templates\informacion.html:169
 #: .\Dominios\templates\agregar_dominio.html:209
 msgid "Soporte 24/7"
-msgstr "24/7 support"
+msgstr "Suporte 24/7"
 
 #: .\ChibchaWeb\templates\informacion.html:170
 msgid "Asistencia técnica especializada"
-msgstr "Specialized Technical Assistance"
+msgstr "Assistência técnica especializada"
 
 #: .\ChibchaWeb\templates\informacion.html:179
 msgid "Backup Automático"
-msgstr "Automatic backup"
+msgstr "Backup automático"
 
 #: .\ChibchaWeb\templates\informacion.html:180
 msgid "Respaldos diarios seguros"
-msgstr "Safe daily backs"
+msgstr "Backs diários seguros"
 
 #: .\ChibchaWeb\templates\informacion.html:191
 #: .\Pagos\templates\seleccionar_plan.html:18
 msgid "Planes de Hosting"
-msgstr "Hosting plans"
+msgstr "Hospedando planos"
 
 #: .\ChibchaWeb\templates\informacion.html:192
 msgid "Elige el plan perfecto para tu proyecto"
-msgstr "Choose the perfect plan for your project"
+msgstr "Escolha o plano perfeito para o seu projeto"
 
 #: .\ChibchaWeb\templates\informacion.html:204
 #: .\ChibchaWeb\templates\informacion.html:228
 #: .\ChibchaWeb\templates\informacion.html:251
 #: .\Pagos\templates\seleccionar_plan.html:111
 msgid "mes"
-msgstr "month"
+msgstr "mês"
 
 #: .\ChibchaWeb\templates\informacion.html:209
 msgid "Sitio Web"
-msgstr "Website"
+msgstr "Site"
 
 #: .\ChibchaWeb\templates\informacion.html:212
 msgid "Gratuito"
-msgstr "Gratuitous"
+msgstr "Gratuito"
 
 #: .\ChibchaWeb\templates\informacion.html:222
 #: .\Pagos\templates\seleccionar_plan.html:86
 msgid "Más Popular"
-msgstr "More popular"
+msgstr "Mais popular"
 
 #: .\ChibchaWeb\templates\informacion.html:224
 msgid "Professional"
-msgstr "Professional"
+msgstr "Profissional"
 
 #: .\ChibchaWeb\templates\informacion.html:233
 msgid "Sitios Web"
-msgstr "Websites"
+msgstr "Sites"
 
 #: .\ChibchaWeb\templates\informacion.html:235
 msgid "Bases de Datos"
-msgstr "Databases"
+msgstr "Bancos de dados"
 
 #: .\ChibchaWeb\templates\informacion.html:236
 msgid "Email Marketing"
-msgstr "Email marketing"
+msgstr "Marketing por e -mail"
 
 #: .\ChibchaWeb\templates\informacion.html:237
 msgid "CDN Global"
-msgstr "Global CDN"
+msgstr "CDN global"
 
 #: .\ChibchaWeb\templates\informacion.html:256
 msgid "Sitios Ilimitados"
-msgstr "Unlimited sites"
+msgstr "Sites ilimitados"
 
 #: .\ChibchaWeb\templates\informacion.html:258
 msgid "Bases Ilimitadas"
-msgstr "Unlimited bases"
+msgstr "Bases ilimitadas"
 
 #: .\ChibchaWeb\templates\informacion.html:259
 msgid "Soporte Prioritario"
-msgstr "Priority Support"
+msgstr "Suporte prioritário"
 
 #: .\ChibchaWeb\templates\informacion.html:260
 msgid "Backup Avanzado"
-msgstr "Advanced backup"
+msgstr "Backup avançado"
 
 #: .\ChibchaWeb\templates\informacion.html:274
 msgid "¿Listo para comenzar?"
-msgstr "Ready to start?"
+msgstr "Pronto para começar?"
 
 #: .\ChibchaWeb\templates\informacion.html:275
 msgid "Únete a nuestros"
-msgstr "Join our"
+msgstr "Junte -se ao nosso"
 
 #: .\ChibchaWeb\templates\informacion.html:275
 msgid "clientes satisfechos. Activa tu hosting en minutos"
-msgstr "satisfied customers.Activate your hosting in minutes"
+msgstr "clientes satisfeitos.Ative sua hospedagem em minutos"
 
 #: .\ChibchaWeb\templates\informacion.html:279
 msgid "Comenzar Ahora"
-msgstr "Start now"
+msgstr "Comece agora"
 
 #: .\ChibchaWeb\templates\login.html:7
 #: .\Empleados\templates\logEmpleados.html:67
 msgid "Iniciar Sesión"
-msgstr "Login"
+msgstr "Conecte-se"
 
 #: .\ChibchaWeb\templates\login.html:17
 msgid "Nickname"
-msgstr "Nickname"
+msgstr "Apelido"
 
 #: .\ChibchaWeb\templates\login.html:33
 msgid "Portal Administradores"
-msgstr "Portal Administrators"
+msgstr "Portal dos Administradores"
 
 #: .\Clientes\templates\activacion_exitosa.html:3
 msgid "Cuenta Activada"
-msgstr "Activated Account"
+msgstr "Conta ativada"
 
 #: .\Clientes\templates\activacion_exitosa.html:8
 msgid "Tu cuenta ha sido activada"
-msgstr "Activated Account"
+msgstr "Sua conta foi ativada"
 
 #: .\Clientes\templates\activacion_exitosa.html:9
 msgid "Ahora puedes iniciar sesión y comenzar a usar nuestros servicios"
-msgstr "Now you can log in and start using our services"
+msgstr "Agora você pode fazer login e começar a usar nossos serviços"
 
 #: .\Clientes\templates\activacion_fallida.html:3
 msgid "Activación Fallida"
-msgstr "Falling activation"
+msgstr "Ativação em queda"
 
 #: .\Clientes\templates\activacion_fallida.html:8
 msgid "Enlace inválido o expirado"
-msgstr "Invalid or expired link"
+msgstr "Link inválido ou expirado"
 
 #: .\Clientes\templates\activacion_fallida.html:9
 msgid "El enlace de activación no es válido o ya fue usado"
-msgstr "The activation link is not valid or already used"
+msgstr "O link de ativação não é válido ou já usado"
 
 #: .\Clientes\templates\activacion_fallida.html:10
 msgid "Si el problema persiste, por favor vuelve a registrarte"
-msgstr "If the problem persists, please register again"
+msgstr "Se o problema persistir, registre -se novamente"
 
 #: .\Clientes\templates\activacion_fallida.html:11
 msgid "Volver al registro"
-msgstr "Return to registration"
+msgstr "Retornar ao registro"
 
 #: .\Clientes\templates\base_clientes.html:23
 #: .\Empleados\templates\agente_dashboard.html:39
 #: .\Empleados\templates\mis_tickets.html:34
 #: .\Empleados\templates\supervisor_dashboard.html:36
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "Painel"
 
 #: .\Clientes\templates\base_clientes.html:50
 msgid "Mis Host"
-msgstr "My host"
+msgstr "Meu anfitrião"
 
 #: .\Clientes\templates\base_clientes.html:56
 #: .\Clientes\templates\home_clientes.html:168
@@ -1456,51 +1459,51 @@ msgstr "My host"
 #: .\Empleados\templates\mis_tickets.html:37
 #: .\Tickets\templates\tickets_cliente.html:16
 msgid "Mis Tickets"
-msgstr "Tickets"
+msgstr "Meus ingressos"
 
 #: .\Clientes\templates\base_clientes.html:58
 msgid "Mis paquetes"
-msgstr "My packages"
+msgstr "Meus pacotes"
 
 #: .\Clientes\templates\base_clientes.html:62
 msgid "Quiero ser distribuidor"
-msgstr "I want to be a distributor"
+msgstr "Eu quero ser um distribuidor"
 
 #: .\Clientes\templates\base_clientes.html:75
 msgid "Sin plan activo"
-msgstr "There are no active plans"
+msgstr "Nenhum plano ativo"
 
 #: .\Clientes\templates\base_clientes.html:92
 #: .\Clientes\templates\detalle_cliente.html:86
 msgid "Distribuidor"
-msgstr "Distributor"
+msgstr "Distribuidor"
 
 #: .\Clientes\templates\detalle_cliente.html:5
 #: .\Clientes\templates\detalle_cliente.html:17
 msgid "Configuración de Cuenta"
-msgstr "Configuration"
+msgstr "Configuração da conta"
 
 #: .\Clientes\templates\detalle_cliente.html:18
 msgid "Gestiona tu información personal y preferencias"
-msgstr "Manage your personal information and preferences"
+msgstr "Gerencie suas informações e preferências pessoais"
 
 #: .\Clientes\templates\detalle_cliente.html:24
 msgid "Usuario desde"
-msgstr "User since"
+msgstr "Usuário de"
 
 #: .\Clientes\templates\detalle_cliente.html:43
 #: .\Clientes\templates\editar.html:111 .\Clientes\templates\perfil.html:46
 #: .\Empleados\templates\supervisor_dashboard.html:659
 msgid "Información Personal"
-msgstr "Personal Information"
+msgstr "Informações pessoais"
 
 #: .\Clientes\templates\detalle_cliente.html:47
 msgid "Editar"
-msgstr "Edit"
+msgstr "Editar"
 
 #: .\Clientes\templates\detalle_cliente.html:55
 msgid "NOMBRE COMPLETO"
-msgstr "Full name"
+msgstr "Nome completo"
 
 #: .\Clientes\templates\detalle_cliente.html:64
 msgid "EMAIL"
@@ -1508,59 +1511,59 @@ msgstr "E-MAIL"
 
 #: .\Clientes\templates\detalle_cliente.html:73
 msgid "TELÉFONO"
-msgstr "PHONE"
+msgstr "TELEFONE"
 
 #: .\Clientes\templates\detalle_cliente.html:82
 msgid "TIPO DE CUENTA"
-msgstr "Type of account"
+msgstr "Tipo de conta"
 
 #: .\Clientes\templates\detalle_cliente.html:88
 msgid "Cliente Regular"
-msgstr "Customer"
+msgstr "Cliente regular"
 
 #: .\Clientes\templates\detalle_cliente.html:108
 msgid "Direcciones de Facturación"
-msgstr "Billing addresses"
+msgstr "Endereços de cobrança"
 
 #: .\Clientes\templates\detalle_cliente.html:138
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:97
 msgid "No tienes direcciones registradas"
-msgstr "You have no registered addresses"
+msgstr "Você não tem endereços registrados"
 
 #: .\Clientes\templates\detalle_cliente.html:144
 msgid "Agregar Dirección"
-msgstr "Add address"
+msgstr "Adicione endereço"
 
 #: .\Clientes\templates\detalle_cliente.html:158
 msgid "Métodos de Pago"
-msgstr "Payment methods"
+msgstr "Métodos de pagamento"
 
 #: .\Clientes\templates\detalle_cliente.html:174
 msgid " Vence"
-msgstr "Expires"
+msgstr "Expira"
 
 #: .\Clientes\templates\detalle_cliente.html:188
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:153
 msgid "No tienes tarjetas registradas"
-msgstr "You have no cards registered"
+msgstr "Você não tem cartões registrados"
 
 #: .\Clientes\templates\detalle_cliente.html:194
 msgid "Agregar Tarjeta"
-msgstr "Add card"
+msgstr "Adicione cartão"
 
 #: .\Clientes\templates\detalle_cliente.html:209
 msgid "Acciones de Cuenta"
-msgstr "Account Actions"
+msgstr "Ações da conta"
 
 #: .\Clientes\templates\detalle_cliente.html:219
 #: .\Clientes\templates\editar.html:4 .\Clientes\templates\editar.html:15
 #: .\Clientes\templates\home_clientes.html:123
 msgid "Editar Perfil"
-msgstr "Edit Profile"
+msgstr "Editar perfil"
 
 #: .\Clientes\templates\detalle_cliente.html:223
 msgid "Actualiza tu información personal"
-msgstr "Update your personal information"
+msgstr "Atualize suas informações pessoais"
 
 #: .\Clientes\templates\detalle_cliente.html:231
 #: .\Clientes\templates\mis_hosts.html:142
@@ -1568,248 +1571,252 @@ msgstr "Update your personal information"
 #: .\Clientes\templates\mis_hosts.html:198
 #: .\Clientes\templates\quiero_ser_distribuidor.html:37
 msgid "Contactar Soporte"
-msgstr "Contact Support"
+msgstr "Suporte de contato"
 
 #: .\Clientes\templates\detalle_cliente.html:235
 msgid "¿Necesitas ayuda? Estamos aquí"
-msgstr "Do you need help?We are here"
+msgstr "Você precisa de ajuda?Estamos aqui"
 
 #: .\Clientes\templates\detalle_cliente.html:245
 #: .\Clientes\templates\detalle_cliente.html:267
 msgid "Eliminar Cuenta"
-msgstr "Delete account"
+msgstr "Excluir conta"
 
 #: .\Clientes\templates\detalle_cliente.html:249
 msgid "Esta acción no se puede deshacer"
-msgstr "Are you sure to delete this user?This action cannot be undone."
+msgstr "Esta ação não pode ser desfeita"
 
 #: .\Clientes\templates\detalle_cliente.html:273
 msgid "Estás seguro de que deseas eliminar tu cuenta"
-msgstr "You are sure you want to delete your account"
+msgstr "Você tem certeza de que deseja excluir sua conta"
 
 #: .\Clientes\templates\detalle_cliente.html:275
-msgid "Esta acción eliminará permanentemente tu cuenta y todos los datos asociados"
-msgstr "This action will permanently delete your account and all associated data."
+msgid ""
+"Esta acción eliminará permanentemente tu cuenta y todos los datos asociados"
+msgstr ""
+"Esta ação eliminará permanentemente sua conta e todos os dados associados"
 
 #: .\Clientes\templates\detalle_cliente.html:276
 msgid "No podrás recuperar esta información"
-msgstr "You will not be able to recover this information"
+msgstr "Você não poderá recuperar esta informação"
 
 #: .\Clientes\templates\detalle_cliente.html:281
 msgid "Se cancelarán todos los servicios activos"
-msgstr "All active services will be canceled"
+msgstr "Todos os serviços ativos serão cancelados"
 
 #: .\Clientes\templates\distribuidor_exito.html:5
 msgid "Felicidades"
-msgstr "Congratulations"
+msgstr "Parabéns"
 
 #: .\Clientes\templates\distribuidor_exito.html:6
 msgid ""
 "Ahora eres un distribuidor oficial. Ya puedes acceder a tus paquetes y "
 "empezar a gestionar tus dominios"
 msgstr ""
-"Now you are an official distributor.You can now access your packages and "
-"start managing your domains"
+"Agora você é um distribuidor oficial.Agora você pode acessar seus pacotes e "
+"começar a gerenciar seus domínios"
 
 #: .\Clientes\templates\distribuidor_exito.html:7
 msgid "Ver mis paquetes"
-msgstr "See my packages"
+msgstr "Veja meus pacotes"
 
 #: .\Clientes\templates\editar.html:19
 msgid "Actualizar Mi Información"
-msgstr "Update My Information"
+msgstr "Atualize minhas informações"
 
 #: .\Clientes\templates\editar.html:22
 msgid "Mantén tu información personal actualizada y segura"
-msgstr "Keep your updated and safe personal information"
+msgstr "Mantenha suas informações pessoais atualizadas e seguras"
 
 #: .\Clientes\templates\editar.html:69
 msgid "Información de Cuenta"
-msgstr "Account Information"
+msgstr "Informações da conta"
 
 #: .\Clientes\templates\editar.html:71
 msgid "Actualiza tu información de acceso"
-msgstr "Update your access information"
+msgstr "Atualize suas informações de acesso"
 
 #: .\Clientes\templates\editar.html:77 .\Clientes\templates\perfil.html:52
 msgid "Nombre de Usuario"
-msgstr "User name"
+msgstr "Nome de usuário"
 
 #: .\Clientes\templates\editar.html:87
 msgid "Tu nombre de usuario único en ChibchaWeb"
-msgstr "Your single username in Chibchaweb"
+msgstr "Seu único nome de usuário em Chibchaweb"
 
 #: .\Clientes\templates\editar.html:102
 msgid "Email para notificaciones y recuperación"
-msgstr "Email for notifications and recovery"
+msgstr "Email para notificações e recuperação"
 
 #: .\Clientes\templates\editar.html:113
 msgid "Completa tu perfil personal"
-msgstr "Complete your personal profile"
+msgstr "Complete seu perfil pessoal"
 
 #: .\Clientes\templates\editar.html:131
 msgid "Apellido"
-msgstr "Last name"
+msgstr "Sobrenome"
 
 #: .\Clientes\templates\editar.html:155
 msgid "Número de contacto para soporte técnico"
-msgstr "Contact number for technical support"
+msgstr "Número de contato para suporte técnico"
 
 #: .\Clientes\templates\editar.html:163
 msgid "Seguridad"
-msgstr "Security"
+msgstr "Segurança"
 
 #: .\Clientes\templates\editar.html:165
 msgid "Cambia tu contraseña (opcional)"
-msgstr "Change your password (optional)"
+msgstr "Altere sua senha (opcional)"
 
 #: .\Clientes\templates\editar.html:170
 msgid "Nueva Contraseña"
-msgstr "New Password"
+msgstr "Nova Senha"
 
 #: .\Clientes\templates\editar.html:183
 msgid "Solo completa si deseas cambiar tu contraseña actual"
-msgstr "Just complete if you want to change your current password"
+msgstr "Basta concluir se você quiser alterar sua senha atual"
 
 #: .\Clientes\templates\editar.html:215
 msgid "Datos Seguros"
-msgstr "Secure data"
+msgstr "Dados seguros"
 
 #: .\Clientes\templates\editar.html:217
 msgid "Tu información está protegida con encriptación de nivel bancario"
-msgstr "Your information is protected with banking level encryption"
+msgstr "Sua informação é protegida com criptografia de nível bancário"
 
 #: .\Clientes\templates\editar.html:226
 msgid "Privacidad"
-msgstr "Privacy"
+msgstr "Privacidade"
 
 #: .\Clientes\templates\editar.html:228
 msgid "Nunca compartimos tu información personal con terceros"
-msgstr "We never share your personal information with third parties"
+msgstr "Nunca compartilhamos suas informações pessoais com terceiros"
 
 #: .\Clientes\templates\editar.html:237
 msgid "Actualización"
-msgstr "Update"
+msgstr "Atualizar"
 
 #: .\Clientes\templates\editar.html:239
 msgid "Mantén tu información actualizada para mejor servicio"
-msgstr "Keep your updated information for better service"
+msgstr "Mantenha suas informações atualizadas para um melhor serviço"
 
 #: .\Clientes\templates\editar.html:397
 msgid "Contraseña válida"
-msgstr "Valid Password"
+msgstr "Senha válida"
 
 #: .\Clientes\templates\exito.html:3
 msgid "Registro Exitoso"
-msgstr "Successful Registration"
+msgstr "Registro bem -sucedido"
 
 #: .\Clientes\templates\exito.html:14
 msgid "Registro exitoso"
-msgstr "Successful registration"
+msgstr "Registro bem -sucedido"
 
 #: .\Clientes\templates\exito.html:15
 msgid "Gracias por registrarte en "
-msgstr "Thanks for registering in"
+msgstr "Obrigado por se registrar em"
 
 #: .\Clientes\templates\exito.html:17
 msgid "Hemos enviado un enlace de activación a tu correo electrónico"
-msgstr "We have sent an activation link to your email"
+msgstr "Enviamos um link de ativação para o seu e -mail"
 
 #: .\Clientes\templates\exito.html:19
 msgid ""
 "Revisa tu bandeja de entrada (y la carpeta de spam) para activar tu cuenta"
-msgstr "Check your inbox (and the spam folder) to activate your account"
+msgstr ""
+"Verifique sua caixa de entrada (e a pasta de spam) para ativar sua conta"
 
 #: .\Clientes\templates\exito.html:24
 msgid "Volver al Inicio"
-msgstr "Go to the beginning"
+msgstr "De volta ao começo"
 
 #: .\Clientes\templates\home_clientes.html:5
 msgid "Panel Cliente"
-msgstr "Customer Panel"
+msgstr "Painel do cliente"
 
 #: .\Clientes\templates\home_clientes.html:15
 msgid "Panel de Control"
-msgstr "Control Panel"
+msgstr "Painel de controle"
 
 #: .\Clientes\templates\home_clientes.html:19
 msgid ""
 "Gestiona tus servicios de hosting, revisa estadísticas y controla todo desde"
 " tu panel personalizado."
 msgstr ""
-"Manage your hosting services, check statistics and control everything from "
-"your personalized panel."
+"Gerencie seus serviços de hospedagem, verifique as estatísticas e controle "
+"tudo do seu painel personalizado."
 
 #: .\Clientes\templates\home_clientes.html:27
 msgid " activo hasta"
-msgstr "active until"
+msgstr "ativo up"
 
 #: .\Clientes\templates\home_clientes.html:32
 #: .\Clientes\templates\perfil.html:142
 msgid "No tienes una suscripción activa"
-msgstr "You do not have an active subscription"
+msgstr "Você não tem uma assinatura ativa"
 
 #: .\Clientes\templates\home_clientes.html:45
 msgid "Tu Hosting"
-msgstr "Your Hosting"
+msgstr "Sua hospedagem"
 
 #: .\Clientes\templates\home_clientes.html:64
 msgid "Mis Sitios Web"
-msgstr "Websites"
+msgstr "Meus sites"
 
 #: .\Clientes\templates\home_clientes.html:65
 msgid "Administra tus dominios, configuraciones y estadísticas de rendimiento"
-msgstr "Manage your domains, configurations and performance statistics"
+msgstr "Gerencie seus domínios, configurações e estatísticas de desempenho"
 
 #: .\Clientes\templates\home_clientes.html:68
 msgid "Sitios Activos"
-msgstr "Active customers"
+msgstr "Sites ativos"
 
 #: .\Clientes\templates\home_clientes.html:74
 msgid "Ver Hosts"
-msgstr "See hosts"
+msgstr "Veja os anfitriões"
 
 #: .\Clientes\templates\home_clientes.html:78
 #: .\Clientes\templates\mis_hosts.html:153
 #: .\Clientes\templates\quiero_ser_distribuidor.html:25
 msgid "Suscripción Requerida"
-msgstr "Subscription Required"
+msgstr "Assinatura necessária"
 
 #: .\Clientes\templates\home_clientes.html:92
 msgid "Soporte Técnico"
-msgstr "Technical Support"
+msgstr "Suporte técnico"
 
 #: .\Clientes\templates\home_clientes.html:93
 msgid "Necesitas ayuda"
-msgstr "You need help"
+msgstr "Você precisa de ajuda"
 
 #: .\Clientes\templates\home_clientes.html:93
 msgid "Crea tickets de soporte y recibe asistencia 24/7"
-msgstr "Create support tickets and receive assistance 24/7"
+msgstr "Crie ingressos de suporte e receba assistência 24/7"
 
 #: .\Clientes\templates\home_clientes.html:96
 msgid "Tickets Abiertos"
-msgstr "Open Tickets"
+msgstr "Bilhetes abertos"
 
 #: .\Clientes\templates\home_clientes.html:114
 #: .\Clientes\templates\perfil.html:6 .\Clientes\templates\perfil.html:16
 msgid "Mi Perfil"
-msgstr "See my profile"
+msgstr "Meu perfil"
 
 #: .\Clientes\templates\home_clientes.html:115
 msgid ""
 "Actualiza tu información personal, configuraciones de cuenta y preferencias"
 msgstr ""
-"Update your personal information, account configurations and preferences"
+"Atualize suas informações pessoais, configurações de conta e preferências"
 
 #: .\Clientes\templates\home_clientes.html:137
 #: .\Distribuidor\templates\distribuidores\dashboard.html:5
 msgid "Panel Distribuidor"
-msgstr "Distributor panel"
+msgstr "Painel do distribuidor"
 
 #: .\Clientes\templates\home_clientes.html:138
 msgid "Accede a tu panel exclusivo de distribuidor y gestiona tus paquetes"
-msgstr "Access your exclusive distributor panel and manage your packages"
+msgstr ""
+"Acesse seu painel de distribuidores exclusivos e gerencie seus pacotes"
 
 #: .\Clientes\templates\home_clientes.html:140
 msgid "VIP"
@@ -1821,244 +1828,245 @@ msgstr "Status"
 
 #: .\Clientes\templates\home_clientes.html:146
 msgid "Panel VIP"
-msgstr "VIP panel"
+msgstr "Painel VIP"
 
 #: .\Clientes\templates\home_clientes.html:175
 #: .\Clientes\templates\mis_hosts.html:191
 #: .\Clientes\templates\perfil.html:179
 msgid "Verificar Dominio"
-msgstr "Verify domain"
+msgstr "Verifique o domínio"
 
 #: .\Clientes\templates\home_clientes.html:188
 #: .\Clientes\templates\perfil.html:188
 msgid "Funciones Premium"
-msgstr "Premium Features"
+msgstr "Funções premium"
 
 #: .\Clientes\templates\home_clientes.html:195
 #: .\Clientes\templates\perfil.html:132
 msgid "Cambiar Plan"
-msgstr "Change plan"
+msgstr "Plano de mudança"
 
 #: .\Clientes\templates\home_clientes.html:195
 msgid "Suscribirse"
-msgstr "Subscribe"
+msgstr "Inscreva -se"
 
 #: .\Clientes\templates\mis_hosts.html:5 .\Clientes\templates\perfil.html:162
 #: .\Clientes\templates\perfil.html:167
 msgid "Mis Hosts"
-msgstr "My hosts"
+msgstr "Meus anfitriões"
 
 #: .\Clientes\templates\mis_hosts.html:15
 msgid "Gestión de Hosting"
-msgstr "Hosting Management"
+msgstr "Gerenciamento de hospedagem"
 
 #: .\Clientes\templates\mis_hosts.html:20
 msgid ""
 "Administra todos tus dominios y servicios de hosting desde un solo lugar"
-msgstr "Manage all your domains and hosting services from one place"
+msgstr "Gerencie todos os seus domínios e serviços de hospedagem de um lugar"
 
 #: .\Clientes\templates\mis_hosts.html:34
 msgid "Hosting"
-msgstr "Web hosting"
+msgstr "Hospedagem"
 
 #: .\Clientes\templates\mis_hosts.html:39
 msgid "Host"
-msgstr "Host"
+msgstr "Hospedar"
 
 #: .\Clientes\templates\mis_hosts.html:58
 msgid "Tu suscripción está activa hasta"
-msgstr "Your subscription is active until"
+msgstr "Sua assinatura está ativa até"
 
 #: .\Clientes\templates\mis_hosts.html:58
 msgid "Puedes gestionar tus hosts y dominios"
-msgstr "You can manage your hosts and domains"
+msgstr "Você pode gerenciar seus hosts e domínios"
 
 #: .\Clientes\templates\mis_hosts.html:69
 msgid "Mis Dominios"
-msgstr "Domains"
+msgstr "Meus domínios"
 
 #: .\Clientes\templates\mis_hosts.html:84
 msgid "Configurado para hosting con ChibchaWeb"
-msgstr "Configured for hosting with chibchaweb"
+msgstr "Configurado para hospedar com Chibchaweb"
 
 #: .\Clientes\templates\mis_hosts.html:88
 msgid "Configurar"
-msgstr "Configuration"
+msgstr "Configurar"
 
 #: .\Clientes\templates\mis_hosts.html:94
 msgid "Eliminar"
-msgstr "Delete"
+msgstr "Eliminar"
 
 #: .\Clientes\templates\mis_hosts.html:113
 msgid "Agregar Más Dominios"
-msgstr "Add more domains"
+msgstr "Adicione mais domínios"
 
 #: .\Clientes\templates\mis_hosts.html:113
 msgid "Gestiona tus Hosts"
-msgstr "Manage your Hosts"
+msgstr "Gerencie seus hosts"
 
 #: .\Clientes\templates\mis_hosts.html:114
 msgid "Puedes agregar más dominios a tu plan de hosting"
-msgstr "You can add more domains to your hosting plan"
+msgstr "Você pode adicionar mais domínios ao seu plano de hospedagem"
 
 #: .\Clientes\templates\mis_hosts.html:114
 msgid "Agrega y administra todos tus dominios y servicios de hosting"
-msgstr "Add and manage all your domains and hosting services"
+msgstr "Adicione e gerencie todos os seus domínios e serviços de hospedagem"
 
 #: .\Clientes\templates\mis_hosts.html:120
 msgid "Estás usando"
-msgstr "You are using"
+msgstr "Você está usando"
 
 #: .\Clientes\templates\mis_hosts.html:120
 msgid "de"
-msgstr "of"
+msgstr "de"
 
 #: .\Clientes\templates\mis_hosts.html:120
 msgid "dominios disponibles"
-msgstr "available domains"
+msgstr "domínios disponíveis"
 
 #: .\Clientes\templates\mis_hosts.html:125
 msgid "Has alcanzado el límite de tu plan"
-msgstr "You have reached the limit of your plan"
+msgstr "Você atingiu o limite do seu plano"
 
 #: .\Clientes\templates\mis_hosts.html:125
 msgid "Actualiza tu plan"
-msgstr "Update your plan"
+msgstr "Atualize seu plano"
 
 #: .\Clientes\templates\mis_hosts.html:125
 msgid "para agregar más dominios"
-msgstr "To add more domains"
+msgstr "Para adicionar mais domínios"
 
 #: .\Clientes\templates\mis_hosts.html:134
 msgid "Agregar Host"
-msgstr "Add host"
+msgstr "Adicione host"
 
 #: .\Clientes\templates\mis_hosts.html:138
 msgid "Límite Alcanzado"
-msgstr "Limit reached"
+msgstr "Limite alcançado"
 
 #: .\Clientes\templates\mis_hosts.html:154
 msgid "Necesitas una suscripción activa para gestionar hosts y dominios"
-msgstr "You need an active subscription to manage hosts and domains"
+msgstr "Você precisa de uma assinatura ativa para gerenciar hosts e domínios"
 
 #: .\Clientes\templates\mis_hosts.html:154
 msgid "Elige el plan que mejor se adapte a tus necesidades"
-msgstr "Choose the plan that best suits your needs"
+msgstr "Escolha o plano que melhor atenda às suas necessidades"
 
 #: .\Clientes\templates\mis_hosts.html:166
 msgid "Adquiere un Plan para Comenzar"
-msgstr "Acquire a plan to start"
+msgstr "Adquirir um plano para começar"
 
 #: .\Clientes\templates\mis_hosts.html:167
 msgid ""
 "Para gestionar hosts y dominios, necesitas contratar uno de nuestros planes "
 "de hosting"
 msgstr ""
-"To manage hosts and domains, you need to hire one of our hosting plans"
+"Para gerenciar hosts e domínios, você precisa contratar um de nossos planos "
+"de hospedagem"
 
 #: .\Clientes\templates\mis_hosts.html:186
 msgid "Cómo agregar tu primer host"
-msgstr "How to add your first host"
+msgstr "Como adicionar seu primeiro host"
 
 #: .\Clientes\templates\mis_hosts.html:192
 msgid "Usa nuestra herramienta para verificar que tu dominio esté disponible"
-msgstr "Use our tool to verify that your domain is available"
+msgstr "Use nossa ferramenta para verificar se seu domínio está disponível"
 
 #: .\Clientes\templates\mis_hosts.html:199
 msgid "Nuestro equipo te ayudará con la configuración inicial"
-msgstr "Our team will help you with the initial configuration"
+msgstr "Nossa equipe o ajudará com a configuração inicial"
 
 #: .\Clientes\templates\mis_hosts.html:205
 msgid "Configuración DNS"
-msgstr "DNS settings"
+msgstr "Configurações de DNS"
 
 #: .\Clientes\templates\mis_hosts.html:206
 msgid "Te proporcionaremos los DNS necesarios para tu dominio"
-msgstr "We will provide you with the necessary dns for your domain"
+msgstr "Forneceremos a você o DNS necessário para o seu domínio"
 
 #: .\Clientes\templates\mis_hosts.html:212
 msgid "Listo"
-msgstr "Ready"
+msgstr "Preparar"
 
 #: .\Clientes\templates\mis_hosts.html:213
 msgid "Tu sitio web estará online en pocas horas"
-msgstr "Your website will be online in a few hours"
+msgstr "Seu site estará online em algumas horas"
 
 #: .\Clientes\templates\perfil.html:23
 msgid "Gestiona tu información personal y configuraciones de cuenta"
-msgstr "Manage your personal information and account settings"
+msgstr "Gerencie suas informações pessoais e configurações de conta"
 
 #: .\Clientes\templates\perfil.html:78
 msgid "Editar Información"
-msgstr "Edit Information"
+msgstr "Editar informações"
 
 #: .\Clientes\templates\perfil.html:90
 msgid "Estado de Cuenta"
-msgstr "Statement"
+msgstr "Declaração"
 
 #: .\Clientes\templates\perfil.html:98
 msgid "Cuenta Verificada"
-msgstr "Verified account"
+msgstr "Conta verificada"
 
 #: .\Clientes\templates\perfil.html:99
 msgid "Tu cuenta está activa y verificada"
-msgstr "Your account is active and verified"
+msgstr "Sua conta está ativa e verificada"
 
 #: .\Clientes\templates\perfil.html:108
 msgid "Mi Plan"
-msgstr "Plans"
+msgstr "Meu plano"
 
 #: .\Clientes\templates\perfil.html:126
 msgid "Vencimiento"
-msgstr "Growth"
+msgstr "Maturidade"
 
 #: .\Clientes\templates\perfil.html:141
 msgid "Sin Suscripción"
-msgstr "With out Subscription"
+msgstr "Sem assinatura"
 
 #: .\Clientes\templates\perfil.html:144
 msgid "Obtener Plan"
-msgstr "Get Plan"
+msgstr "Obtenha plano"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:10
 msgid "Conviértete en Distribuidor"
-msgstr "Become a distributor"
+msgstr "Torne -se um distribuidor"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:12
 msgid ""
 "Como distribuidor, podrás vender paquetes de hosting, recibir comisiones y "
 "gestionar múltiples dominios"
 msgstr ""
-"As a distributor, you can sell hosting packages, receive commissions and "
-"manage multiple domains"
+"Como distribuidor, você pode vender pacotes de hospedagem, receber comissões"
+" e gerenciar vários domínios"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:12
 msgid "Es una gran oportunidad para expandir tu presencia digital"
-msgstr "It is a great opportunity to expand your digital presence"
+msgstr "É uma ótima oportunidade para expandir sua presença digital"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:16
 msgid "Tienes un plan"
-msgstr "You have a plan"
+msgstr "Você tem um plano"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:16
 msgid "activo"
-msgstr "active"
+msgstr "ativo"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:16
 msgid "perfecto para ser distribuidor"
-msgstr "Perfect to be a distributor"
+msgstr "Perfeito para ser um distribuidor"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:21
 msgid "Sí, quiero ser distribuidor"
-msgstr "Yes, I want to be a distributor"
+msgstr "Sim, eu quero ser um distribuidor"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:28
 msgid "Necesitas una suscripción activa"
-msgstr "You need an active subscription"
+msgstr "Você precisa de uma assinatura ativa"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:28
 msgid "para convertirte en distribuidor"
-msgstr "To become a distributor"
+msgstr "Para se tornar um distribuidor"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:31
 msgid ""
@@ -2066,243 +2074,243 @@ msgid ""
 "Esto nos permite garantizar que conoces nuestros servicios y puedes ofrecer "
 "la mejor experiencia a tus clientes"
 msgstr ""
-"To be a Chibchaweb distributor, you must first have an active plan.This "
-"allows us to guarantee that you know our services and you can offer the best"
-" experience to your customers"
+"Para ser um distribuidor Chibchaweb, você deve primeiro ter um plano "
+"ativo.Isso nos permite garantir que você conhece nossos serviços e ofereça a"
+" melhor experiência aos seus clientes"
 
 #: .\Clientes\templates\registro.html:4 .\Clientes\templates\registro.html:9
 msgid "Registrar Cliente"
-msgstr "Register Client"
+msgstr "Registrar cliente"
 
 #: .\Clientes\templates\registro.html:13
 msgid "Registrar"
-msgstr "Register"
+msgstr "Registrar"
 
 #: .\Distribuidor\templates\distribuidores\dashboard.html:9
 msgid "Mi perfil como Distribuidor"
-msgstr "My profile as a Distributor"
+msgstr "Meu perfil como distribuidor"
 
 #: .\Distribuidor\templates\distribuidores\dashboard.html:28
 msgid "Mis Paquetes de Distribuidor"
-msgstr "My distributor packages"
+msgstr "Meus pacotes de distribuidores"
 
 #: .\Distribuidor\templates\distribuidores\dashboard.html:31
 msgid "Tipo de distribuidor"
-msgstr "Distributor type"
+msgstr "Tipo de distribuidor"
 
 #: .\Distribuidor\templates\distribuidores\dashboard.html:32
 msgid "Dominios disponibles"
-msgstr "Available domains"
+msgstr "Domínios disponíveis"
 
 #: .\Distribuidor\templates\distribuidores\dashboard.html:35
 msgid "No has comprado paquetes aún"
-msgstr "You haven't bought packages yet"
+msgstr "Você ainda não comprou pacotes"
 
 #: .\Distribuidor\templates\distribuidores\dashboard.html:37
 msgid "Comprar paquetes para revender"
-msgstr "Buy packages to resell"
+msgstr "Compre pacotes para revender"
 
 #: .\Distribuidor\templates\distribuidores\dashboard.html:40
 msgid "Ver detalles del paquete"
-msgstr "See package details"
+msgstr "Veja detalhes do pacote"
 
 #: .\Distribuidor\templates\distribuidores\mis_paquetes.html:4
 msgid "Mis Paquetes - ChibchaWeb"
-msgstr "My Packages - ChibchaWeb"
+msgstr "Meus pacotes - Chibchaweb"
 
 #: .\Distribuidor\templates\distribuidores\mis_paquetes.html:6
 msgid "Mis Paquetes"
-msgstr "My packages"
+msgstr "Meus pacotes"
 
 #: .\Distribuidor\templates\distribuidores\mis_paquetes.html:7
 msgid "Estos son tus paquetes"
-msgstr "These are your packages"
+msgstr "Estes são seus pacotes"
 
 #: .\Dominios\templates\agregar_dominio.html:15
 msgid "Nuevo Dominio"
-msgstr "New Domain"
+msgstr "Novo domínio"
 
 #: .\Dominios\templates\agregar_dominio.html:19
 msgid "Agregar Nuevo Dominio"
-msgstr "Add New Domain"
+msgstr "Adicione um novo domínio"
 
 #: .\Dominios\templates\agregar_dominio.html:22
 msgid "Agrega un nuevo dominio a tu plan de hosting"
-msgstr "Add a new domain to your hosting plan"
+msgstr "Adicione um novo domínio ao seu plano de hospedagem"
 
 #: .\Dominios\templates\agregar_dominio.html:48
 msgid "Plan Activo"
-msgstr "Active Plan"
+msgstr "Plano ativo"
 
 #: .\Dominios\templates\agregar_dominio.html:59
 msgid "Configurar Nuevo Dominio"
-msgstr "Set Up New Domain"
+msgstr "Configure um novo domínio"
 
 #: .\Dominios\templates\agregar_dominio.html:62
 msgid "Ingresa el dominio que deseas agregar a tu plan de hosting"
-msgstr "Enter the domain you want to add to your hosting plan"
+msgstr "Digite o domínio que deseja adicionar ao seu plano de hospedagem"
 
 #: .\Dominios\templates\agregar_dominio.html:70
 msgid "Ingresa tu dominio"
-msgstr "Enter your domain"
+msgstr "Digite seu domínio"
 
 #: .\Dominios\templates\agregar_dominio.html:74
 msgid "Validar disponibilidad"
-msgstr "Validate availability"
+msgstr "Validar disponibilidade"
 
 #: .\Dominios\templates\agregar_dominio.html:78
 msgid "Agregar a tu cuenta"
-msgstr "Add to your account"
+msgstr "Adicionar à sua conta"
 
 #: .\Dominios\templates\agregar_dominio.html:119
 msgid "Excelente"
-msgstr "Excellent"
+msgstr "Excelente"
 
 #: .\Dominios\templates\agregar_dominio.html:119
 msgid "El dominio"
-msgstr "The domain"
+msgstr "O domínio"
 
 #: .\Dominios\templates\agregar_dominio.html:119
 msgid "está disponible y listo para usar."
-msgstr "It is available and ready to use."
+msgstr "Está disponível e pronto para uso."
 
 #: .\Dominios\templates\agregar_dominio.html:121
 msgid "Dominio disponible para registro"
-msgstr "Domain available for registration"
+msgstr "Domínio disponível para registro"
 
 #: .\Dominios\templates\agregar_dominio.html:122
 msgid "Listo para configurar hosting"
-msgstr "Ready to set up hosting"
+msgstr "Pronto para configurar a hospedagem"
 
 #: .\Dominios\templates\agregar_dominio.html:123
 msgid "SSL gratuito incluido"
-msgstr "Free SSL included"
+msgstr "SSL grátis incluído"
 
 #: .\Dominios\templates\agregar_dominio.html:129
 msgid "Dominio en uso"
-msgstr "Domain in use"
+msgstr "Domínio em uso"
 
 #: .\Dominios\templates\agregar_dominio.html:129
 msgid "ya está siendo utilizado."
-msgstr "It is already being used."
+msgstr "Já está sendo usado."
 
 #: .\Dominios\templates\agregar_dominio.html:131
 msgid "Qué puedes hacer"
-msgstr "What can you do"
+msgstr "O que você pode fazer"
 
 #: .\Dominios\templates\agregar_dominio.html:132
 msgid "Elige un dominio diferente que esté disponible"
-msgstr "Choose a different domain that is available"
+msgstr "Escolha um domínio diferente que esteja disponível"
 
 #: .\Dominios\templates\agregar_dominio.html:133
 msgid "Si este dominio te pertenece"
-msgstr "If this domain belongs to you"
+msgstr "Se este domínio pertence a você"
 
 #: .\Dominios\templates\agregar_dominio.html:133
 msgid "contacta a soporte"
-msgstr "Contact support"
+msgstr "Suporte de contato"
 
 #: .\Dominios\templates\agregar_dominio.html:133
 msgid " para transferirlo"
-msgstr "To transfer it"
+msgstr "Para transferi -lo"
 
 #: .\Dominios\templates\agregar_dominio.html:134
 msgid "Prueba con una extensión diferente"
-msgstr "Try with a different extension"
+msgstr "Tente com uma extensão diferente"
 
 #: .\Dominios\templates\agregar_dominio.html:145
 msgid "Validar Disponibilidad"
-msgstr "Validate availability"
+msgstr "Validar disponibilidade"
 
 #: .\Dominios\templates\agregar_dominio.html:152
 msgid "Agregar a Mi Cuenta"
-msgstr "Add to my account"
+msgstr "Adicionar à minha conta"
 
 #: .\Dominios\templates\agregar_dominio.html:157
 msgid "Dominio No Disponible"
-msgstr "Domain not available"
+msgstr "Domínio não disponível"
 
 #: .\Dominios\templates\agregar_dominio.html:162
 msgid "Agregar Dominio"
-msgstr "Add Domain"
+msgstr "Adicionar domínio"
 
 #: .\Dominios\templates\agregar_dominio.html:171
 msgid "Volver a Mis Hosts"
-msgstr "Go to my hosts"
+msgstr "Vá para meus anfitriões"
 
 #: .\Dominios\templates\agregar_dominio.html:187
 msgid "SSL Automático"
-msgstr "Automatic SSL"
+msgstr "SSL automático"
 
 #: .\Dominios\templates\agregar_dominio.html:189
 msgid "Certificado SSL gratuito incluido con tu dominio"
-msgstr "Free SSL certificate included with your domain"
+msgstr "Certificado SSL gratuito incluído no seu domínio"
 
 #: .\Dominios\templates\agregar_dominio.html:198
 msgid "Configuración Rápida"
-msgstr "Quick Setup"
+msgstr "Configuração rápida"
 
 #: .\Dominios\templates\agregar_dominio.html:200
 msgid "Tu dominio se configurará automáticamente en nuestros servidores"
-msgstr "Your domain will be automatically configured on our servers"
+msgstr "Seu domínio será configurado automaticamente em nossos servidores"
 
 #: .\Dominios\templates\agregar_dominio.html:211
 msgid "Nuestro equipo te ayudará con cualquier configuración"
-msgstr "Our team will help you with any configuration"
+msgstr "Nossa equipe o ajudará com qualquer configuração"
 
 #: .\Dominios\templates\agregar_dominio.html:222
 msgid "Importante"
-msgstr "Important"
+msgstr "Importante"
 
 #: .\Dominios\templates\agregar_dominio.html:222
 msgid ""
 "Al agregar el dominio, nuestro equipo recibirá una notificación para "
 "configurar los servicios de hosting correspondientes"
 msgstr ""
-"By adding the domain, our equipment will receive a notification to configure"
-" the corresponding hosting services"
+"Ao adicionar o domínio, nosso equipamento receberá uma notificação para "
+"configurar os serviços de hospedagem correspondentes"
 
 #: .\Dominios\templates\verificar_url.html:4
 msgid "Verificar Disponibilidad de URL"
-msgstr "Verify URL availability"
+msgstr "Verifique a disponibilidade de URL"
 
 #: .\Dominios\templates\verificar_url.html:9
 msgid "Verificador de URLs"
-msgstr "URLs verifier"
+msgstr "URLS Verificador"
 
 #: .\Dominios\templates\verificar_url.html:10
 msgid "Comprueba si una dirección está disponible y puede usarla"
-msgstr "Check if an address is available and you can use it"
+msgstr "Verifique se um endereço está disponível e você pode usá -lo"
 
 #: .\Dominios\templates\verificar_url.html:19
 msgid "Verificar URL"
-msgstr "Verify URL"
+msgstr "Verifique o URL"
 
 #: .\Dominios\templates\verificar_url.html:34
 msgid "Generar XML"
-msgstr "Generate XML"
+msgstr "Gerar xml"
 
 #: .\Empleados\templates\agente_dashboard.html:8
 msgid "Dashboard Agente"
-msgstr "Agent Dashboard"
+msgstr "Agente do painel"
 
 #: .\Empleados\templates\agente_dashboard.html:27
 #: .\Empleados\templates\mis_tickets.html:22
 msgid "AGENTE"
-msgstr "AGENT"
+msgstr "AGENTE"
 
 #: .\Empleados\templates\agente_dashboard.html:32
 #: .\Empleados\templates\mis_tickets.html:27
 #: .\Empleados\templates\supervisor_dashboard.html:29
 msgid "Bienvenido/a"
-msgstr "Welcome"
+msgstr "Bem-vindo"
 
 #: .\Empleados\templates\agente_dashboard.html:49
 #: .\Empleados\templates\agente_dashboard.html:282
 #: .\Empleados\templates\mis_tickets.html:44
 #: .\Empleados\templates\supervisor_dashboard.html:52
 msgid "Mi Información"
-msgstr "My Information"
+msgstr "Minhas informações"
 
 #: .\Empleados\templates\agente_dashboard.html:58
 #: .\Empleados\templates\agente_dashboard.html:123
@@ -2311,62 +2319,62 @@ msgstr "My Information"
 #: .\Empleados\templates\supervisor_dashboard.html:160
 #: .\Empleados\templates\supervisor_dashboard.html:689
 msgid "Tickets Pendientes"
-msgstr "Pending tickets"
+msgstr "Ingressos pendentes"
 
 #: .\Empleados\templates\agente_dashboard.html:62
 #: .\Empleados\templates\mis_tickets.html:57
 msgid "Resueltos"
-msgstr "Resolved"
+msgstr "Resolvido"
 
 #: .\Empleados\templates\agente_dashboard.html:77
 #: .\Empleados\templates\supervisor_dashboard.html:80
 msgid "Sesión"
-msgstr "Session"
+msgstr "Sessão"
 
 #: .\Empleados\templates\agente_dashboard.html:86
 #: .\Empleados\templates\mis_tickets.html:81
 #: .\Empleados\templates\supervisor_dashboard.html:89
 msgid "ticket"
-msgstr "Tickets"
+msgstr "Bilhete"
 
 #: .\Empleados\templates\agente_dashboard.html:86
 #: .\Empleados\templates\mis_tickets.html:81
 msgid "pendiente"
-msgstr "pending"
+msgstr "brinco"
 
 #: .\Empleados\templates\agente_dashboard.html:91
 #: .\Empleados\templates\mis_tickets.html:86
 #: .\Empleados\templates\supervisor_dashboard.html:94
 msgid "Todo al día"
-msgstr "All a day"
+msgstr "Durante todo o dia"
 
 #: .\Empleados\templates\agente_dashboard.html:110
 msgid "Dashboard del Agente"
-msgstr "Agent Dashboard"
+msgstr "Painel do agente"
 
 #: .\Empleados\templates\agente_dashboard.html:111
 msgid "Panel de gestión de tickets personal"
-msgstr "Personal Ticket Management Panel"
+msgstr "Painel de gerenciamento de ingressos pessoais"
 
 #: .\Empleados\templates\agente_dashboard.html:139
 #: .\Empleados\templates\mis_tickets.html:133
 #: .\Empleados\templates\mis_tickets.html:280
 #: .\Empleados\templates\supervisor_dashboard.html:685
 msgid "Tickets Resueltos"
-msgstr "Resolved tickets"
+msgstr "Tickets resolvidos"
 
 #: .\Empleados\templates\agente_dashboard.html:155
 #: .\Empleados\templates\mis_tickets.html:148
 msgid "Total Asignados"
-msgstr "Total Assigned"
+msgstr "Total atribuído"
 
 #: .\Empleados\templates\agente_dashboard.html:171
 msgid "Mi Nivel"
-msgstr "Level"
+msgstr "Meu nível"
 
 #: .\Empleados\templates\agente_dashboard.html:188
 msgid "Mis Tickets Pendientes"
-msgstr "My pending tickets"
+msgstr "Meus ingressos pendentes"
 
 #: .\Empleados\templates\agente_dashboard.html:196
 #: .\Empleados\templates\agente_dashboard.html:245
@@ -2375,205 +2383,205 @@ msgstr "My pending tickets"
 #: .\Empleados\templates\supervisor_dashboard.html:327
 #: .\Empleados\templates\supervisor_dashboard.html:535
 msgid "ID"
-msgstr "Id"
+msgstr "Eu ia"
 
 #: .\Empleados\templates\agente_dashboard.html:200
 #: .\Empleados\templates\supervisor_dashboard.html:538
 msgid "Fecha Creación"
-msgstr "Creation Date"
+msgstr "Data da criação"
 
 #: .\Empleados\templates\agente_dashboard.html:201
 msgid "Última Actualización"
-msgstr "Last update"
+msgstr "Última atualização"
 
 #: .\Empleados\templates\agente_dashboard.html:227
 #: .\Empleados\templates\mis_tickets.html:268
 msgid "Excelente trabajo"
-msgstr "Excellent job"
+msgstr "Excelente trabalho"
 
 #: .\Empleados\templates\agente_dashboard.html:228
 msgid "No tienes tickets pendientes"
-msgstr "You don't have pending tickets"
+msgstr "Você não tem ingressos pendentes"
 
 #: .\Empleados\templates\agente_dashboard.html:237
 msgid "Mis Tickets Resueltos Recientemente"
-msgstr "My recently solved tickets"
+msgstr "Meus ingressos recentemente resolvidos"
 
 #: .\Empleados\templates\agente_dashboard.html:249
 msgid "Fecha Finalización"
-msgstr "Completion Date"
+msgstr "Data de acabamento"
 
 #: .\Empleados\templates\agente_dashboard.html:270
 #: .\Empleados\templates\mis_tickets.html:342
 msgid "Sin tickets resueltos"
-msgstr "No resolved tickets"
+msgstr "Sem ingressos resolvidos"
 
 #: .\Empleados\templates\agente_dashboard.html:271
 #: .\Empleados\templates\mis_tickets.html:343
 msgid "Aún no has resuelto ningún ticket"
-msgstr "You have not yet solved any ticket"
+msgstr "Você ainda não resolveu nenhum bilhete"
 
 #: .\Empleados\templates\agente_dashboard.html:334
 msgid "Mi Rendimiento"
-msgstr "My Performance"
+msgstr "Meu desempenho"
 
 #: .\Empleados\templates\agente_dashboard.html:340
 msgid "Total Resueltos"
-msgstr "Total Solved"
+msgstr "Total resolvido"
 
 #: .\Empleados\templates\agente_dashboard.html:344
 msgid "Pendientes"
-msgstr "Pending"
+msgstr "Brincos"
 
 #: .\Empleados\templates\agente_dashboard.html:353
 msgid "Sin calificación"
-msgstr "No qualification"
+msgstr "Sem qualificação"
 
 #: .\Empleados\templates\agente_dashboard.html:356
 msgid "Calificación Promedio"
-msgstr "Average rating"
+msgstr "Classificação média"
 
 #: .\Empleados\templates\agente_dashboard.html:361
 msgid "Gráficos de rendimiento próximamente"
-msgstr "Performance graphics soon"
+msgstr "Gráficos de desempenho em breve"
 
 #: .\Empleados\templates\logEmpleados.html:8
 msgid "Login Empleados"
-msgstr "Employee Login"
+msgstr "Login funcionários"
 
 #: .\Empleados\templates\logEmpleados.html:21
 msgid "Portal de Empleados"
-msgstr "Employee Portal"
+msgstr "Portal de funcionários"
 
 #: .\Empleados\templates\logEmpleados.html:23
 msgid "Acceso para personal autorizado"
-msgstr "Access for authorized personnel"
+msgstr "Acesso para pessoal autorizado"
 
 #: .\Empleados\templates\logEmpleados.html:76
 msgid "Volver al inicio"
-msgstr "Go to the beginning"
+msgstr "De volta ao começo"
 
 #: .\Empleados\templates\logEmpleados.html:79
 msgid "Portal de Clientes"
-msgstr "Portal de Clientes"
+msgstr "Portal do cliente"
 
 #: .\Empleados\templates\mis_tickets.html:105
 msgid "Gestión de Mis Tickets"
-msgstr "Managing My Tickets"
+msgstr "Meu gerenciamento de ingressos"
 
 #: .\Empleados\templates\mis_tickets.html:106
 msgid "Administra tus tickets asignados"
-msgstr "Manage your assigned tickets"
+msgstr "Gerencie seus ingressos atribuídos"
 
 #: .\Empleados\templates\mis_tickets.html:118
 msgid "Tickets En Proceso"
-msgstr "Tickets in process"
+msgstr "Ingressos em processo"
 
 #: .\Empleados\templates\mis_tickets.html:164
 msgid "Tickets Pendientes de Resolución"
-msgstr "Pending resolution tickets"
+msgstr "Tickets de resolução pendente"
 
 #: .\Empleados\templates\mis_tickets.html:170
 #: .\Empleados\templates\mis_tickets.html:286
 #: .\Empleados\templates\supervisor_dashboard.html:297
 #: .\Empleados\templates\supervisor_dashboard.html:375
 msgid "Ver todos"
-msgstr "See all"
+msgstr "Veja tudo"
 
 #: .\Empleados\templates\mis_tickets.html:196
 #: .\Empleados\templates\mis_tickets.html:324
 #: .\Tickets\templates\tickets_cliente.html:60
 msgid "Descripción"
-msgstr "Description"
+msgstr "Descrição"
 
 #: .\Empleados\templates\mis_tickets.html:197
 #: .\Tickets\templates\tickets_cliente.html:94
 msgid "Fecha de creación"
-msgstr "Creation date"
+msgstr "Data da criação"
 
 #: .\Empleados\templates\mis_tickets.html:198
 #: .\Tickets\templates\tickets_cliente.html:44
 msgid "Última actualización"
-msgstr "Last update"
+msgstr "Última atualização"
 
 #: .\Empleados\templates\mis_tickets.html:202
 #: .\Empleados\templates\mis_tickets.html:325
 msgid "Historial"
-msgstr "Record"
+msgstr "Registro"
 
 #: .\Empleados\templates\mis_tickets.html:211
 msgid "y"
-msgstr "and"
+msgstr "e"
 
 #: .\Empleados\templates\mis_tickets.html:211
 msgid "más"
-msgstr "further"
+msgstr "avançar"
 
 #: .\Empleados\templates\mis_tickets.html:222
 #: .\Empleados\templates\mis_tickets.html:358
 #: .\Empleados\templates\mis_tickets.html:374
 msgid "Resolver Ticket"
-msgstr "Solve Ticket"
+msgstr "Resolva ticket"
 
 #: .\Empleados\templates\mis_tickets.html:231
 msgid "Escalar a Nivel"
-msgstr "Climb at level"
+msgstr "Suba no nível"
 
 #: .\Empleados\templates\mis_tickets.html:238
 msgid "Ver Historial Completo"
-msgstr "See full history"
+msgstr "Veja a história completa"
 
 #: .\Empleados\templates\mis_tickets.html:245
 msgid "Historial Completo"
-msgstr "Complete History"
+msgstr "História completa"
 
 #: .\Empleados\templates\mis_tickets.html:269
 msgid "No tienes tickets pendientes por resolver"
-msgstr "You don't have pending tickets to solve"
+msgstr "Você não tem ingressos pendentes para resolver"
 
 #: .\Empleados\templates\mis_tickets.html:300
 msgid "Fecha Resolución"
-msgstr "Resolution Date"
+msgstr "Resolução de data"
 
 #: .\Empleados\templates\mis_tickets.html:316
 #: .\Empleados\templates\supervisor_dashboard.html:445
 msgid "Ver Detalles"
-msgstr "Details"
+msgstr "Veja detalhes"
 
 #: .\Empleados\templates\mis_tickets.html:362
 msgid "Estás seguro de que quieres marcar este ticket como resuelto"
-msgstr "You are sure you want to mark this ticket as resolved"
+msgstr "Você tem certeza de que deseja marcar este ingresso como resolvido"
 
 #: .\Empleados\templates\mis_tickets.html:363
 #: .\Empleados\templates\mis_tickets.html:391
 #: .\Empleados\templates\supervisor_dashboard.html:700
 msgid "Ticket"
-msgstr "Tickets"
+msgstr "Bilhete"
 
 #: .\Empleados\templates\mis_tickets.html:366
 msgid "Comentario de resolución (opcional)"
-msgstr "Resolution Comment (Optional)"
+msgstr "Comentário de resolução (opcional)"
 
 #: .\Empleados\templates\mis_tickets.html:386
 #: .\Empleados\templates\mis_tickets.html:403
 msgid "Escalar Ticket"
-msgstr "Escalate Ticket"
+msgstr "Bilhete escalar"
 
 #: .\Empleados\templates\mis_tickets.html:390
 msgid "Estás seguro de que quieres escalar este ticket al siguiente nivel"
-msgstr "You are sure that you want to climb this ticket at the next level"
+msgstr "Você tem certeza de que deseja escalar este bilhete no próximo nível"
 
 #: .\Empleados\templates\mis_tickets.html:392
 msgid "Se escalará del Nivel"
-msgstr "It will be climbed from the level"
+msgstr "Será escalado do nível"
 
 #: .\Empleados\templates\mis_tickets.html:392
 msgid "al Nivel"
-msgstr "to Level"
+msgstr "no nível"
 
 #: .\Empleados\templates\mis_tickets.html:395
 msgid "Motivo del escalamiento (requerido)"
-msgstr "Reason for scaling (required)"
+msgstr "Motivo de escala (necessário)"
 
 #: .\Empleados\templates\supervisor_dashboard.html:24
 msgid "SUPERVISOR"
@@ -2583,270 +2591,270 @@ msgstr "SUPERVISOR"
 #: .\Empleados\templates\supervisor_dashboard.html:228
 #: .\Empleados\templates\supervisor_dashboard.html:477
 msgid "Gestión de Tickets"
-msgstr "Ticket Management"
+msgstr "Gerenciamento de ingressos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:45
 #: .\Empleados\templates\supervisor_dashboard.html:396
 msgid "Gestión de Empleados"
-msgstr "Employee Management"
+msgstr "Gerenciamento de funcionários"
 
 #: .\Empleados\templates\supervisor_dashboard.html:61
 msgid "Agentes"
-msgstr "Agent"
+msgstr "Agentes"
 
 #: .\Empleados\templates\supervisor_dashboard.html:69
 msgid "Asignados"
-msgstr "Assigned"
+msgstr "Atribuído"
 
 #: .\Empleados\templates\supervisor_dashboard.html:89
 msgid "sin asignar"
-msgstr "Without assigning"
+msgstr "Sem atribuir"
 
 #: .\Empleados\templates\supervisor_dashboard.html:115
 msgid "Dashboard Supervisor"
-msgstr "Dashboard Supervisor"
+msgstr "Supervisor de painel"
 
 #: .\Empleados\templates\supervisor_dashboard.html:116
 msgid "Panel de control administrativo"
-msgstr "Administrative control panel"
+msgstr "Painel de controle administrativo"
 
 #: .\Empleados\templates\supervisor_dashboard.html:128
 msgid "Agentes Nivel"
-msgstr "Level Agents"
+msgstr "Agentes de nível"
 
 #: .\Empleados\templates\supervisor_dashboard.html:144
 msgid "Agentes Activos"
-msgstr "Active Agents"
+msgstr "Agentes ativos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:176
 msgid "Nivel de Acceso"
-msgstr "Access level"
+msgstr "Nível de acesso"
 
 #: .\Empleados\templates\supervisor_dashboard.html:199
 msgid "Gestionar Tickets"
-msgstr "Manage Tickets"
+msgstr "Gerenciar ingressos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:200
 msgid "pendientes"
-msgstr "pending"
+msgstr "Brincos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:206
 msgid "Ver Empleados"
-msgstr "See Employees"
+msgstr "Ver funcionários"
 
 #: .\Empleados\templates\supervisor_dashboard.html:207
 msgid "agentes"
-msgstr "Agent"
+msgstr "Agentes"
 
 #: .\Empleados\templates\supervisor_dashboard.html:214
 msgid "Ver estadísticas"
-msgstr "View statistics"
+msgstr "Veja estatísticas"
 
 #: .\Empleados\templates\supervisor_dashboard.html:229
 msgid "Asignación y seguimiento de tickets de soporte"
-msgstr "Assignment and monitoring of support tickets"
+msgstr "Atribuição e monitoramento de ingressos de suporte"
 
 #: .\Empleados\templates\supervisor_dashboard.html:240
 msgid "Tickets Sin Asignar"
-msgstr "Unclean tickets"
+msgstr "Ingressos impuros"
 
 #: .\Empleados\templates\supervisor_dashboard.html:252
 #: .\Empleados\templates\supervisor_dashboard.html:703
 #: .\Pagos\templates\confirmacion_pago.html:104
 #: .\Tickets\templates\tickets_cliente.html:63
 msgid "Fecha"
-msgstr "Date"
+msgstr "Data"
 
 #: .\Empleados\templates\supervisor_dashboard.html:253
 #: .\Empleados\templates\supervisor_dashboard.html:333
 #: .\Empleados\templates\supervisor_dashboard.html:418
 #: .\Empleados\templates\supervisor_dashboard.html:540
 msgid "Acción"
-msgstr "Action"
+msgstr "Ação"
 
 #: .\Empleados\templates\supervisor_dashboard.html:267
 msgid "Asignar"
-msgstr "Assign"
+msgstr "Atribuir"
 
 #: .\Empleados\templates\supervisor_dashboard.html:297
 #: .\Empleados\templates\supervisor_dashboard.html:375
 msgid "tickets"
-msgstr "Tickets"
+msgstr "Ingressos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:304
 msgid "No hay tickets sin asignar"
-msgstr "There are no without assigning tickets"
+msgstr "Não há não atribuir ingressos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:305
 msgid "Todos los tickets están asignados"
-msgstr "All tickets are assigned"
+msgstr "Todos os ingressos são atribuídos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:318
 #: .\Empleados\templates\supervisor_dashboard.html:417
 #: .\Empleados\templates\supervisor_dashboard.html:681
 msgid "Tickets Asignados"
-msgstr "Assigned tickets"
+msgstr "Tickets atribuídos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:330
 msgid "Asignado a"
-msgstr "Assigned to"
+msgstr "Atribuído a"
 
 #: .\Empleados\templates\supervisor_dashboard.html:332
 msgid "Fecha Asig"
-msgstr "Assigned Date"
+msgstr "Atribuir data"
 
 #: .\Empleados\templates\supervisor_dashboard.html:382
 msgid "No hay tickets asignados"
-msgstr "No tickets assigned"
+msgstr "Sem ingressos atribuídos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:383
 msgid "No hay tickets asignados en tu nivel"
-msgstr "There are no tickets assigned at your level"
+msgstr "Não há ingressos atribuídos no seu nível"
 
 #: .\Empleados\templates\supervisor_dashboard.html:397
 msgid "Administración de agentes de tu nivel"
-msgstr "Administration of your level agents"
+msgstr "Administração de seus agentes de nível"
 
 #: .\Empleados\templates\supervisor_dashboard.html:405
 msgid "Agentes de Nivel"
-msgstr "Level agents"
+msgstr "Agentes de nível"
 
 #: .\Empleados\templates\supervisor_dashboard.html:456
 msgid "No hay agentes de nivel"
-msgstr "There are no level agents"
+msgstr "Não há agentes de nível"
 
 #: .\Empleados\templates\supervisor_dashboard.html:457
 msgid "Aún no se han asignado agentes a este nivel"
-msgstr "AGENTS have not yet been assigned at this level"
+msgstr "Os agentes ainda não foram atribuídos neste nível"
 
 #: .\Empleados\templates\supervisor_dashboard.html:486
 msgid "Filtrar por fecha"
-msgstr "Filter by date"
+msgstr "Filtrar por data"
 
 #: .\Empleados\templates\supervisor_dashboard.html:492
 msgid "Filtrar por estado"
-msgstr "Filter by state"
+msgstr "Filtro por estado"
 
 #: .\Empleados\templates\supervisor_dashboard.html:495
 msgid "Todos los estados"
-msgstr "All states"
+msgstr "Todos os estados"
 
 #: .\Empleados\templates\supervisor_dashboard.html:496
 msgid "En espera"
-msgstr "Waiting"
+msgstr "Esperando"
 
 #: .\Empleados\templates\supervisor_dashboard.html:497
 msgid "En Proceso"
-msgstr "In progress"
+msgstr "Em andamento"
 
 #: .\Empleados\templates\supervisor_dashboard.html:498
 msgid "Resuelto"
-msgstr "Resolved"
+msgstr "Resolvido"
 
 #: .\Empleados\templates\supervisor_dashboard.html:499
 msgid "Cerrado"
-msgstr "Closed"
+msgstr "Fechado"
 
 #: .\Empleados\templates\supervisor_dashboard.html:504
 msgid "Buscar cliente"
-msgstr "Search client"
+msgstr "Encontre o cliente"
 
 #: .\Empleados\templates\supervisor_dashboard.html:515
 msgid "Hoy"
-msgstr "Today"
+msgstr "Hoje"
 
 #: .\Empleados\templates\supervisor_dashboard.html:524
 msgid "Limpiar"
-msgstr "Clean"
+msgstr "Limpar"
 
 #: .\Empleados\templates\supervisor_dashboard.html:551
 msgid "Mostrando 0 tickets"
-msgstr "Showing 0 tickets"
+msgstr "Mostrando 0 ingressos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:556
 #: .\Empleados\templates\supervisor_dashboard.html:626
 #: .\Empleados\templates\supervisor_dashboard.html:716
 #: .\Tickets\templates\tickets_cliente.html:221
 msgid "Cerrar"
-msgstr "Close"
+msgstr "Fechar"
 
 #: .\Empleados\templates\supervisor_dashboard.html:570
 #: .\Tickets\templates\crear_ticket.html:53
 msgid "Detalles del Ticket"
-msgstr "Ticket details"
+msgstr "Detalhes dos ingressos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:577
 msgid "Información General"
-msgstr "General Information"
+msgstr "Informações gerais"
 
 #: .\Empleados\templates\supervisor_dashboard.html:580
 msgid "Título"
-msgstr "Qualification"
+msgstr "Qualificação"
 
 #: .\Empleados\templates\supervisor_dashboard.html:582
 #: .\Tickets\templates\tickets_cliente.html:202
 msgid "Fecha de Creación"
-msgstr "Creation date"
+msgstr "Data da criação"
 
 #: .\Empleados\templates\supervisor_dashboard.html:584
 #: .\Tickets\templates\crear_ticket.html:90
 msgid "Prioridad"
-msgstr "Priority"
+msgstr "Prioridade"
 
 #: .\Empleados\templates\supervisor_dashboard.html:589
 msgid "Asignación"
-msgstr "Asignación"
+msgstr "Atribuição"
 
 #: .\Empleados\templates\supervisor_dashboard.html:592
 msgid "Agente Asignado"
-msgstr "Assigned agent"
+msgstr "Agente atribuído"
 
 #: .\Empleados\templates\supervisor_dashboard.html:593
 msgid "Fecha de Asignación"
-msgstr "Assignment Date"
+msgstr "Data de alocação"
 
 #: .\Empleados\templates\supervisor_dashboard.html:594
 msgid "Último Contacto"
-msgstr "Last Contact"
+msgstr "Último contato"
 
 #: .\Empleados\templates\supervisor_dashboard.html:604
 #: .\Tickets\templates\tickets_cliente.html:198
 #: .\Tickets\templates\tickets_cliente.html:262
 msgid "Descripción del Problema"
-msgstr "Problem Description"
+msgstr "Descrição do problema"
 
 #: .\Empleados\templates\supervisor_dashboard.html:617
 msgid "Historial de Actividades"
-msgstr "Activity history"
+msgstr "Histórico de atividades"
 
 #: .\Empleados\templates\supervisor_dashboard.html:640
 msgid "Información del Empleado"
-msgstr "Employee Information"
+msgstr "Informações sobre funcionários"
 
 #: .\Empleados\templates\supervisor_dashboard.html:665
 msgid "No disponible"
-msgstr "Not available"
+msgstr "Não disponível"
 
 #: .\Empleados\templates\supervisor_dashboard.html:668
 msgid "Fecha de Ingreso"
-msgstr "Entry Date"
+msgstr "Data de renda"
 
 #: .\Empleados\templates\supervisor_dashboard.html:675
 msgid "Estadísticas de Trabajo"
-msgstr "Labor Statistics"
+msgstr "Estatísticas de trabalho"
 
 #: .\Empleados\templates\supervisor_dashboard.html:695
 msgid "Últimos Tickets"
-msgstr "Latest Tickets"
+msgstr "Últimos ingressos"
 
 #: .\Empleados\templates\supervisor_dashboard.html:719
 msgid "Contactar"
-msgstr "Contact"
+msgstr "Contato"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:5
 #: .\Pagos\templates\registrar_tarjeta.html:40
 msgid "Número de Tarjeta"
-msgstr "Card number"
+msgstr "Número do cartão"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:11
 #: .\Pagos\templates\registrar_tarjeta.html:46
@@ -2856,36 +2864,36 @@ msgstr "1234 5678 9012 3456"
 #: .\Pagos\templates\_formulario_tarjeta.html:17
 #: .\Pagos\templates\registrar_tarjeta.html:52
 msgid "Logo Tarjeta"
-msgstr "Card logo"
+msgstr "Logotipo do cartão"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:19
 #: .\Pagos\templates\registrar_tarjeta.html:54
 msgid "Ingresa los 14 a 16 dígitos de tu tarjeta"
-msgstr "Enter the 14 to 16 digits on your card"
+msgstr "Digite os 14 a 16 dígitos em seu cartão"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:21
 msgid "Solo se permiten tarjetas VISA, MasterCard o Diners Club."
-msgstr "Only Visa, Mastercard or Diners Club cards are allowed."
+msgstr "Somente cartões de visto, mastercard ou diners são permitidos."
 
 #: .\Pagos\templates\_formulario_tarjeta.html:29
 #: .\Pagos\templates\registrar_tarjeta.html:60
 msgid "Nombre del Titular"
-msgstr "Name of the holder"
+msgstr "Nome do titular"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:35
 #: .\Pagos\templates\registrar_tarjeta.html:66
 msgid "NOMBRE COMPLETO COMO APARECE EN LA TARJETA"
-msgstr "Full name as it appears on the card"
+msgstr "Nome completo como aparece no cartão"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:38
 #: .\Pagos\templates\registrar_tarjeta.html:70
 msgid "Nombre exacto como aparece en tu tarjeta"
-msgstr "Exact name as it appears on your card"
+msgstr "Nome exato como aparece no seu cartão"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:46
 #: .\Pagos\templates\registrar_tarjeta.html:77
 msgid "Fecha de Expiración"
-msgstr "Expiration date"
+msgstr "Data de validade"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:52
 #: .\Pagos\templates\registrar_tarjeta.html:83
@@ -2895,130 +2903,130 @@ msgstr "Mm/aa"
 #: .\Pagos\templates\_formulario_tarjeta.html:56
 #: .\Pagos\templates\registrar_tarjeta.html:87
 msgid "Formato: MM/AA"
-msgstr "Format: mm/aa"
+msgstr "Formato: mm/aa"
 
 #: .\Pagos\templates\_formulario_tarjeta.html:70
 #: .\Pagos\templates\registrar_tarjeta.html:101
 msgid "Código de 3 o 4 dígitos en el reverso"
-msgstr "3 or 4 digit code on the back"
+msgstr "Código de 3 ou 4 dígitos na parte traseira"
 
 #: .\Pagos\templates\confirmacion_pago.html:5
 msgid "Pago Confirmado"
-msgstr "Confirmed payment"
+msgstr "Pagamento confirmado"
 
 #: .\Pagos\templates\confirmacion_pago.html:61
 #: .\Pagos\templates\resumen_pago.html:23
 msgid "Dirección & Tarjeta"
-msgstr "Address & Card"
+msgstr "Endereço e cartão"
 
 #: .\Pagos\templates\confirmacion_pago.html:66
 #: .\Pagos\templates\resumen_pago.html:28
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:28
 msgid "Pago"
-msgstr "Pay"
+msgstr "Pagar"
 
 #: .\Pagos\templates\confirmacion_pago.html:73
 msgid "¡Proceso Completado!"
-msgstr "¡Process Completed!"
+msgstr "Processo concluído!"
 
 #: .\Pagos\templates\confirmacion_pago.html:74
 msgid "Tu suscripción ha sido activada exitosamente"
-msgstr "Your subscription has been successfully activated"
+msgstr "Sua assinatura foi ativada com sucesso"
 
 #: .\Pagos\templates\confirmacion_pago.html:88
 msgid "¡Pago Exitoso!"
-msgstr "Successful payment!"
+msgstr "Pagamento bem -sucedido!"
 
 #: .\Pagos\templates\confirmacion_pago.html:90
 msgid ""
 "Tu suscripción ha sido activada correctamente y ya puedes comenzar a "
 "disfrutar de todos los beneficios."
 msgstr ""
-"Your subscription has been activated correctly and you can start enjoying "
-"all the benefits."
+"Sua assinatura foi ativada corretamente e você pode começar a desfrutar de "
+"todos os benefícios."
 
 #: .\Pagos\templates\confirmacion_pago.html:97
 msgid "Estado del Pago"
-msgstr "Payment Status"
+msgstr "Status de pagamento"
 
 #: .\Pagos\templates\confirmacion_pago.html:100
 msgid "Confirmado"
-msgstr "Confirmed"
+msgstr "Confirmado"
 
 #: .\Pagos\templates\confirmacion_pago.html:114
 msgid "Beneficios Activados"
-msgstr "Activated Benefits"
+msgstr "Benefícios ativados"
 
 #: .\Pagos\templates\confirmacion_pago.html:119
 msgid "Acceso completo a la plataforma"
-msgstr "Full access to the platform"
+msgstr "Acesso total à plataforma"
 
 #: .\Pagos\templates\confirmacion_pago.html:123
 msgid "Comisiones por ventas activadas"
-msgstr "Commissions for activated sales"
+msgstr "Comissões para vendas ativadas"
 
 #: .\Pagos\templates\confirmacion_pago.html:127
 msgid "Soporte técnico premium"
-msgstr "Premium technical support"
+msgstr "Suporte técnico premium"
 
 #: .\Pagos\templates\confirmacion_pago.html:131
 msgid "Panel de administración disponible"
-msgstr "Administration panel available"
+msgstr "Painel de administração disponível"
 
 #: .\Pagos\templates\confirmacion_pago.html:140
 msgid "Ir al Panel Principal"
-msgstr "Go to Main Panel"
+msgstr "Vá para o painel principal"
 
 #: .\Pagos\templates\confirmacion_pago.html:154
 msgid "¡Pago completado exitosamente!"
-msgstr "Payment completed successfully!"
+msgstr "Pagamento concluído com sucesso!"
 
 #: .\Pagos\templates\confirmacion_pago_paquetes.html:9
 msgid "¡Compra completada!"
-msgstr "Completed purchase!"
+msgstr "Compra completa!"
 
 #: .\Pagos\templates\confirmacion_pago_paquetes.html:10
 msgid "Has adquirido exitosamente tu paquete de páginas."
-msgstr "You have successfully acquired your page package."
+msgstr "Você adquiriu com sucesso seu pacote de página."
 
 #: .\Pagos\templates\confirmacion_pago_paquetes.html:11
 msgid "Gracias por trabajar con nosotros como distribuidor."
-msgstr "Thank you for working with us as a distributor."
+msgstr "Obrigado por trabalhar conosco como distribuidor."
 
 #: .\Pagos\templates\confirmacion_pago_paquetes.html:14
 msgid "Ir al panel principal"
-msgstr "Go to main panel"
+msgstr "Vá para o painel principal"
 
 #: .\Pagos\templates\registrar_direccion.html:4
 msgid "Registrar Dirección - ChibchaWeb"
-msgstr "Register Address - ChibchaWeb"
+msgstr "Endereço de registro - Chibchaweb"
 
 #: .\Pagos\templates\registrar_direccion.html:13
 msgid "Registrar Nueva Dirección"
-msgstr "Register new address"
+msgstr "Registrar um novo endereço"
 
 #: .\Pagos\templates\registrar_direccion.html:22
 #: .\Pagos\templates\registrar_tarjeta.html:23
 msgid "Plan pendiente:"
-msgstr "Pending Plan:"
+msgstr "Plano pendente:"
 
 #: .\Pagos\templates\registrar_direccion.html:23
 #: .\Pagos\templates\registrar_tarjeta.html:23
 msgid "Tienes el plan"
-msgstr "You have the plan"
+msgstr "Você tem o plano"
 
 #: .\Pagos\templates\registrar_direccion.html:24
 #: .\Pagos\templates\registrar_tarjeta.html:24
 msgid "en modalidad"
-msgstr "in mode"
+msgstr "na modalidade"
 
 #: .\Pagos\templates\registrar_direccion.html:25
 msgid "esperando. Completa el registro de tu dirección para continuar."
-msgstr "expecting.Complete the registration of your address to continue."
+msgstr "esperando.Preencha o registro do seu endereço para continuar."
 
 #: .\Pagos\templates\registrar_direccion.html:37
 msgid "Dirección Completa"
-msgstr "Complete address"
+msgstr "Endereço completo"
 
 #: .\Pagos\templates\registrar_direccion.html:43
 msgid "Ej: Calle 123 #45-67"
@@ -3026,11 +3034,11 @@ msgstr "Ex: Calle 123 #45-67"
 
 #: .\Pagos\templates\registrar_direccion.html:47
 msgid "Formatos válidos:"
-msgstr "Valid formats:"
+msgstr "Formatos válidos:"
 
 #: .\Pagos\templates\registrar_direccion.html:49
 msgid "Colombia:"
-msgstr "Colombia:"
+msgstr "Colômbia:"
 
 #: .\Pagos\templates\registrar_direccion.html:49
 msgid "Calle 123 #45-67, Carrera 7 #12-34"
@@ -3038,11 +3046,11 @@ msgstr "Calle 123 #45-67, Carrera 7 #12-34"
 
 #: .\Pagos\templates\registrar_direccion.html:50
 msgid "Ecuador:"
-msgstr "Ecuador:"
+msgstr "Equador:"
 
 #: .\Pagos\templates\registrar_direccion.html:50
 msgid "Av. 10 de Agosto 123, Calle García Moreno 45"
-msgstr "Av. 10 de Agosto 123, García Moreno Street 45"
+msgstr "Av. 10 De Agosto 123, García Moreno Street 45"
 
 #: .\Pagos\templates\registrar_direccion.html:51
 msgid "Perú:"
@@ -3054,87 +3062,87 @@ msgstr "Jr. Lima 123, Av. Arequipa 456"
 
 #: .\Pagos\templates\registrar_direccion.html:61
 msgid "Código Postal"
-msgstr "Zip code"
+msgstr "CEP"
 
 #: .\Pagos\templates\registrar_direccion.html:74
 msgid "País"
-msgstr "Country"
+msgstr "País"
 
 #: .\Pagos\templates\registrar_direccion.html:77
 msgid "Selecciona un país"
-msgstr "Select a country"
+msgstr "Selecione um país"
 
 #: .\Pagos\templates\registrar_direccion.html:90
 msgid "Guardar Dirección"
-msgstr "Save direction"
+msgstr "Salve a direção"
 
 #: .\Pagos\templates\registrar_tarjeta.html:5
 msgid "Registrar Tarjeta de Crédito - ChibchaWeb"
-msgstr "Register credit card - Chibchaweb"
+msgstr "CARTÃO DE CRÉDITO DE CERGA - CHIBCHAWEB"
 
 #: .\Pagos\templates\registrar_tarjeta.html:14
 msgid "Registrar Nueva Tarjeta de Crédito"
-msgstr "Register New Credit Card"
+msgstr "Registre um novo cartão de crédito"
 
 #: .\Pagos\templates\registrar_tarjeta.html:24
 msgid "esperando. Completa el registro de tu tarjeta para continuar."
-msgstr "expecting.Complete the registration of your card to continue."
+msgstr "esperando.Preencha o registro do seu cartão para continuar."
 
 #: .\Pagos\templates\registrar_tarjeta.html:32
 msgid "Seguridad:"
-msgstr "Security:"
+msgstr "Segurança:"
 
 #: .\Pagos\templates\registrar_tarjeta.html:32
 msgid "Tus datos están protegidos con encriptación de nivel bancario."
-msgstr "Your data is protected with banking level encryption."
+msgstr "Seus dados são protegidos com criptografia de nível bancário."
 
 #: .\Pagos\templates\registrar_tarjeta.html:92
 msgid "CVV"
-msgstr "CVV"
+msgstr "Cvv"
 
 #: .\Pagos\templates\registrar_tarjeta.html:110
 msgid "Guardar Tarjeta"
-msgstr "Save Card"
+msgstr "Salvar cartão"
 
 #: .\Pagos\templates\resumen_pago.html:5
 msgid "Resumen de Pago"
-msgstr "Payment Summary"
+msgstr "Resumo do pagamento"
 
 #: .\Pagos\templates\resumen_pago.html:35
 msgid "Resumen de tu Pedido"
-msgstr "Summary of your order"
+msgstr "Resumo do seu pedido"
 
 #: .\Pagos\templates\resumen_pago.html:36
 msgid "Revisa los detalles antes de confirmar tu pago"
-msgstr "Check the details before confirming your payment"
+msgstr "Verifique os detalhes antes de confirmar seu pagamento"
 
 #: .\Pagos\templates\resumen_pago.html:48
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:48
 msgid "Tu plan seleccionado"
-msgstr "Your selected plan"
+msgstr "Seu plano selecionado"
 
 #: .\Pagos\templates\resumen_pago.html:54
 #: .\Pagos\templates\resumen_pago.html:125
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:54
 msgid "/mes"
-msgstr "/month"
+msgstr "/mês"
 
 #: .\Pagos\templates\resumen_pago.html:56
 #: .\Pagos\templates\resumen_pago.html:127
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:56
 msgid "/6 meses"
-msgstr "/6 months"
+msgstr "/6 meses"
 
 #: .\Pagos\templates\resumen_pago.html:58
 #: .\Pagos\templates\resumen_pago.html:129
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:58
 msgid "/año"
-msgstr "/year"
+msgstr "/ano"
 
 #: .\Pagos\templates\resumen_pago.html:72
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:74
 msgid "Dirección de Facturación"
-msgstr "Billing address"
+msgstr "Endereço de Cobrança"
 
 #: .\Pagos\templates\resumen_pago.html:83
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:89
@@ -3144,124 +3152,125 @@ msgstr "CP:"
 #: .\Pagos\templates\resumen_pago.html:95
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:122
 msgid "Método de Pago"
-msgstr "Payment method"
+msgstr "Método de pagamento"
 
 #: .\Pagos\templates\resumen_pago.html:101
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:133
 msgid "CARD"
-msgstr "Card"
+msgstr "Cartão"
 
 #: .\Pagos\templates\resumen_pago.html:104
 msgid "Tarjeta de Crédito"
-msgstr "Credit card"
+msgstr "Cartão de crédito"
 
 #: .\Pagos\templates\resumen_pago.html:106
 msgid "Tarjeta registrada"
-msgstr "Registered card"
+msgstr "Cartão registrado"
 
 #: .\Pagos\templates\resumen_pago.html:118
 msgid "Total a Pagar"
-msgstr "Total to pay"
+msgstr "Total a pagar"
 
 #: .\Pagos\templates\resumen_pago.html:119
 msgid "Incluye todos los impuestos y tarifas"
-msgstr "Includes all taxes and rates"
+msgstr "Inclui todos os impostos e taxas"
 
 #: .\Pagos\templates\resumen_pago.html:142
 msgid "Confirmar y Pagar"
-msgstr "Confirm and pay"
+msgstr "Confirmar e pagar"
 
 #: .\Pagos\templates\resumen_pago.html:151
 msgid "Volver a Selección"
-msgstr "Return to selection"
+msgstr "Retornar à seleção"
 
 #: .\Pagos\templates\resumen_pago_paquetes.html:10
 msgid "Resumen de Compra de Paquetes"
-msgstr "Package purchase summary"
+msgstr "Resumo da compra do pacote"
 
 #: .\Pagos\templates\resumen_pago_paquetes.html:14
 msgid "Cantidad de paquetes:"
-msgstr "Number of packages:"
+msgstr "Número de pacotes:"
 
 #: .\Pagos\templates\resumen_pago_paquetes.html:15
 msgid "Precio por paquete:"
-msgstr "Package price:"
+msgstr "Preço do pacote:"
 
 #: .\Pagos\templates\resumen_pago_paquetes.html:16
 msgid "Total:"
-msgstr "Total"
+msgstr "Total:"
 
 #: .\Pagos\templates\resumen_pago_paquetes.html:17
 msgid "Dirección de facturación:"
-msgstr "Billing Directorate:"
+msgstr "Diretoria de cobrança:"
 
 #: .\Pagos\templates\resumen_pago_paquetes.html:18
 msgid "Tarjeta usada:"
-msgstr "Used card:"
+msgstr "Cartão usado:"
 
 #: .\Pagos\templates\resumen_pago_paquetes.html:25
 msgid "Confirmar Compra"
-msgstr "Confirm Purchase"
+msgstr "Confirme a compra"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:5
 msgid "Seleccionar Dirección y Tarjeta"
-msgstr "Select address and card"
+msgstr "Selecione endereço e cartão"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:23
 msgid "Dirección y Tarjeta"
-msgstr "Address and card"
+msgstr "Endereço e cartão"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:35
 msgid "Información de Pago"
-msgstr Payment Information"
+msgstr "Informações de pagamento"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:36
 msgid "Selecciona tu dirección de facturación y método de pago"
-msgstr "Select your billing address and payment method"
+msgstr "Selecione seu endereço de cobrança e método de pagamento"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:98
 msgid "Necesitas registrar una dirección de facturación para continuar."
-msgstr "You need to register a billing address to continue."
+msgstr "Você precisa registrar um endereço de cobrança para continuar."
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:101
 msgid "Registrar Dirección"
-msgstr "Register Address"
+msgstr "Registre endereço"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:110
 msgid "Agregar Nueva Dirección"
-msgstr "Add new address"
+msgstr "Adicione um novo endereço"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:146
 msgid "Tarjeta"
-msgstr "Card"
+msgstr "Cartão"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:154
 msgid "Necesitas registrar una tarjeta de crédito para procesar el pago."
-msgstr "You need to register a credit card to process payment."
+msgstr ""
+"Você precisa registrar um cartão de crédito para processar o pagamento."
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:157
 msgid "Registrar Tarjeta"
-msgstr "Register Card"
+msgstr "Cartão de registro"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:166
 msgid "Agregar Nueva Tarjeta"
-msgstr "Add New Card"
+msgstr "Adicione um novo cartão"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:179
 msgid "Continuar al Resumen"
-msgstr "Continue to the summary"
+msgstr "Continue para o resumo"
 
 #: .\Pagos\templates\seleccionar_direccion_tarjeta.html:189
 msgid "Volver a Planes"
-msgstr "Return to Plans"
+msgstr "Retornar aos planos"
 
 #: .\Pagos\templates\seleccionar_paquete.html:6
 msgid "Compra de Paquetes de Páginas"
-msgstr "Purchase of pages packages"
+msgstr "Compra de pacotes de páginas"
 
 #: .\Pagos\templates\seleccionar_paquete.html:12
 msgid "¿Cuántas páginas deseas comprar?"
-msgstr "How many pages do you want to buy?"
+msgstr "Quantas páginas você deseja comprar?"
 
 #: .\Pagos\templates\seleccionar_paquete.html:16
 msgid ""
@@ -3269,16 +3278,16 @@ msgid ""
 "                    Cada página tiene un valor de <strong>$X</strong>. A más páginas, mayores beneficios.\n"
 "                "
 msgstr ""
-"Each page has a <strong> $ x </strong> value.To more pages, greater "
-"benefits."
+"Cada página tem um valor <strong> $ x </strong>.Para mais páginas, maiores "
+"benefícios."
 
 #: .\Pagos\templates\seleccionar_paquete.html:23
 msgid "Continuar"
-msgstr "Continue"
+msgstr "Continuar"
 
 #: .\Pagos\templates\seleccionar_paquete.html:32
 msgid "Distribuidor Básico"
-msgstr "Basic Distributor"
+msgstr "Distribuidor básico"
 
 #: .\Pagos\templates\seleccionar_paquete.html:34
 #, python-format
@@ -3286,16 +3295,15 @@ msgid ""
 "\n"
 "                            Obtén una comisión del <strong>10%%</strong> por cada venta realizada.\n"
 "                        "
-msgstr "Get a <strong> 10 %% </strong> commission for each sale."
+msgstr "Obtenha uma comissão <strong> 10 %% </strong> para cada venda."
 
 #: .\Pagos\templates\seleccionar_paquete.html:39
 msgid "Perfecto para comenzar a generar ingresos como distribuidor."
-msgstr "Perfect to start generating income as a distributor."
+msgstr "Perfeito para começar a gerar renda como distribuidor."
 
 #: .\Pagos\templates\seleccionar_paquete.html:47
 msgid "Distribuidor Premium"
-msgstr "Premium Distributor
-"
+msgstr "Distribuidor premium"
 
 #: .\Pagos\templates\seleccionar_paquete.html:49
 #, python-format
@@ -3303,324 +3311,329 @@ msgid ""
 "\n"
 "                            Obtén una comisión del <strong>15%%</strong> por cada venta realizada.\n"
 "                        "
-msgstr "Get a <strong> 15 %% </strong> commission for each sale."
+msgstr "Obtenha uma comissão <strong> 15 %% </strong> para cada venda."
 
 #: .\Pagos\templates\seleccionar_paquete.html:54
 msgid "Mayor beneficio para distribuidores activos."
-msgstr "Greater benefit for active distributors."
+msgstr "Maior benefício para distribuidores ativos."
 
 #: .\Pagos\templates\seleccionar_plan.html:5
 msgid "Seleccionar Plan"
-msgstr "Select plan"
+msgstr "Selecione Plano"
 
 #: .\Pagos\templates\seleccionar_plan.html:20
-msgid "Encuentra el plan perfecto para tu proyecto. Todos incluyen SSL gratuito"
-msgstr "Find the perfect plan for your project. All plans include free SSL."
+msgid ""
+"Encuentra el plan perfecto para tu proyecto. Todos incluyen SSL gratuito"
+msgstr "Encontre o plano perfeito para o seu projeto.Todos incluem SSL grátis"
 
 #: .\Pagos\templates\seleccionar_plan.html:21
 msgid "creador de sitios web y soporte técnico especializado"
-msgstr "website builder and dedicated technical support."
+msgstr "Criador de sites e suporte técnico especializado"
 
 #: .\Pagos\templates\seleccionar_plan.html:35
 msgid "Elige tu modalidad de pago"
-msgstr "Choose your payment mode"
+msgstr "Escolha o seu modo de pagamento"
 
 #: .\Pagos\templates\seleccionar_plan.html:42
 msgid "Mensual"
-msgstr "Monthly"
+msgstr "Mensal"
 
 #: .\Pagos\templates\seleccionar_plan.html:43
 msgid "Pago mes a mes"
-msgstr "Month to month payment"
+msgstr "Mês a mês"
 
 #: .\Pagos\templates\seleccionar_plan.html:51
 msgid "Semestral"
-msgstr "Biannual"
+msgstr "Semestral"
 
 #: .\Pagos\templates\seleccionar_plan.html:52
 msgid "Ahorra un"
-msgstr "Save a"
+msgstr "Salve a"
 
 #: .\Pagos\templates\seleccionar_plan.html:60
 msgid "Anual"
-msgstr "Annual"
+msgstr "Anual"
 
 #: .\Pagos\templates\seleccionar_plan.html:62
 msgid "Ahorra"
-msgstr "Save"
+msgstr "Salvar"
 
 #: .\Pagos\templates\seleccionar_plan.html:112
 msgid "meses"
-msgstr "months"
+msgstr "meses"
 
 #: .\Pagos\templates\seleccionar_plan.html:113
 msgid "año"
-msgstr "year"
+msgstr "ano"
 
 #: .\Pagos\templates\seleccionar_plan.html:116
 msgid "Pago mensual"
-msgstr "Monthly payment"
+msgstr "Pagamento mensal"
 
 #: .\Pagos\templates\seleccionar_plan.html:118
 msgid "Ahorro del"
-msgstr "Savings of the"
+msgstr "Economia do"
 
 #: .\Pagos\templates\seleccionar_plan.html:121
 msgid "Mejor precio"
-msgstr "Best price"
+msgstr "Melhor preço"
 
 #: .\Pagos\templates\seleccionar_plan.html:121
 msgid "off"
-msgstr "OFF"
+msgstr "DESLIGADO"
 
 #: .\Pagos\templates\seleccionar_plan.html:130
 msgid "sitios web"
-msgstr "Websites"
+msgstr "Sites"
 
 #: .\Pagos\templates\seleccionar_plan.html:134
 msgid "de almacenamiento"
-msgstr "Storage"
+msgstr "Armazenar"
 
 #: .\Pagos\templates\seleccionar_plan.html:138
 msgid "bases de datos"
-msgstr "Databases"
+msgstr "Bancos de dados"
 
 #: .\Pagos\templates\seleccionar_plan.html:142
 msgid "cuentas de email"
-msgstr "email accounts"
+msgstr "Contas de email"
 
 #: .\Pagos\templates\seleccionar_plan.html:146
 msgid "certificados SSL"
-msgstr "SSL certificates"
+msgstr "Certificados SSL"
 
 #: .\Pagos\templates\seleccionar_plan.html:151
 msgid "HTTPS incluido"
-msgstr "HTTPS included"
+msgstr "Https incluídos"
 
 #: .\Pagos\templates\seleccionar_plan.html:157
 msgid "Creador de sitios web"
-msgstr "Creator of Websites"
+msgstr "Criador de sites"
 
 #: .\Pagos\templates\seleccionar_plan.html:163
 msgid "Email marketing"
-msgstr "Email marketing"
+msgstr "Marketing por e -mail"
 
 #: .\Pagos\templates\seleccionar_plan.html:190
 msgid "Requisitos"
-msgstr "Requirements"
+msgstr "Requisitos"
 
 #: .\Pagos\templates\seleccionar_plan.html:190
 msgid ""
 "Necesitas tener registrada una dirección de facturación y una tarjeta de "
 "crédito para continuar"
 msgstr ""
-"You need to have a billing address and a credit card registered to continue"
+"Você precisa ter um endereço de cobrança e um cartão de crédito registrado "
+"para continuar"
 
 #: .\Pagos\templates\seleccionar_plan.html:196
 msgid "Continuar con el Plan Seleccionado"
-msgstr "Continue with the selected plan"
+msgstr "Continue com o plano selecionado"
 
 #: .\Pagos\templates\seleccionar_plan.html:201
 msgid "Proceso seguro y protegido. Cancela cuando quieras"
-msgstr "Safe and protected process.Cancel whenever you want"
+msgstr "Processo seguro e protegido.Cancelar sempre que quiser"
 
 #: .\Tickets\templates\crear_ticket.html:5
 msgid "Crear Ticket - ChibchaWeb"
-msgstr "Create Ticket - ChibchaWeb"
+msgstr "Criar Ticket - Chibchaweb"
 
 #: .\Tickets\templates\crear_ticket.html:17
 msgid "Crear Nuevo Ticket"
-msgstr "Create New Ticket"
+msgstr "Crie um novo ticket"
 
 #: .\Tickets\templates\crear_ticket.html:18
 msgid "Solicita ayuda de nuestro equipo de soporte técnico"
-msgstr "Request help from our technical support team"
+msgstr "Solicite ajuda da nossa equipe de suporte técnico"
 
 #: .\Tickets\templates\crear_ticket.html:36
 msgid "¿Cómo podemos ayudarte?"
-msgstr "How can we help you?"
+msgstr "Como podemos ajudá -lo?"
 
 #: .\Tickets\templates\crear_ticket.html:37
 msgid ""
 "Nuestro equipo de soporte está aquí para resolver cualquier problema "
 "relacionado con"
-msgstr "Our support team is here to solve any problem related to"
+msgstr ""
+"Nossa equipe de suporte está aqui para resolver qualquer problema "
+"relacionado a"
 
 #: .\Tickets\templates\crear_ticket.html:39
 msgid "Configuración de dominios y DNS"
-msgstr "Domain and DNS settings"
+msgstr "Configuração de domínio e DNS"
 
 #: .\Tickets\templates\crear_ticket.html:40
 msgid "Problemas técnicos de hosting"
-msgstr "Hosting technical problems"
+msgstr "Hospedando problemas técnicos"
 
 #: .\Tickets\templates\crear_ticket.html:41
 msgid "Gestión de cuentas y facturación"
-msgstr "Account management and billing"
+msgstr "Gerenciamento de contas e cobrança"
 
 #: .\Tickets\templates\crear_ticket.html:42
 msgid "Consultas sobre planes y servicios"
-msgstr "Consultations about plans and services"
+msgstr "Consultas sobre planos e serviços"
 
 #: .\Tickets\templates\crear_ticket.html:64
 msgid "Título del Ticket"
-msgstr "Title of the ticket"
+msgstr "Título do ingresso"
 
 #: .\Tickets\templates\crear_ticket.html:69
 msgid "Describe brevemente el problema o consulta"
-msgstr "Briefly describe the problem or consultation"
+msgstr "Descreva brevemente o problema ou consulta"
 
 #: .\Tickets\templates\crear_ticket.html:76
 msgid "Descripción Detallada"
-msgstr "Detailed description"
+msgstr "Descrição detalhada"
 
 #: .\Tickets\templates\crear_ticket.html:81
 msgid "Proporciona todos los detalles posibles para una resolución más rápida"
-msgstr "Provides all possible details for a faster resolution"
+msgstr "Fornece todos os detalhes possíveis para uma resolução mais rápida"
 
 #: .\Tickets\templates\crear_ticket.html:95
 msgid "Selecciona la urgencia de tu solicitud"
-msgstr "Select the urgency of your application"
+msgstr "Selecione a urgência do seu aplicativo"
 
 #: .\Tickets\templates\crear_ticket.html:104
 msgid "Enviar Ticket"
-msgstr "Send Ticket"
+msgstr "Enviar tíquete"
 
 #: .\Tickets\templates\crear_ticket.html:108
 msgid "Volver a Mis Tickets"
-msgstr "Return to my tickets"
+msgstr "Volte aos meus ingressos"
 
 #: .\Tickets\templates\crear_ticket.html:121
 msgid "Tiempo de Respuesta"
-msgstr "Response Time"
+msgstr "Tempo de resposta"
 
 #: .\Tickets\templates\crear_ticket.html:123
 msgid "Respondemos en menos de 24 horas"
-msgstr "We respond in less than 24 hours"
+msgstr "Respondemos em menos de 24 horas"
 
 #: .\Tickets\templates\tickets_cliente.html:4
 msgid "Mis Tickets - ChibchaWeb"
-msgstr "My Tickets - ChibchaWeb"
+msgstr "Meus ingressos - Chibchaweb"
 
 #: .\Tickets\templates\tickets_cliente.html:17
 msgid "Gestiona todas tus solicitudes de soporte"
-msgstr "Manage all your support requests"
+msgstr "Gerencie todos os seus pedidos de suporte"
 
 #: .\Tickets\templates\tickets_cliente.html:23
 msgid "Nuevo Ticket"
-msgstr "New Ticket"
+msgstr "Novo bilhete"
 
 #: .\Tickets\templates\tickets_cliente.html:41
 msgid "Historial de Tickets"
-msgstr "Ticket history"
+msgstr "História do ingresso"
 
 #: .\Tickets\templates\tickets_cliente.html:124
 #: .\Tickets\templates\tickets_cliente.html:193
 msgid "Sin estado"
-msgstr "Without status"
+msgstr "Nenhum estado"
 
 #: .\Tickets\templates\tickets_cliente.html:137
 msgid "Ver Solución"
-msgstr "See solution"
+msgstr "Veja a solução"
 
 #: .\Tickets\templates\tickets_cliente.html:181
 msgid "Estado Actual"
-msgstr "State"
+msgstr "Estado atual"
 
 #: .\Tickets\templates\tickets_cliente.html:207
 msgid "Historial de Estados"
-msgstr "State History"
+msgstr "História dos Estados"
 
 #: .\Tickets\templates\tickets_cliente.html:237
 msgid "Ticket Resuelto"
-msgstr "Ticket Solved"
+msgstr "Ticket resolvido"
 
 #: .\Tickets\templates\tickets_cliente.html:245
 msgid "Tu problema ha sido resuelto"
-msgstr "Your problem has been solved"
+msgstr "Seu problema foi resolvido"
 
 #: .\Tickets\templates\tickets_cliente.html:247
 msgid ""
 "Nuestro equipo de soporte ha trabajado en tu solicitud y la ha marcado como "
 "resuelta"
 msgstr ""
-"Our support team has worked on your application and marked it as a resolved"
+"Nossa equipe de suporte trabalhou em seu aplicativo e a marcou como um "
+"resolvido"
 
 #: .\Tickets\templates\tickets_cliente.html:252
 msgid "Problema Original"
-msgstr "Original problem"
+msgstr "Problema original"
 
 #: .\Tickets\templates\tickets_cliente.html:256
 msgid "Fecha de Resolución"
-msgstr "Resolution date"
+msgstr "Data de resolução"
 
 #: .\Tickets\templates\tickets_cliente.html:267
 msgid "Resolución"
-msgstr "Resolution"
+msgstr "Resolução"
 
 #: .\Tickets\templates\tickets_cliente.html:276
 msgid "Resuelto por"
-msgstr "Solved by"
+msgstr "Resolvido por"
 
 #: .\Tickets\templates\tickets_cliente.html:282
 msgid "Entendido"
-msgstr "Understood"
+msgstr "Entendido"
 
 #: .\Tickets\templates\tickets_cliente.html:308
 msgid "No tienes tickets aún"
-msgstr "You don't have tickets yet"
+msgstr "Você ainda não tem ingressos"
 
 #: .\Tickets\templates\tickets_cliente.html:310
 msgid ""
 "¿Necesitas ayuda? Crea tu primer ticket de soporte y nuestro equipo te "
 "ayudará a resolver cualquier problema."
 msgstr ""
-"Do you need help?Create your first support ticket and our team will help you"
-" solve any problem."
+"Você precisa de ajuda?Crie seu primeiro ticket de suporte e nossa equipe o "
+"ajudará a resolver qualquer problema."
 
 #: .\Tickets\templates\tickets_cliente.html:313
 msgid "Crear Mi Primer Ticket"
-msgstr "Create My First Ticket"
+msgstr "Crie meu primeiro ingresso"
 
 #: .\Tickets\templates\tickets_cliente.html:326
 msgid "Respuesta Rápida"
-msgstr "Quick Response"
+msgstr "Resposta rápida"
 
 #: .\Tickets\templates\tickets_cliente.html:328
 msgid "Nuestro equipo responde en menos de 24 horas"
-msgstr "Our team responds in less than 24 hours"
+msgstr "Nossa equipe responde em menos de 24 horas"
 
 #: .\Tickets\templates\tickets_cliente.html:337
 msgid "Soporte Experto"
-msgstr "Expert Support"
+msgstr "Suporte especializado"
 
 #: .\Tickets\templates\tickets_cliente.html:339
 msgid "Técnicos especializados en hosting y dominios"
-msgstr "Hosting and Domains Specialized Technicians"
+msgstr "Hospedagem e domínios técnicos especializados"
 
 #: .\Tickets\templates\tickets_cliente.html:348
 msgid "Seguimiento Total"
-msgstr "Total monitoring"
+msgstr "Monitoramento total"
 
 #: .\Tickets\templates\tickets_cliente.html:350
 msgid "Mantente informado del progreso de tu solicitud"
-msgstr "Stay informed of your application progress"
+msgstr "Mantenha -se informado do progresso do seu aplicativo"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
-msgstr "Messages"
+msgstr "Mensagens"
 
 #: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
 msgid "Site Maps"
-msgstr "Site Maps"
+msgstr "Mapas do site"
 
 #: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
 msgid "Static Files"
-msgstr "Static Files"
+msgstr "Arquivos estáticos"
 
 #: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
 msgid "Syndication"
-msgstr "Syndication"
+msgstr "Sindicação"
 
 #. Translators: String used to replace omitted page numbers in elided page
 #. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
@@ -3630,52 +3643,52 @@ msgstr "..."
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:32
 msgid "That page number is not an integer"
-msgstr "That page number is not integer"
+msgstr "Esse número de página não é inteiro"
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:33
 msgid "That page number is less than 1"
-msgstr "That page Number is less than 1"
+msgstr "Esse número de página é menor que 1"
 
 #: .\venv\Lib\site-packages\django\core\paginator.py:34
 msgid "That page contains no results"
-msgstr "That page contains no results"
+msgstr "Essa página não contém resultados"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:22
 msgid "Enter a valid value."
-msgstr "Enter a Valid Value."
+msgstr "Insira um valor válido."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:70
 msgid "Enter a valid domain name."
-msgstr "Enter a Valid Domain Name."
+msgstr "Digite um nome de domínio válido."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:153
 #: .\venv\Lib\site-packages\django\forms\fields.py:775
 msgid "Enter a valid URL."
-msgstr "Enter a Valid Url."
+msgstr "Digite um URL válido."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:200
 msgid "Enter a valid integer."
-msgstr "Enter a Valid Integer."
+msgstr "Insira um número inteiro válido."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:211
 msgid "Enter a valid email address."
-msgstr "Enter a Valid Email Address."
+msgstr "Digite um endereço de e -mail válido."
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: .\venv\Lib\site-packages\django\core\validators.py:289
 msgid ""
 "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
 msgstr ""
-"Enter a Valid \"Slug\" consisting of letters, numbers, Underscores or "
-"Hyphens."
+"Digite uma \"lesma\" válida composta por letras, números, sublinhados ou "
+"hífens."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:297
 msgid ""
 "Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
 " hyphens."
 msgstr ""
-"Enter a Valid \"slug\" consisting of unicode letters, numbers, underscores, "
-"or hyphens."
+"Digite uma \"lesma\" válida composta por letras unicode, números, "
+"sublinhados ou hífens."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:309
 #: .\venv\Lib\site-packages\django\core\validators.py:318
@@ -3683,11 +3696,11 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2220
 #, python-format
 msgid "Enter a valid %(protocol)s address."
-msgstr "Enter a Valid %(protocol) S Address."
+msgstr "Digite o endereço de um %(protocolo) válido."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:311
 msgid "IPv4"
-msgstr "IPV4"
+msgstr "IPv4"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:320
 #: .\venv\Lib\site-packages\django\utils\ipv6.py:43
@@ -3696,31 +3709,31 @@ msgstr "IPv6"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:334
 msgid "IPv4 or IPv6"
-msgstr "IPV4 or IPV6"
+msgstr "IPv4 ou IPv6"
 
 #: .\venv\Lib\site-packages\django\core\validators.py:375
 msgid "Enter only digits separated by commas."
-msgstr "ENTER ONLY DIGITS SEPARATED BY COMMAS."
+msgstr "Digite apenas dígitos separados por vírgulas."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:381
 #, python-format
 msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr "Reure This Value is %(Limit_value) s (it is %(show_value) s)."
+msgstr "Reure esse valor é %(limite_value) s (é %(show_value) s)."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:416
 #, python-format
 msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr "Reure this value is less than or equal to %(limit_value) s."
+msgstr "Reure esse valor é menor ou igual a %(limite_value) s."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:425
 #, python-format
 msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr "Reure This Value Is Greater than or equal to %(Limit_value) s."
+msgstr "Reure esse valor é maior ou igual a %(limite_value) s."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:434
 #, python-format
 msgid "Ensure this value is a multiple of step size %(limit_value)s."
-msgstr "Reure This Value is a multiple of step size %(limit_value) s."
+msgstr "Reure esse valor é um múltiplo do tamanho da etapa %(limite_value) s."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:441
 #, python-format
@@ -3728,9 +3741,9 @@ msgid ""
 "Ensure this value is a multiple of step size %(limit_value)s, starting from "
 "%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
 msgstr ""
-"Ensure This is a multiple of Step Size %(Limit_value) S, Starting From "
-"%(Offset) S, E.G.%(offset) s, %(valid_value1) s, %(valid_value2) s, and so "
-"on."
+"Verifique se esse é um múltiplo do tamanho da etapa %(limite_value) s, a "
+"partir de %(deslocamento) s, p.%(deslocamento) s, %(valid_value1) s, "
+"%(valid_value2) s e assim por diante."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:473
 #, python-format
@@ -3758,7 +3771,7 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\forms\fields.py:366
 #: .\venv\Lib\site-packages\django\forms\fields.py:405
 msgid "Enter a number."
-msgstr "Entee Number."
+msgstr "Número do ETEE."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:516
 #, python-format
@@ -3789,45 +3802,45 @@ msgid ""
 "File extension “%(extension)s” is not allowed. Allowed extensions are: "
 "%(allowed_extensions)s."
 msgstr ""
-"File extension “%(extension) s” is not alowed.ALLOWED EXTENSIONS ARE: "
-"%(ALLOWED_EXTENSIONS) s."
+"Extensão de arquivo “%(extensão) s” não é aloada.As extensões permitidas "
+"são: %(permitido_extensions) s."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:659
 msgid "Null characters are not allowed."
-msgstr "Null Characters are Not Allowed."
+msgstr "Caracteres nulos não são permitidos."
 
 #: .\venv\Lib\site-packages\django\db\models\base.py:1600
 #: .\venv\Lib\site-packages\django\forms\models.py:908
 msgid "and"
-msgstr "and"
+msgstr "e"
 
 #: .\venv\Lib\site-packages\django\db\models\base.py:1602
 #, python-format
 msgid "%(model_name)s with this %(field_labels)s already exists."
-msgstr "%(Model_name) s with This %(Field_Labels) S already exists."
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\constraints.py:22
 #, python-format
 msgid "Constraint “%(name)s” is violated."
-msgstr "Constraint \"%(name) s\" is violated."
+msgstr "A restrição \"%(nome) s\" é violada."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
 #, python-format
 msgid "Value %(value)r is not a valid choice."
-msgstr "Value %(Value) r is not a Valid Choice."
+msgstr "Valor %(valor) r não é uma escolha válida."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
 msgid "This field cannot be null."
-msgstr "This Field Cannot Be Null."
+msgstr "Este campo não pode ser nulo."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
 msgid "This field cannot be blank."
-msgstr "This Field Cannot Be Blank."
+msgstr "Este campo não pode ficar em branco."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
 #, python-format
 msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr "%(Model_name) s with This %(Field_label) s already exists."
+msgstr ""
 
 #. Translators: The 'lookup_type' is one of 'date', 'year' or
 #. 'month'. Eg: "Title must be unique for pub_date year"
@@ -3836,39 +3849,38 @@ msgstr "%(Model_name) s with This %(Field_label) s already exists."
 msgid ""
 "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
 msgstr ""
-"%(Field_Label) s must be unique for %(date_field_label) s %(lookup_type) s."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
 #, python-format
 msgid "Field of type: %(field_type)s"
-msgstr "Field of Type: %(Field_type) S"
+msgstr "Campo do tipo: %(Field_type) s"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1162
 #, python-format
 msgid "“%(value)s” value must be either True or False."
-msgstr "\"%(Value) s\" Value Must Be Eithher True or False."
+msgstr "O valor \"%(valor) s\" deve ser verdadeiro ou falso."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1163
 #, python-format
 msgid "“%(value)s” value must be either True, False, or None."
-msgstr "\"%(Value) s\" Value Must Be Eithher True, False, Or None."
+msgstr "O valor \"%(valor) s\" deve ser verdadeiro, falso ou nenhum."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1165
 msgid "Boolean (Either True or False)"
-msgstr "Boolean (Eithher True or False)"
+msgstr "Booleano (eithher verdadeiro ou falso)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1215
 #, python-format
 msgid "String (up to %(max_length)s)"
-msgstr "String (up to %(max_length) s)"
+msgstr "String (até %(max_length) s)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1217
 msgid "String (unlimited)"
-msgstr "String (Unlimited)"
+msgstr "String (ilimitado)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1326
 msgid "Comma-separated integers"
-msgstr "Commuma-Separated Integers"
+msgstr "Inteiros inteiros separados por comanda"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1427
 #, python-format
@@ -3876,8 +3888,8 @@ msgid ""
 "“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
 "format."
 msgstr ""
-"\"%(Value) s\" value you have an invalid date format.It must be in yyyy-mm-"
-"dd format."
+"Valor \"%(valor) s\" Você tem um formato de data inválido.Deve estar em "
+"formato AAAA-MM-DD."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1431
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1566
@@ -3886,12 +3898,12 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
 "date."
 msgstr ""
-"“%(Value) s” value have the correct format (yyyy-mm-dd) but it is an invalid"
-" date."
+"O valor \"%(valor) s\" possui o formato correto (AAAA-MM-DD), mas é uma data"
+" inválida."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
 msgid "Date (without time)"
-msgstr "Date (Without Time)"
+msgstr "Data (sem hora)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1562
 #, python-format
@@ -3899,8 +3911,8 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
 "HH:MM[:ss[.uuuuuu]][TZ] format."
 msgstr ""
-"\"%(Value) s\" Value has an invalid format.It must be in yyyy-mm-dd hh: mm "
-"[: ss [.uuuuu]] [tz] format."
+"O valor \"%(valor) s\" possui um formato inválido.Deve estar no formato AAA "
+"YYYY-MM-DD HH: MM [: SS [.UUUUU]] [TZ]."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
 #, python-format
@@ -3908,21 +3920,21 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD "
 "HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
 msgstr ""
-"“%(Value) s” value have the correct format (yyyy-mm-dd hh: mm [: ss "
-"[.uuuuu]] [tz]) but it is an invalid date/time."
+"“%(Valor) s” o valor tem o formato correto (AAAA-MM-DD HH: MM [: SS "
+"[.UUUUU]] [TZ]), mas é uma data/hora inválida."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
 msgid "Date (with time)"
-msgstr "Date (with time)"
+msgstr "Data (com hora)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1702
 #, python-format
 msgid "“%(value)s” value must be a decimal number."
-msgstr "\"%(Value) s\" value must be a decimal number."
+msgstr "O valor \"%(valor) s\" deve ser um número decimal."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1704
 msgid "Decimal number"
-msgstr "Decimal Number"
+msgstr "Número decimal"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1864
 #, python-format
@@ -3930,85 +3942,85 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in [DD] "
 "[[HH:]MM:]ss[.uuuuuu] format."
 msgstr ""
-"\"%(Value) s\" Value has an invalid format.It must be in [dd] [[hh:] mm:] ss"
-" [.uuuuu] format."
+"O valor \"%(valor) s\" possui um formato inválido.Deve estar em [dd] [[hh:] "
+"mm:] SS [.uuuuu] formato."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
 msgid "Duration"
-msgstr "Duration"
+msgstr "Duração"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1920
 msgid "Email address"
-msgstr "Email Address"
+msgstr "Endereço de email"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1945
 msgid "File path"
-msgstr "File Path"
+msgstr "Caminho do arquivo"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2023
 #, python-format
 msgid "“%(value)s” value must be a float."
-msgstr "\"%(Value) s\" value must be afloat."
+msgstr "O valor \"%(valor) s\" deve estar à tona."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2025
 msgid "Floating point number"
-msgstr "Floating Point Number"
+msgstr "Número do ponto flutuante"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2065
 #, python-format
 msgid "“%(value)s” value must be an integer."
-msgstr "\"%(Value) s\" value must be integer."
+msgstr "O valor \"%(valor) s\" deve ser inteiro."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2067
 msgid "Integer"
-msgstr "Integer"
+msgstr "Inteiro"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2163
 msgid "Big (8 byte) integer"
-msgstr "Big (8 byte) Integer"
+msgstr "Grande (8 byte) inteiro"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2180
 msgid "Small integer"
-msgstr "Small Inter"
+msgstr "Pequeno inter"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2188
 msgid "IPv4 address"
-msgstr "IPV4 Address"
+msgstr "Endereço IPv4"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2219
 msgid "IP address"
-msgstr "IP Address"
+msgstr "Endereço IP"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2310
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2311
 #, python-format
 msgid "“%(value)s” value must be either None, True or False."
-msgstr "\"%(Value) s\" Value Must Be Eithher None, True or False."
+msgstr "O valor de \"%(valor) s\" deve ser either nenhum, verdadeiro ou falso."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2313
 msgid "Boolean (Either True, False or None)"
-msgstr "Boolean (Eithher True, False or None)"
+msgstr "Booleano (eithher verdadeiro, falso ou nenhum)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2364
 msgid "Positive big integer"
-msgstr "Positive Big Integer"
+msgstr "Inteiro grande positivo"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2379
 msgid "Positive integer"
-msgstr "Positive Integer"
+msgstr "Número inteiro positivo"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2394
 msgid "Positive small integer"
-msgstr "POSITIVE SMALL INTERGER"
+msgstr "Pequeno interger positivo"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2410
 #, python-format
 msgid "Slug (up to %(max_length)s)"
-msgstr "Slug (up to %(max_length) s)"
+msgstr "Slug (até %(max_length) s)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
 msgid "Text"
-msgstr "Text"
+msgstr "Texto"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2526
 #, python-format
@@ -4016,8 +4028,8 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
 "format."
 msgstr ""
-"\"%(Value) s\" Value has an invalid format.It must be in hh: mm [: ss "
-"[.uuuuu]] format."
+"O valor \"%(valor) s\" possui um formato inválido.Deve estar em HH: MM [: SS"
+" [.uuuuu]] formato."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2530
 #, python-format
@@ -4025,72 +4037,72 @@ msgid ""
 "“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
 "invalid time."
 msgstr ""
-"\"%(Value) s\" value has the correct format (hh: mm [: ss [.uuuuu]]) but it "
-"is an invalid time."
+"O valor \"%(valor) s\" possui o formato correto (hh: mm [: ss [.uuuuu]]), "
+"mas é um tempo inválido."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2534
 msgid "Time"
-msgstr "Time"
+msgstr "Tempo"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2642
 msgid "URL"
-msgstr "URL"
+msgstr "Url"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2666
 msgid "Raw binary data"
-msgstr "Raw Binary Data"
+msgstr "Dados binários brutos"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2731
 #, python-format
 msgid "“%(value)s” is not a valid UUID."
-msgstr "\"%(Value) s\" is not a valid uuid."
+msgstr "\"%(Valor) s\" não é um UUID válido."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2733
 msgid "Universally unique identifier"
-msgstr "Universally Unique Identifier"
+msgstr "Identificador universalmente único"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\files.py:244
 msgid "File"
-msgstr "File"
+msgstr "Arquivo"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
 msgid "Image"
-msgstr "Image"
+msgstr "Imagem"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\json.py:24
 msgid "A JSON object"
-msgstr "To Json Object"
+msgstr "Para o objeto JSON"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
 msgid "Value must be valid JSON."
-msgstr "Value Must Be Valid Json."
+msgstr "O valor deve ser válido JSON."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:978
 #, python-format
 msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
-msgstr "%(Model) s instance with %(Field) s %(value) r is not a valid choice."
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:981
 msgid "Foreign Key (type determined by related field)"
-msgstr "Foreign Key (Type determined by Related Field)"
+msgstr "Chave estrangeira (tipo determinado pelo campo relacionado)"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:1275
 msgid "One-to-one relationship"
-msgstr "One-to -one Relationship"
+msgstr "Relacionamento um para um"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:1332
 #, python-format
 msgid "%(from)s-%(to)s relationship"
-msgstr "%(from) s-%(to) s related to"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:1334
 #, python-format
 msgid "%(from)s-%(to)s relationships"
-msgstr "%(from) s-%(to) s related relations"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\related.py:1382
 msgid "Many-to-many relationship"
-msgstr "Many-to-Many Relationship"
+msgstr "Relacionamento muitos para muitos"
 
 #. Translators: If found as last label character, these punctuation
 #. characters will prevent the default label_suffix to be appended to the
@@ -4101,46 +4113,46 @@ msgstr ":?.!"
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:95
 msgid "This field is required."
-msgstr "This Field is required."
+msgstr "Este campo é obrigatório."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:315
 msgid "Enter a whole number."
-msgstr "Enter a Whole Number."
+msgstr "Insira um número inteiro."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:486
 #: .\venv\Lib\site-packages\django\forms\fields.py:1267
 msgid "Enter a valid date."
-msgstr "Enter a Valid Date."
+msgstr "Insira uma data válida."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:509
 #: .\venv\Lib\site-packages\django\forms\fields.py:1268
 msgid "Enter a valid time."
-msgstr "Enter a Valid Time."
+msgstr "Insira um horário válido."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:536
 msgid "Enter a valid date/time."
-msgstr "Enter a Valid Date/Time."
+msgstr "Insira uma data/hora válida."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:570
 msgid "Enter a valid duration."
-msgstr "Enter a Valid Duration."
+msgstr "Insira uma duração válida."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:571
 #, python-brace-format
 msgid "The number of days must be between {min_days} and {max_days}."
-msgstr "The Number of Days Must Be Between {Min_Days} and {max_days}."
+msgstr "O número de dias deve estar entre {min_days} e {max_days}."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:640
 msgid "No file was submitted. Check the encoding type on the form."
-msgstr "Do not file was submitted.Check The Enoding Type On The Form."
+msgstr "Não o arquivo foi enviado.Verifique o tipo de enítido no formulário."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:641
 msgid "No file was submitted."
-msgstr "Do not file was submitted."
+msgstr "Não o arquivo foi enviado."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:642
 msgid "The submitted file is empty."
-msgstr "The Submitted File is Empty."
+msgstr "O arquivo enviado está vazio."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:644
 #, python-format
@@ -4153,40 +4165,43 @@ msgstr[1] ""
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:649
 msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr "PLEASE EITHER SUBMR A File or Check The Clear Checkbox, Not Both."
+msgstr ""
+"Por favor, envie um arquivo ou verifique a caixa de seleção Clear, não os "
+"dois."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:717
 msgid ""
 "Upload a valid image. The file you uploaded was either not an image or a "
 "corrupted image."
 msgstr ""
-"Upload a Valid Image.The File You Uploaded was Eithher not an an image or a "
-"corrupted image."
+"Carregue uma imagem válida.O arquivo que você carregou foi eithher não uma "
+"imagem ou uma imagem corrompida."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:889
 #: .\venv\Lib\site-packages\django\forms\fields.py:975
 #: .\venv\Lib\site-packages\django\forms\models.py:1592
 #, python-format
 msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr "Select a Valid Choice.%(Value) s is not one of the available choices."
+msgstr ""
+"Selecione uma opção válida.%(Valor) s não é uma das opções disponíveis."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:977
 #: .\venv\Lib\site-packages\django\forms\fields.py:1096
 #: .\venv\Lib\site-packages\django\forms\models.py:1590
 msgid "Enter a list of values."
-msgstr "Enter a List of Values."
+msgstr "Digite uma lista de valores."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:1097
 msgid "Enter a complete value."
-msgstr "Enter a Complete Value."
+msgstr "Insira um valor completo."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:1339
 msgid "Enter a valid UUID."
-msgstr "Enter a Valid Uuid."
+msgstr "Digite um UUID válido."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:1369
 msgid "Enter a valid JSON."
-msgstr "Entee Valid Json."
+msgstr "Entee válido JSON."
 
 #. Translators: This is the default suffix added to form field labels
 #: .\venv\Lib\site-packages\django\forms\forms.py:97
@@ -4196,7 +4211,7 @@ msgstr ":"
 #: .\venv\Lib\site-packages\django\forms\forms.py:239
 #, python-format
 msgid "(Hidden field %(name)s) %(error)s"
-msgstr "(Hidden Field %(Name) S) %(Error) S"
+msgstr "(Campo oculto %(nome) S) %(Erro) s"
 
 #: .\venv\Lib\site-packages\django\forms\formsets.py:61
 #, python-format
@@ -4204,8 +4219,9 @@ msgid ""
 "ManagementForm data is missing or has been tampered with. Missing fields: "
 "%(field_names)s. You may need to file a bug report if the issue persists."
 msgstr ""
-"ManagementForm Data is missing or haen tampered with.Missing Fields: "
-"%(Field_names) s.You May Need to file a bug report If the issue persists."
+"Os dados da forma de gerenciamento estão ausentes ou adulterados em "
+"Haen.Campos ausentes: %(field_names) s.Pode ser necessário registrar um "
+"relatório de bug se o problema persistir."
 
 #: .\venv\Lib\site-packages\django\forms\formsets.py:65
 #, python-format
@@ -4224,21 +4240,21 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\forms\formsets.py:484
 #: .\venv\Lib\site-packages\django\forms\formsets.py:491
 msgid "Order"
-msgstr "Order"
+msgstr "Ordem"
 
 #: .\venv\Lib\site-packages\django\forms\formsets.py:499
 msgid "Delete"
-msgstr "Delete"
+msgstr "Excluir"
 
 #: .\venv\Lib\site-packages\django\forms\models.py:901
 #, python-format
 msgid "Please correct the duplicate data for %(field)s."
-msgstr "PLEASE correct the duplicate data for %(Field) s."
+msgstr "Corrija os dados duplicados para %(campo) s."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:906
 #, python-format
 msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr "Please the Duplicate Data for %(Field) S, which must be unique."
+msgstr "Por favor, os dados duplicados para %(campo) s, que devem ser únicos."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:913
 #, python-format
@@ -4246,27 +4262,27 @@ msgid ""
 "Please correct the duplicate data for %(field_name)s which must be unique "
 "for the %(lookup)s in %(date_field)s."
 msgstr ""
-"PLEASE correct the duplicate data for %(Field_name) s which Must Be unique "
-"for the %(lookup) s in %(date_field) s."
+"Corrija os dados duplicados para %(field_name) s, que devem ser únicos para "
+"a %(pesquisa) s em %(date_field) s."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:922
 msgid "Please correct the duplicate values below."
-msgstr "Please the Duplicate Values Below."
+msgstr "Por favor, os valores duplicados abaixo."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1359
 msgid "The inline value did not match the parent instance."
-msgstr "The Inline Value Did Not Match The Parent Instance."
+msgstr "O valor embutido não correspondeu à instância do pai."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1450
 msgid ""
 "Select a valid choice. That choice is not one of the available choices."
 msgstr ""
-"Select a Valid Choice.That choice is not One of the Available Choices."
+"Selecione uma opção válida.Essa escolha não é uma das opções disponíveis."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1594
 #, python-format
 msgid "“%(pk)s” is not a valid value."
-msgstr "\"%(Pk) s\" is not a Valid Value."
+msgstr "\"%(Pk) s\" não é um valor válido."
 
 #: .\venv\Lib\site-packages\django\forms\utils.py:229
 #, python-format
@@ -4274,33 +4290,31 @@ msgid ""
 "%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
 "may be ambiguous or it may not exist."
 msgstr ""
-"%(datetime) s couldn’t be interpreted in time zone %(current_timezone) s;it "
-"may be ambiguous or it may not exist."
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:527
 msgid "Clear"
-msgstr "Clear"
+msgstr "Claro"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:528
 msgid "Currently"
-msgstr "Currently"
+msgstr "Atualmente"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:529
 msgid "Change"
-msgstr "CHANGE"
+msgstr "MUDAR"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:866
 msgid "Unknown"
-msgstr "Unknown"
+msgstr "Desconhecido"
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:867
 msgid "Yes"
-msgstr "Forks"
+msgstr "Garfos"
 
 #. Translators: Please do not add spaces around commas.
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:873
 msgid "yes,no,maybe"
-msgstr "Yes, no, Maybe"
+msgstr "Sim, não, talvez"
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:903
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:920
@@ -4313,151 +4327,151 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:922
 #, python-format
 msgid "%s KB"
-msgstr "%s kb"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:924
 #, python-format
 msgid "%s MB"
-msgstr "%s mb"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:926
 #, python-format
 msgid "%s GB"
-msgstr "%S GB"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:928
 #, python-format
 msgid "%s TB"
-msgstr "%s tb"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:930
 #, python-format
 msgid "%s PB"
-msgstr "%S PB"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:74
 msgid "p.m."
-msgstr "p.m."
+msgstr "da tarde"
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:75
 msgid "a.m."
-msgstr "A.M."
+msgstr "SOU."
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:80
 msgid "PM"
-msgstr "P.M"
+msgstr "P.M."
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:81
 msgid "AM"
-msgstr "A.M"
+msgstr "SOU"
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:153
 msgid "midnight"
-msgstr "Midnight"
+msgstr "Meia-noite"
 
 #: .\venv\Lib\site-packages\django\utils\dateformat.py:155
 msgid "noon"
-msgstr "Noon"
+msgstr "Meio-dia"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:7
 msgid "Monday"
-msgstr "Monday"
+msgstr "Segunda-feira"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:8
 msgid "Tuesday"
-msgstr "Tuesday"
+msgstr "Terça-feira"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:9
 msgid "Wednesday"
-msgstr "Wednesday"
+msgstr "Quarta-feira"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:10
 msgid "Thursday"
-msgstr "Thursday"
+msgstr "Quinta-feira"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:11
 msgid "Friday"
-msgstr "Friday"
+msgstr "Sexta-feira"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:12
 msgid "Saturday"
-msgstr "Saturday"
+msgstr "Sábado"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:13
 msgid "Sunday"
-msgstr "Sunday"
+msgstr "Domingo"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:16
 msgid "Mon"
-msgstr "Mon"
+msgstr "seg"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:17
 msgid "Tue"
-msgstr "Tue"
+msgstr "ter"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:18
 msgid "Wed"
-msgstr "Wed"
+msgstr "qua"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:19
 msgid "Thu"
-msgstr "Thu"
+msgstr "qui"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:20
 msgid "Fri"
-msgstr "Fri"
+msgstr "sex"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:21
 msgid "Sat"
-msgstr "SAT"
+msgstr "SENTADO"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:22
 msgid "Sun"
-msgstr "Sun"
+msgstr "Sol"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:25
 msgid "January"
-msgstr "January"
+msgstr "Janeiro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:26
 msgid "February"
-msgstr "February"
+msgstr "Fevereiro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:27
 msgid "March"
-msgstr "March"
+msgstr "Marchar"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:28
 msgid "April"
-msgstr "April"
+msgstr "abril"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:30
 msgid "June"
-msgstr "June"
+msgstr "Junho"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:31
 msgid "July"
-msgstr "July"
+msgstr "Julho"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:32
 msgid "August"
-msgstr "August"
+msgstr "Agosto"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:33
 msgid "September"
-msgstr "SEPTEMBER"
+msgstr "SETEMBRO"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:34
 msgid "October"
-msgstr "October"
+msgstr "outubro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:35
 msgid "November"
-msgstr "November"
+msgstr "novembro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:36
 msgid "December"
-msgstr "December"
+msgstr "dezembro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:39
 msgid "jan"
@@ -4465,27 +4479,27 @@ msgstr "Jan"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:40
 msgid "feb"
-msgstr "feb"
+msgstr "fevereiro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:41
 msgid "mar"
-msgstr "sea"
+msgstr "mar"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:42
 msgid "apr"
-msgstr "APR"
+msgstr "Apr"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:43
 msgid "may"
-msgstr "may"
+msgstr "poderia"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:44
 msgid "jun"
-msgstr "jun"
+msgstr "Jun"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:45
 msgid "jul"
-msgstr "jul"
+msgstr "Jul"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:46
 msgid "aug"
@@ -4493,19 +4507,19 @@ msgstr "AUG"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:47
 msgid "sep"
-msgstr "sep"
+msgstr "set"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:48
 msgid "oct"
-msgstr "oct"
+msgstr "OUT"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:49
 msgid "nov"
-msgstr "nov"
+msgstr "Nov"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:50
 msgid "dec"
-msgstr "Dec"
+msgstr "DEC"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:53
 msgctxt "abbrev. month"
@@ -4515,32 +4529,32 @@ msgstr "Jan."
 #: .\venv\Lib\site-packages\django\utils\dates.py:54
 msgctxt "abbrev. month"
 msgid "Feb."
-msgstr "Feb."
+msgstr "Fevereiro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:55
 msgctxt "abbrev. month"
 msgid "March"
-msgstr "March"
+msgstr "Marchar"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:56
 msgctxt "abbrev. month"
 msgid "April"
-msgstr "April"
+msgstr "abril"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:57
 msgctxt "abbrev. month"
 msgid "May"
-msgstr "May"
+msgstr "Poderia"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:58
 msgctxt "abbrev. month"
 msgid "June"
-msgstr "June"
+msgstr "Junho"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:59
 msgctxt "abbrev. month"
 msgid "July"
-msgstr "July"
+msgstr "Julho"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:60
 msgctxt "abbrev. month"
@@ -4550,102 +4564,102 @@ msgstr "AUG."
 #: .\venv\Lib\site-packages\django\utils\dates.py:61
 msgctxt "abbrev. month"
 msgid "Sept."
-msgstr "Sept."
+msgstr "Setembro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:62
 msgctxt "abbrev. month"
 msgid "Oct."
-msgstr "Oct."
+msgstr "Outubro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:63
 msgctxt "abbrev. month"
 msgid "Nov."
-msgstr "Nov."
+msgstr "Novembro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:64
 msgctxt "abbrev. month"
 msgid "Dec."
-msgstr "Dec."
+msgstr "Dez."
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:67
 msgctxt "alt. month"
 msgid "January"
-msgstr "January"
+msgstr "Janeiro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:68
 msgctxt "alt. month"
 msgid "February"
-msgstr "February"
+msgstr "Fevereiro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:69
 msgctxt "alt. month"
 msgid "March"
-msgstr "March"
+msgstr "Marchar"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:70
 msgctxt "alt. month"
 msgid "April"
-msgstr "April"
+msgstr "abril"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:71
 msgctxt "alt. month"
 msgid "May"
-msgstr "May"
+msgstr "Poderia"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:72
 msgctxt "alt. month"
 msgid "June"
-msgstr "June"
+msgstr "Junho"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:73
 msgctxt "alt. month"
 msgid "July"
-msgstr "July"
+msgstr "Julho"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:74
 msgctxt "alt. month"
 msgid "August"
-msgstr "August"
+msgstr "Agosto"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:75
 msgctxt "alt. month"
 msgid "September"
-msgstr "SEPTEMBER"
+msgstr "SETEMBRO"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:76
 msgctxt "alt. month"
 msgid "October"
-msgstr "October"
+msgstr "outubro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:77
 msgctxt "alt. month"
 msgid "November"
-msgstr "November"
+msgstr "novembro"
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:78
 msgctxt "alt. month"
 msgid "December"
-msgstr "December"
+msgstr "dezembro"
 
 #: .\venv\Lib\site-packages\django\utils\ipv6.py:20
 msgid "This is not a valid IPv6 address."
-msgstr "This is not a Valid IPv6 Address."
+msgstr "Este não é um endereço IPv6 válido."
 
 #: .\venv\Lib\site-packages\django\utils\text.py:76
 #, python-format
 msgctxt "String to return when truncating text"
 msgid "%(truncated_text)s…"
-msgstr "%(truncated_text) s ..."
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\text.py:287
 msgid "or"
-msgstr "Or"
+msgstr "Ou"
 
 #. Translators: This string is used as a separator between list elements
 #: .\venv\Lib\site-packages\django\utils\text.py:306
 #: .\venv\Lib\site-packages\django\utils\timesince.py:135
 msgid ", "
-msgstr ","
+msgstr ", Assim,"
 
 #: .\venv\Lib\site-packages\django\utils\timesince.py:8
 #, python-format
@@ -4691,11 +4705,11 @@ msgstr[1] ""
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:29
 msgid "Forbidden"
-msgstr "Forbidden"
+msgstr "Proibido"
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:30
 msgid "CSRF verification failed. Request aborted."
-msgstr "CSRF Verification Failed.REQUEST abort."
+msgstr "A verificação do CSRF falhou.Solicitar abortar."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:34
 msgid ""
@@ -4704,10 +4718,10 @@ msgid ""
 "required for security reasons, to ensure that your browser is not being "
 "hijacked by third parties."
 msgstr ""
-"You are Seeing this Message Because This https site requires “referer "
-"header” to be feel by your web browser, but none was for feeling.This Header"
-" is required for Security Reasons, to reure that your browser is not being "
-"hijacked by third parties."
+"Você está vendo esta mensagem porque este site HTTPS exige que o \"cabeçalho"
+" do referente\" seja sentir pelo seu navegador da web, mas nenhum era para "
+"sentir.Este cabeçalho é necessário por razões de segurança, para rear que "
+"seu navegador não está sendo seqüestrado por terceiros."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:40
 msgid ""
@@ -4715,9 +4729,9 @@ msgid ""
 "enable them, at least for this site, or for HTTPS connections, or for “same-"
 "origin” requests."
 msgstr ""
-"If you have configured your browser to disable \"referer\" headers, please "
-"re-enhable them, at least for this site, or for https Connections, or for "
-"\"Same-Origin\" Requests."
+"Se você configurou seu navegador para desativar os cabeçalhos de "
+"\"referenciador\", reencontre-os, pelo menos para este site, ou para "
+"conexões HTTPS, ou para solicitações \"mesmos originárias\"."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:45
 msgid ""
@@ -4727,11 +4741,12 @@ msgid ""
 "checking. If you’re concerned about privacy, use alternatives like <a "
 "rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
-"If you are using the <finish name = \"referer\" content = \"no-refererr\"> "
-"tag or including the \"refererr-political: no-refererr\" Header, please "
-"remave them.The CSRF Protection requirements the “referer” Header to do "
-"strict referer checking.If you’re concertned advocacy, use alternatives like"
-" <a rel = \"noreferrer\" ...> for links to third-parts sites."
+"Se você estiver usando a tag <names name = \"referenciador\" content = \"no-"
+"refererr\"> ou incluindo o cabeçalho \"referentr-político: no-refererr\", "
+"lembre-se.Os requisitos de proteção do CSRF O cabeçalho do \"referente\" "
+"para fazer uma verificação estrita do referente.Se você é uma defesa "
+"concertada, use alternativas como <a rel = \"noreferrer\" ...> para links "
+"para sites de terceiros."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:54
 msgid ""
@@ -4739,49 +4754,49 @@ msgid ""
 "submitting forms. This cookie is required for security reasons, to ensure "
 "that your browser is not being hijacked by third parties."
 msgstr ""
-"You are Seeing this Message Because This Site requires CSRF Cookie When "
-"Submitting Forms.This cookie is required for security reasons, to reure that"
-" your browser is not being hijacled by third parties."
+"Você está vendo esta mensagem porque este site requer cookie CSRF ao enviar "
+"formulários.Este cookie é necessário por razões de segurança, para rear que "
+"seu navegador não está sendo hijaculado por terceiros."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:60
 msgid ""
 "If you have configured your browser to disable cookies, please re-enable "
 "them, at least for this site, or for “same-origin” requests."
 msgstr ""
-"If you have configured your browser to disable cookies, please Re-inable "
-"Them, at least for this site, or for \"Same-Origin\" requirements."
+"Se você configurou seu navegador para desativar os cookies, reiniciá-los, "
+"pelo menos para este site ou para os requisitos de \"Origin\"."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:66
 msgid "More information is available with DEBUG=True."
-msgstr "More information is avoilable with debug = true."
+msgstr "Mais informações são proibidas com depuração = true."
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:44
 msgid "No year specified"
-msgstr "No Year Specified"
+msgstr "Nenhum ano especificado"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:64
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:115
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:214
 msgid "Date out of range"
-msgstr "Date out of Range"
+msgstr "Data fora do alcance"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:94
 msgid "No month specified"
-msgstr "No month specified"
+msgstr "Nenhum mês especificado"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:147
 msgid "No day specified"
-msgstr "No Day Specified"
+msgstr "Nenhum dia especificado"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:194
 msgid "No week specified"
-msgstr "No Week Specified"
+msgstr "Sem semana especificada"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:353
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:384
 #, python-format
 msgid "No %(verbose_name_plural)s available"
-msgstr "No %(verbose_name_plural) s progable"
+msgstr "Sem %(verbose_name_plural) s progitável"
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:680
 #, python-format
@@ -4789,53 +4804,53 @@ msgid ""
 "Future %(verbose_name_plural)s not available because "
 "%(class_name)s.allow_future is False."
 msgstr ""
-"Future %(verbose_name_plural) s notvailable scholary %(class_name) "
-"s.allow_future is false."
+"Future %(verbose_name_plural) S não válido Scholy %(Class_Name) "
+"S.Alow_Future é falso."
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:720
 #, python-format
 msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
-msgstr "INVALID DATE STRING \"%(Datestr) s\" Given format \"%(format) s\""
+msgstr "String de data inválida \"%(DATEST) s\" Dado formato \"%(formato) s\""
 
 #: .\venv\Lib\site-packages\django\views\generic\detail.py:56
 #, python-format
 msgid "No %(verbose_name)s found matching the query"
-msgstr "No %(Verbose_name) s Found Matching The Query"
+msgstr "Não %(verbose_name) s encontrou correspondendo à consulta"
 
 #: .\venv\Lib\site-packages\django\views\generic\list.py:70
 msgid "Page is not “last”, nor can it be converted to an int."
-msgstr "Page is not \"Last\", Nor Can It Be converted to an int."
+msgstr "A página não é \"última\", nem pode ser convertida em um int."
 
 #: .\venv\Lib\site-packages\django\views\generic\list.py:77
 #, python-format
 msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr "INVALID Page ( %(Page_Number) s): %(Message) S"
+msgstr "Página inválida ( %(Page_Number) s): %(mensagem) s"
 
 #: .\venv\Lib\site-packages\django\views\generic\list.py:173
 #, python-format
 msgid "Empty list and “%(class_name)s.allow_empty” is False."
-msgstr "Empty list and “%(class_name) S.allow_Empty” is false."
+msgstr "Lista vazia e \"%(Class_name) s.allow_empty\" são falsas."
 
 #: .\venv\Lib\site-packages\django\views\static.py:49
 msgid "Directory indexes are not allowed here."
-msgstr "Directory Indexes Are Not Allowed Here."
+msgstr "Os índices de diretório não são permitidos aqui."
 
 #: .\venv\Lib\site-packages\django\views\static.py:51
 #, python-format
 msgid "“%(path)s” does not exist"
-msgstr "\"%(Path) s\" does not exist"
+msgstr "\"%(Caminho) s\" não existe"
 
 #: .\venv\Lib\site-packages\django\views\static.py:68
 #: .\venv\Lib\site-packages\django\views\templates\directory_index.html:8
 #: .\venv\Lib\site-packages\django\views\templates\directory_index.html:11
 #, python-format
 msgid "Index of %(directory)s"
-msgstr "Index of %(Directory) s"
+msgstr "Índice de %(diretório) s"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:204
 msgid "The install worked successfully! Congratulations!"
-msgstr "The install worked successfully!Congratulations!"
+msgstr "A instalação funcionou com sucesso!Parabéns!"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
 #, python-format
@@ -4852,30 +4867,30 @@ msgid ""
 "target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
 "and you have not configured any URLs."
 msgstr ""
-"You are Seeing this Page Because <a href = "
-"\"https://docs.djangoproject.com/en/% Letting)s/ref/settings/#debug\" target"
-" = \"_ blank\" RefugAny URLs."
+"Você está vendo esta página porque <a href = "
+"\"https://docs.djangoproject.com/en/% letting) s/ref/Settings/#Debug\" "
+"Target = \"_ Blank\" REFUG qualquer URLs."
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
 msgid "Django Documentation"
-msgstr "DJANGO DOCUMENTATION"
+msgstr "Documentação de Django"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:218
 msgid "Topics, references, &amp; how-to’s"
-msgstr "Topics, references, & amp;How-To’s"
+msgstr "Tópicos, Referências, & amp;Como fazer"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:226
 msgid "Tutorial: A Polling App"
-msgstr "Tutorial: A polling app"
+msgstr "Tutorial: um aplicativo de votação"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:227
 msgid "Get started with Django"
-msgstr "Get Started with Django"
+msgstr "Comece com Django"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:235
 msgid "Django Community"
-msgstr "Django Community"
+msgstr "Comunidade Django"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
-msgstr "Connect, Get Help, or contributes"
+msgstr "Conecte, obtenha ajuda ou contribui"

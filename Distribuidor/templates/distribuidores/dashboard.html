@@ -1,12 +1,12 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 {% block content %}
-<title>Panel Distribuidor - ChibchaWeb</title>
+<title>{% trans "Panel Distribuidor" %} - ChibchaWeb</title>
 
 <div class="container mt-5">
 
-    <h1 class="mb-4">Mi perfil como Distribuidor</h1>
+    <h1 class="mb-4">{% trans "Mi perfil como Distribuidor" %}</h1>
 
     <!-- Tarjeta de información general -->
     <div class="card mb-4">
@@ -14,8 +14,8 @@
             {{ cliente.user.get_full_name|default:cliente.user.username }}
         </div>
         <div class="card-body">
-            <p><strong>Email:</strong> {{ cliente.user.email }}</p>
-            <p><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
+            <p><strong>{% trans "Email" %}:</strong> {{ cliente.user.email }}</p>
+            <p><strong>{% trans "Teléfono" %}:</strong> {{ cliente.telefono }}</p>
 
             
             
@@ -25,19 +25,19 @@
     <!-- Sección de distribuidor -->
     <div class="card">
         <div class="card-header bg-dark text-white">
-            <i class="fas fa-box-open me-2"></i>Mis Paquetes de Distribuidor
+            <i class="fas fa-box-open me-2"></i>{% trans "Mis Paquetes de Distribuidor" %}
         </div>
         <div class="card-body">
-            <p><strong>Tipo de distribuidor:</strong> {{ distribuidor.get_tipo_display }}</p>
-            <p><strong>Dominios disponibles:</strong> {{ distribuidor.cantidad_dominios }}</p>
+            <p><strong>{% trans "Tipo de distribuidor" %}:</strong> {{ distribuidor.get_tipo_display }}</p>
+            <p><strong>{% trans "Dominios disponibles" %}:</strong> {{ distribuidor.cantidad_dominios }}</p>
 
             {% if distribuidor.cantidad_dominios == 0 %}
-                <p class="text-muted">No has comprado paquetes aún.</p>
+                <p class="text-muted">{% trans "No has comprado paquetes aún" %}.</p>
                 <a href="{% url 'pagos:seleccionar_paquete' %}" class="btn btn-chibcha-primary mt-2">
-                    Comprar paquetes para revender
+                    {% trans "Comprar paquetes para revender" %}
                 </a>
             {% else %}
-                <a href="#" class="btn btn-outline-primary mt-2">Ver detalles del paquete</a>
+                <a href="#" class="btn btn-outline-primary mt-2">{% trans "Ver detalles del paquete" %}</a>
             {% endif %}
         </div>
     </div>

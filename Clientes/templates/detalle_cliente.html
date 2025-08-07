@@ -1,8 +1,8 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 {% block content %}
-<title>Configuración de Cuenta - ChibchaWeb</title>
+<title>{% trans "Configuración de Cuenta" %} - ChibchaWeb</title>
 
 <!-- Header de Configuración -->
 <section class="bg-gradient-chibcha text-white py-4">
@@ -14,14 +14,14 @@
                         <i class="fas fa-user-cog fs-3"></i>
                     </div>
                     <div>
-                        <h1 class="h2 mb-1">Configuración de Cuenta</h1>
-                        <p class="mb-0 opacity-75">Gestiona tu información personal y preferencias</p>
+                        <h1 class="h2 mb-1">{% trans "Configuración de Cuenta" %}</h1>
+                        <p class="mb-0 opacity-75">{% trans "Gestiona tu información personal y preferencias" %}</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 text-end">
                 <div class="text-white">
-                    <div class="small opacity-75">Usuario desde</div>
+                    <div class="small opacity-75">{% trans "Usuario desde" %}</div>
                     <div class="fw-bold">{{ cliente.user.date_joined|date:"M Y" }}</div>
                 </div>
             </div>
@@ -40,11 +40,11 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">
                                 <i class="fas fa-user me-2 text-chibcha-primary"></i>
-                                Información Personal
+                                {% trans "Información Personal" %}
                             </h5>
                             <a href="{% url 'clientes:editar_cliente' cliente.id %}" 
                                class="btn btn-outline-chibcha-primary btn-sm">
-                                <i class="fas fa-edit me-1"></i>Editar
+                                <i class="fas fa-edit me-1"></i>{% trans "Editar" %}
                             </a>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label text-muted small fw-semibold">NOMBRE COMPLETO</label>
+                                    <label class="form-label text-muted small fw-semibold">{% trans "NOMBRE COMPLETO" %}</label>
                                     <div class="fs-5 fw-semibold text-dark">
                                         <i class="fas fa-user me-2 text-chibcha-primary"></i>
                                         {{ cliente.user.get_full_name|default:cliente.user.username }}
@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label text-muted small fw-semibold">EMAIL</label>
+                                    <label class="form-label text-muted small fw-semibold">{% trans "EMAIL" %}</label>
                                     <div class="fs-5 fw-semibold text-dark">
                                         <i class="fas fa-envelope me-2 text-chibcha-primary"></i>
                                         {{ cliente.user.email }}
@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label text-muted small fw-semibold">TELÉFONO</label>
+                                    <label class="form-label text-muted small fw-semibold">{% trans "TELÉFONO" %}</label>
                                     <div class="fs-5 fw-semibold text-dark">
                                         <i class="fas fa-phone me-2 text-chibcha-primary"></i>
                                         {{ cliente.telefono|default:"No especificado" }}
@@ -79,13 +79,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label text-muted small fw-semibold">TIPO DE CUENTA</label>
+                                    <label class="form-label text-muted small fw-semibold">{% trans "TIPO DE CUENTA" %}</label>
                                     <div class="fs-5 fw-semibold text-dark">
                                         <i class="fas fa-star me-2 text-chibcha-primary"></i>
                                         {% if cliente.es_distribuidor %}
-                                            <span class="badge bg-success">Distribuidor</span>
+                                            <span class="badge bg-success">{% trans "Distribuidor" %}</span>
                                         {% else %}
-                                            <span class="badge bg-primary">Cliente Regular</span>
+                                            <span class="badge bg-primary">{% trans "Cliente Regular" %}</span>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <h6 class="mb-0">
                                 <i class="fas fa-map-marker-alt me-2 text-chibcha-primary"></i>
-                                Direcciones de Facturación
+                                {% trans "Direcciones de Facturación" %}
                             </h6>
                             <span class="badge bg-chibcha-primary">{{ cliente.direcciones.count }}</span>
                         </div>
@@ -135,13 +135,13 @@
                         {% empty %}
                             <div class="text-center py-4">
                                 <i class="fas fa-map-marker-alt text-muted fs-1 mb-3"></i>
-                                <p class="text-muted mb-3">No tienes direcciones registradas</p>
+                                <p class="text-muted mb-3">{% trans "No tienes direcciones registradas" %}</p>
                             </div>
                         {% endfor %}
                         <div class="d-grid">
                             <a href="{% url 'pagos:registrar_direccion' %}" 
                                class="btn btn-outline-chibcha-primary">
-                                <i class="fas fa-plus me-2"></i>Agregar Dirección
+                                <i class="fas fa-plus me-2"></i>{% trans "Agregar Dirección" %}
                             </a>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <h6 class="mb-0">
                                 <i class="fas fa-credit-card me-2 text-chibcha-primary"></i>
-                                Métodos de Pago
+                                {% trans "Métodos de Pago" %}
                             </h6>
                             <span class="badge bg-chibcha-primary">{{ cliente.tarjetas.count }}</span>
                         </div>
@@ -171,7 +171,7 @@
                                         </div>
                                         <div class="text-muted small">
                                             <i class="fas fa-calendar me-2"></i>
-                                            Vence {{ tarjeta.fecha_vencimiento|date:"m/Y" }}
+                                           {% trans " Vence" %} {{ tarjeta.fecha_vencimiento|date:"m/Y" }}
                                         </div>
                                     </div>
                                     <a href="{% url 'pagos:eliminar_tarjeta' tarjeta.id %}" 
@@ -185,13 +185,13 @@
                         {% empty %}
                             <div class="text-center py-4">
                                 <i class="fas fa-credit-card text-muted fs-1 mb-3"></i>
-                                <p class="text-muted mb-3">No tienes tarjetas registradas</p>
+                                <p class="text-muted mb-3">{% trans "No tienes tarjetas registradas" %}</p>
                             </div>
                         {% endfor %}
                         <div class="d-grid">
                             <a href="{% url 'pagos:registrar_tarjeta' %}" 
                                class="btn btn-outline-success">
-                                <i class="fas fa-plus me-2"></i>Agregar Tarjeta
+                                <i class="fas fa-plus me-2"></i>{% trans "Agregar Tarjeta" %}
                             </a>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                     <div class="card-header bg-light">
                         <h6 class="mb-0">
                             <i class="fas fa-cog me-2 text-chibcha-primary"></i>
-                            Acciones de Cuenta
+                            {% trans "Acciones de Cuenta" %}
                         </h6>
                     </div>
                     <div class="card-body">
@@ -216,11 +216,11 @@
                                     <a href="{% url 'clientes:editar_cliente' cliente.id %}" 
                                        class="btn btn-outline-primary btn-lg">
                                         <i class="fas fa-user-edit me-2"></i>
-                                        Editar Perfil
+                                        {% trans "Editar Perfil" %}
                                     </a>
                                 </div>
                                 <small class="text-muted mt-2 d-block">
-                                    Actualiza tu información personal
+                                    {% trans "Actualiza tu información personal" %}
                                 </small>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -228,11 +228,11 @@
                                     <a href="{% url 'tickets:crear_ticket' %}" 
                                        class="btn btn-outline-success btn-lg">
                                         <i class="fas fa-headset me-2"></i>
-                                        Contactar Soporte
+                                        {% trans "Contactar Soporte" %}
                                     </a>
                                 </div>
                                 <small class="text-muted mt-2 d-block">
-                                    ¿Necesitas ayuda? Estamos aquí
+                                    {% trans "¿Necesitas ayuda? Estamos aquí" %}
                                 </small>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -242,11 +242,11 @@
                                             data-bs-toggle="modal" 
                                             data-bs-target="#deleteAccountModal">
                                         <i class="fas fa-trash-alt me-2"></i>
-                                        Eliminar Cuenta
+                                        {% trans "Eliminar Cuenta" %}
                                     </button>
                                 </div>
                                 <small class="text-muted mt-2 d-block">
-                                    Esta acción no se puede deshacer
+                                    {% trans "Esta acción no se puede deshacer" %}
                                 </small>
                             </div>
                         </div>
@@ -264,32 +264,32 @@
             <div class="modal-header border-0">
                 <h5 class="modal-title text-danger">
                     <i class="fas fa-exclamation-triangle me-2"></i>
-                    Eliminar Cuenta
+                    {% trans "Eliminar Cuenta" %}
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body text-center">
                 <i class="fas fa-user-times text-danger fs-1 mb-3"></i>
-                <h6 class="mb-3">¿Estás seguro de que deseas eliminar tu cuenta?</h6>
+                <h6 class="mb-3">¿{% trans "Estás seguro de que deseas eliminar tu cuenta" %}?</h6>
                 <p class="text-muted">
-                    Esta acción eliminará permanentemente tu cuenta y todos los datos asociados. 
-                    No podrás recuperar esta información.
+                    {% trans "Esta acción eliminará permanentemente tu cuenta y todos los datos asociados" %}. 
+                    {% trans "No podrás recuperar esta información" %}.
                 </p>
                 <div class="alert alert-warning border-0 mt-3">
                     <small>
                         <i class="fas fa-info-circle me-2"></i>
-                        Se cancelarán todos los servicios activos
+                        {% trans "Se cancelarán todos los servicios activos" %}
                     </small>
                 </div>
             </div>
             <div class="modal-footer border-0 justify-content-center">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    <i class="fas fa-times me-2"></i>Cancelar
+                    <i class="fas fa-times me-2"></i>{% trans "Cancelar" %}
                 </button>
                 <form method="post" action="{% url 'clientes:borrar_cliente' %}" style="display:inline;">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">
-                        <i class="fas fa-trash-alt me-2"></i>Eliminar Definitivamente
+                        <i class="fas fa-trash-alt me-2"></i>{% trans "Eliminar Definitivamente" %}
                     </button>
                 </form>
             </div>

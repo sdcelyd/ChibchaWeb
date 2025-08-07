@@ -1,13 +1,13 @@
 {% extends 'administradores/base.html' %}
-
-{% block title %}Crear Usuario - Admin Panel{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Crear Usuario - Admin Panel" %}{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2"><i class="fas fa-user-plus"></i> Crear Nuevo Usuario</h1>
+    <h1 class="h2"><i class="fas fa-user-plus"></i> {% trans "Crear Nuevo Usuario" %}</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <a href="{% url 'administradores:gestionar_usuarios' %}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left"></i> Volver
+            <i class="fas fa-arrow-left"></i> {% trans "Volver" %}
         </a>
     </div>
 </div>
@@ -16,7 +16,7 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-form"></i> Información del Usuario</h5>
+                <h5 class="mb-0"><i class="fas fa-form"></i> {% trans "Información del Usuario" %}</h5>
             </div>
             <div class="card-body">
                 <form method="post">
@@ -146,10 +146,10 @@
                     <!-- Submit Buttons -->
                     <div class="d-flex justify-content-end gap-2">
                         <a href="{% url 'administradores:gestionar_usuarios' %}" class="btn btn-secondary">
-                            <i class="fas fa-times"></i> Cancelar
+                            <i class="fas fa-times"></i> {% trans "Cancelar" %}
                         </a>
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Crear Usuario
+                            <i class="fas fa-save"></i> {% trans "Crear Usuario" %}
                         </button>
                     </div>
                 </form>
@@ -161,38 +161,38 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-info-circle"></i> Información</h5>
+                <h5 class="mb-0"><i class="fas fa-info-circle"></i> {% trans "Información" %}</h5>
             </div>
             <div class="card-body">
-                <h6><i class="fas fa-users"></i> Tipos de Usuario:</h6>
+                <h6><i class="fas fa-users"></i> {% trans "Tipos de Usuario" %}:</h6>
                 <ul class="list-unstyled">
                     <li class="mb-2">
-                        <span class="badge bg-info">Cliente</span> 
-                        Puede contratar servicios de hosting
+                        <span class="badge bg-info">{% trans "Cliente" %}</span> 
+                        {% trans "Puede contratar servicios de hosting" %}
                     </li>
                     <li class="mb-2">
-                        <span class="badge bg-success">Empleado</span> 
-                        Personal de soporte y supervisión
+                        <span class="badge bg-success">{% trans "Empleado" %}</span> 
+                        {% trans "Personal de soporte y supervisión" %}
                     </li>
                     <li class="mb-2">
-                        <span class="badge bg-danger">Administrador</span> 
-                        Acceso completo al sistema
+                        <span class="badge bg-danger">{% trans "Administrador" %}</span> 
+                        {% trans "Acceso completo al sistema" %}
                     </li>
                 </ul>
                 
-                <h6><i class="fas fa-user-tie"></i> Roles de Empleado:</h6>
+                <h6><i class="fas fa-user-tie"></i> {% trans "Roles de Empleado" %}:</h6>
                 <ul class="list-unstyled">
                     <li class="mb-2">
-                        <strong>Agente:</strong> Soporte básico al cliente (Nivel 1)
+                        <strong>{% trans "Agente" %}:</strong> {% trans "Soporte básico al cliente (Nivel 1)" %}
                     </li>
                     <li class="mb-2">
-                        <strong>Supervisor:</strong> Gestión de agentes y escalación (Nivel 2-3)
+                        <strong>{% trans "Supervisor" %}:</strong> {% trans "Gestión de agentes y escalación (Nivel 2-3)" %}
                     </li>
                 </ul>
 
                 <div class="alert alert-info">
                     <i class="fas fa-lightbulb"></i>
-                    <strong>Tip:</strong> El teléfono es opcional. Los empleados se crean con nivel 1 por defecto.
+                    <strong>{% trans "Tip" %}:</strong> {% trans "El teléfono es opcional. Los empleados se crean con nivel 1 por defecto." %}
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 {% extends 'administradores/base.html' %}
-
-{% block title %}Dashboard - Admin Panel{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Dashboard - Admin Panel" %}{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -8,12 +8,12 @@
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                <i class="fas fa-calendar"></i> Este mes
+                <i class="fas fa-calendar"></i>{% trans " Este mes" %}
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Esta semana</a></li>
-                <li><a class="dropdown-item" href="#">Este mes</a></li>
-                <li><a class="dropdown-item" href="#">Este año</a></li>
+                <li><a class="dropdown-item" href="#">{% trans "Esta semana" %}</a></li>
+                <li><a class="dropdown-item" href="#">{% trans "Este mes" %}</a></li>
+                <li><a class="dropdown-item" href="#">{% trans "Este año" %}</a></li>
             </ul>
         </div>
     </div>
@@ -27,7 +27,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-chibcha-secondary text-uppercase mb-1">
-                            Total Clientes
+                            {% trans "Total Clientes" %}
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_clientes|default:0 }}</div>
                     </div>
@@ -45,7 +45,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-chibcha-accent text-uppercase mb-1">
-                            Clientes Activos
+                            {% trans "Clientes Activos" %}
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ clientes_activos|default:0 }}</div>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-chibcha-brown text-uppercase mb-1">
-                            Total Empleados
+                            {% trans "Total Empleados" %}
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_empleados|default:0 }}</div>
                     </div>
@@ -81,7 +81,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-chibcha-light text-uppercase mb-1">
-                            Ingresos Totales
+                            {% trans "Ingresos Totales" %}
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                             ${{ ingresos_totales|floatformat:2|default:"0.00" }}
@@ -103,7 +103,7 @@
         <div class="card">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-chibcha-secondary">
-                    <i class="fas fa-chart-area"></i> Ingresos del Último Mes
+                    <i class="fas fa-chart-area"></i>{% trans " Ingresos del Último Mes" %}
                 </h6>
             </div>
             <div class="card-body">
@@ -117,7 +117,7 @@
         <div class="card">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-chibcha-secondary">
-                    <i class="fas fa-chart-pie"></i> Distribución de Usuarios
+                    <i class="fas fa-chart-pie"></i> {% trans "Distribución de Usuarios" %}
                 </h6>
             </div>
             <div class="card-body">
@@ -134,7 +134,7 @@
         <div class="card">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-chibcha-secondary">
-                    <i class="fas fa-clock"></i> Actividad Reciente
+                    <i class="fas fa-clock"></i> {% trans "Actividad Reciente" %}
                 </h6>
             </div>
             <div class="card-body">
@@ -147,8 +147,8 @@
                                 </span>
                             </div>
                             <div class="flex-grow-1">
-                                <h6 class="mb-0">Nuevo usuario registrado</h6>
-                                <small class="text-muted">Hace 5 minutos</small>
+                                <h6 class="mb-0">{% trans "Nuevo usuario registrado" %}</h6>
+                                <small class="text-muted">{% trans "Hace 5 minutos" %}</small>
                             </div>
                         </div>
                     </div>
@@ -161,8 +161,8 @@
                                 </span>
                             </div>
                             <div class="flex-grow-1">
-                                <h6 class="mb-0">Nuevo pago procesado</h6>
-                                <small class="text-muted">Hace 12 minutos</small>
+                                <h6 class="mb-0">{% trans "Nuevo pago procesado" %}</h6>
+                                <small class="text-muted">{% trans "Hace 12 minutos" %}</small>
                             </div>
                         </div>
                     </div>
@@ -175,15 +175,15 @@
                                 </span>
                             </div>
                             <div class="flex-grow-1">
-                                <h6 class="mb-0">Plan actualizado</h6>
-                                <small class="text-muted">Hace 1 hora</small>
+                                <h6 class="mb-0">{% trans "Plan actualizado" %}</h6>
+                                <small class="text-muted">{% trans "Hace 1 hora" %}</small>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="text-center mt-3">
-                    <a href="#" class="btn btn-outline-secondary btn-sm">Ver toda la actividad</a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm">{% trans "Ver toda la actividad" %}</a>
                 </div>
             </div>
         </div>
@@ -194,7 +194,7 @@
         <div class="card">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-chibcha-secondary">
-                    <i class="fas fa-bolt"></i> Acciones Rápidas
+                    <i class="fas fa-bolt"></i> {% trans "Acciones Rápidas" %}
                 </h6>
             </div>
             <div class="card-body">
@@ -203,13 +203,13 @@
                     <div class="col-6">
                         <a href="{% url 'administradores:crear_usuario' %}" class="btn btn-primary w-100">
                             <i class="fas fa-user-plus"></i><br>
-                            <small>Crear Usuario</small>
+                            <small>{% trans "Crear Usuario" %}</small>
                         </a>
                     </div>
                     <div class="col-6">
                         <a href="{% url 'administradores:gestionar_usuarios' %}" class="btn btn-info w-100">
                             <i class="fas fa-users"></i><br>
-                            <small>Ver Usuarios</small>
+                            <small>{% trans "Ver Usuarios" %}</small>
                         </a>
                     </div>
                     {% endif %}
@@ -218,13 +218,13 @@
                     <div class="col-6">
                         <a href="{% url 'administradores:estadisticas_pagos' %}" class="btn btn-success w-100">
                             <i class="fas fa-chart-line"></i><br>
-                            <small>Estadísticas</small>
+                            <small>{% trans "Estadísticas" %}</small>
                         </a>
                     </div>
                     <div class="col-6">
                         <a href="{% url 'administradores:estadisticas_usuarios' %}" class="btn btn-warning w-100">
                             <i class="fas fa-chart-pie"></i><br>
-                            <small>Reportes</small>
+                            <small>{% trans "Reportes" %}</small>
                         </a>
                     </div>
                     {% endif %}
@@ -236,25 +236,25 @@
         <div class="card mt-3">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-chibcha-secondary">
-                    <i class="fas fa-server"></i> Estado del Sistema
+                    <i class="fas fa-server"></i> {% trans "Estado del Sistema" %}
                 </h6>
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span>Servidor Web</span>
-                    <span class="badge bg-success">Online</span>
+                    <span>{% trans "Servidor Web" %}</span>
+                    <span class="badge bg-success">{% trans "Online" %}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span>Base de Datos</span>
-                    <span class="badge bg-success">Online</span>
+                    <span>{% trans "Base de Datos" %}</span>
+                    <span class="badge bg-success">{% trans "Online" %}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span>Procesamiento de Pagos</span>
-                    <span class="badge bg-success">Online</span>
+                    <span>{% trans "Procesamiento de Pagos" %}</span>
+                    <span class="badge bg-success">{% trans "Online" %}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                    <span>Backups</span>
-                    <span class="badge bg-info">Programado</span>
+                    <span>{% trans "Backups" %}</span>
+                    <span class="badge bg-info">{% trans "Programado" %}</span>
                 </div>
             </div>
         </div>
@@ -269,9 +269,12 @@ const revenueCtx = document.getElementById('revenueChart').getContext('2d');
 const revenueChart = new Chart(revenueCtx, {
     type: 'line',
     data: {
-        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
+        labels: [
+                '{% trans "Ene" %}', '{% trans "Feb" %}', '{% trans "Mar" %}',
+                '{% trans "Abr" %}', '{% trans "May" %}', '{% trans "Jun" %}', '{% trans "Jul" %}'
+            ],
         datasets: [{
-            label: 'Ingresos',
+            label: '{% trans "Ingresos" %}',
             data: [12000, 19000, 15000, 17000, 22000, 25000, 28000],
             borderColor: 'var(--chibcha-secondary)',
             backgroundColor: 'rgba(108, 55, 31, 0.1)',
@@ -305,10 +308,10 @@ const userCtx = document.getElementById('userChart').getContext('2d');
 const userChart = new Chart(userCtx, {
     type: 'doughnut',
     data: {
-        labels: ['Clientes', 'Empleados', 'Administradores'],
+        labels: ['{% trans "Clientes" %}', '{% trans "Empleados" %}', '{% trans "Administradores" %}'],
         datasets: [{
             data: [parseInt("{{ total_clientes|default:'0' }}"), parseInt("{{ total_empleados|default:'0' }}"), 3],
-            backgroundColor: ['var(--chibcha-light)', 'var(--chibcha-accent)', 'var(--chibcha-secondary)'],
+            backgroundColor: ['#007bff', '#28a745', '#ffc107'],
             borderWidth: 0
         }]
     },

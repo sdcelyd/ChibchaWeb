@@ -1,8 +1,8 @@
 {% extends "base_clientes.html" %}
 {% load static %}
-
+{% load i18n %}
 {% block content %}
-<title>Seleccionar Plan - ChibchaWeb</title>
+<title>{% trans "Seleccionar Plan" %} - ChibchaWeb</title>
 
 <!-- Header de Planes -->
 <section class="plans-header bg-gradient-chibcha text-white py-5">
@@ -12,13 +12,13 @@
                 <div class="plans-info">
                     <div class="plans-badge mb-3">
                         <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
-                            <i class="fas fa-server me-2"></i>Hosting Premium
+                            <i class="fas fa-server me-2"></i>{% trans "Hosting Premium" %}
                         </span>
                     </div>
-                    <h1 class="display-5 fw-bold mb-3">Planes de Hosting ChibchaWeb</h1>
+                    <h1 class="display-5 fw-bold mb-3">{% trans "Planes de Hosting" %} ChibchaWeb</h1>
                     <p class="lead mb-0">
-                        Encuentra el plan perfecto para tu proyecto. Todos incluyen SSL gratuito, 
-                        creador de sitios web y soporte técnico especializado.
+                        {% trans "Encuentra el plan perfecto para tu proyecto. Todos incluyen SSL gratuito" %}, 
+                        {% trans "creador de sitios web y soporte técnico especializado" %}.
                     </p>
                 </div>
             </div>
@@ -32,15 +32,15 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="billing-options">
-                    <h5 class="text-center mb-4">Elige tu modalidad de pago</h5>
+                    <h5 class="text-center mb-4">{% trans "Elige tu modalidad de pago" %}</h5>
                     <div class="billing-tabs">
                         <div class="tab-option active" data-period="mensual">
                             <div class="tab-content">
                                 <div class="tab-icon">
                                     <i class="fas fa-calendar-alt"></i>
                                 </div>
-                                <h6>Mensual</h6>
-                                <p class="small text-muted">Pago mes a mes</p>
+                                <h6>{% trans "Mensual" %}</h6>
+                                <p class="small text-muted">{% trans "Pago mes a mes" %}</p>
                             </div>
                         </div>
                         <div class="tab-option" data-period="semestral">
@@ -48,8 +48,8 @@
                                 <div class="tab-icon">
                                     <i class="fas fa-calendar-check"></i>
                                 </div>
-                                <h6>Semestral</h6>
-                                <p class="small text-muted">Ahorra un 10%</p>
+                                <h6>{% trans "Semestral" %}</h6>
+                                <p class="small text-muted">{% trans "Ahorra un" %} 10%</p>
                             </div>
                         </div>
                         <div class="tab-option" data-period="anual">
@@ -57,9 +57,9 @@
                                 <div class="tab-icon">
                                     <i class="fas fa-trophy"></i>
                                 </div>
-                                <h6>Anual</h6>
+                                <h6>{% trans "Anual" %}</h6>
                                 <p class="small text-muted">
-                                    <span class="save-badge">Ahorra 20%</span>
+                                    <span class="save-badge">{% trans "Ahorra" %} 20%</span>
                                 </p>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                     <div class="plan-card {% if clave == 'Platino' %}popular{% endif %}" onclick="selectPlan('{{ clave }}', this)">
                         {% if clave == 'Platino' %}
                         <div class="popular-badge">
-                            <i class="fas fa-star me-1"></i>Más Popular
+                            <i class="fas fa-star me-1"></i>{% trans "Más Popular" %}
                         </div>
                         {% endif %}
                         
@@ -108,17 +108,17 @@
                                 <span class="price-amount monthly-price">${{ datos.precio_mensual }}</span>
                                 <span class="price-amount semestral-price d-none">${{ datos.precio_semestral }}</span>
                                 <span class="price-amount yearly-price d-none">${{ datos.precio_anual }}</span>
-                                <span class="price-period monthly-period">/mes</span>
-                                <span class="price-period semestral-period d-none">/6 meses</span>
-                                <span class="price-period yearly-period d-none">/año</span>
+                                <span class="price-period monthly-period">/{% trans "mes" %}</span>
+                                <span class="price-period semestral-period d-none">/6 {% trans "meses" %}</span>
+                                <span class="price-period yearly-period d-none">/{% trans "año" %}</span>
                             </div>
                             <div class="savings-info">
-                                <small class="monthly-save d-none text-muted">Pago mensual</small>
+                                <small class="monthly-save d-none text-muted">{% trans "Pago mensual" %}</small>
                                 <small class="semestral-save d-none text-success">
-                                    <i class="fas fa-tag me-1"></i>Ahorro del 10%
+                                    <i class="fas fa-tag me-1"></i>{% trans "Ahorro del" %} 10%
                                 </small>
                                 <small class="yearly-save d-none text-success">
-                                    <i class="fas fa-trophy me-1"></i>Mejor precio - 20% off
+                                    <i class="fas fa-trophy me-1"></i>{% trans "Mejor precio" %} - 20% {% trans "off" %}
                                 </small>
                             </div>
                         </div>
@@ -127,40 +127,40 @@
                             <ul class="features-list">
                                 <li>
                                     <i class="fas fa-check text-success me-2"></i>
-                                    <strong>{{ datos.webs }}</strong> sitios web
+                                    <strong>{{ datos.webs }}</strong> {% trans "sitios web" %}
                                 </li>
                                 <li>
                                     <i class="fas fa-check text-success me-2"></i>
-                                    <strong>{{ datos.almacenamiento }}</strong> de almacenamiento
+                                    <strong>{{ datos.almacenamiento }}</strong> {% trans "de almacenamiento" %}
                                 </li>
                                 <li>
                                     <i class="fas fa-check text-success me-2"></i>
-                                    <strong>{{ datos.bases_datos }}</strong> bases de datos
+                                    <strong>{{ datos.bases_datos }}</strong> {% trans "bases de datos" %}
                                 </li>
                                 <li>
                                     <i class="fas fa-check text-success me-2"></i>
-                                    <strong>{{ datos.correos }}</strong> cuentas de email
+                                    <strong>{{ datos.correos }}</strong> {% trans "cuentas de email" %}
                                 </li>
                                 <li>
                                     <i class="fas fa-check text-success me-2"></i>
-                                    <strong>{{ datos.ssl }}</strong> certificados SSL
+                                    <strong>{{ datos.ssl }}</strong> {% trans "certificados SSL" %}
                                 </li>
                                 {% if datos.https %}
                                 <li>
                                     <i class="fas fa-check text-success me-2"></i>
-                                    HTTPS incluido
+                                    {% trans "HTTPS incluido" %}
                                 </li>
                                 {% endif %}
                                 {% if datos.creador_sitios %}
                                 <li>
                                     <i class="fas fa-check text-success me-2"></i>
-                                    Creador de sitios web
+                                    {% trans "Creador de sitios web" %}
                                 </li>
                                 {% endif %}
                                 {% if datos.email_marketing %}
                                 <li>
                                     <i class="fas fa-check text-success me-2"></i>
-                                    Email marketing
+                                    {% trans "Email marketing" %}
                                 </li>
                                 {% endif %}
                             </ul>
@@ -187,18 +187,18 @@
                         <div class="alert alert-info border-0 rounded-3 shadow-sm">
                             <div class="d-flex align-items-center justify-content-center">
                                 <i class="fas fa-info-circle text-primary me-2"></i>
-                                <span><strong>Requisitos:</strong> Necesitas tener registrada una dirección de facturación y una tarjeta de crédito para continuar.</span>
+                                <span><strong>{% trans "Requisitos" %}:</strong> {% trans "Necesitas tener registrada una dirección de facturación y una tarjeta de crédito para continuar" %}.</span>
                             </div>
                         </div>
                     </div>
                     
                     <button type="submit" class="btn btn-chibcha-primary btn-lg px-5 py-3" disabled id="continue-btn">
-                        <i class="fas fa-arrow-right me-2"></i>Continuar con el Plan Seleccionado
+                        <i class="fas fa-arrow-right me-2"></i>{% trans "Continuar con el Plan Seleccionado" %}
                     </button>
                     <div class="mt-3">
                         <small class="text-muted">
                             <i class="fas fa-shield-alt me-1"></i>
-                            Proceso seguro y protegido. Cancela cuando quieras.
+                            {% trans "Proceso seguro y protegido. Cancela cuando quieras" %}.
                         </small>
                     </div>
                 </div>

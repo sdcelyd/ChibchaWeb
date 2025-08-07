@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,63 +21,63 @@
                     <div class="text-center mb-4">
                         <h4 class="text-white">ChibchaWeb</h4>
                         <div class="supervisor-badge">
-                            <i class="fas fa-crown"></i> SUPERVISOR
+                            <i class="fas fa-crown"></i> {% trans "SUPERVISOR" %}
                         </div>
                     </div>
                     
                     <div class="text-white mb-3">
-                        <small class="text-muted">Bienvenido/a</small><br>
+                        <small class="text-muted">{% trans "Bienvenido/a" %}</small><br>
                         <strong>{{ user.first_name }} {{ user.last_name }}</strong><br>
                         <small>{{ user.username }}</small>
                     </div>
 
                     <nav class="nav flex-column">
                         <a class="nav-link active" href="#dashboard" onclick="showSection('dashboard')">
-                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                            <i class="fas fa-tachometer-alt"></i> {% trans "Dashboard" %}
                         </a>
                         <a class="nav-link" href="#tickets" onclick="showSection('tickets')">
-                            <i class="fas fa-ticket-alt"></i> Gestión de Tickets
+                            <i class="fas fa-ticket-alt"></i> {% trans "Gestión de Tickets" %}
                             {% if tickets_sin_asignar %}
                                 <span class="badge bg-warning ms-2">{{ tickets_sin_asignar|length }}</span>
                             {% endif %}
                         </a>
                         <a class="nav-link" href="#empleados" onclick="showSection('empleados')">
-                            <i class="fas fa-user-tie"></i> Gestión de Empleados
+                            <i class="fas fa-user-tie"></i> {% trans "Gestión de Empleados" %}
                         </a>    
                         <hr class="text-white-50 my-3">
                         
                         <!-- Mini información del supervisor -->
                         <div class="supervisor-info p-2 rounded" style="background: rgba(255,255,255,0.1);">
                             <h6 class="text-white mb-2">
-                                <i class="fas fa-user-shield me-2"></i>Mi Información
+                                <i class="fas fa-user-shield me-2"></i>{% trans "Mi Información" %}
                             </h6>
                             <div class="text-white-50 small">
                                 <p class="mb-1">
                                     <i class="fas fa-crown text-warning me-2"></i>
-                                    <strong>Nivel:</strong> {{ nivel_supervisor }}
+                                    <strong>{% trans "Nivel" %}:</strong> {{ nivel_supervisor }}
                                 </p>
                                 <p class="mb-1">
                                     <i class="fas fa-users me-2"></i>
-                                    <strong>Agentes:</strong> {{ agentes|length }}
+                                    <strong>{% trans "Agentes" %}:</strong> {{ agentes|length }}
                                 </p>
                                 <p class="mb-1">
                                     <i class="fas fa-ticket-alt me-2"></i>
-                                    <strong>Tickets Pendientes:</strong> {{ tickets_sin_asignar|length }}
+                                    <strong>{% trans "Tickets Pendientes" %}:</strong> {{ tickets_sin_asignar|length }}
                                 </p>
                                 <p class="mb-1">
                                     <i class="fas fa-clock me-2"></i>
-                                    <strong>Asignados:</strong> {{ tickets_asignados|length }}
+                                    <strong>{% trans "Asignados" %}:</strong> {{ tickets_asignados|length }}
                                 </p>
                                 {% if user.email %}
                                 <p class="mb-2">
                                     <i class="fas fa-envelope me-2"></i>
-                                    <strong>Email:</strong><br>
+                                    <strong>{% trans "Email" %}:</strong><br>
                                     <small>{{ user.email }}</small>
                                 </p>
                                 {% endif %}
                                 <p class="mb-0">
                                     <i class="fas fa-calendar me-2"></i>
-                                    <strong>Sesión:</strong> {{ user.last_login|date:"d/m H:i"|default:"Primera vez" }}
+                                    <strong>{% trans "Sesión" %}:</strong> {{ user.last_login|date:"d/m H:i"|default:"Primera vez" }}
                                 </p>
                             </div>
                             
@@ -85,12 +86,12 @@
                                 {% if tickets_sin_asignar %}
                                 <button class="btn btn-warning btn-sm w-100" onclick="showSection('tickets')" title="Ir a gestión de tickets">
                                     <i class="fas fa-bolt me-1"></i>
-                                    {{ tickets_sin_asignar|length }} ticket{{ tickets_sin_asignar|length|pluralize:"s" }} sin asignar
+                                    {{ tickets_sin_asignar|length }} {% trans "ticket" %}{{ tickets_sin_asignar|length|pluralize:"s" }} {% trans "sin asignar" %}
                                 </button>
                                 {% else %}
                                 <button class="btn btn-success btn-sm w-100" onclick="showSection('empleados')" title="Ver empleados">
                                     <i class="fas fa-check-circle me-1"></i>
-                                    Todo al día
+                                    {% trans "Todo al día" %}
                                 </button>
                                 {% endif %}
                             </div>
@@ -98,7 +99,7 @@
                         
                         <hr class="text-white-50 my-3">
                         <a class="nav-link text-danger" href="{% url 'empleados:logout' %}">
-                            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                            <i class="fas fa-sign-out-alt"></i> {% trans "Cerrar Sesión" %}
                         </a>
                     </nav>
                 </div>
@@ -111,8 +112,8 @@
                     <div id="dashboard-section" class="content-section">
                         <div class="row mb-4">
                             <div class="col">
-                                <h1 class="h3">Dashboard Supervisor - Nivel {{ nivel_supervisor }}</h1>
-                                <p class="text-muted">Panel de control administrativo</p>
+                                <h1 class="h3">{% trans "Dashboard Supervisor" %} - {% trans "Nivel" %} {{ nivel_supervisor }}</h1>
+                                <p class="text-muted">{% trans "Panel de control administrativo" %}</p>
                             </div>
                         </div>  
 
@@ -124,7 +125,7 @@
                                         <div class="d-flex justify-content-between">
                                             <div>
                                                 <h4>{{ agentes.count }}</h4>
-                                                <p class="mb-0">Agentes Nivel {{ nivel_supervisor }}</p>
+                                                <p class="mb-0">{% trans "Agentes Nivel" %} {{ nivel_supervisor }}</p>
                                             </div>
                                             <div class="align-self-center">
                                                 <i class="fas fa-users fa-2x"></i>
@@ -140,7 +141,7 @@
                                         <div class="d-flex justify-content-between">
                                             <div>
                                                 <h4>{{ agentes|length }}</h4>
-                                                <p class="mb-0">Agentes Activos</p>
+                                                <p class="mb-0">{% trans "Agentes Activos" %}</p>
                                             </div>
                                             <div class="align-self-center">
                                                 <i class="fas fa-user-tie fa-2x"></i>
@@ -156,7 +157,7 @@
                                         <div class="d-flex justify-content-between">
                                             <div>
                                                 <h4>{{ tickets_sin_asignar|length }}</h4>
-                                                <p class="mb-0">Tickets Pendientes</p>
+                                                <p class="mb-0">{% trans "Tickets Pendientes" %}</p>
                                             </div>
                                             <div class="align-self-center">
                                                 <i class="fas fa-ticket-alt fa-2x"></i>
@@ -171,8 +172,8 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div>
-                                                <h4>Nivel {{ nivel_supervisor }}</h4>
-                                                <p class="mb-0">Nivel de Acceso</p>
+                                                <h4>{% trans "Nivel" %} {{ nivel_supervisor }}</h4>
+                                                <p class="mb-0">{% trans "Nivel de Acceso" %}</p>
                                             </div>
                                             <div class="align-self-center">
                                                 <i class="fas fa-star fa-2x"></i>
@@ -188,29 +189,29 @@
                             <div class="col-12">
                                 <div class="card dashboard-card">
                                     <div class="card-header">
-                                        <h5 class="card-title mb-0">Acciones Rápidas</h5>
+                                        <h5 class="card-title mb-0">{% trans "Acciones Rápidas" %}</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-4 mb-3">
                                                 <a href="#tickets" onclick="showSection('tickets')" class="btn btn-outline-primary w-100 p-3">
                                                     <i class="fas fa-ticket-alt fa-2x mb-2"></i><br>
-                                                    <strong>Gestionar Tickets</strong><br>
-                                                    <small>{{ tickets_sin_asignar|length }} pendientes</small>
+                                                    <strong>{% trans "Gestionar Tickets" %}</strong><br>
+                                                    <small>{{ tickets_sin_asignar|length }} {% trans "pendientes" %}</small>
                                                 </a>
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <a href="#empleados" onclick="showSection('empleados')" class="btn btn-outline-success w-100 p-3">
                                                     <i class="fas fa-users fa-2x mb-2"></i><br>
-                                                    <strong>Ver Empleados</strong><br>
-                                                    <small>{{ agentes|length }} agentes</small>
+                                                    <strong>{% trans "Ver Empleados" %}</strong><br>
+                                                    <small>{{ agentes|length }} {% trans "agentes" %}</small>
                                                 </a>
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <a href="#" class="btn btn-outline-info w-100 p-3">
                                                     <i class="fas fa-chart-bar fa-2x mb-2"></i><br>
-                                                    <strong>Reportes</strong><br>
-                                                    <small>Ver estadísticas</small>
+                                                    <strong>{% trans "Reportes" %}</strong><br>
+                                                    <small>{% trans "Ver estadísticas" %}</small>
                                                 </a>
                                             </div>
                                         </div>
@@ -224,8 +225,8 @@
                     <div id="tickets-section" class="content-section" style="display: none;">
                         <div class="row mb-4">
                             <div class="col">
-                                <h1 class="h3">Gestión de Tickets - Nivel {{ nivel_supervisor }}</h1>
-                                <p class="text-muted">Asignación y seguimiento de tickets de soporte</p>
+                                <h1 class="h3">{% trans "Gestión de Tickets" %} - {% trans "Nivel" %} {{ nivel_supervisor }}</h1>
+                                <p class="text-muted">{% trans "Asignación y seguimiento de tickets de soporte" %}</p>
                             </div>
                         </div>
 
@@ -236,7 +237,7 @@
                                     <div class="card-header bg-warning text-white">
                                         <h5 class="card-title mb-0">
                                             <i class="fas fa-exclamation-circle me-2"></i>
-                                            Tickets Sin Asignar ({{ tickets_sin_asignar|length }})
+                                            {% trans "Tickets Sin Asignar" %} ({{ tickets_sin_asignar|length }})
                                         </h5>
                                     </div>
                                     <div class="card-body">
@@ -245,11 +246,11 @@
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID</th>
-                                                            <th>Nombre</th>
-                                                            <th>Cliente</th>
-                                                            <th>Fecha</th>
-                                                            <th>Acción</th>
+                                                            <th>{% trans "ID" %}</th>
+                                                            <th>{% trans "Nombre" %}</th>
+                                                            <th>{% trans "Cliente" %}</th>
+                                                            <th>{% trans "Fecha" %}</th>
+                                                            <th>{% trans "Acción" %}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="tickets-sin-asignar-tbody">
@@ -263,7 +264,7 @@
                                                                 <div class="btn-group">
                                                                     <button type="button" class="btn btn-sm btn-primary dropdown-toggle" 
                                                                             data-bs-toggle="dropdown" aria-expanded="false">
-                                                                        Asignar
+                                                                        {% trans "Asignar" %}
                                                                     </button>
                                                                     <ul class="dropdown-menu">
                                                                         {% for agente in agentes %}
@@ -293,15 +294,15 @@
                                             <div class="text-center mt-3">
                                                 <button class="btn btn-outline-warning" onclick="openTicketModal('sin-asignar')">
                                                     <i class="fas fa-expand-alt me-2"></i>
-                                                    Ver todos ({{ tickets_sin_asignar|length }} tickets)
+                                                    {% trans "Ver todos" %} ({{ tickets_sin_asignar|length }} {% trans "tickets" %})
                                                 </button>
                                             </div>
                                             {% endif %}
                                         {% else %}
                                             <div class="text-center py-4">
                                                 <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
-                                                <h5 class="text-muted">No hay tickets sin asignar</h5>
-                                                <p class="text-muted">Todos los tickets están asignados.</p>
+                                                <h5 class="text-muted">{% trans "No hay tickets sin asignar" %}</h5>
+                                                <p class="text-muted">{% trans "Todos los tickets están asignados" %}.</p>
                                             </div>
                                         {% endif %}
                                     </div>
@@ -314,7 +315,7 @@
                                     <div class="card-header bg-info text-white">
                                         <h5 class="card-title mb-0">
                                             <i class="fas fa-user-check me-2"></i>
-                                            Tickets Asignados ({{ tickets_asignados|length }})
+                                            {% trans "Tickets Asignados" %} ({{ tickets_asignados|length }})
                                         </h5>
                                     </div>
                                     <div class="card-body">
@@ -323,13 +324,13 @@
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID</th>
-                                                            <th>Nombre</th>
-                                                            <th>Cliente</th>
-                                                            <th>Asignado a</th>
-                                                            <th>Estado</th>
-                                                            <th>Fecha Asig.</th>
-                                                            <th>Acción</th>
+                                                            <th>{% trans "ID" %}</th>
+                                                            <th>{% trans "Nombre" %}</th>
+                                                            <th>{% trans "Cliente" %}</th>
+                                                            <th>{% trans "Asignado a" %}</th>
+                                                            <th>{% trans "Estado" %}</th>
+                                                            <th>{% trans "Fecha Asig" %}.</th>
+                                                            <th>{% trans "Acción" %}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="tickets-asignados-tbody">
@@ -371,15 +372,15 @@
                                             <div class="text-center mt-3">
                                                 <button class="btn btn-outline-info" onclick="openTicketModal('asignados')">
                                                     <i class="fas fa-expand-alt me-2"></i>
-                                                    Ver todos ({{ tickets_asignados|length }} tickets)
+                                                    {% trans "Ver todos" %} ({{ tickets_asignados|length }} {% trans "tickets" %})
                                                 </button>
                                             </div>
                                             {% endif %}
                                         {% else %}
                                             <div class="text-center py-4">
                                                 <i class="fas fa-info-circle fa-3x text-muted mb-3"></i>
-                                                <h5 class="text-muted">No hay tickets asignados</h5>
-                                                <p class="text-muted">No hay tickets asignados en tu nivel.</p>
+                                                <h5 class="text-muted">{% trans "No hay tickets asignados" %}</h5>
+                                                <p class="text-muted">{% trans "No hay tickets asignados en tu nivel" %}.</p>
                                             </div>
                                         {% endif %}
                                     </div>
@@ -392,8 +393,8 @@
                     <div id="empleados-section" class="content-section" style="display: none;">
                         <div class="row mb-4">
                             <div class="col">
-                                <h1 class="h3">Gestión de Empleados - Nivel {{ nivel_supervisor }}</h1>
-                                <p class="text-muted">Administración de agentes de tu nivel</p>
+                                <h1 class="h3">{% trans "Gestión de Empleados" %} - {% trans "Nivel" %} {{ nivel_supervisor }}</h1>
+                                <p class="text-muted">{% trans "Administración de agentes de tu nivel" %}</p>
                             </div>
                         </div>
 
@@ -401,7 +402,7 @@
                             <div class="col-12">
                                 <div class="card dashboard-card">
                                     <div class="card-header">
-                                        <h5 class="card-title mb-0">Agentes de Nivel {{ nivel_supervisor }}</h5>
+                                        <h5 class="card-title mb-0">{% trans "Agentes de Nivel" %} {{ nivel_supervisor }}</h5>
                                     </div>
                                     <div class="card-body">
                                         {% if agentes_con_tickets %}
@@ -409,12 +410,12 @@
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>Nombre</th>
-                                                            <th>Usuario</th>
-                                                            <th>Email</th>
-                                                            <th>Estado</th>
-                                                            <th>Tickets Asignados</th>
-                                                            <th>Acción</th>
+                                                            <th>{% trans "Nombre" %}</th>
+                                                            <th>{% trans "Usuario" %}</th>
+                                                            <th>{% trans "Email" %}</th>
+                                                            <th>{% trans "Estado" %}</th>
+                                                            <th>{% trans "Tickets Asignados" %}</th>
+                                                            <th>{% trans "Acción" %}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -425,9 +426,9 @@
                                                             <td>{{ item.agente.user.email }}</td>
                                                             <td>
                                                                 {% if item.agente.activo %}
-                                                                    <span class="badge bg-success">Activo</span>
+                                                                    <span class="badge bg-success">{% trans "Activo" %}</span>
                                                                 {% else %}
-                                                                    <span class="badge bg-danger">Inactivo</span>
+                                                                    <span class="badge bg-danger">{% trans "Inactivo" %}</span>
                                                                 {% endif %}
                                                             </td>
                                                             <td>
@@ -441,7 +442,7 @@
                                                                         data-empleado-email="{{ item.agente.user.email }}"
                                                                         data-empleado-activo="{{ item.agente.activo }}"
                                                                         data-empleado-fecha-ingreso="{{ item.agente.user.date_joined|date:'d/m/Y' }}">
-                                                                    <i class="fas fa-eye me-1"></i>Ver Detalles
+                                                                    <i class="fas fa-eye me-1"></i>{% trans "Ver Detalles" %}
                                                                 </button>
                                                             </td>
                                                         </tr>
@@ -452,8 +453,8 @@
                                         {% else %}
                                             <div class="text-center py-4">
                                                 <i class="fas fa-users fa-3x text-muted mb-3"></i>
-                                                <h5 class="text-muted">No hay agentes de nivel {{ nivel_supervisor }}</h5>
-                                                <p class="text-muted">Aún no se han asignado agentes a este nivel.</p>
+                                                <h5 class="text-muted">{% trans "No hay agentes de nivel" %} {{ nivel_supervisor }}</h5>
+                                                <p class="text-muted">{% trans "Aún no se han asignado agentes a este nivel" %}.</p>
                                             </div>
                                         {% endif %}
                                     </div>
@@ -473,7 +474,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="ticketsModalLabel">
                         <i class="fas fa-ticket-alt me-2"></i>
-                        <span id="modal-title-text">Gestión de Tickets</span>
+                        <span id="modal-title-text">{% trans "Gestión de Tickets" %}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -482,25 +483,25 @@
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <label for="filtroFecha" class="form-label">
-                                <i class="fas fa-calendar me-1"></i>Filtrar por fecha
+                                <i class="fas fa-calendar me-1"></i>{% trans "Filtrar por fecha" %}
                             </label>
                             <input type="date" class="form-control" id="filtroFecha" onchange="aplicarFiltros()">
                         </div>
                         <div class="col-md-4">
                             <label for="filtroEstado" class="form-label">
-                                <i class="fas fa-filter me-1"></i>Filtrar por estado
+                                <i class="fas fa-filter me-1"></i>{% trans "Filtrar por estado" %}
                             </label>
                             <select class="form-select" id="filtroEstado" onchange="aplicarFiltros()">
-                                <option value="">Todos los estados</option>
-                                <option value="En espera">En espera</option>
-                                <option value="En Proceso">En Proceso</option>
-                                <option value="Resuelto">Resuelto</option>
-                                <option value="Cerrado">Cerrado</option>
+                                <option value="">{% trans "Todos los estados" %}</option>
+                                <option value="En espera">{% trans "En espera" %}</option>
+                                <option value="En Proceso">{% trans "En Proceso" %}</option>
+                                <option value="Resuelto">{% trans "Resuelto" %}</option>
+                                <option value="Cerrado">{% trans "Cerrado" %}</option>
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="filtroCliente" class="form-label">
-                                <i class="fas fa-user me-1"></i>Buscar cliente
+                                <i class="fas fa-user me-1"></i>{% trans "Buscar cliente" %}
                             </label>
                             <input type="text" class="form-control" id="filtroCliente" placeholder="Nombre del cliente..." onkeyup="aplicarFiltros()">
                         </div>
@@ -511,16 +512,16 @@
                         <div class="col-12">
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-outline-secondary btn-sm" onclick="filtroRapido('hoy')">
-                                    <i class="fas fa-clock me-1"></i>Hoy
+                                    <i class="fas fa-clock me-1"></i>{% trans "Hoy" %}
                                 </button>
                                 <button type="button" class="btn btn-outline-secondary btn-sm" onclick="filtroRapido('semana')">
-                                    <i class="fas fa-calendar-week me-1"></i>Esta semana
+                                    <i class="fas fa-calendar-week me-1"></i>{% trans "Esta semana" %}
                                 </button>
                                 <button type="button" class="btn btn-outline-secondary btn-sm" onclick="filtroRapido('mes')">
-                                    <i class="fas fa-calendar-alt me-1"></i>Este mes
+                                    <i class="fas fa-calendar-alt me-1"></i>{% trans "Este mes" %}
                                 </button>
                                 <button type="button" class="btn btn-outline-danger btn-sm" onclick="limpiarFiltros()">
-                                    <i class="fas fa-times me-1"></i>Limpiar
+                                    <i class="fas fa-times me-1"></i>{% trans "Limpiar" %}
                                 </button>
                             </div>
                         </div>
@@ -531,12 +532,12 @@
                         <table class="table table-hover" id="modalTicketsTable">
                             <thead class="table-dark">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Cliente</th>
-                                    <th>Fecha Creación</th>
-                                    <th id="modal-header-extra">Estado</th>
-                                    <th>Acción</th>
+                                    <th>{% trans "ID" %}</th>
+                                    <th>{% trans "Nombre" %}</th>
+                                    <th>{% trans "Cliente" %}</th>
+                                    <th>{% trans "Fecha Creación" %}</th>
+                                    <th id="modal-header-extra">{% trans "Estado" %}</th>
+                                    <th>{% trans "Acción" %}</th>
                                 </tr>
                             </thead>
                             <tbody id="modalTicketsTableBody">
@@ -547,12 +548,12 @@
 
                     <!-- Contador de resultados -->
                     <div class="text-muted text-center mt-3">
-                        <small id="contadorResultados">Mostrando 0 tickets</small>
+                        <small id="contadorResultados">{% trans "Mostrando 0 tickets" %}</small>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="fas fa-times me-2"></i>Cerrar
+                        <i class="fas fa-times me-2"></i>{% trans "Cerrar" %}
                     </button>
                 </div>
             </div>
@@ -566,31 +567,31 @@
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="ticketDetalleModalLabel">
                         <i class="fas fa-ticket-alt me-2"></i>
-                        Detalles del Ticket #<span id="ticket-detail-id"></span>
+                        {% trans "Detalles del Ticket" %} #<span id="ticket-detail-id"></span>
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <h6><i class="fas fa-info-circle text-primary me-2"></i>Información General</h6>
+                            <h6><i class="fas fa-info-circle text-primary me-2"></i>{% trans "Información General" %}</h6>
                             <div class="card border-0 bg-light">
                                 <div class="card-body p-3">
-                                    <p><strong>Título:</strong> <span id="ticket-detail-nombre"></span></p>
-                                    <p><strong>Cliente:</strong> <span id="ticket-detail-cliente"></span></p>
-                                    <p><strong>Fecha de Creación:</strong> <span id="ticket-detail-fecha"></span></p>
-                                    <p><strong>Estado:</strong> <span id="ticket-detail-estado" class="badge"></span></p>
-                                    <p><strong>Prioridad:</strong> <span id="ticket-detail-prioridad" class="badge"></span></p>
+                                    <p><strong>{% trans "Título" %}:</strong> <span id="ticket-detail-nombre"></span></p>
+                                    <p><strong>{% trans "Cliente" %}:</strong> <span id="ticket-detail-cliente"></span></p>
+                                    <p><strong>{% trans "Fecha de Creación" %}:</strong> <span id="ticket-detail-fecha"></span></p>
+                                    <p><strong>{% trans "Estado" %}:</strong> <span id="ticket-detail-estado" class="badge"></span></p>
+                                    <p><strong>{% trans "Prioridad" %}:</strong> <span id="ticket-detail-prioridad" class="badge"></span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <h6><i class="fas fa-user-tie text-success me-2"></i>Asignación</h6>
+                            <h6><i class="fas fa-user-tie text-success me-2"></i>{% trans "Asignación" %}</h6>
                             <div class="card border-0 bg-light">
                                 <div class="card-body p-3">
-                                    <p><strong>Agente Asignado:</strong> <span id="ticket-detail-agente"></span></p>
-                                    <p><strong>Fecha de Asignación:</strong> <span id="ticket-detail-fecha-asignacion"></span></p>
-                                    <p><strong>Último Contacto:</strong> <span id="ticket-detail-ultimo-contacto"></span></p>
+                                    <p><strong>{% trans "Agente Asignado" %}:</strong> <span id="ticket-detail-agente"></span></p>
+                                    <p><strong>{% trans "Fecha de Asignación" %}:</strong> <span id="ticket-detail-fecha-asignacion"></span></p>
+                                    <p><strong>{% trans "Último Contacto" %}:</strong> <span id="ticket-detail-ultimo-contacto"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -600,7 +601,7 @@
                     
                     <div class="row">
                         <div class="col-12">
-                            <h6><i class="fas fa-file-alt text-info me-2"></i>Descripción del Problema</h6>
+                            <h6><i class="fas fa-file-alt text-info me-2"></i>{% trans "Descripción del Problema" %}</h6>
                             <div class="card border-0 bg-light">
                                 <div class="card-body">
                                     <p id="ticket-detail-descripcion" class="mb-0"></p>
@@ -613,7 +614,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <h6><i class="fas fa-history text-warning me-2"></i>Historial de Actividades</h6>
+                            <h6><i class="fas fa-history text-warning me-2"></i>{% trans "Historial de Actividades" %}</h6>
                             <div class="timeline" id="ticket-detail-timeline">
                                 <!-- El historial se cargará dinámicamente -->
                             </div>
@@ -622,7 +623,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="fas fa-times me-2"></i>Cerrar
+                        <i class="fas fa-times me-2"></i>{% trans "Cerrar" %}
                     </button>
                 </div>
             </div>
@@ -636,7 +637,7 @@
                 <div class="modal-header bg-success text-white">
                     <h5 class="modal-title" id="empleadoDetalleModalLabel">
                         <i class="fas fa-user-tie me-2"></i>
-                        Información del Empleado
+                        {% trans "Información del Empleado" %}
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -655,51 +656,51 @@
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <h6><i class="fas fa-info-circle text-primary me-2"></i>Información Personal</h6>
+                            <h6><i class="fas fa-info-circle text-primary me-2"></i>{% trans "Información Personal" %}</h6>
                             <div class="card border-0 bg-light">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p><strong>Email:</strong> <span id="empleado-email"></span></p>
-                                            <p><strong>Teléfono:</strong> <span id="empleado-telefono">No disponible</span></p>
+                                            <p><strong>{% trans "Email" %}:</strong> <span id="empleado-email"></span></p>
+                                            <p><strong>{% trans "Teléfono" %}:</strong> <span id="empleado-telefono">{% trans "No disponible" %}</span></p>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p><strong>Fecha de Ingreso:</strong> <span id="empleado-fecha-ingreso"></span></p>
-                                            <p><strong>Nivel:</strong> <span id="empleado-nivel" class="badge bg-info"></span></p>
+                                            <p><strong>{% trans "Fecha de Ingreso" %}:</strong> <span id="empleado-fecha-ingreso"></span></p>
+                                            <p><strong>{% trans "Nivel" %}:</strong> <span id="empleado-nivel" class="badge bg-info"></span></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <h6 class="mt-3"><i class="fas fa-chart-bar text-success me-2"></i>Estadísticas de Trabajo</h6>
+                            <h6 class="mt-3"><i class="fas fa-chart-bar text-success me-2"></i>{% trans "Estadísticas de Trabajo" %}</h6>
                             <div class="card border-0 bg-light">
                                 <div class="card-body">
                                     <div class="row text-center">
                                         <div class="col-4">
                                             <h4 class="text-primary" id="empleado-tickets-asignados">0</h4>
-                                            <small class="text-muted">Tickets Asignados</small>
+                                            <small class="text-muted">{% trans "Tickets Asignados" %}</small>
                                         </div>
                                         <div class="col-4">
                                             <h4 class="text-success" id="empleado-tickets-resueltos">0</h4>
-                                            <small class="text-muted">Tickets Resueltos</small>
+                                            <small class="text-muted">{% trans "Tickets Resueltos" %}</small>
                                         </div>
                                         <div class="col-4">
                                             <h4 class="text-warning" id="empleado-tickets-pendientes">0</h4>
-                                            <small class="text-muted">Tickets Pendientes</small>
+                                            <small class="text-muted">{% trans "Tickets Pendientes" %}</small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <h6 class="mt-3"><i class="fas fa-tasks text-info me-2"></i>Últimos Tickets</h6>
+                            <h6 class="mt-3"><i class="fas fa-tasks text-info me-2"></i>{% trans "Últimos Tickets" %}</h6>
                             <div class="table-responsive">
                                 <table class="table table-sm">
                                     <thead>
                                         <tr>
-                                            <th>Ticket</th>
-                                            <th>Cliente</th>
-                                            <th>Estado</th>
-                                            <th>Fecha</th>
+                                            <th>{% trans "Ticket" %}</th>
+                                            <th>{% trans "Cliente" %}</th>
+                                            <th>{% trans "Estado" %}</th>
+                                            <th>{% trans "Fecha" %}</th>
                                         </tr>
                                     </thead>
                                     <tbody id="empleado-tickets-recientes">
@@ -712,10 +713,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="fas fa-times me-2"></i>Cerrar
+                        <i class="fas fa-times me-2"></i>{% trans "Cerrar" %}
                     </button>
                     <button type="button" class="btn btn-warning" onclick="contactarEmpleado()">
-                        <i class="fas fa-envelope me-2"></i>Contactar
+                        <i class="fas fa-envelope me-2"></i>{% trans "Contactar" %}
                     </button>
                 </div>
             </div>

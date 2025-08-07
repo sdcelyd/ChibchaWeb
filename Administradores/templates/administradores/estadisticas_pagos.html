@@ -1,13 +1,13 @@
 {% extends 'administradores/base.html' %}
-
-{% block title %}Estadísticas de Pagos - Admin Panel{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Estadísticas de Pagos - Admin Panel" %}{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2"><i class="fas fa-chart-line"></i> Estadísticas de Pagos e Ingresos</h1>
+    <h1 class="h2"><i class="fas fa-chart-line"></i> {% trans "Estadísticas de Pagos e Ingresos" %}</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <button type="button" class="btn btn-outline-secondary btn-sm" onclick="window.print()">
-            <i class="fas fa-print"></i> Imprimir
+            <i class="fas fa-print"></i> {% trans "Imprimir" %}
         </button>
     </div>
 </div>
@@ -15,33 +15,33 @@
 <!-- Filters -->
 <div class="card mb-4">
     <div class="card-header">
-        <h5 class="mb-0"><i class="fas fa-filter"></i> Filtros de Período</h5>
+        <h5 class="mb-0"><i class="fas fa-filter"></i> {% trans "Filtros de Período" %}</h5>
     </div>
     <div class="card-body">
         <form method="get" class="row g-3">
             <div class="col-md-3">
-                <label for="periodo" class="form-label">Período Predefinido</label>
+                <label for="periodo" class="form-label">{% trans "Período Predefinido" %}</label>
                 <select name="periodo" id="periodo" class="form-select">
-                    <option value="7" {% if periodo == '7' %}selected{% endif %}>Últimos 7 días</option>
-                    <option value="30" {% if periodo == '30' %}selected{% endif %}>Últimos 30 días</option>
-                    <option value="90" {% if periodo == '90' %}selected{% endif %}>Últimos 3 meses</option>
-                    <option value="365" {% if periodo == '365' %}selected{% endif %}>Último año</option>
-                    <option value="custom" {% if periodo == 'custom' %}selected{% endif %}>Personalizado</option>
+                    <option value="7" {% if periodo == '7' %}selected{% endif %}>{% trans "Últimos 7 días" %}</option>
+                    <option value="30" {% if periodo == '30' %}selected{% endif %}>{% trans "Últimos 30 días" %}</option>
+                    <option value="90" {% if periodo == '90' %}selected{% endif %}>{% trans "Últimos 3 meses" %}</option>
+                    <option value="365" {% if periodo == '365' %}selected{% endif %}>{% trans "Último año" %}</option>
+                    <option value="custom" {% if periodo == 'custom' %}selected{% endif %}>{% trans "Personalizado" %}</option>
                 </select>
             </div>
             <div class="col-md-3" id="fecha-inicio-container">
-                <label for="fecha_inicio" class="form-label">Fecha Inicio</label>
+                <label for="fecha_inicio" class="form-label">{% trans "Fecha Inicio" %}</label>
                 <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control" value="{{ fecha_inicio }}">
             </div>
             <div class="col-md-3" id="fecha-fin-container">
-                <label for="fecha_fin" class="form-label">Fecha Fin</label>
+                <label for="fecha_fin" class="form-label">{% trans "Fecha Fin" %}</label>
                 <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" value="{{ fecha_fin }}">
             </div>
             <div class="col-md-3">
                 <label class="form-label">&nbsp;</label>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-search"></i> Filtrar
+                        <i class="fas fa-search"></i> {% trans "Filtrar" %}
                     </button>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Ingresos Totales
+                            {% trans "Ingresos Totales" %}
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                             ${{ total_ingresos|floatformat:2 }}
@@ -77,7 +77,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Total Transacciones
+                           {% trans " Total Transacciones" %}
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_transacciones }}</div>
                     </div>
@@ -95,7 +95,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                            Promedio por Transacción
+                            {% trans "Promedio por Transacción" %}
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                             ${{ promedio_transaccion|floatformat:2 }}
@@ -115,7 +115,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Crecimiento
+                           {% trans " Crecimiento" %}
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+15.3%</div>
                     </div>
@@ -135,7 +135,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    <i class="fas fa-chart-area"></i> Ingresos por Día
+                    <i class="fas fa-chart-area"></i> {% trans "Ingresos por Día" %}
                 </h6>
             </div>
             <div class="card-body">
@@ -149,7 +149,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    <i class="fas fa-chart-pie"></i> Ingresos por Plan
+                    <i class="fas fa-chart-pie"></i>{% trans " Ingresos por Plan" %}
                 </h6>
             </div>
             <div class="card-body">
@@ -166,7 +166,7 @@
         <div class="card">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    <i class="fas fa-trophy"></i> Top 10 Clientes por Ingresos
+                    <i class="fas fa-trophy"></i>{% trans "Top 10 Clientes por Ingresos" %}
                 </h6>
             </div>
             <div class="card-body">
@@ -175,9 +175,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Cliente</th>
-                                <th>Total</th>
-                                <th>Transacciones</th>
+                                <th>{% trans "Cliente" %}</th>
+                                <th>{% trans "Total" %}</th>
+                                <th>{% trans "Transacciones" %}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -197,7 +197,7 @@
                             <tr>
                                 <td colspan="4" class="text-center py-3">
                                     <i class="fas fa-info-circle text-muted"></i>
-                                    No hay datos disponibles
+                                    {% trans "No hay datos disponibles" %}
                                 </td>
                             </tr>
                             {% endfor %}
@@ -213,7 +213,7 @@
         <div class="card">
             <div class="card-header">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    <i class="fas fa-layer-group"></i> Ingresos por Plan de Hosting
+                    <i class="fas fa-layer-group"></i> {% trans "Ingresos por Plan de Hosting" %}
                 </h6>
             </div>
             <div class="card-body">
@@ -221,9 +221,9 @@
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
-                                <th>Plan</th>
-                                <th>Ingresos</th>
-                                <th>Transacciones</th>
+                                <th>{% trans "Plan" %}</th>
+                                <th>{% trans "Ingresos" %}</th>
+                                <th>{% trans "Transacciones" %}</th>
                                 <th>%</th>
                             </tr>
                         </thead>
@@ -246,7 +246,7 @@
                             <tr>
                                 <td colspan="4" class="text-center py-3">
                                     <i class="fas fa-info-circle text-muted"></i>
-                                    No hay datos disponibles
+                                    {% trans "No hay datos disponibles" %}
                                 </td>
                             </tr>
                             {% endfor %}
@@ -262,13 +262,13 @@
 <div class="card mt-4">
     <div class="card-header">
         <h6 class="m-0 font-weight-bold text-primary">
-            <i class="fas fa-download"></i> Exportar Datos
+            <i class="fas fa-download"></i> {% trans "Exportar Datos" %}
         </h6>
     </div>
     <div class="card-body">
         <div class="row">
             <div class="col-md-6">
-                <p class="mb-3">Descarga los datos en diferentes formatos:</p>
+                <p class="mb-3">{% trans "Descarga los datos en diferentes formatos" %}:</p>
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-outline-success">
                         <i class="fas fa-file-excel"></i> Excel
@@ -284,7 +284,7 @@
             <div class="col-md-6">
                 <div class="alert alert-info mb-0">
                     <i class="fas fa-info-circle"></i>
-                    <strong>Nota:</strong> Los reportes incluyen todos los datos del período seleccionado.
+                    <strong>{% trans "Nota" %}:</strong> {% trans "Los reportes incluyen todos los datos del período seleccionado." %}
                 </div>
             </div>
         </div>
