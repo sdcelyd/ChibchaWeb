@@ -190,7 +190,7 @@
             </div>
             {% endif %}
             <div class="col-auto">
-                <a href="{% url 'home' %}#planes" class="quick-action-btn">
+                <a href="{% url 'pagos:seleccionar_plan' %}" class="quick-action-btn">
                     <i class="fas fa-upgrade"></i>
                     <span>{% if cliente.suscripcion_activa %}{% trans "Cambiar Plan" %}{% else %}{% trans "Suscribirse" %}{% endif %}</span>
                 </a>

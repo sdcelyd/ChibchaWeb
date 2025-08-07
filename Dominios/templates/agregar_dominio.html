@@ -124,19 +124,27 @@
                                     {% if dominio_disponible %}
                                         <div class="alert alert-success">
                                             <i class="fas fa-check-circle me-2"></i>
-                                            <strong>¡{% trans "Excelente" %}!</strong> {% trans "El dominio" %} "{{ dominio_valor }}" {% trans "está disponible y listo para usar." %}
+                                            <strong>¡{% trans "Dominio disponible" %}!</strong> {% trans "El dominio" %} "{{ dominio_valor }}" {% trans "no existe y puedes registrarlo." %}
                                             <div class="mt-2">
                                                 <small>✓ {% trans "Dominio disponible para registro" %}</small><br>
                                                 <small>✓ {% trans "Listo para configurar hosting" %}</small><br>
                                                 <small>✓ {% trans "SSL gratuito incluido" %}</small>
                                             </div>
                                         </div>
-                                    {% else %}
+                                    {% elif dominio_existe and not dominio_disponible %}
                                         <div class="alert alert-warning">
                                             <i class="fas fa-exclamation-triangle me-2"></i>
+                                            <strong>{% trans "Dominio existente" %}:</strong> "{{ dominio_valor }}"
+                                            <div class="mt-2">
+                                                <small>• {% trans "El dominio existe, pero no tiene web activa o está protegido." %}</small><br>
+                                                <small>• {% trans "Puedes intentar registrar otro dominio o contactarnos si este te pertenece." %}</small>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="alert alert-danger">
+                                            <i class="fas fa-times-circle me-2"></i>
                                             <strong>{% trans "Dominio en uso" %}:</strong> "{{ dominio_valor }}" {% trans "ya está siendo utilizado." %}
                                             <div class="mt-2">
-                                                <small><strong>¿{% trans "Qué puedes hacer" %}?</strong></small><br>
                                                 <small>• {% trans "Elige un dominio diferente que esté disponible" %}</small><br>
                                                 <small>• {% trans "Si este dominio te pertenece" %}, <a href="{% url 'tickets:crear_ticket' %}" class="text-warning"><u>{% trans "contacta a soporte" %}</u></a>{% trans " para transferirlo" %}</small><br>
                                                 <small>• {% trans "Prueba con una extensión diferente" %} (.com, .net, .org, etc.)</small>

@@ -23,18 +23,6 @@
         <div class="alert mt-4 {% if valido %}alert-success{% else %}alert-danger{% endif %}">
             {{ resultado }}
         </div>
-
-        {# Solo para usuarios autenticados: botón para descargar el XML #}
-        {% if user.is_authenticated and valido %}
-            <div class="text-end mt-3">
-                <a 
-                  href="{% url 'generar_xml' %}?url={{ form.url.value|urlencode }}" 
-                  class="btn btn-success fw-bold"
-                >
-                  {% trans "Generar XML" %}
-                </a>
-            </div>
-        {% endif %}
     {% endif %}
 </div>
 {% endblock %}

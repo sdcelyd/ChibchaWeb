@@ -21,8 +21,31 @@ def verificar_url(request):
         form = VerificarURLForm(request.POST)
         if form.is_valid():
             url = form.cleaned_data['url']
+            # Agregar https:// si el usuario no lo incluye
+            import socket
+            import re
+            # Extraer dominio para validación DNS
+            dominio = url.strip()
+            if dominio.startswith('http://'):
+                dominio = dominio[7:]
+            if dominio.startswith('https://'):
+                dominio = dominio[8:]
+            if dominio.startswith('www.'):
+                dominio = dominio[4:]
+            # Solo tomar el dominio (sin ruta ni parámetros)
+            dominio = dominio.split('/')[0].split('?')[0]
+            # Validar existencia DNS
             try:
-                response = requests.get(url, timeout=3)
+                socket.gethostbyname(dominio)
+                dominio_existe = True
+            except Exception:
+                dominio_existe = False
+
+            if not url.startswith('http://') and not url.startswith('https://'):
+                url = 'https://' + url
+            try:
+                headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
+                response = requests.get(url, timeout=3, headers=headers)
                 if response.status_code == 200:
                     resultado = f"La URL {url} está siendo utilizada."
                     valido = False
@@ -30,35 +53,17 @@ def verificar_url(request):
                     resultado = f"La URL {url} respondió con código {response.status_code}."
                     valido = False
             except requests.RequestException:
-                resultado = f"La URL {url} no está siendo ocupada y la puedes usar!."
-                valido = True
+                if dominio_existe:
+                    resultado = f"El dominio {dominio} existe, pero no responde a peticiones web. Puede estar protegido o no tener sitio activo."
+                    valido = False
+                else:
+                    resultado = f"La URL {url} no está siendo ocupada y la puedes usar!."
+                    valido = True
     else:
         form = VerificarURLForm()
 
     return render(request, 'verificar_url.html', {'form': form, 'resultado': resultado,  'valido': valido,})
 
-@login_required
-def generar_xml(request):
-    """
-    Genera un XML con la última URL verificada (pasada por GET o sesión)
-    y datos del cliente (usuario Django).
-    """
-    # 1) Recuperar la URL: la puedes pasar como parámetro GET o guardarla en sesión
-    url = request.GET.get('url', '')
-    user = request.user
-
-    # 2) Construir el XML
-    root = ET.Element('Solicitud')
-    ET.SubElement(root, 'Cliente').text = user.get_full_name() or user.username
-    ET.SubElement(root, 'Email').text = user.email
-    ET.SubElement(root, 'URL').text = url
-
-    xml_bytes = ET.tostring(root, encoding='utf-8', xml_declaration=True)
-
-    # 3) Devolver respuesta con content_type XML
-    response = HttpResponse(xml_bytes, content_type='application/xml')
-    response['Content-Disposition'] = f'attachment; filename=Solicitud_{user.username}.xml'
-    return response
 
 @cliente_required
 def agregar_dominio(request):
@@ -84,16 +89,15 @@ def agregar_dominio(request):
     form = AgregarDominioForm()
     dominio_validado = False
     dominio_disponible = False
+    dominio_existe = False
     dominio_valor = ""
     
     if request.method == 'POST':
         form = AgregarDominioForm(request.POST)
         accion = request.POST.get('accion')
-        
         if form.is_valid():
             dominio = form.cleaned_data['dominio']
             dominio_valor = dominio
-            
             # Verificar si el dominio ya existe en nuestra base de datos
             if Dominios.objects.filter(nombreDominio=dominio).exists():
                 messages.error(request, f"El dominio '{dominio}' ya está registrado en nuestro sistema.")
@@ -102,23 +106,36 @@ def agregar_dominio(request):
                     'cliente': cliente,
                     'dominio_validado': False,
                     'dominio_disponible': False,
+                    'dominio_existe': False,
                     'dominio_valor': dominio_valor,
                     'from_distribuidor': from_distribuidor
                 })
-            
             if accion == 'validar':
-                # Solo validar disponibilidad
+                # Validar existencia DNS
+                import socket
                 try:
-                    response = requests.get(f"http://{dominio}", timeout=3)
-                    if response.status_code == 200:
+                    socket.gethostbyname(dominio)
+                    dominio_existe = True
+                except Exception:
+                    dominio_existe = False
+                # Intentar petición HTTP solo si existe
+                if dominio_existe:
+                    try:
+                        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
+                        response = requests.get(f"https://{dominio}", timeout=3, headers=headers)
+                        if response.status_code == 200:
+                            dominio_validado = True
+                            dominio_disponible = False
+                            messages.warning(request, f"El dominio '{dominio}' está actualmente en uso. Si este dominio te pertenece y quieres transferirlo a ChibchaWeb, contacta a nuestro soporte.")
+                        else:
+                            dominio_validado = True
+                            dominio_disponible = False
+                            messages.warning(request, f"El dominio '{dominio}' existe, pero no tiene web activa o está protegido.")
+                    except requests.RequestException:
                         dominio_validado = True
                         dominio_disponible = False
-                        messages.warning(request, f"El dominio '{dominio}' está actualmente en uso. Si este dominio te pertenece y quieres transferirlo a ChibchaWeb, contacta a nuestro soporte.")
-                    else:
-                        dominio_validado = True
-                        dominio_disponible = True
-                        messages.success(request, f"¡Excelente! El dominio '{dominio}' está disponible y listo para configurar.")
-                except requests.RequestException:
+                        messages.warning(request, f"El dominio '{dominio}' existe, pero no tiene web activa o está protegido.")
+                else:
                     dominio_validado = True
                     dominio_disponible = True
                     messages.success(request, f"¡Perfecto! El dominio '{dominio}' está disponible y listo para usar en tu hosting.")
@@ -190,6 +207,7 @@ def agregar_dominio(request):
         'cliente': cliente,
         'dominio_validado': dominio_validado,
         'dominio_disponible': dominio_disponible,
+        'dominio_existe': dominio_existe,
         'dominio_valor': dominio_valor,
         'from_distribuidor': from_distribuidor
     })

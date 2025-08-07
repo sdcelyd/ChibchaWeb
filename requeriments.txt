@@ -4,5 +4,5 @@ crispy_bootstrap5
 requests
 pandas
 xlsxwriter
-reportlab
+reportlab==3.6.12
 openpyxl

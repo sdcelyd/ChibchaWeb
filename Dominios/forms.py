@@ -1,10 +1,14 @@
 from django import forms
 
 class VerificarURLForm(forms.Form):
-    url = forms.URLField(label="URL a verificar", required=True, widget=forms.URLInput(attrs={
-        'class': 'form-control',
-        'placeholder': 'https://ejemplo.com'
-    }))
+    url = forms.CharField(
+        label="URL o dominio a verificar",
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'ejemplo.com o https://ejemplo.com'
+        })
+    )
 
 class AgregarDominioForm(forms.Form):
     dominio = forms.CharField(
