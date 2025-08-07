@@ -1,0 +1,4896 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-06 22:07-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Administradores\templates\administradores\base.html:8
+msgid "Panel de Administración - ChibchaWeb"
+msgstr "Painel de Administração - Chibchaweb"
+
+#: .\Administradores\templates\administradores\base.html:20
+msgid "Admin ChibchaWeb"
+msgstr "Admin Chibchaweb"
+
+#: .\Administradores\templates\administradores\base.html:34
+#: .\Empleados\templates\agente_dashboard.html:99
+#: .\Empleados\templates\mis_tickets.html:94
+#: .\Empleados\templates\supervisor_dashboard.html:102
+msgid "Cerrar Sesión"
+msgstr "Sessão próxima"
+
+#: .\Administradores\templates\administradores\base.html:51
+msgid " Dashboard"
+msgstr "Painel"
+
+#: .\Administradores\templates\administradores\base.html:58
+msgid "Gestión de Usuarios"
+msgstr "Gerenciamento de usuários"
+
+#: .\Administradores\templates\administradores\base.html:64
+#: .\Administradores\templates\administradores\dashboard.html:212
+msgid "Ver Usuarios"
+msgstr "Veja usuários"
+
+#: .\Administradores\templates\administradores\base.html:70
+#: .\Administradores\templates\administradores\crear_usuario.html:152
+#: .\Administradores\templates\administradores\dashboard.html:206
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:11
+msgid "Crear Usuario"
+msgstr "Criar usuário"
+
+#: .\Administradores\templates\administradores\base.html:78
+#: .\Administradores\templates\administradores\dashboard.html:221
+msgid "Estadísticas"
+msgstr "Estatística"
+
+#: .\Administradores\templates\administradores\base.html:84
+msgid "Pagos e Ingresos"
+msgstr "Pagamentos e renda"
+
+#: .\Administradores\templates\administradores\base.html:90
+msgid "Usuarios"
+msgstr "Usuários"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:3
+msgid "Confirmar Eliminación - Admin Panel"
+msgstr "Confirme Eliminação - Painel de Administração"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:7
+msgid "Confirmar Eliminación"
+msgstr "Confirme a eliminação"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:10
+#: .\Administradores\templates\administradores\crear_usuario.html:10
+#: .\Administradores\templates\administradores\editar_usuario.html:10
+msgid "Volver"
+msgstr "Retornar"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:19
+#: .\Administradores\templates\administradores\editar_usuario.html:299
+msgid "Eliminar Usuario"
+msgstr "Excluir usuário"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:25
+msgid "Estás a punto de eliminar permanentemente el siguiente usuario"
+msgstr "Você está prestes a eliminar permanentemente o seguinte usuário"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:27
+msgid "Esta acción"
+msgstr "Esta ação"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:27
+msgid "NO SE PUEDE DESHACER"
+msgstr "Você não pode desfazer"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:35
+msgid "Información Básica"
+msgstr "Informações básicas"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:37
+#: .\Administradores\templates\administradores\editar_usuario.html:191
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:78
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:114
+#: .\Administradores\templates\administradores\login.html:124
+#: .\Empleados\templates\agente_dashboard.html:292
+#: .\Empleados\templates\logEmpleados.html:39
+#: .\Empleados\templates\supervisor_dashboard.html:414
+msgid "Usuario"
+msgstr "Usuário"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:38
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:79
+#: .\Clientes\templates\editar.html:92
+#: .\Clientes\templates\home_clientes.html:118
+#: .\Clientes\templates\perfil.html:58
+#: .\Distribuidor\templates\distribuidores\dashboard.html:17
+#: .\Empleados\templates\agente_dashboard.html:71
+#: .\Empleados\templates\agente_dashboard.html:296
+#: .\Empleados\templates\mis_tickets.html:66
+#: .\Empleados\templates\supervisor_dashboard.html:74
+#: .\Empleados\templates\supervisor_dashboard.html:415
+#: .\Empleados\templates\supervisor_dashboard.html:664
+msgid "Email"
+msgstr "E-mail"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:39
+#: .\Clientes\templates\editar.html:119
+#: .\Empleados\templates\agente_dashboard.html:197
+#: .\Empleados\templates\agente_dashboard.html:246
+#: .\Empleados\templates\mis_tickets.html:297
+#: .\Empleados\templates\supervisor_dashboard.html:250
+#: .\Empleados\templates\supervisor_dashboard.html:328
+#: .\Empleados\templates\supervisor_dashboard.html:413
+#: .\Empleados\templates\supervisor_dashboard.html:536
+#: .\Tickets\templates\tickets_cliente.html:57
+msgid "Nombre"
+msgstr "Nome"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:40
+#: .\Administradores\templates\administradores\editar_usuario.html:207
+msgid "Registro"
+msgstr "Registro"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:44
+msgid "Detalles"
+msgstr "Detalhes"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:46
+#: .\Administradores\templates\administradores\editar_usuario.html:194
+msgid "Tipo"
+msgstr "Cara"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:48
+#: .\Administradores\templates\administradores\crear_usuario.html:170
+#: .\Administradores\templates\administradores\editar_usuario.html:197
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:178
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:102
+#: .\Dominios\templates\agregar_dominio.html:44
+#: .\Empleados\templates\agente_dashboard.html:198
+#: .\Empleados\templates\agente_dashboard.html:247
+#: .\Empleados\templates\mis_tickets.html:195
+#: .\Empleados\templates\mis_tickets.html:298
+#: .\Empleados\templates\supervisor_dashboard.html:251
+#: .\Empleados\templates\supervisor_dashboard.html:329
+#: .\Empleados\templates\supervisor_dashboard.html:537
+#: .\Empleados\templates\supervisor_dashboard.html:581
+#: .\Empleados\templates\supervisor_dashboard.html:701
+msgid "Cliente"
+msgstr "Cliente"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:50
+#: .\Administradores\templates\administradores\crear_usuario.html:174
+#: .\Administradores\templates\administradores\editar_usuario.html:199
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:106
+msgid "Empleado"
+msgstr "Funcionário"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:52
+#: .\Administradores\templates\administradores\crear_usuario.html:178
+#: .\Administradores\templates\administradores\editar_usuario.html:201
+msgid "Administrador"
+msgstr "Administrador"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:54
+#: .\Administradores\templates\administradores\editar_usuario.html:203
+msgid "Usuario Base"
+msgstr "Usuário base"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:57
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:82
+#: .\Empleados\templates\agente_dashboard.html:199
+#: .\Empleados\templates\agente_dashboard.html:248
+#: .\Empleados\templates\agente_dashboard.html:312
+#: .\Empleados\templates\mis_tickets.html:299
+#: .\Empleados\templates\supervisor_dashboard.html:331
+#: .\Empleados\templates\supervisor_dashboard.html:416
+#: .\Empleados\templates\supervisor_dashboard.html:539
+#: .\Empleados\templates\supervisor_dashboard.html:583
+#: .\Empleados\templates\supervisor_dashboard.html:702
+#: .\Tickets\templates\tickets_cliente.html:66
+msgid "Estado"
+msgstr "Estado"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:59
+#: .\Administradores\templates\administradores\editar_usuario.html:222
+#: .\Administradores\templates\administradores\editar_usuario.html:232
+#: .\Administradores\templates\administradores\editar_usuario.html:238
+#: .\Administradores\templates\administradores\editar_usuario.html:244
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:121
+#: .\Clientes\templates\mis_hosts.html:57
+#: .\Clientes\templates\mis_hosts.html:81 .\Clientes\templates\perfil.html:116
+#: .\Empleados\templates\agente_dashboard.html:315
+#: .\Empleados\templates\supervisor_dashboard.html:429
+msgid "Activo"
+msgstr "Ativo"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:61
+#: .\Administradores\templates\administradores\editar_usuario.html:224
+#: .\Administradores\templates\administradores\editar_usuario.html:234
+#: .\Administradores\templates\administradores\editar_usuario.html:240
+#: .\Administradores\templates\administradores\editar_usuario.html:246
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:125
+#: .\Empleados\templates\agente_dashboard.html:317
+#: .\Empleados\templates\supervisor_dashboard.html:431
+msgid "Inactivo"
+msgstr "Parado"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:64
+msgid "Último acceso"
+msgstr "Último acesso"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:68
+#: .\Administradores\templates\administradores\editar_usuario.html:215
+msgid "Nunca"
+msgstr "Nunca"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:80
+msgid "Datos relacionados"
+msgstr "Dados relacionados"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:81
+msgid "Al eliminar este usuario también se eliminarán"
+msgstr "Ao eliminar este usuário também será excluído"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:84
+msgid "Su perfil de cliente"
+msgstr "Seu perfil de cliente"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:85
+msgid "Sus direcciones registradas"
+msgstr "Seus endereços registrados"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:86
+msgid "Sus tarjetas de crédito"
+msgstr "Seus cartões de crédito"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:87
+msgid "Historial de pagos (se mantendrán para auditoría)"
+msgstr "Histórico de pagamentos (eles serão mantidos para auditoria)"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:90
+msgid "Su perfil de empleado"
+msgstr "Seu perfil de funcionário"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:93
+msgid "Su perfil de administrador"
+msgstr "Seu perfil de administrador"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:105
+msgid ""
+" Confirmo que he leído las advertencias y deseo eliminar este usuario "
+"permanentemente"
+msgstr ""
+"Confirmo que li os avisos e quero eliminar este usuário permanentemente"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:112
+msgid " Cancelar"
+msgstr "Cancelar"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:115
+msgid "Editar en su lugar"
+msgstr "Editar"
+
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:118
+#: .\Clientes\templates\detalle_cliente.html:292
+msgid "Eliminar Definitivamente"
+msgstr "Definitivamente eliminar"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:3
+msgid "Crear Usuario - Admin Panel"
+msgstr "Criar usuário - painel de administração"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:7
+msgid "Crear Nuevo Usuario"
+msgstr "Crie novo usuário"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:19
+#: .\Administradores\templates\administradores\editar_usuario.html:19
+#: .\Administradores\templates\administradores\editar_usuario.html:187
+msgid "Información del Usuario"
+msgstr "Informações do usuário"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:149
+#: .\Administradores\templates\administradores\editar_usuario.html:172
+#: .\Clientes\templates\detalle_cliente.html:287
+#: .\Clientes\templates\editar.html:192
+#: .\Empleados\templates\mis_tickets.html:372
+#: .\Empleados\templates\mis_tickets.html:401
+#: .\Pagos\templates\registrar_direccion.html:87
+#: .\Pagos\templates\registrar_tarjeta.html:107
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:164
+msgid "Información"
+msgstr "Informação"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:167
+msgid "Tipos de Usuario"
+msgstr "Tipos de usuário"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:171
+msgid "Puede contratar servicios de hosting"
+msgstr "Você pode contratar serviços de hospedagem"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:175
+msgid "Personal de soporte y supervisión"
+msgstr "Equipe de apoio e supervisão"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:179
+msgid "Acceso completo al sistema"
+msgstr "Acesso total ao sistema"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:183
+msgid "Roles de Empleado"
+msgstr "Funções de funcionários"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:186
+msgid "Agente"
+msgstr "Agente"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:186
+msgid "Soporte básico al cliente (Nivel 1)"
+msgstr "Suporte básico ao cliente (nível 1)"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:189
+msgid "Supervisor"
+msgstr "Supervisor"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:189
+msgid "Gestión de agentes y escalación (Nivel 2-3)"
+msgstr "Agentes e gerenciamento de escala (nível 2-3)"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:195
+msgid "Tip"
+msgstr "Dica"
+
+#: .\Administradores\templates\administradores\crear_usuario.html:195
+msgid ""
+"El teléfono es opcional. Los empleados se crean con nivel 1 por defecto."
+msgstr ""
+"O telefone é opcional.Os funcionários são criados com o nível 1 por padrão."
+
+#: .\Administradores\templates\administradores\dashboard.html:3
+msgid "Dashboard - Admin Panel"
+msgstr "Painel - painel de administração"
+
+#: .\Administradores\templates\administradores\dashboard.html:11
+msgid " Este mes"
+msgstr "Este mês"
+
+#: .\Administradores\templates\administradores\dashboard.html:14
+#: .\Empleados\templates\supervisor_dashboard.html:518
+msgid "Esta semana"
+msgstr "Essa semana"
+
+#: .\Administradores\templates\administradores\dashboard.html:15
+#: .\Empleados\templates\supervisor_dashboard.html:521
+msgid "Este mes"
+msgstr "Este mês"
+
+#: .\Administradores\templates\administradores\dashboard.html:16
+msgid "Este año"
+msgstr "Este ano"
+
+#: .\Administradores\templates\administradores\dashboard.html:30
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:29
+msgid "Total Clientes"
+msgstr "Total de clientes"
+
+#: .\Administradores\templates\administradores\dashboard.html:48
+#: .\ChibchaWeb\templates\informacion.html:45
+msgid "Clientes Activos"
+msgstr "Clientes ativos"
+
+#: .\Administradores\templates\administradores\dashboard.html:66
+msgid "Total Empleados"
+msgstr "Total de funcionários"
+
+#: .\Administradores\templates\administradores\dashboard.html:84
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:60
+msgid "Ingresos Totales"
+msgstr "Renda total"
+
+#: .\Administradores\templates\administradores\dashboard.html:106
+msgid " Ingresos del Último Mes"
+msgstr "Renda do mês passado"
+
+#: .\Administradores\templates\administradores\dashboard.html:120
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:91
+msgid "Distribución de Usuarios"
+msgstr "Distribuição do usuário"
+
+#: .\Administradores\templates\administradores\dashboard.html:137
+msgid "Actividad Reciente"
+msgstr "Atividade recente"
+
+#: .\Administradores\templates\administradores\dashboard.html:150
+msgid "Nuevo usuario registrado"
+msgstr "Novo usuário registrado"
+
+#: .\Administradores\templates\administradores\dashboard.html:151
+msgid "Hace 5 minutos"
+msgstr "5 minutos atrás"
+
+#: .\Administradores\templates\administradores\dashboard.html:164
+msgid "Nuevo pago procesado"
+msgstr "Novo pagamento processado"
+
+#: .\Administradores\templates\administradores\dashboard.html:165
+msgid "Hace 12 minutos"
+msgstr "12 minutos atrás"
+
+#: .\Administradores\templates\administradores\dashboard.html:178
+msgid "Plan actualizado"
+msgstr "Plano atualizado"
+
+#: .\Administradores\templates\administradores\dashboard.html:179
+msgid "Hace 1 hora"
+msgstr "1 hora atrás"
+
+#: .\Administradores\templates\administradores\dashboard.html:186
+msgid "Ver toda la actividad"
+msgstr "Veja toda a atividade"
+
+#: .\Administradores\templates\administradores\dashboard.html:197
+#: .\Clientes\templates\home_clientes.html:161
+#: .\Clientes\templates\perfil.html:157
+#: .\Empleados\templates\supervisor_dashboard.html:192
+msgid "Acciones Rápidas"
+msgstr "Ações rápidas"
+
+#: .\Administradores\templates\administradores\dashboard.html:227
+#: .\Empleados\templates\supervisor_dashboard.html:213
+msgid "Reportes"
+msgstr "Relatórios"
+
+#: .\Administradores\templates\administradores\dashboard.html:239
+msgid "Estado del Sistema"
+msgstr "Status do sistema"
+
+#: .\Administradores\templates\administradores\dashboard.html:244
+msgid "Servidor Web"
+msgstr "Servidor da web"
+
+#: .\Administradores\templates\administradores\dashboard.html:245
+#: .\Administradores\templates\administradores\dashboard.html:249
+#: .\Administradores\templates\administradores\dashboard.html:253
+msgid "Online"
+msgstr "On-line"
+
+#: .\Administradores\templates\administradores\dashboard.html:248
+#: .\ChibchaWeb\templates\informacion.html:211
+msgid "Base de Datos"
+msgstr "Banco de dados"
+
+#: .\Administradores\templates\administradores\dashboard.html:252
+msgid "Procesamiento de Pagos"
+msgstr "Processamento de pagamento"
+
+#: .\Administradores\templates\administradores\dashboard.html:256
+#: .\Clientes\templates\home_clientes.html:181
+#: .\Clientes\templates\perfil.html:183
+msgid "Backups"
+msgstr "Backups"
+
+#: .\Administradores\templates\administradores\dashboard.html:257
+msgid "Programado"
+msgstr "Programado"
+
+#: .\Administradores\templates\administradores\dashboard.html:273
+msgid "Ene"
+msgstr "Jan"
+
+#: .\Administradores\templates\administradores\dashboard.html:273
+msgid "Feb"
+msgstr "Fevereiro"
+
+#: .\Administradores\templates\administradores\dashboard.html:273
+msgid "Mar"
+msgstr "Mar"
+
+#: .\Administradores\templates\administradores\dashboard.html:274
+msgid "Abr"
+msgstr "Apr"
+
+#: .\Administradores\templates\administradores\dashboard.html:274
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr "Poderia"
+
+#: .\Administradores\templates\administradores\dashboard.html:274
+msgid "Jun"
+msgstr "Jun"
+
+#: .\Administradores\templates\administradores\dashboard.html:274
+msgid "Jul"
+msgstr "Jul"
+
+#: .\Administradores\templates\administradores\dashboard.html:277
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:225
+msgid "Ingresos"
+msgstr "Renda"
+
+#: .\Administradores\templates\administradores\dashboard.html:311
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:254
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:46
+msgid "Clientes"
+msgstr "Clientes"
+
+#: .\Administradores\templates\administradores\dashboard.html:311
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:47
+msgid "Empleados"
+msgstr "Funcionários"
+
+#: .\Administradores\templates\administradores\dashboard.html:311
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:48
+msgid "Administradores"
+msgstr "Administradores"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:3
+msgid "Editar Usuario - Admin Panel"
+msgstr "Editar usuário - painel de administração"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:7
+msgid "Editar Usuario"
+msgstr "Editar usuário"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:137
+msgid "Cuenta Django Activa"
+msgstr "Conta de Django ativo"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:143
+msgid "Controla si el usuario puede iniciar sesión"
+msgstr "Controle se o usuário puder fazer login"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:151
+msgid "Perfil Activo"
+msgstr "Perfil ativo"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:157
+msgid "Controla si el perfil específico está activo"
+msgstr "Controle se o perfil específico estiver ativo"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:175
+#: .\Clientes\templates\editar.html:198
+msgid "Guardar Cambios"
+msgstr "Salvar alterações"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:210
+msgid "Último login"
+msgstr "Último login"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:219
+msgid "Estado Django"
+msgstr "Estado de Django"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:228
+msgid "Estado Perfil"
+msgstr "Estado de perfil"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:257
+msgid "Info Cliente"
+msgstr "Informações do cliente"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:259
+msgid "Suscripción"
+msgstr "Subscrição"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:262
+msgid "Sí"
+msgstr "Sim"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:264
+#: .\venv\Lib\site-packages\django\forms\widgets.py:868
+msgid "No"
+msgstr "Não"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:268
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:224
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:253
+#: .\Clientes\templates\base_clientes.html:81
+#: .\Clientes\templates\home_clientes.html:27
+#: .\Clientes\templates\mis_hosts.html:57
+#: .\Clientes\templates\mis_hosts.html:119
+#: .\Pagos\templates\confirmacion_pago.html:56
+#: .\Pagos\templates\resumen_pago.html:18
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:18
+msgid "Plan"
+msgstr "Plano"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:276
+msgid "Info Empleado"
+msgstr "Info funcionário"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:278
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:194
+#: .\Empleados\templates\agente_dashboard.html:300
+msgid "Rol"
+msgstr "Papel"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:280
+#: .\Administradores\templates\administradores\editar_usuario.html:281
+#: .\Empleados\templates\agente_dashboard.html:54
+#: .\Empleados\templates\agente_dashboard.html:170
+#: .\Empleados\templates\agente_dashboard.html:306
+#: .\Empleados\templates\agente_dashboard.html:308
+#: .\Empleados\templates\mis_tickets.html:49
+#: .\Empleados\templates\mis_tickets.html:106
+#: .\Empleados\templates\supervisor_dashboard.html:57
+#: .\Empleados\templates\supervisor_dashboard.html:115
+#: .\Empleados\templates\supervisor_dashboard.html:175
+#: .\Empleados\templates\supervisor_dashboard.html:228
+#: .\Empleados\templates\supervisor_dashboard.html:396
+#: .\Empleados\templates\supervisor_dashboard.html:669
+msgid "Nivel"
+msgstr "Nível"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:282
+#: .\Clientes\templates\editar.html:145 .\Clientes\templates\perfil.html:70
+#: .\Distribuidor\templates\distribuidores\dashboard.html:18
+#: .\Empleados\templates\agente_dashboard.html:323
+#: .\Empleados\templates\supervisor_dashboard.html:665
+msgid "Teléfono"
+msgstr "Telefone"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:292
+msgid "Zona de Peligro"
+msgstr "Zona de perigo"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:295
+msgid "Las siguientes acciones son irreversibles"
+msgstr "As seguintes ações são irreversíveis"
+
+#: .\Administradores\templates\administradores\editar_usuario.html:298
+msgid ""
+"¿Estás seguro de eliminar este usuario? Esta acción no se puede deshacer."
+msgstr ""
+"Você tem certeza de excluir este usuário?Esta ação não pode ser desfeita."
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:3
+msgid "Estadísticas de Pagos - Admin Panel"
+msgstr "Estatísticas de pagamento - painel de administração"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:7
+msgid "Estadísticas de Pagos e Ingresos"
+msgstr "Estatísticas de pagamento e renda"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:10
+msgid "Imprimir"
+msgstr "Imprimir"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:18
+msgid "Filtros de Período"
+msgstr "Filtros de período"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:23
+msgid "Período Predefinido"
+msgstr "Período predefinido"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:25
+msgid "Últimos 7 días"
+msgstr "Últimos 7 dias"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:26
+msgid "Últimos 30 días"
+msgstr "Últimos 30 dias"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:27
+msgid "Últimos 3 meses"
+msgstr "Últimos 3 meses"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:28
+msgid "Último año"
+msgstr "Ano passado"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:29
+msgid "Personalizado"
+msgstr "Personalizado"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:33
+msgid "Fecha Inicio"
+msgstr "Data inicial"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:37
+msgid "Fecha Fin"
+msgstr "Data de término"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:44
+msgid "Filtrar"
+msgstr "Filtro"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:80
+msgid " Total Transacciones"
+msgstr "Total de transações"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:98
+msgid "Promedio por Transacción"
+msgstr "Média por transação"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:118
+msgid " Crecimiento"
+msgstr "Crescimento"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:138
+msgid "Ingresos por Día"
+msgstr "Renda por dia"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:152
+msgid " Ingresos por Plan"
+msgstr "Planeje receita"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:169
+msgid "Top 10 Clientes por Ingresos"
+msgstr "10 principais clientes para renda"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:179
+#: .\Empleados\templates\agente_dashboard.html:66
+#: .\Empleados\templates\mis_tickets.html:61
+msgid "Total"
+msgstr "Total"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:180
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:226
+msgid "Transacciones"
+msgstr "Transações"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:200
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:249
+msgid "No hay datos disponibles"
+msgstr "Nenhum dado disponível"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:216
+msgid "Ingresos por Plan de Hosting"
+msgstr "Renda do plano de hospedagem"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:265
+msgid "Exportar Datos"
+msgstr "Dados de exportação"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:271
+msgid "Descarga los datos en diferentes formatos"
+msgstr "Baixar dados em diferentes formatos"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:287
+msgid "Nota"
+msgstr "Observação"
+
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:287
+msgid "Los reportes incluyen todos los datos del período seleccionado."
+msgstr "Os relatórios incluem todos os dados do período selecionado."
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:3
+msgid "Estadísticas de Usuarios - Admin Panel"
+msgstr "Estatísticas dos usuários - painel de administração"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:7
+msgid " Estadísticas de Usuarios"
+msgstr "Estatísticas do usuário"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:11
+msgid "Exportar"
+msgstr "Exportar"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:14
+msgid "Actualizar"
+msgstr "Atualizar"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:48
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:146
+msgid "Con Suscripción"
+msgstr "Com assinatura"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:52
+msgid "del total"
+msgstr "do total"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:70
+msgid " Total Empleados"
+msgstr "Total de funcionários"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:73
+msgid " activos"
+msgstr "ativos"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:101
+msgid " Clientes"
+msgstr "Clientes"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:104
+msgid " Empleados"
+msgstr "Funcionários"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:117
+msgid " Distribución por Planes"
+msgstr "Distribuição por planos"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:141
+msgid "Estado de Clientes"
+msgstr "Status do cliente"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:157
+msgid "Nuevos (30 días)"
+msgstr "Novo (30 dias)"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:172
+msgid "Nuevos clientes este mes"
+msgstr "Novos clientes este mês"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:186
+msgid "Empleados por Rol"
+msgstr "Funcionários por função"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:195
+msgid " Cantidad"
+msgstr "Quantia"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:196
+msgid "Porcentaje"
+msgstr "Percentagem"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:197
+msgid " Visual"
+msgstr "Visual"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:229
+msgid "No hay empleados registrados"
+msgstr "Não há funcionários registrados"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:245
+msgid " Clientes por Plan"
+msgstr "Clientes por plano"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:255
+#, python-format
+msgid " %% del Total"
+msgstr ""
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:256
+msgid "Visual"
+msgstr "Visual"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:288
+msgid "No hay planes activos"
+msgstr "Não há planos ativos"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:306
+msgid " Resumen General del Sistema"
+msgstr "Resumo do sistema geral"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:313
+msgid "Total Usuarios Registrados"
+msgstr "Total de usuários registrados"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:319
+msgid "Tasa de Conversión a Suscripción"
+msgstr "Taxa de conversão de assinatura"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:323
+msgid "Registros Últimos 30 Días"
+msgstr "Últimos 30 dias registros"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:333
+msgid "Empleados Activos"
+msgstr "Funcionários ativos"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:341
+msgid "Insights:"
+msgstr "Percepções:"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:344
+msgid "Crecimiento"
+msgstr "Crescimento"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:345
+msgid " nuevos clientes en los últimos 30 días"
+msgstr "Novos clientes nos últimos 30 dias"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:348
+msgid "Adopción"
+msgstr "Adoção"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:349
+msgid "de los clientes tienen suscripción activa"
+msgstr "de clientes têm assinatura ativa"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:352
+msgid "Equipo"
+msgstr "Equipamento"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:353
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:177
+msgid "de "
+msgstr "de"
+
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:353
+msgid "empleados están activos"
+msgstr "Os funcionários estão ativos"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:4
+msgid "Gestionar Usuarios - Admin Panel"
+msgstr "Gerenciar usuários - painel de administração"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:8
+msgid "Gestionar Usuarios"
+msgstr "Gerenciar usuários"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:23
+msgid "Total Usuarios"
+msgstr "Usuários totais"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:38
+msgid "Filtros"
+msgstr "Filtros"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:43
+msgid "Tipo de Usuario"
+msgstr "Tipo de usuário"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:45
+msgid "Todos"
+msgstr "Todos"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:52
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:60
+msgid "Buscar"
+msgstr "Procurar"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:71
+msgid "Lista de Usuarios"
+msgstr "Lista de usuários"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:80
+#: .\Clientes\templates\perfil.html:64
+msgid "Nombre Completo"
+msgstr "Nome completo"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:81
+msgid " Tipo"
+msgstr "Cara"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:83
+msgid " Registro"
+msgstr "Registro"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:84
+#: .\Empleados\templates\mis_tickets.html:301
+#: .\Tickets\templates\tickets_cliente.html:68
+msgid "Acciones"
+msgstr "Ações"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:110
+msgid "Admin"
+msgstr "Admin"
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:150
+msgid ""
+"No se encontraron usuarios que coincidan con los criterios de búsqueda."
+msgstr ""
+"Não foram encontrados usuários que coincidem com os critérios de pesquisa."
+
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:177
+msgid " Página "
+msgstr "Página"
+
+#: .\Administradores\templates\administradores\login.html:8
+msgid "Acceso Administradores - ChibchaWeb"
+msgstr "Acesso aos administradores - Chibchaweb"
+
+#: .\Administradores\templates\administradores\login.html:104
+msgid "Panel de Administración"
+msgstr "Painel de administração"
+
+#: .\Administradores\templates\administradores\login.html:106
+msgid "Acceso Seguro"
+msgstr "Acesso seguro"
+
+#: .\Administradores\templates\administradores\login.html:131
+#: .\ChibchaWeb\templates\login.html:21
+#: .\Empleados\templates\logEmpleados.html:53
+msgid "Contraseña"
+msgstr "Senha"
+
+#: .\Administradores\templates\administradores\login.html:138
+#: .\ChibchaWeb\templates\login.html:24
+msgid "Ingresar"
+msgstr "Entrar"
+
+#: .\Administradores\templates\administradores\login.html:145
+#: .\ChibchaWeb\templates\base.html:50 .\Clientes\templates\perfil.html:122
+msgid "Inicio"
+msgstr "Começar"
+
+#: .\Administradores\templates\administradores\login.html:148
+msgid "Portal Clientes"
+msgstr "Portal do cliente"
+
+#: .\Administradores\templates\administradores\login.html:152
+#: .\ChibchaWeb\templates\login.html:29
+msgid "Portal Empleados"
+msgstr "Funcionários do portal"
+
+#: .\ChibchaWeb\settings.py:128
+msgid "Español"
+msgstr "Espanhol"
+
+#: .\ChibchaWeb\settings.py:129
+msgid "English"
+msgstr "Inglês"
+
+#: .\ChibchaWeb\settings.py:130
+msgid "Português"
+msgstr "Português"
+
+#: .\ChibchaWeb\templates\base.html:20
+msgid "Hosting Profesional"
+msgstr "Hospedagem profissional"
+
+#: .\ChibchaWeb\templates\base.html:55 .\ChibchaWeb\templates\base.html:168
+msgid "Dominios"
+msgstr "Domínios"
+
+#: .\ChibchaWeb\templates\base.html:60 .\ChibchaWeb\templates\base.html:167
+msgid "Planes"
+msgstr "Planos"
+
+#: .\ChibchaWeb\templates\base.html:65 .\ChibchaWeb\templates\base.html:184
+msgid "Contacto"
+msgstr "Contato"
+
+#: .\ChibchaWeb\templates\base.html:81
+#: .\Clientes\templates\base_clientes.html:87
+msgid "Mi cuenta"
+msgstr "Minha conta"
+
+#: .\ChibchaWeb\templates\base.html:84
+#: .\Clientes\templates\base_clientes.html:90
+msgid "Perfil"
+msgstr "Perfil"
+
+#: .\ChibchaWeb\templates\base.html:85
+#: .\Clientes\templates\base_clientes.html:94
+msgid "Configuración"
+msgstr "Configuração"
+
+#: .\ChibchaWeb\templates\base.html:86
+#: .\Clientes\templates\base_clientes.html:95
+#: .\Clientes\templates\home_clientes.html:101
+#: .\Clientes\templates\perfil.html:173
+msgid "Crear Ticket"
+msgstr "Crie bilhete"
+
+#: .\ChibchaWeb\templates\base.html:92
+#: .\Clientes\templates\base_clientes.html:100
+msgid "Cerrar sesión"
+msgstr "Sessão próxima"
+
+#: .\ChibchaWeb\templates\base.html:103 .\ChibchaWeb\templates\login.html:13
+#: .\Clientes\templates\activacion_exitosa.html:10
+msgid "Iniciar sesión"
+msgstr "Conecte-se"
+
+#: .\ChibchaWeb\templates\base.html:106 .\ChibchaWeb\templates\login.html:28
+msgid "Registrarse"
+msgstr "Registrar"
+
+#: .\ChibchaWeb\templates\base.html:121
+msgid "Bienvenido a ChibchaWeb"
+msgstr "Bem -vindo ao Chibchaweb"
+
+#: .\ChibchaWeb\templates\base.html:122
+msgid "Tu sitio #1 de hosting profesional en Colombia"
+msgstr "Seu site de hospedagem profissional na Colômbia"
+
+#: .\ChibchaWeb\templates\base.html:125
+msgid "Empieza ahora"
+msgstr "Comece agora"
+
+#: .\ChibchaWeb\templates\base.html:128
+msgid "Ver planes"
+msgstr "Veja planos"
+
+#: .\ChibchaWeb\templates\base.html:154
+msgid ""
+"Soluciones de hosting profesional para empresas y emprendedores en Colombia."
+" Más de 10 años de experiencia en el sector"
+msgstr ""
+"Soluções profissionais de hospedagem para empresas e empreendedores na "
+"Colômbia.Mais de 10 anos de experiência no setor"
+
+#: .\ChibchaWeb\templates\base.html:164
+msgid "Servicios"
+msgstr "Serviços"
+
+#: .\ChibchaWeb\templates\base.html:166
+msgid "Hosting Web"
+msgstr "Hospedagem na web"
+
+#: .\ChibchaWeb\templates\base.html:174 .\ChibchaWeb\templates\base.html:199
+#: .\ChibchaWeb\templates\informacion.html:213
+msgid "Soporte"
+msgstr "Médio"
+
+#: .\ChibchaWeb\templates\base.html:176
+msgid "Centro de Ayuda"
+msgstr "Centro de ajuda"
+
+#: .\ChibchaWeb\templates\base.html:177
+msgid "Documentación"
+msgstr "Documentação"
+
+#: .\ChibchaWeb\templates\base.html:178
+msgid "Tickets"
+msgstr "Ingressos"
+
+#: .\ChibchaWeb\templates\base.html:179
+msgid "Estado del Servicio"
+msgstr "Estado de serviço"
+
+#: .\ChibchaWeb\templates\base.html:208
+#: .\Clientes\templates\base_clientes.html:117
+msgid "Todos los derechos reservados"
+msgstr "Todos os direitos reservados"
+
+#: .\ChibchaWeb\templates\base.html:212
+msgid "Términos de servicio"
+msgstr "Termos de Serviço"
+
+#: .\ChibchaWeb\templates\base.html:214
+msgid "Política de privacidad"
+msgstr "política de Privacidade"
+
+#: .\ChibchaWeb\templates\base.html:216
+msgid "Cookies"
+msgstr "Biscoitos"
+
+#: .\ChibchaWeb\templates\exitologin.html:3
+msgid "Inicio de Sesión Exitoso"
+msgstr "Login bem -sucedido"
+
+#: .\ChibchaWeb\templates\exitologin.html:14
+msgid "Inicio de sesión exitoso"
+msgstr "Login bem -sucedido"
+
+#: .\ChibchaWeb\templates\exitologin.html:15
+msgid "Bienvenido"
+msgstr "Bem-vindo"
+
+#: .\ChibchaWeb\templates\exitologin.html:19
+msgid "Ver Mi Perfil"
+msgstr "Veja meu perfil"
+
+#: .\ChibchaWeb\templates\exitologin.html:22
+msgid "Ir al Inicio"
+msgstr "Vá para o começo"
+
+#: .\ChibchaWeb\templates\informacion.html:4
+msgid "Información - ChibchaWeb"
+msgstr "Informações - Chibchaweb"
+
+#: .\ChibchaWeb\templates\informacion.html:21
+msgid "Hosting Premium Colombia"
+msgstr "Hospedando Colômbia premium"
+
+#: .\ChibchaWeb\templates\informacion.html:27
+msgid "Tu sitio web merece el"
+msgstr "Seu site merece o"
+
+#: .\ChibchaWeb\templates\informacion.html:28
+msgid "mejor hosting"
+msgstr "Melhor hospedagem"
+
+#: .\ChibchaWeb\templates\informacion.html:33
+msgid "Servidores SSD ultrarrápidos, SSL gratuito y soporte 24/7."
+msgstr "Servidores SSD ultra -gravados, SSL gratuito e suporte 24/7."
+
+#: .\ChibchaWeb\templates\informacion.html:34
+msgid "Todo lo que necesitas para que tu proyecto digital triunfe."
+msgstr "Tudo o que você precisa para o seu projeto digital ter sucesso."
+
+#: .\ChibchaWeb\templates\informacion.html:54
+msgid "Uptime"
+msgstr "Tempo de atividade"
+
+#: .\ChibchaWeb\templates\informacion.html:63
+msgid "Respuesta"
+msgstr "Responder"
+
+#: .\ChibchaWeb\templates\informacion.html:72
+msgid "Gratis"
+msgstr "Livre"
+
+#: .\ChibchaWeb\templates\informacion.html:81
+msgid "Comenzar Gratis"
+msgstr "Comece gratuitamente"
+
+#: .\ChibchaWeb\templates\informacion.html:85
+#: .\Clientes\templates\home_clientes.html:33
+#: .\Clientes\templates\mis_hosts.html:171
+#: .\Clientes\templates\quiero_ser_distribuidor.html:34
+msgid "Ver Planes"
+msgstr "Veja planos"
+
+#: .\ChibchaWeb\templates\informacion.html:100
+msgid "Hosting Profesional Colombiano"
+msgstr "Hospedagem profissional colombiana"
+
+#: .\ChibchaWeb\templates\informacion.html:105
+msgid "Más de 5 años"
+msgstr "Mais de 5 anos"
+
+#: .\ChibchaWeb\templates\informacion.html:105
+msgid "siendo líderes en hosting en Colombia con tecnología de vanguardia."
+msgstr "ser líderes na hospedagem na Colômbia com a tecnologia Avant -Garde."
+
+#: .\ChibchaWeb\templates\informacion.html:109
+msgid "Servidores SSD NVMe ultrarrápidos con "
+msgstr "Servidores NVME Ultra -Geral SSD com"
+
+#: .\ChibchaWeb\templates\informacion.html:109
+msgid "de disponibilidad garantizada"
+msgstr "de disponibilidade garantida"
+
+#: .\ChibchaWeb\templates\informacion.html:109
+msgid "y soporte técnico especializado 24/7."
+msgstr "e suporte técnico especializado 24/7."
+
+#: .\ChibchaWeb\templates\informacion.html:113
+msgid ""
+"Nuestro equipo colombiano te acompaña en cada paso para que tu proyecto "
+"digital "
+msgstr ""
+"Nossa equipe colombiana o acompanha em cada etapa para que seu projeto "
+"digital"
+
+#: .\ChibchaWeb\templates\informacion.html:113
+msgid "siempre esté disponible"
+msgstr "está sempre disponível"
+
+#: .\ChibchaWeb\templates\informacion.html:119
+msgid ""
+"El mejor hosting que he usado en Colombia. Rápido, confiable y con excelente"
+" soporte técnico."
+msgstr ""
+"A melhor hospedagem que usei na Colômbia.Rápido, confiável e com excelente "
+"suporte técnico."
+
+#: .\ChibchaWeb\templates\informacion.html:122
+msgid "María González, CEO Digital Solutions"
+msgstr "María González, CEO Digital Solutions"
+
+#: .\ChibchaWeb\templates\informacion.html:139
+msgid "Nuestros Servicios"
+msgstr "Nossos serviços"
+
+#: .\ChibchaWeb\templates\informacion.html:140
+msgid "Todo lo que necesitas para tu proyecto web"
+msgstr "Tudo o que você precisa para o seu projeto da web"
+
+#: .\ChibchaWeb\templates\informacion.html:149
+#: .\Pagos\templates\seleccionar_plan.html:15
+msgid "Hosting Premium"
+msgstr "Hospedagem premium"
+
+#: .\ChibchaWeb\templates\informacion.html:150
+msgid "Servidores SSD NVMe ultrarrápidos"
+msgstr "Servidores SSD NVME ultra -gravados"
+
+#: .\ChibchaWeb\templates\informacion.html:159
+msgid "SSL Gratuito"
+msgstr "Ssl grátis"
+
+#: .\ChibchaWeb\templates\informacion.html:160
+msgid "Certificados SSL automáticos"
+msgstr "Certificados SSL automáticos"
+
+#: .\ChibchaWeb\templates\informacion.html:169
+#: .\Dominios\templates\agregar_dominio.html:209
+msgid "Soporte 24/7"
+msgstr "Suporte 24/7"
+
+#: .\ChibchaWeb\templates\informacion.html:170
+msgid "Asistencia técnica especializada"
+msgstr "Assistência técnica especializada"
+
+#: .\ChibchaWeb\templates\informacion.html:179
+msgid "Backup Automático"
+msgstr "Backup automático"
+
+#: .\ChibchaWeb\templates\informacion.html:180
+msgid "Respaldos diarios seguros"
+msgstr "Backs diários seguros"
+
+#: .\ChibchaWeb\templates\informacion.html:191
+#: .\Pagos\templates\seleccionar_plan.html:18
+msgid "Planes de Hosting"
+msgstr "Hospedando planos"
+
+#: .\ChibchaWeb\templates\informacion.html:192
+msgid "Elige el plan perfecto para tu proyecto"
+msgstr "Escolha o plano perfeito para o seu projeto"
+
+#: .\ChibchaWeb\templates\informacion.html:204
+#: .\ChibchaWeb\templates\informacion.html:228
+#: .\ChibchaWeb\templates\informacion.html:251
+#: .\Pagos\templates\seleccionar_plan.html:111
+msgid "mes"
+msgstr "mês"
+
+#: .\ChibchaWeb\templates\informacion.html:209
+msgid "Sitio Web"
+msgstr "Site"
+
+#: .\ChibchaWeb\templates\informacion.html:212
+msgid "Gratuito"
+msgstr "Gratuito"
+
+#: .\ChibchaWeb\templates\informacion.html:222
+#: .\Pagos\templates\seleccionar_plan.html:86
+msgid "Más Popular"
+msgstr "Mais popular"
+
+#: .\ChibchaWeb\templates\informacion.html:224
+msgid "Professional"
+msgstr "Profissional"
+
+#: .\ChibchaWeb\templates\informacion.html:233
+msgid "Sitios Web"
+msgstr "Sites"
+
+#: .\ChibchaWeb\templates\informacion.html:235
+msgid "Bases de Datos"
+msgstr "Bancos de dados"
+
+#: .\ChibchaWeb\templates\informacion.html:236
+msgid "Email Marketing"
+msgstr "Marketing por e -mail"
+
+#: .\ChibchaWeb\templates\informacion.html:237
+msgid "CDN Global"
+msgstr "CDN global"
+
+#: .\ChibchaWeb\templates\informacion.html:256
+msgid "Sitios Ilimitados"
+msgstr "Sites ilimitados"
+
+#: .\ChibchaWeb\templates\informacion.html:258
+msgid "Bases Ilimitadas"
+msgstr "Bases ilimitadas"
+
+#: .\ChibchaWeb\templates\informacion.html:259
+msgid "Soporte Prioritario"
+msgstr "Suporte prioritário"
+
+#: .\ChibchaWeb\templates\informacion.html:260
+msgid "Backup Avanzado"
+msgstr "Backup avançado"
+
+#: .\ChibchaWeb\templates\informacion.html:274
+msgid "¿Listo para comenzar?"
+msgstr "Pronto para começar?"
+
+#: .\ChibchaWeb\templates\informacion.html:275
+msgid "Únete a nuestros"
+msgstr "Junte -se ao nosso"
+
+#: .\ChibchaWeb\templates\informacion.html:275
+msgid "clientes satisfechos. Activa tu hosting en minutos"
+msgstr "clientes satisfeitos.Ative sua hospedagem em minutos"
+
+#: .\ChibchaWeb\templates\informacion.html:279
+msgid "Comenzar Ahora"
+msgstr "Comece agora"
+
+#: .\ChibchaWeb\templates\login.html:7
+#: .\Empleados\templates\logEmpleados.html:67
+msgid "Iniciar Sesión"
+msgstr "Conecte-se"
+
+#: .\ChibchaWeb\templates\login.html:17
+msgid "Nickname"
+msgstr "Apelido"
+
+#: .\ChibchaWeb\templates\login.html:33
+msgid "Portal Administradores"
+msgstr "Portal dos Administradores"
+
+#: .\Clientes\templates\activacion_exitosa.html:3
+msgid "Cuenta Activada"
+msgstr "Conta ativada"
+
+#: .\Clientes\templates\activacion_exitosa.html:8
+msgid "Tu cuenta ha sido activada"
+msgstr "Sua conta foi ativada"
+
+#: .\Clientes\templates\activacion_exitosa.html:9
+msgid "Ahora puedes iniciar sesión y comenzar a usar nuestros servicios"
+msgstr "Agora você pode fazer login e começar a usar nossos serviços"
+
+#: .\Clientes\templates\activacion_fallida.html:3
+msgid "Activación Fallida"
+msgstr "Ativação em queda"
+
+#: .\Clientes\templates\activacion_fallida.html:8
+msgid "Enlace inválido o expirado"
+msgstr "Link inválido ou expirado"
+
+#: .\Clientes\templates\activacion_fallida.html:9
+msgid "El enlace de activación no es válido o ya fue usado"
+msgstr "O link de ativação não é válido ou já usado"
+
+#: .\Clientes\templates\activacion_fallida.html:10
+msgid "Si el problema persiste, por favor vuelve a registrarte"
+msgstr "Se o problema persistir, registre -se novamente"
+
+#: .\Clientes\templates\activacion_fallida.html:11
+msgid "Volver al registro"
+msgstr "Retornar ao registro"
+
+#: .\Clientes\templates\base_clientes.html:23
+#: .\Empleados\templates\agente_dashboard.html:39
+#: .\Empleados\templates\mis_tickets.html:34
+#: .\Empleados\templates\supervisor_dashboard.html:36
+msgid "Dashboard"
+msgstr "Painel"
+
+#: .\Clientes\templates\base_clientes.html:50
+msgid "Mis Host"
+msgstr "Meu anfitrião"
+
+#: .\Clientes\templates\base_clientes.html:56
+#: .\Clientes\templates\home_clientes.html:168
+#: .\Empleados\templates\agente_dashboard.html:42
+#: .\Empleados\templates\mis_tickets.html:8
+#: .\Empleados\templates\mis_tickets.html:37
+#: .\Tickets\templates\tickets_cliente.html:16
+msgid "Mis Tickets"
+msgstr "Meus ingressos"
+
+#: .\Clientes\templates\base_clientes.html:58
+msgid "Mis paquetes"
+msgstr "Meus pacotes"
+
+#: .\Clientes\templates\base_clientes.html:62
+msgid "Quiero ser distribuidor"
+msgstr "Eu quero ser um distribuidor"
+
+#: .\Clientes\templates\base_clientes.html:75
+msgid "Sin plan activo"
+msgstr "Nenhum plano ativo"
+
+#: .\Clientes\templates\base_clientes.html:92
+#: .\Clientes\templates\detalle_cliente.html:86
+msgid "Distribuidor"
+msgstr "Distribuidor"
+
+#: .\Clientes\templates\detalle_cliente.html:5
+#: .\Clientes\templates\detalle_cliente.html:17
+msgid "Configuración de Cuenta"
+msgstr "Configuração da conta"
+
+#: .\Clientes\templates\detalle_cliente.html:18
+msgid "Gestiona tu información personal y preferencias"
+msgstr "Gerencie suas informações e preferências pessoais"
+
+#: .\Clientes\templates\detalle_cliente.html:24
+msgid "Usuario desde"
+msgstr "Usuário de"
+
+#: .\Clientes\templates\detalle_cliente.html:43
+#: .\Clientes\templates\editar.html:111 .\Clientes\templates\perfil.html:46
+#: .\Empleados\templates\supervisor_dashboard.html:659
+msgid "Información Personal"
+msgstr "Informações pessoais"
+
+#: .\Clientes\templates\detalle_cliente.html:47
+msgid "Editar"
+msgstr "Editar"
+
+#: .\Clientes\templates\detalle_cliente.html:55
+msgid "NOMBRE COMPLETO"
+msgstr "Nome completo"
+
+#: .\Clientes\templates\detalle_cliente.html:64
+msgid "EMAIL"
+msgstr "E-MAIL"
+
+#: .\Clientes\templates\detalle_cliente.html:73
+msgid "TELÉFONO"
+msgstr "TELEFONE"
+
+#: .\Clientes\templates\detalle_cliente.html:82
+msgid "TIPO DE CUENTA"
+msgstr "Tipo de conta"
+
+#: .\Clientes\templates\detalle_cliente.html:88
+msgid "Cliente Regular"
+msgstr "Cliente regular"
+
+#: .\Clientes\templates\detalle_cliente.html:108
+msgid "Direcciones de Facturación"
+msgstr "Endereços de cobrança"
+
+#: .\Clientes\templates\detalle_cliente.html:138
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:97
+msgid "No tienes direcciones registradas"
+msgstr "Você não tem endereços registrados"
+
+#: .\Clientes\templates\detalle_cliente.html:144
+msgid "Agregar Dirección"
+msgstr "Adicione endereço"
+
+#: .\Clientes\templates\detalle_cliente.html:158
+msgid "Métodos de Pago"
+msgstr "Métodos de pagamento"
+
+#: .\Clientes\templates\detalle_cliente.html:174
+msgid " Vence"
+msgstr "Expira"
+
+#: .\Clientes\templates\detalle_cliente.html:188
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:153
+msgid "No tienes tarjetas registradas"
+msgstr "Você não tem cartões registrados"
+
+#: .\Clientes\templates\detalle_cliente.html:194
+msgid "Agregar Tarjeta"
+msgstr "Adicione cartão"
+
+#: .\Clientes\templates\detalle_cliente.html:209
+msgid "Acciones de Cuenta"
+msgstr "Ações da conta"
+
+#: .\Clientes\templates\detalle_cliente.html:219
+#: .\Clientes\templates\editar.html:4 .\Clientes\templates\editar.html:15
+#: .\Clientes\templates\home_clientes.html:123
+msgid "Editar Perfil"
+msgstr "Editar perfil"
+
+#: .\Clientes\templates\detalle_cliente.html:223
+msgid "Actualiza tu información personal"
+msgstr "Atualize suas informações pessoais"
+
+#: .\Clientes\templates\detalle_cliente.html:231
+#: .\Clientes\templates\mis_hosts.html:142
+#: .\Clientes\templates\mis_hosts.html:174
+#: .\Clientes\templates\mis_hosts.html:198
+#: .\Clientes\templates\quiero_ser_distribuidor.html:37
+msgid "Contactar Soporte"
+msgstr "Suporte de contato"
+
+#: .\Clientes\templates\detalle_cliente.html:235
+msgid "¿Necesitas ayuda? Estamos aquí"
+msgstr "Você precisa de ajuda?Estamos aqui"
+
+#: .\Clientes\templates\detalle_cliente.html:245
+#: .\Clientes\templates\detalle_cliente.html:267
+msgid "Eliminar Cuenta"
+msgstr "Excluir conta"
+
+#: .\Clientes\templates\detalle_cliente.html:249
+msgid "Esta acción no se puede deshacer"
+msgstr "Esta ação não pode ser desfeita"
+
+#: .\Clientes\templates\detalle_cliente.html:273
+msgid "Estás seguro de que deseas eliminar tu cuenta"
+msgstr "Você tem certeza de que deseja excluir sua conta"
+
+#: .\Clientes\templates\detalle_cliente.html:275
+msgid ""
+"Esta acción eliminará permanentemente tu cuenta y todos los datos asociados"
+msgstr ""
+"Esta ação eliminará permanentemente sua conta e todos os dados associados"
+
+#: .\Clientes\templates\detalle_cliente.html:276
+msgid "No podrás recuperar esta información"
+msgstr "Você não poderá recuperar esta informação"
+
+#: .\Clientes\templates\detalle_cliente.html:281
+msgid "Se cancelarán todos los servicios activos"
+msgstr "Todos os serviços ativos serão cancelados"
+
+#: .\Clientes\templates\distribuidor_exito.html:5
+msgid "Felicidades"
+msgstr "Parabéns"
+
+#: .\Clientes\templates\distribuidor_exito.html:6
+msgid ""
+"Ahora eres un distribuidor oficial. Ya puedes acceder a tus paquetes y "
+"empezar a gestionar tus dominios"
+msgstr ""
+"Agora você é um distribuidor oficial.Agora você pode acessar seus pacotes e "
+"começar a gerenciar seus domínios"
+
+#: .\Clientes\templates\distribuidor_exito.html:7
+msgid "Ver mis paquetes"
+msgstr "Veja meus pacotes"
+
+#: .\Clientes\templates\editar.html:19
+msgid "Actualizar Mi Información"
+msgstr "Atualize minhas informações"
+
+#: .\Clientes\templates\editar.html:22
+msgid "Mantén tu información personal actualizada y segura"
+msgstr "Mantenha suas informações pessoais atualizadas e seguras"
+
+#: .\Clientes\templates\editar.html:69
+msgid "Información de Cuenta"
+msgstr "Informações da conta"
+
+#: .\Clientes\templates\editar.html:71
+msgid "Actualiza tu información de acceso"
+msgstr "Atualize suas informações de acesso"
+
+#: .\Clientes\templates\editar.html:77 .\Clientes\templates\perfil.html:52
+msgid "Nombre de Usuario"
+msgstr "Nome de usuário"
+
+#: .\Clientes\templates\editar.html:87
+msgid "Tu nombre de usuario único en ChibchaWeb"
+msgstr "Seu único nome de usuário em Chibchaweb"
+
+#: .\Clientes\templates\editar.html:102
+msgid "Email para notificaciones y recuperación"
+msgstr "Email para notificações e recuperação"
+
+#: .\Clientes\templates\editar.html:113
+msgid "Completa tu perfil personal"
+msgstr "Complete seu perfil pessoal"
+
+#: .\Clientes\templates\editar.html:131
+msgid "Apellido"
+msgstr "Sobrenome"
+
+#: .\Clientes\templates\editar.html:155
+msgid "Número de contacto para soporte técnico"
+msgstr "Número de contato para suporte técnico"
+
+#: .\Clientes\templates\editar.html:163
+msgid "Seguridad"
+msgstr "Segurança"
+
+#: .\Clientes\templates\editar.html:165
+msgid "Cambia tu contraseña (opcional)"
+msgstr "Altere sua senha (opcional)"
+
+#: .\Clientes\templates\editar.html:170
+msgid "Nueva Contraseña"
+msgstr "Nova Senha"
+
+#: .\Clientes\templates\editar.html:183
+msgid "Solo completa si deseas cambiar tu contraseña actual"
+msgstr "Basta concluir se você quiser alterar sua senha atual"
+
+#: .\Clientes\templates\editar.html:215
+msgid "Datos Seguros"
+msgstr "Dados seguros"
+
+#: .\Clientes\templates\editar.html:217
+msgid "Tu información está protegida con encriptación de nivel bancario"
+msgstr "Sua informação é protegida com criptografia de nível bancário"
+
+#: .\Clientes\templates\editar.html:226
+msgid "Privacidad"
+msgstr "Privacidade"
+
+#: .\Clientes\templates\editar.html:228
+msgid "Nunca compartimos tu información personal con terceros"
+msgstr "Nunca compartilhamos suas informações pessoais com terceiros"
+
+#: .\Clientes\templates\editar.html:237
+msgid "Actualización"
+msgstr "Atualizar"
+
+#: .\Clientes\templates\editar.html:239
+msgid "Mantén tu información actualizada para mejor servicio"
+msgstr "Mantenha suas informações atualizadas para um melhor serviço"
+
+#: .\Clientes\templates\editar.html:397
+msgid "Contraseña válida"
+msgstr "Senha válida"
+
+#: .\Clientes\templates\exito.html:3
+msgid "Registro Exitoso"
+msgstr "Registro bem -sucedido"
+
+#: .\Clientes\templates\exito.html:14
+msgid "Registro exitoso"
+msgstr "Registro bem -sucedido"
+
+#: .\Clientes\templates\exito.html:15
+msgid "Gracias por registrarte en "
+msgstr "Obrigado por se registrar em"
+
+#: .\Clientes\templates\exito.html:17
+msgid "Hemos enviado un enlace de activación a tu correo electrónico"
+msgstr "Enviamos um link de ativação para o seu e -mail"
+
+#: .\Clientes\templates\exito.html:19
+msgid ""
+"Revisa tu bandeja de entrada (y la carpeta de spam) para activar tu cuenta"
+msgstr ""
+"Verifique sua caixa de entrada (e a pasta de spam) para ativar sua conta"
+
+#: .\Clientes\templates\exito.html:24
+msgid "Volver al Inicio"
+msgstr "De volta ao começo"
+
+#: .\Clientes\templates\home_clientes.html:5
+msgid "Panel Cliente"
+msgstr "Painel do cliente"
+
+#: .\Clientes\templates\home_clientes.html:15
+msgid "Panel de Control"
+msgstr "Painel de controle"
+
+#: .\Clientes\templates\home_clientes.html:19
+msgid ""
+"Gestiona tus servicios de hosting, revisa estadísticas y controla todo desde"
+" tu panel personalizado."
+msgstr ""
+"Gerencie seus serviços de hospedagem, verifique as estatísticas e controle "
+"tudo do seu painel personalizado."
+
+#: .\Clientes\templates\home_clientes.html:27
+msgid " activo hasta"
+msgstr "ativo up"
+
+#: .\Clientes\templates\home_clientes.html:32
+#: .\Clientes\templates\perfil.html:142
+msgid "No tienes una suscripción activa"
+msgstr "Você não tem uma assinatura ativa"
+
+#: .\Clientes\templates\home_clientes.html:45
+msgid "Tu Hosting"
+msgstr "Sua hospedagem"
+
+#: .\Clientes\templates\home_clientes.html:64
+msgid "Mis Sitios Web"
+msgstr "Meus sites"
+
+#: .\Clientes\templates\home_clientes.html:65
+msgid "Administra tus dominios, configuraciones y estadísticas de rendimiento"
+msgstr "Gerencie seus domínios, configurações e estatísticas de desempenho"
+
+#: .\Clientes\templates\home_clientes.html:68
+msgid "Sitios Activos"
+msgstr "Sites ativos"
+
+#: .\Clientes\templates\home_clientes.html:74
+msgid "Ver Hosts"
+msgstr "Veja os anfitriões"
+
+#: .\Clientes\templates\home_clientes.html:78
+#: .\Clientes\templates\mis_hosts.html:153
+#: .\Clientes\templates\quiero_ser_distribuidor.html:25
+msgid "Suscripción Requerida"
+msgstr "Assinatura necessária"
+
+#: .\Clientes\templates\home_clientes.html:92
+msgid "Soporte Técnico"
+msgstr "Suporte técnico"
+
+#: .\Clientes\templates\home_clientes.html:93
+msgid "Necesitas ayuda"
+msgstr "Você precisa de ajuda"
+
+#: .\Clientes\templates\home_clientes.html:93
+msgid "Crea tickets de soporte y recibe asistencia 24/7"
+msgstr "Crie ingressos de suporte e receba assistência 24/7"
+
+#: .\Clientes\templates\home_clientes.html:96
+msgid "Tickets Abiertos"
+msgstr "Bilhetes abertos"
+
+#: .\Clientes\templates\home_clientes.html:114
+#: .\Clientes\templates\perfil.html:6 .\Clientes\templates\perfil.html:16
+msgid "Mi Perfil"
+msgstr "Meu perfil"
+
+#: .\Clientes\templates\home_clientes.html:115
+msgid ""
+"Actualiza tu información personal, configuraciones de cuenta y preferencias"
+msgstr ""
+"Atualize suas informações pessoais, configurações de conta e preferências"
+
+#: .\Clientes\templates\home_clientes.html:137
+#: .\Distribuidor\templates\distribuidores\dashboard.html:5
+msgid "Panel Distribuidor"
+msgstr "Painel do distribuidor"
+
+#: .\Clientes\templates\home_clientes.html:138
+msgid "Accede a tu panel exclusivo de distribuidor y gestiona tus paquetes"
+msgstr ""
+"Acesse seu painel de distribuidores exclusivos e gerencie seus pacotes"
+
+#: .\Clientes\templates\home_clientes.html:140
+msgid "VIP"
+msgstr "VIP"
+
+#: .\Clientes\templates\home_clientes.html:141
+msgid "Status"
+msgstr "Status"
+
+#: .\Clientes\templates\home_clientes.html:146
+msgid "Panel VIP"
+msgstr "Painel VIP"
+
+#: .\Clientes\templates\home_clientes.html:175
+#: .\Clientes\templates\mis_hosts.html:191
+#: .\Clientes\templates\perfil.html:179
+msgid "Verificar Dominio"
+msgstr "Verifique o domínio"
+
+#: .\Clientes\templates\home_clientes.html:188
+#: .\Clientes\templates\perfil.html:188
+msgid "Funciones Premium"
+msgstr "Funções premium"
+
+#: .\Clientes\templates\home_clientes.html:195
+#: .\Clientes\templates\perfil.html:132
+msgid "Cambiar Plan"
+msgstr "Plano de mudança"
+
+#: .\Clientes\templates\home_clientes.html:195
+msgid "Suscribirse"
+msgstr "Inscreva -se"
+
+#: .\Clientes\templates\mis_hosts.html:5 .\Clientes\templates\perfil.html:162
+#: .\Clientes\templates\perfil.html:167
+msgid "Mis Hosts"
+msgstr "Meus anfitriões"
+
+#: .\Clientes\templates\mis_hosts.html:15
+msgid "Gestión de Hosting"
+msgstr "Gerenciamento de hospedagem"
+
+#: .\Clientes\templates\mis_hosts.html:20
+msgid ""
+"Administra todos tus dominios y servicios de hosting desde un solo lugar"
+msgstr "Gerencie todos os seus domínios e serviços de hospedagem de um lugar"
+
+#: .\Clientes\templates\mis_hosts.html:34
+msgid "Hosting"
+msgstr "Hospedagem"
+
+#: .\Clientes\templates\mis_hosts.html:39
+msgid "Host"
+msgstr "Hospedar"
+
+#: .\Clientes\templates\mis_hosts.html:58
+msgid "Tu suscripción está activa hasta"
+msgstr "Sua assinatura está ativa até"
+
+#: .\Clientes\templates\mis_hosts.html:58
+msgid "Puedes gestionar tus hosts y dominios"
+msgstr "Você pode gerenciar seus hosts e domínios"
+
+#: .\Clientes\templates\mis_hosts.html:69
+msgid "Mis Dominios"
+msgstr "Meus domínios"
+
+#: .\Clientes\templates\mis_hosts.html:84
+msgid "Configurado para hosting con ChibchaWeb"
+msgstr "Configurado para hospedar com Chibchaweb"
+
+#: .\Clientes\templates\mis_hosts.html:88
+msgid "Configurar"
+msgstr "Configurar"
+
+#: .\Clientes\templates\mis_hosts.html:94
+msgid "Eliminar"
+msgstr "Eliminar"
+
+#: .\Clientes\templates\mis_hosts.html:113
+msgid "Agregar Más Dominios"
+msgstr "Adicione mais domínios"
+
+#: .\Clientes\templates\mis_hosts.html:113
+msgid "Gestiona tus Hosts"
+msgstr "Gerencie seus hosts"
+
+#: .\Clientes\templates\mis_hosts.html:114
+msgid "Puedes agregar más dominios a tu plan de hosting"
+msgstr "Você pode adicionar mais domínios ao seu plano de hospedagem"
+
+#: .\Clientes\templates\mis_hosts.html:114
+msgid "Agrega y administra todos tus dominios y servicios de hosting"
+msgstr "Adicione e gerencie todos os seus domínios e serviços de hospedagem"
+
+#: .\Clientes\templates\mis_hosts.html:120
+msgid "Estás usando"
+msgstr "Você está usando"
+
+#: .\Clientes\templates\mis_hosts.html:120
+msgid "de"
+msgstr "de"
+
+#: .\Clientes\templates\mis_hosts.html:120
+msgid "dominios disponibles"
+msgstr "domínios disponíveis"
+
+#: .\Clientes\templates\mis_hosts.html:125
+msgid "Has alcanzado el límite de tu plan"
+msgstr "Você atingiu o limite do seu plano"
+
+#: .\Clientes\templates\mis_hosts.html:125
+msgid "Actualiza tu plan"
+msgstr "Atualize seu plano"
+
+#: .\Clientes\templates\mis_hosts.html:125
+msgid "para agregar más dominios"
+msgstr "Para adicionar mais domínios"
+
+#: .\Clientes\templates\mis_hosts.html:134
+msgid "Agregar Host"
+msgstr "Adicione host"
+
+#: .\Clientes\templates\mis_hosts.html:138
+msgid "Límite Alcanzado"
+msgstr "Limite alcançado"
+
+#: .\Clientes\templates\mis_hosts.html:154
+msgid "Necesitas una suscripción activa para gestionar hosts y dominios"
+msgstr "Você precisa de uma assinatura ativa para gerenciar hosts e domínios"
+
+#: .\Clientes\templates\mis_hosts.html:154
+msgid "Elige el plan que mejor se adapte a tus necesidades"
+msgstr "Escolha o plano que melhor atenda às suas necessidades"
+
+#: .\Clientes\templates\mis_hosts.html:166
+msgid "Adquiere un Plan para Comenzar"
+msgstr "Adquirir um plano para começar"
+
+#: .\Clientes\templates\mis_hosts.html:167
+msgid ""
+"Para gestionar hosts y dominios, necesitas contratar uno de nuestros planes "
+"de hosting"
+msgstr ""
+"Para gerenciar hosts e domínios, você precisa contratar um de nossos planos "
+"de hospedagem"
+
+#: .\Clientes\templates\mis_hosts.html:186
+msgid "Cómo agregar tu primer host"
+msgstr "Como adicionar seu primeiro host"
+
+#: .\Clientes\templates\mis_hosts.html:192
+msgid "Usa nuestra herramienta para verificar que tu dominio esté disponible"
+msgstr "Use nossa ferramenta para verificar se seu domínio está disponível"
+
+#: .\Clientes\templates\mis_hosts.html:199
+msgid "Nuestro equipo te ayudará con la configuración inicial"
+msgstr "Nossa equipe o ajudará com a configuração inicial"
+
+#: .\Clientes\templates\mis_hosts.html:205
+msgid "Configuración DNS"
+msgstr "Configurações de DNS"
+
+#: .\Clientes\templates\mis_hosts.html:206
+msgid "Te proporcionaremos los DNS necesarios para tu dominio"
+msgstr "Forneceremos a você o DNS necessário para o seu domínio"
+
+#: .\Clientes\templates\mis_hosts.html:212
+msgid "Listo"
+msgstr "Preparar"
+
+#: .\Clientes\templates\mis_hosts.html:213
+msgid "Tu sitio web estará online en pocas horas"
+msgstr "Seu site estará online em algumas horas"
+
+#: .\Clientes\templates\perfil.html:23
+msgid "Gestiona tu información personal y configuraciones de cuenta"
+msgstr "Gerencie suas informações pessoais e configurações de conta"
+
+#: .\Clientes\templates\perfil.html:78
+msgid "Editar Información"
+msgstr "Editar informações"
+
+#: .\Clientes\templates\perfil.html:90
+msgid "Estado de Cuenta"
+msgstr "Declaração"
+
+#: .\Clientes\templates\perfil.html:98
+msgid "Cuenta Verificada"
+msgstr "Conta verificada"
+
+#: .\Clientes\templates\perfil.html:99
+msgid "Tu cuenta está activa y verificada"
+msgstr "Sua conta está ativa e verificada"
+
+#: .\Clientes\templates\perfil.html:108
+msgid "Mi Plan"
+msgstr "Meu plano"
+
+#: .\Clientes\templates\perfil.html:126
+msgid "Vencimiento"
+msgstr "Maturidade"
+
+#: .\Clientes\templates\perfil.html:141
+msgid "Sin Suscripción"
+msgstr "Sem assinatura"
+
+#: .\Clientes\templates\perfil.html:144
+msgid "Obtener Plan"
+msgstr "Obtenha plano"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:10
+msgid "Conviértete en Distribuidor"
+msgstr "Torne -se um distribuidor"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:12
+msgid ""
+"Como distribuidor, podrás vender paquetes de hosting, recibir comisiones y "
+"gestionar múltiples dominios"
+msgstr ""
+"Como distribuidor, você pode vender pacotes de hospedagem, receber comissões"
+" e gerenciar vários domínios"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:12
+msgid "Es una gran oportunidad para expandir tu presencia digital"
+msgstr "É uma ótima oportunidade para expandir sua presença digital"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:16
+msgid "Tienes un plan"
+msgstr "Você tem um plano"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:16
+msgid "activo"
+msgstr "ativo"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:16
+msgid "perfecto para ser distribuidor"
+msgstr "Perfeito para ser um distribuidor"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:21
+msgid "Sí, quiero ser distribuidor"
+msgstr "Sim, eu quero ser um distribuidor"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:28
+msgid "Necesitas una suscripción activa"
+msgstr "Você precisa de uma assinatura ativa"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:28
+msgid "para convertirte en distribuidor"
+msgstr "Para se tornar um distribuidor"
+
+#: .\Clientes\templates\quiero_ser_distribuidor.html:31
+msgid ""
+"Para ser distribuidor de ChibchaWeb, primero debes tener un plan activo. "
+"Esto nos permite garantizar que conoces nuestros servicios y puedes ofrecer "
+"la mejor experiencia a tus clientes"
+msgstr ""
+"Para ser um distribuidor Chibchaweb, você deve primeiro ter um plano "
+"ativo.Isso nos permite garantir que você conhece nossos serviços e ofereça a"
+" melhor experiência aos seus clientes"
+
+#: .\Clientes\templates\registro.html:4 .\Clientes\templates\registro.html:9
+msgid "Registrar Cliente"
+msgstr "Registrar cliente"
+
+#: .\Clientes\templates\registro.html:13
+msgid "Registrar"
+msgstr "Registrar"
+
+#: .\Distribuidor\templates\distribuidores\dashboard.html:9
+msgid "Mi perfil como Distribuidor"
+msgstr "Meu perfil como distribuidor"
+
+#: .\Distribuidor\templates\distribuidores\dashboard.html:28
+msgid "Mis Paquetes de Distribuidor"
+msgstr "Meus pacotes de distribuidores"
+
+#: .\Distribuidor\templates\distribuidores\dashboard.html:31
+msgid "Tipo de distribuidor"
+msgstr "Tipo de distribuidor"
+
+#: .\Distribuidor\templates\distribuidores\dashboard.html:32
+msgid "Dominios disponibles"
+msgstr "Domínios disponíveis"
+
+#: .\Distribuidor\templates\distribuidores\dashboard.html:35
+msgid "No has comprado paquetes aún"
+msgstr "Você ainda não comprou pacotes"
+
+#: .\Distribuidor\templates\distribuidores\dashboard.html:37
+msgid "Comprar paquetes para revender"
+msgstr "Compre pacotes para revender"
+
+#: .\Distribuidor\templates\distribuidores\dashboard.html:40
+msgid "Ver detalles del paquete"
+msgstr "Veja detalhes do pacote"
+
+#: .\Distribuidor\templates\distribuidores\mis_paquetes.html:4
+msgid "Mis Paquetes - ChibchaWeb"
+msgstr "Meus pacotes - Chibchaweb"
+
+#: .\Distribuidor\templates\distribuidores\mis_paquetes.html:6
+msgid "Mis Paquetes"
+msgstr "Meus pacotes"
+
+#: .\Distribuidor\templates\distribuidores\mis_paquetes.html:7
+msgid "Estos son tus paquetes"
+msgstr "Estes são seus pacotes"
+
+#: .\Dominios\templates\agregar_dominio.html:15
+msgid "Nuevo Dominio"
+msgstr "Novo domínio"
+
+#: .\Dominios\templates\agregar_dominio.html:19
+msgid "Agregar Nuevo Dominio"
+msgstr "Adicione um novo domínio"
+
+#: .\Dominios\templates\agregar_dominio.html:22
+msgid "Agrega un nuevo dominio a tu plan de hosting"
+msgstr "Adicione um novo domínio ao seu plano de hospedagem"
+
+#: .\Dominios\templates\agregar_dominio.html:48
+msgid "Plan Activo"
+msgstr "Plano ativo"
+
+#: .\Dominios\templates\agregar_dominio.html:59
+msgid "Configurar Nuevo Dominio"
+msgstr "Configure um novo domínio"
+
+#: .\Dominios\templates\agregar_dominio.html:62
+msgid "Ingresa el dominio que deseas agregar a tu plan de hosting"
+msgstr "Digite o domínio que deseja adicionar ao seu plano de hospedagem"
+
+#: .\Dominios\templates\agregar_dominio.html:70
+msgid "Ingresa tu dominio"
+msgstr "Digite seu domínio"
+
+#: .\Dominios\templates\agregar_dominio.html:74
+msgid "Validar disponibilidad"
+msgstr "Validar disponibilidade"
+
+#: .\Dominios\templates\agregar_dominio.html:78
+msgid "Agregar a tu cuenta"
+msgstr "Adicionar à sua conta"
+
+#: .\Dominios\templates\agregar_dominio.html:119
+msgid "Excelente"
+msgstr "Excelente"
+
+#: .\Dominios\templates\agregar_dominio.html:119
+msgid "El dominio"
+msgstr "O domínio"
+
+#: .\Dominios\templates\agregar_dominio.html:119
+msgid "está disponible y listo para usar."
+msgstr "Está disponível e pronto para uso."
+
+#: .\Dominios\templates\agregar_dominio.html:121
+msgid "Dominio disponible para registro"
+msgstr "Domínio disponível para registro"
+
+#: .\Dominios\templates\agregar_dominio.html:122
+msgid "Listo para configurar hosting"
+msgstr "Pronto para configurar a hospedagem"
+
+#: .\Dominios\templates\agregar_dominio.html:123
+msgid "SSL gratuito incluido"
+msgstr "SSL grátis incluído"
+
+#: .\Dominios\templates\agregar_dominio.html:129
+msgid "Dominio en uso"
+msgstr "Domínio em uso"
+
+#: .\Dominios\templates\agregar_dominio.html:129
+msgid "ya está siendo utilizado."
+msgstr "Já está sendo usado."
+
+#: .\Dominios\templates\agregar_dominio.html:131
+msgid "Qué puedes hacer"
+msgstr "O que você pode fazer"
+
+#: .\Dominios\templates\agregar_dominio.html:132
+msgid "Elige un dominio diferente que esté disponible"
+msgstr "Escolha um domínio diferente que esteja disponível"
+
+#: .\Dominios\templates\agregar_dominio.html:133
+msgid "Si este dominio te pertenece"
+msgstr "Se este domínio pertence a você"
+
+#: .\Dominios\templates\agregar_dominio.html:133
+msgid "contacta a soporte"
+msgstr "Suporte de contato"
+
+#: .\Dominios\templates\agregar_dominio.html:133
+msgid " para transferirlo"
+msgstr "Para transferi -lo"
+
+#: .\Dominios\templates\agregar_dominio.html:134
+msgid "Prueba con una extensión diferente"
+msgstr "Tente com uma extensão diferente"
+
+#: .\Dominios\templates\agregar_dominio.html:145
+msgid "Validar Disponibilidad"
+msgstr "Validar disponibilidade"
+
+#: .\Dominios\templates\agregar_dominio.html:152
+msgid "Agregar a Mi Cuenta"
+msgstr "Adicionar à minha conta"
+
+#: .\Dominios\templates\agregar_dominio.html:157
+msgid "Dominio No Disponible"
+msgstr "Domínio não disponível"
+
+#: .\Dominios\templates\agregar_dominio.html:162
+msgid "Agregar Dominio"
+msgstr "Adicionar domínio"
+
+#: .\Dominios\templates\agregar_dominio.html:171
+msgid "Volver a Mis Hosts"
+msgstr "Vá para meus anfitriões"
+
+#: .\Dominios\templates\agregar_dominio.html:187
+msgid "SSL Automático"
+msgstr "SSL automático"
+
+#: .\Dominios\templates\agregar_dominio.html:189
+msgid "Certificado SSL gratuito incluido con tu dominio"
+msgstr "Certificado SSL gratuito incluído no seu domínio"
+
+#: .\Dominios\templates\agregar_dominio.html:198
+msgid "Configuración Rápida"
+msgstr "Configuração rápida"
+
+#: .\Dominios\templates\agregar_dominio.html:200
+msgid "Tu dominio se configurará automáticamente en nuestros servidores"
+msgstr "Seu domínio será configurado automaticamente em nossos servidores"
+
+#: .\Dominios\templates\agregar_dominio.html:211
+msgid "Nuestro equipo te ayudará con cualquier configuración"
+msgstr "Nossa equipe o ajudará com qualquer configuração"
+
+#: .\Dominios\templates\agregar_dominio.html:222
+msgid "Importante"
+msgstr "Importante"
+
+#: .\Dominios\templates\agregar_dominio.html:222
+msgid ""
+"Al agregar el dominio, nuestro equipo recibirá una notificación para "
+"configurar los servicios de hosting correspondientes"
+msgstr ""
+"Ao adicionar o domínio, nosso equipamento receberá uma notificação para "
+"configurar os serviços de hospedagem correspondentes"
+
+#: .\Dominios\templates\verificar_url.html:4
+msgid "Verificar Disponibilidad de URL"
+msgstr "Verifique a disponibilidade de URL"
+
+#: .\Dominios\templates\verificar_url.html:9
+msgid "Verificador de URLs"
+msgstr "URLS Verificador"
+
+#: .\Dominios\templates\verificar_url.html:10
+msgid "Comprueba si una dirección está disponible y puede usarla"
+msgstr "Verifique se um endereço está disponível e você pode usá -lo"
+
+#: .\Dominios\templates\verificar_url.html:19
+msgid "Verificar URL"
+msgstr "Verifique o URL"
+
+#: .\Dominios\templates\verificar_url.html:34
+msgid "Generar XML"
+msgstr "Gerar xml"
+
+#: .\Empleados\templates\agente_dashboard.html:8
+msgid "Dashboard Agente"
+msgstr "Agente do painel"
+
+#: .\Empleados\templates\agente_dashboard.html:27
+#: .\Empleados\templates\mis_tickets.html:22
+msgid "AGENTE"
+msgstr "AGENTE"
+
+#: .\Empleados\templates\agente_dashboard.html:32
+#: .\Empleados\templates\mis_tickets.html:27
+#: .\Empleados\templates\supervisor_dashboard.html:29
+msgid "Bienvenido/a"
+msgstr "Bem-vindo"
+
+#: .\Empleados\templates\agente_dashboard.html:49
+#: .\Empleados\templates\agente_dashboard.html:282
+#: .\Empleados\templates\mis_tickets.html:44
+#: .\Empleados\templates\supervisor_dashboard.html:52
+msgid "Mi Información"
+msgstr "Minhas informações"
+
+#: .\Empleados\templates\agente_dashboard.html:58
+#: .\Empleados\templates\agente_dashboard.html:123
+#: .\Empleados\templates\mis_tickets.html:53
+#: .\Empleados\templates\supervisor_dashboard.html:65
+#: .\Empleados\templates\supervisor_dashboard.html:160
+#: .\Empleados\templates\supervisor_dashboard.html:689
+msgid "Tickets Pendientes"
+msgstr "Ingressos pendentes"
+
+#: .\Empleados\templates\agente_dashboard.html:62
+#: .\Empleados\templates\mis_tickets.html:57
+msgid "Resueltos"
+msgstr "Resolvido"
+
+#: .\Empleados\templates\agente_dashboard.html:77
+#: .\Empleados\templates\supervisor_dashboard.html:80
+msgid "Sesión"
+msgstr "Sessão"
+
+#: .\Empleados\templates\agente_dashboard.html:86
+#: .\Empleados\templates\mis_tickets.html:81
+#: .\Empleados\templates\supervisor_dashboard.html:89
+msgid "ticket"
+msgstr "Bilhete"
+
+#: .\Empleados\templates\agente_dashboard.html:86
+#: .\Empleados\templates\mis_tickets.html:81
+msgid "pendiente"
+msgstr "brinco"
+
+#: .\Empleados\templates\agente_dashboard.html:91
+#: .\Empleados\templates\mis_tickets.html:86
+#: .\Empleados\templates\supervisor_dashboard.html:94
+msgid "Todo al día"
+msgstr "Durante todo o dia"
+
+#: .\Empleados\templates\agente_dashboard.html:110
+msgid "Dashboard del Agente"
+msgstr "Painel do agente"
+
+#: .\Empleados\templates\agente_dashboard.html:111
+msgid "Panel de gestión de tickets personal"
+msgstr "Painel de gerenciamento de ingressos pessoais"
+
+#: .\Empleados\templates\agente_dashboard.html:139
+#: .\Empleados\templates\mis_tickets.html:133
+#: .\Empleados\templates\mis_tickets.html:280
+#: .\Empleados\templates\supervisor_dashboard.html:685
+msgid "Tickets Resueltos"
+msgstr "Tickets resolvidos"
+
+#: .\Empleados\templates\agente_dashboard.html:155
+#: .\Empleados\templates\mis_tickets.html:148
+msgid "Total Asignados"
+msgstr "Total atribuído"
+
+#: .\Empleados\templates\agente_dashboard.html:171
+msgid "Mi Nivel"
+msgstr "Meu nível"
+
+#: .\Empleados\templates\agente_dashboard.html:188
+msgid "Mis Tickets Pendientes"
+msgstr "Meus ingressos pendentes"
+
+#: .\Empleados\templates\agente_dashboard.html:196
+#: .\Empleados\templates\agente_dashboard.html:245
+#: .\Empleados\templates\mis_tickets.html:296
+#: .\Empleados\templates\supervisor_dashboard.html:249
+#: .\Empleados\templates\supervisor_dashboard.html:327
+#: .\Empleados\templates\supervisor_dashboard.html:535
+msgid "ID"
+msgstr "Eu ia"
+
+#: .\Empleados\templates\agente_dashboard.html:200
+#: .\Empleados\templates\supervisor_dashboard.html:538
+msgid "Fecha Creación"
+msgstr "Data da criação"
+
+#: .\Empleados\templates\agente_dashboard.html:201
+msgid "Última Actualización"
+msgstr "Última atualização"
+
+#: .\Empleados\templates\agente_dashboard.html:227
+#: .\Empleados\templates\mis_tickets.html:268
+msgid "Excelente trabajo"
+msgstr "Excelente trabalho"
+
+#: .\Empleados\templates\agente_dashboard.html:228
+msgid "No tienes tickets pendientes"
+msgstr "Você não tem ingressos pendentes"
+
+#: .\Empleados\templates\agente_dashboard.html:237
+msgid "Mis Tickets Resueltos Recientemente"
+msgstr "Meus ingressos recentemente resolvidos"
+
+#: .\Empleados\templates\agente_dashboard.html:249
+msgid "Fecha Finalización"
+msgstr "Data de acabamento"
+
+#: .\Empleados\templates\agente_dashboard.html:270
+#: .\Empleados\templates\mis_tickets.html:342
+msgid "Sin tickets resueltos"
+msgstr "Sem ingressos resolvidos"
+
+#: .\Empleados\templates\agente_dashboard.html:271
+#: .\Empleados\templates\mis_tickets.html:343
+msgid "Aún no has resuelto ningún ticket"
+msgstr "Você ainda não resolveu nenhum bilhete"
+
+#: .\Empleados\templates\agente_dashboard.html:334
+msgid "Mi Rendimiento"
+msgstr "Meu desempenho"
+
+#: .\Empleados\templates\agente_dashboard.html:340
+msgid "Total Resueltos"
+msgstr "Total resolvido"
+
+#: .\Empleados\templates\agente_dashboard.html:344
+msgid "Pendientes"
+msgstr "Brincos"
+
+#: .\Empleados\templates\agente_dashboard.html:353
+msgid "Sin calificación"
+msgstr "Sem qualificação"
+
+#: .\Empleados\templates\agente_dashboard.html:356
+msgid "Calificación Promedio"
+msgstr "Classificação média"
+
+#: .\Empleados\templates\agente_dashboard.html:361
+msgid "Gráficos de rendimiento próximamente"
+msgstr "Gráficos de desempenho em breve"
+
+#: .\Empleados\templates\logEmpleados.html:8
+msgid "Login Empleados"
+msgstr "Login funcionários"
+
+#: .\Empleados\templates\logEmpleados.html:21
+msgid "Portal de Empleados"
+msgstr "Portal de funcionários"
+
+#: .\Empleados\templates\logEmpleados.html:23
+msgid "Acceso para personal autorizado"
+msgstr "Acesso para pessoal autorizado"
+
+#: .\Empleados\templates\logEmpleados.html:76
+msgid "Volver al inicio"
+msgstr "De volta ao começo"
+
+#: .\Empleados\templates\logEmpleados.html:79
+msgid "Portal de Clientes"
+msgstr "Portal do cliente"
+
+#: .\Empleados\templates\mis_tickets.html:105
+msgid "Gestión de Mis Tickets"
+msgstr "Meu gerenciamento de ingressos"
+
+#: .\Empleados\templates\mis_tickets.html:106
+msgid "Administra tus tickets asignados"
+msgstr "Gerencie seus ingressos atribuídos"
+
+#: .\Empleados\templates\mis_tickets.html:118
+msgid "Tickets En Proceso"
+msgstr "Ingressos em processo"
+
+#: .\Empleados\templates\mis_tickets.html:164
+msgid "Tickets Pendientes de Resolución"
+msgstr "Tickets de resolução pendente"
+
+#: .\Empleados\templates\mis_tickets.html:170
+#: .\Empleados\templates\mis_tickets.html:286
+#: .\Empleados\templates\supervisor_dashboard.html:297
+#: .\Empleados\templates\supervisor_dashboard.html:375
+msgid "Ver todos"
+msgstr "Veja tudo"
+
+#: .\Empleados\templates\mis_tickets.html:196
+#: .\Empleados\templates\mis_tickets.html:324
+#: .\Tickets\templates\tickets_cliente.html:60
+msgid "Descripción"
+msgstr "Descrição"
+
+#: .\Empleados\templates\mis_tickets.html:197
+#: .\Tickets\templates\tickets_cliente.html:94
+msgid "Fecha de creación"
+msgstr "Data da criação"
+
+#: .\Empleados\templates\mis_tickets.html:198
+#: .\Tickets\templates\tickets_cliente.html:44
+msgid "Última actualización"
+msgstr "Última atualização"
+
+#: .\Empleados\templates\mis_tickets.html:202
+#: .\Empleados\templates\mis_tickets.html:325
+msgid "Historial"
+msgstr "Registro"
+
+#: .\Empleados\templates\mis_tickets.html:211
+msgid "y"
+msgstr "e"
+
+#: .\Empleados\templates\mis_tickets.html:211
+msgid "más"
+msgstr "avançar"
+
+#: .\Empleados\templates\mis_tickets.html:222
+#: .\Empleados\templates\mis_tickets.html:358
+#: .\Empleados\templates\mis_tickets.html:374
+msgid "Resolver Ticket"
+msgstr "Resolva ticket"
+
+#: .\Empleados\templates\mis_tickets.html:231
+msgid "Escalar a Nivel"
+msgstr "Suba no nível"
+
+#: .\Empleados\templates\mis_tickets.html:238
+msgid "Ver Historial Completo"
+msgstr "Veja a história completa"
+
+#: .\Empleados\templates\mis_tickets.html:245
+msgid "Historial Completo"
+msgstr "História completa"
+
+#: .\Empleados\templates\mis_tickets.html:269
+msgid "No tienes tickets pendientes por resolver"
+msgstr "Você não tem ingressos pendentes para resolver"
+
+#: .\Empleados\templates\mis_tickets.html:300
+msgid "Fecha Resolución"
+msgstr "Resolução de data"
+
+#: .\Empleados\templates\mis_tickets.html:316
+#: .\Empleados\templates\supervisor_dashboard.html:445
+msgid "Ver Detalles"
+msgstr "Veja detalhes"
+
+#: .\Empleados\templates\mis_tickets.html:362
+msgid "Estás seguro de que quieres marcar este ticket como resuelto"
+msgstr "Você tem certeza de que deseja marcar este ingresso como resolvido"
+
+#: .\Empleados\templates\mis_tickets.html:363
+#: .\Empleados\templates\mis_tickets.html:391
+#: .\Empleados\templates\supervisor_dashboard.html:700
+msgid "Ticket"
+msgstr "Bilhete"
+
+#: .\Empleados\templates\mis_tickets.html:366
+msgid "Comentario de resolución (opcional)"
+msgstr "Comentário de resolução (opcional)"
+
+#: .\Empleados\templates\mis_tickets.html:386
+#: .\Empleados\templates\mis_tickets.html:403
+msgid "Escalar Ticket"
+msgstr "Bilhete escalar"
+
+#: .\Empleados\templates\mis_tickets.html:390
+msgid "Estás seguro de que quieres escalar este ticket al siguiente nivel"
+msgstr "Você tem certeza de que deseja escalar este bilhete no próximo nível"
+
+#: .\Empleados\templates\mis_tickets.html:392
+msgid "Se escalará del Nivel"
+msgstr "Será escalado do nível"
+
+#: .\Empleados\templates\mis_tickets.html:392
+msgid "al Nivel"
+msgstr "no nível"
+
+#: .\Empleados\templates\mis_tickets.html:395
+msgid "Motivo del escalamiento (requerido)"
+msgstr "Motivo de escala (necessário)"
+
+#: .\Empleados\templates\supervisor_dashboard.html:24
+msgid "SUPERVISOR"
+msgstr "SUPERVISOR"
+
+#: .\Empleados\templates\supervisor_dashboard.html:39
+#: .\Empleados\templates\supervisor_dashboard.html:228
+#: .\Empleados\templates\supervisor_dashboard.html:477
+msgid "Gestión de Tickets"
+msgstr "Gerenciamento de ingressos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:45
+#: .\Empleados\templates\supervisor_dashboard.html:396
+msgid "Gestión de Empleados"
+msgstr "Gerenciamento de funcionários"
+
+#: .\Empleados\templates\supervisor_dashboard.html:61
+msgid "Agentes"
+msgstr "Agentes"
+
+#: .\Empleados\templates\supervisor_dashboard.html:69
+msgid "Asignados"
+msgstr "Atribuído"
+
+#: .\Empleados\templates\supervisor_dashboard.html:89
+msgid "sin asignar"
+msgstr "Sem atribuir"
+
+#: .\Empleados\templates\supervisor_dashboard.html:115
+msgid "Dashboard Supervisor"
+msgstr "Supervisor de painel"
+
+#: .\Empleados\templates\supervisor_dashboard.html:116
+msgid "Panel de control administrativo"
+msgstr "Painel de controle administrativo"
+
+#: .\Empleados\templates\supervisor_dashboard.html:128
+msgid "Agentes Nivel"
+msgstr "Agentes de nível"
+
+#: .\Empleados\templates\supervisor_dashboard.html:144
+msgid "Agentes Activos"
+msgstr "Agentes ativos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:176
+msgid "Nivel de Acceso"
+msgstr "Nível de acesso"
+
+#: .\Empleados\templates\supervisor_dashboard.html:199
+msgid "Gestionar Tickets"
+msgstr "Gerenciar ingressos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:200
+msgid "pendientes"
+msgstr "Brincos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:206
+msgid "Ver Empleados"
+msgstr "Ver funcionários"
+
+#: .\Empleados\templates\supervisor_dashboard.html:207
+msgid "agentes"
+msgstr "Agentes"
+
+#: .\Empleados\templates\supervisor_dashboard.html:214
+msgid "Ver estadísticas"
+msgstr "Veja estatísticas"
+
+#: .\Empleados\templates\supervisor_dashboard.html:229
+msgid "Asignación y seguimiento de tickets de soporte"
+msgstr "Atribuição e monitoramento de ingressos de suporte"
+
+#: .\Empleados\templates\supervisor_dashboard.html:240
+msgid "Tickets Sin Asignar"
+msgstr "Ingressos impuros"
+
+#: .\Empleados\templates\supervisor_dashboard.html:252
+#: .\Empleados\templates\supervisor_dashboard.html:703
+#: .\Pagos\templates\confirmacion_pago.html:104
+#: .\Tickets\templates\tickets_cliente.html:63
+msgid "Fecha"
+msgstr "Data"
+
+#: .\Empleados\templates\supervisor_dashboard.html:253
+#: .\Empleados\templates\supervisor_dashboard.html:333
+#: .\Empleados\templates\supervisor_dashboard.html:418
+#: .\Empleados\templates\supervisor_dashboard.html:540
+msgid "Acción"
+msgstr "Ação"
+
+#: .\Empleados\templates\supervisor_dashboard.html:267
+msgid "Asignar"
+msgstr "Atribuir"
+
+#: .\Empleados\templates\supervisor_dashboard.html:297
+#: .\Empleados\templates\supervisor_dashboard.html:375
+msgid "tickets"
+msgstr "Ingressos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:304
+msgid "No hay tickets sin asignar"
+msgstr "Não há não atribuir ingressos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:305
+msgid "Todos los tickets están asignados"
+msgstr "Todos os ingressos são atribuídos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:318
+#: .\Empleados\templates\supervisor_dashboard.html:417
+#: .\Empleados\templates\supervisor_dashboard.html:681
+msgid "Tickets Asignados"
+msgstr "Tickets atribuídos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:330
+msgid "Asignado a"
+msgstr "Atribuído a"
+
+#: .\Empleados\templates\supervisor_dashboard.html:332
+msgid "Fecha Asig"
+msgstr "Atribuir data"
+
+#: .\Empleados\templates\supervisor_dashboard.html:382
+msgid "No hay tickets asignados"
+msgstr "Sem ingressos atribuídos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:383
+msgid "No hay tickets asignados en tu nivel"
+msgstr "Não há ingressos atribuídos no seu nível"
+
+#: .\Empleados\templates\supervisor_dashboard.html:397
+msgid "Administración de agentes de tu nivel"
+msgstr "Administração de seus agentes de nível"
+
+#: .\Empleados\templates\supervisor_dashboard.html:405
+msgid "Agentes de Nivel"
+msgstr "Agentes de nível"
+
+#: .\Empleados\templates\supervisor_dashboard.html:456
+msgid "No hay agentes de nivel"
+msgstr "Não há agentes de nível"
+
+#: .\Empleados\templates\supervisor_dashboard.html:457
+msgid "Aún no se han asignado agentes a este nivel"
+msgstr "Os agentes ainda não foram atribuídos neste nível"
+
+#: .\Empleados\templates\supervisor_dashboard.html:486
+msgid "Filtrar por fecha"
+msgstr "Filtrar por data"
+
+#: .\Empleados\templates\supervisor_dashboard.html:492
+msgid "Filtrar por estado"
+msgstr "Filtro por estado"
+
+#: .\Empleados\templates\supervisor_dashboard.html:495
+msgid "Todos los estados"
+msgstr "Todos os estados"
+
+#: .\Empleados\templates\supervisor_dashboard.html:496
+msgid "En espera"
+msgstr "Esperando"
+
+#: .\Empleados\templates\supervisor_dashboard.html:497
+msgid "En Proceso"
+msgstr "Em andamento"
+
+#: .\Empleados\templates\supervisor_dashboard.html:498
+msgid "Resuelto"
+msgstr "Resolvido"
+
+#: .\Empleados\templates\supervisor_dashboard.html:499
+msgid "Cerrado"
+msgstr "Fechado"
+
+#: .\Empleados\templates\supervisor_dashboard.html:504
+msgid "Buscar cliente"
+msgstr "Encontre o cliente"
+
+#: .\Empleados\templates\supervisor_dashboard.html:515
+msgid "Hoy"
+msgstr "Hoje"
+
+#: .\Empleados\templates\supervisor_dashboard.html:524
+msgid "Limpiar"
+msgstr "Limpar"
+
+#: .\Empleados\templates\supervisor_dashboard.html:551
+msgid "Mostrando 0 tickets"
+msgstr "Mostrando 0 ingressos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:556
+#: .\Empleados\templates\supervisor_dashboard.html:626
+#: .\Empleados\templates\supervisor_dashboard.html:716
+#: .\Tickets\templates\tickets_cliente.html:221
+msgid "Cerrar"
+msgstr "Fechar"
+
+#: .\Empleados\templates\supervisor_dashboard.html:570
+#: .\Tickets\templates\crear_ticket.html:53
+msgid "Detalles del Ticket"
+msgstr "Detalhes dos ingressos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:577
+msgid "Información General"
+msgstr "Informações gerais"
+
+#: .\Empleados\templates\supervisor_dashboard.html:580
+msgid "Título"
+msgstr "Qualificação"
+
+#: .\Empleados\templates\supervisor_dashboard.html:582
+#: .\Tickets\templates\tickets_cliente.html:202
+msgid "Fecha de Creación"
+msgstr "Data da criação"
+
+#: .\Empleados\templates\supervisor_dashboard.html:584
+#: .\Tickets\templates\crear_ticket.html:90
+msgid "Prioridad"
+msgstr "Prioridade"
+
+#: .\Empleados\templates\supervisor_dashboard.html:589
+msgid "Asignación"
+msgstr "Atribuição"
+
+#: .\Empleados\templates\supervisor_dashboard.html:592
+msgid "Agente Asignado"
+msgstr "Agente atribuído"
+
+#: .\Empleados\templates\supervisor_dashboard.html:593
+msgid "Fecha de Asignación"
+msgstr "Data de alocação"
+
+#: .\Empleados\templates\supervisor_dashboard.html:594
+msgid "Último Contacto"
+msgstr "Último contato"
+
+#: .\Empleados\templates\supervisor_dashboard.html:604
+#: .\Tickets\templates\tickets_cliente.html:198
+#: .\Tickets\templates\tickets_cliente.html:262
+msgid "Descripción del Problema"
+msgstr "Descrição do problema"
+
+#: .\Empleados\templates\supervisor_dashboard.html:617
+msgid "Historial de Actividades"
+msgstr "Histórico de atividades"
+
+#: .\Empleados\templates\supervisor_dashboard.html:640
+msgid "Información del Empleado"
+msgstr "Informações sobre funcionários"
+
+#: .\Empleados\templates\supervisor_dashboard.html:665
+msgid "No disponible"
+msgstr "Não disponível"
+
+#: .\Empleados\templates\supervisor_dashboard.html:668
+msgid "Fecha de Ingreso"
+msgstr "Data de renda"
+
+#: .\Empleados\templates\supervisor_dashboard.html:675
+msgid "Estadísticas de Trabajo"
+msgstr "Estatísticas de trabalho"
+
+#: .\Empleados\templates\supervisor_dashboard.html:695
+msgid "Últimos Tickets"
+msgstr "Últimos ingressos"
+
+#: .\Empleados\templates\supervisor_dashboard.html:719
+msgid "Contactar"
+msgstr "Contato"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:5
+#: .\Pagos\templates\registrar_tarjeta.html:40
+msgid "Número de Tarjeta"
+msgstr "Número do cartão"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:11
+#: .\Pagos\templates\registrar_tarjeta.html:46
+msgid "1234 5678 9012 3456"
+msgstr "1234 5678 9012 3456"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:17
+#: .\Pagos\templates\registrar_tarjeta.html:52
+msgid "Logo Tarjeta"
+msgstr "Logotipo do cartão"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:19
+#: .\Pagos\templates\registrar_tarjeta.html:54
+msgid "Ingresa los 14 a 16 dígitos de tu tarjeta"
+msgstr "Digite os 14 a 16 dígitos em seu cartão"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:21
+msgid "Solo se permiten tarjetas VISA, MasterCard o Diners Club."
+msgstr "Somente cartões de visto, mastercard ou diners são permitidos."
+
+#: .\Pagos\templates\_formulario_tarjeta.html:29
+#: .\Pagos\templates\registrar_tarjeta.html:60
+msgid "Nombre del Titular"
+msgstr "Nome do titular"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:35
+#: .\Pagos\templates\registrar_tarjeta.html:66
+msgid "NOMBRE COMPLETO COMO APARECE EN LA TARJETA"
+msgstr "Nome completo como aparece no cartão"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:38
+#: .\Pagos\templates\registrar_tarjeta.html:70
+msgid "Nombre exacto como aparece en tu tarjeta"
+msgstr "Nome exato como aparece no seu cartão"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:46
+#: .\Pagos\templates\registrar_tarjeta.html:77
+msgid "Fecha de Expiración"
+msgstr "Data de validade"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:52
+#: .\Pagos\templates\registrar_tarjeta.html:83
+msgid "MM/AA"
+msgstr "Mm/aa"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:56
+#: .\Pagos\templates\registrar_tarjeta.html:87
+msgid "Formato: MM/AA"
+msgstr "Formato: mm/aa"
+
+#: .\Pagos\templates\_formulario_tarjeta.html:70
+#: .\Pagos\templates\registrar_tarjeta.html:101
+msgid "Código de 3 o 4 dígitos en el reverso"
+msgstr "Código de 3 ou 4 dígitos na parte traseira"
+
+#: .\Pagos\templates\confirmacion_pago.html:5
+msgid "Pago Confirmado"
+msgstr "Pagamento confirmado"
+
+#: .\Pagos\templates\confirmacion_pago.html:61
+#: .\Pagos\templates\resumen_pago.html:23
+msgid "Dirección & Tarjeta"
+msgstr "Endereço e cartão"
+
+#: .\Pagos\templates\confirmacion_pago.html:66
+#: .\Pagos\templates\resumen_pago.html:28
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:28
+msgid "Pago"
+msgstr "Pagar"
+
+#: .\Pagos\templates\confirmacion_pago.html:73
+msgid "¡Proceso Completado!"
+msgstr "Processo concluído!"
+
+#: .\Pagos\templates\confirmacion_pago.html:74
+msgid "Tu suscripción ha sido activada exitosamente"
+msgstr "Sua assinatura foi ativada com sucesso"
+
+#: .\Pagos\templates\confirmacion_pago.html:88
+msgid "¡Pago Exitoso!"
+msgstr "Pagamento bem -sucedido!"
+
+#: .\Pagos\templates\confirmacion_pago.html:90
+msgid ""
+"Tu suscripción ha sido activada correctamente y ya puedes comenzar a "
+"disfrutar de todos los beneficios."
+msgstr ""
+"Sua assinatura foi ativada corretamente e você pode começar a desfrutar de "
+"todos os benefícios."
+
+#: .\Pagos\templates\confirmacion_pago.html:97
+msgid "Estado del Pago"
+msgstr "Status de pagamento"
+
+#: .\Pagos\templates\confirmacion_pago.html:100
+msgid "Confirmado"
+msgstr "Confirmado"
+
+#: .\Pagos\templates\confirmacion_pago.html:114
+msgid "Beneficios Activados"
+msgstr "Benefícios ativados"
+
+#: .\Pagos\templates\confirmacion_pago.html:119
+msgid "Acceso completo a la plataforma"
+msgstr "Acesso total à plataforma"
+
+#: .\Pagos\templates\confirmacion_pago.html:123
+msgid "Comisiones por ventas activadas"
+msgstr "Comissões para vendas ativadas"
+
+#: .\Pagos\templates\confirmacion_pago.html:127
+msgid "Soporte técnico premium"
+msgstr "Suporte técnico premium"
+
+#: .\Pagos\templates\confirmacion_pago.html:131
+msgid "Panel de administración disponible"
+msgstr "Painel de administração disponível"
+
+#: .\Pagos\templates\confirmacion_pago.html:140
+msgid "Ir al Panel Principal"
+msgstr "Vá para o painel principal"
+
+#: .\Pagos\templates\confirmacion_pago.html:154
+msgid "¡Pago completado exitosamente!"
+msgstr "Pagamento concluído com sucesso!"
+
+#: .\Pagos\templates\confirmacion_pago_paquetes.html:9
+msgid "¡Compra completada!"
+msgstr "Compra completa!"
+
+#: .\Pagos\templates\confirmacion_pago_paquetes.html:10
+msgid "Has adquirido exitosamente tu paquete de páginas."
+msgstr "Você adquiriu com sucesso seu pacote de página."
+
+#: .\Pagos\templates\confirmacion_pago_paquetes.html:11
+msgid "Gracias por trabajar con nosotros como distribuidor."
+msgstr "Obrigado por trabalhar conosco como distribuidor."
+
+#: .\Pagos\templates\confirmacion_pago_paquetes.html:14
+msgid "Ir al panel principal"
+msgstr "Vá para o painel principal"
+
+#: .\Pagos\templates\registrar_direccion.html:4
+msgid "Registrar Dirección - ChibchaWeb"
+msgstr "Endereço de registro - Chibchaweb"
+
+#: .\Pagos\templates\registrar_direccion.html:13
+msgid "Registrar Nueva Dirección"
+msgstr "Registrar um novo endereço"
+
+#: .\Pagos\templates\registrar_direccion.html:22
+#: .\Pagos\templates\registrar_tarjeta.html:23
+msgid "Plan pendiente:"
+msgstr "Plano pendente:"
+
+#: .\Pagos\templates\registrar_direccion.html:23
+#: .\Pagos\templates\registrar_tarjeta.html:23
+msgid "Tienes el plan"
+msgstr "Você tem o plano"
+
+#: .\Pagos\templates\registrar_direccion.html:24
+#: .\Pagos\templates\registrar_tarjeta.html:24
+msgid "en modalidad"
+msgstr "na modalidade"
+
+#: .\Pagos\templates\registrar_direccion.html:25
+msgid "esperando. Completa el registro de tu dirección para continuar."
+msgstr "esperando.Preencha o registro do seu endereço para continuar."
+
+#: .\Pagos\templates\registrar_direccion.html:37
+msgid "Dirección Completa"
+msgstr "Endereço completo"
+
+#: .\Pagos\templates\registrar_direccion.html:43
+msgid "Ej: Calle 123 #45-67"
+msgstr "Ex: Calle 123 #45-67"
+
+#: .\Pagos\templates\registrar_direccion.html:47
+msgid "Formatos válidos:"
+msgstr "Formatos válidos:"
+
+#: .\Pagos\templates\registrar_direccion.html:49
+msgid "Colombia:"
+msgstr "Colômbia:"
+
+#: .\Pagos\templates\registrar_direccion.html:49
+msgid "Calle 123 #45-67, Carrera 7 #12-34"
+msgstr "Calle 123 #45-67, Carrera 7 #12-34"
+
+#: .\Pagos\templates\registrar_direccion.html:50
+msgid "Ecuador:"
+msgstr "Equador:"
+
+#: .\Pagos\templates\registrar_direccion.html:50
+msgid "Av. 10 de Agosto 123, Calle García Moreno 45"
+msgstr "Av. 10 De Agosto 123, García Moreno Street 45"
+
+#: .\Pagos\templates\registrar_direccion.html:51
+msgid "Perú:"
+msgstr "Peru:"
+
+#: .\Pagos\templates\registrar_direccion.html:51
+msgid "Jr. Lima 123, Av. Arequipa 456"
+msgstr "Jr. Lima 123, Av. Arequipa 456"
+
+#: .\Pagos\templates\registrar_direccion.html:61
+msgid "Código Postal"
+msgstr "CEP"
+
+#: .\Pagos\templates\registrar_direccion.html:74
+msgid "País"
+msgstr "País"
+
+#: .\Pagos\templates\registrar_direccion.html:77
+msgid "Selecciona un país"
+msgstr "Selecione um país"
+
+#: .\Pagos\templates\registrar_direccion.html:90
+msgid "Guardar Dirección"
+msgstr "Salve a direção"
+
+#: .\Pagos\templates\registrar_tarjeta.html:5
+msgid "Registrar Tarjeta de Crédito - ChibchaWeb"
+msgstr "CARTÃO DE CRÉDITO DE CERGA - CHIBCHAWEB"
+
+#: .\Pagos\templates\registrar_tarjeta.html:14
+msgid "Registrar Nueva Tarjeta de Crédito"
+msgstr "Registre um novo cartão de crédito"
+
+#: .\Pagos\templates\registrar_tarjeta.html:24
+msgid "esperando. Completa el registro de tu tarjeta para continuar."
+msgstr "esperando.Preencha o registro do seu cartão para continuar."
+
+#: .\Pagos\templates\registrar_tarjeta.html:32
+msgid "Seguridad:"
+msgstr "Segurança:"
+
+#: .\Pagos\templates\registrar_tarjeta.html:32
+msgid "Tus datos están protegidos con encriptación de nivel bancario."
+msgstr "Seus dados são protegidos com criptografia de nível bancário."
+
+#: .\Pagos\templates\registrar_tarjeta.html:92
+msgid "CVV"
+msgstr "Cvv"
+
+#: .\Pagos\templates\registrar_tarjeta.html:110
+msgid "Guardar Tarjeta"
+msgstr "Salvar cartão"
+
+#: .\Pagos\templates\resumen_pago.html:5
+msgid "Resumen de Pago"
+msgstr "Resumo do pagamento"
+
+#: .\Pagos\templates\resumen_pago.html:35
+msgid "Resumen de tu Pedido"
+msgstr "Resumo do seu pedido"
+
+#: .\Pagos\templates\resumen_pago.html:36
+msgid "Revisa los detalles antes de confirmar tu pago"
+msgstr "Verifique os detalhes antes de confirmar seu pagamento"
+
+#: .\Pagos\templates\resumen_pago.html:48
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:48
+msgid "Tu plan seleccionado"
+msgstr "Seu plano selecionado"
+
+#: .\Pagos\templates\resumen_pago.html:54
+#: .\Pagos\templates\resumen_pago.html:125
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:54
+msgid "/mes"
+msgstr "/mês"
+
+#: .\Pagos\templates\resumen_pago.html:56
+#: .\Pagos\templates\resumen_pago.html:127
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:56
+msgid "/6 meses"
+msgstr "/6 meses"
+
+#: .\Pagos\templates\resumen_pago.html:58
+#: .\Pagos\templates\resumen_pago.html:129
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:58
+msgid "/año"
+msgstr "/ano"
+
+#: .\Pagos\templates\resumen_pago.html:72
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:74
+msgid "Dirección de Facturación"
+msgstr "Endereço de Cobrança"
+
+#: .\Pagos\templates\resumen_pago.html:83
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:89
+msgid "CP:"
+msgstr "CP:"
+
+#: .\Pagos\templates\resumen_pago.html:95
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:122
+msgid "Método de Pago"
+msgstr "Método de pagamento"
+
+#: .\Pagos\templates\resumen_pago.html:101
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:133
+msgid "CARD"
+msgstr "Cartão"
+
+#: .\Pagos\templates\resumen_pago.html:104
+msgid "Tarjeta de Crédito"
+msgstr "Cartão de crédito"
+
+#: .\Pagos\templates\resumen_pago.html:106
+msgid "Tarjeta registrada"
+msgstr "Cartão registrado"
+
+#: .\Pagos\templates\resumen_pago.html:118
+msgid "Total a Pagar"
+msgstr "Total a pagar"
+
+#: .\Pagos\templates\resumen_pago.html:119
+msgid "Incluye todos los impuestos y tarifas"
+msgstr "Inclui todos os impostos e taxas"
+
+#: .\Pagos\templates\resumen_pago.html:142
+msgid "Confirmar y Pagar"
+msgstr "Confirmar e pagar"
+
+#: .\Pagos\templates\resumen_pago.html:151
+msgid "Volver a Selección"
+msgstr "Retornar à seleção"
+
+#: .\Pagos\templates\resumen_pago_paquetes.html:10
+msgid "Resumen de Compra de Paquetes"
+msgstr "Resumo da compra do pacote"
+
+#: .\Pagos\templates\resumen_pago_paquetes.html:14
+msgid "Cantidad de paquetes:"
+msgstr "Número de pacotes:"
+
+#: .\Pagos\templates\resumen_pago_paquetes.html:15
+msgid "Precio por paquete:"
+msgstr "Preço do pacote:"
+
+#: .\Pagos\templates\resumen_pago_paquetes.html:16
+msgid "Total:"
+msgstr "Total:"
+
+#: .\Pagos\templates\resumen_pago_paquetes.html:17
+msgid "Dirección de facturación:"
+msgstr "Diretoria de cobrança:"
+
+#: .\Pagos\templates\resumen_pago_paquetes.html:18
+msgid "Tarjeta usada:"
+msgstr "Cartão usado:"
+
+#: .\Pagos\templates\resumen_pago_paquetes.html:25
+msgid "Confirmar Compra"
+msgstr "Confirme a compra"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:5
+msgid "Seleccionar Dirección y Tarjeta"
+msgstr "Selecione endereço e cartão"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:23
+msgid "Dirección y Tarjeta"
+msgstr "Endereço e cartão"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:35
+msgid "Información de Pago"
+msgstr "Informações de pagamento"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:36
+msgid "Selecciona tu dirección de facturación y método de pago"
+msgstr "Selecione seu endereço de cobrança e método de pagamento"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:98
+msgid "Necesitas registrar una dirección de facturación para continuar."
+msgstr "Você precisa registrar um endereço de cobrança para continuar."
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:101
+msgid "Registrar Dirección"
+msgstr "Registre endereço"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:110
+msgid "Agregar Nueva Dirección"
+msgstr "Adicione um novo endereço"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:146
+msgid "Tarjeta"
+msgstr "Cartão"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:154
+msgid "Necesitas registrar una tarjeta de crédito para procesar el pago."
+msgstr ""
+"Você precisa registrar um cartão de crédito para processar o pagamento."
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:157
+msgid "Registrar Tarjeta"
+msgstr "Cartão de registro"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:166
+msgid "Agregar Nueva Tarjeta"
+msgstr "Adicione um novo cartão"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:179
+msgid "Continuar al Resumen"
+msgstr "Continue para o resumo"
+
+#: .\Pagos\templates\seleccionar_direccion_tarjeta.html:189
+msgid "Volver a Planes"
+msgstr "Retornar aos planos"
+
+#: .\Pagos\templates\seleccionar_paquete.html:6
+msgid "Compra de Paquetes de Páginas"
+msgstr "Compra de pacotes de páginas"
+
+#: .\Pagos\templates\seleccionar_paquete.html:12
+msgid "¿Cuántas páginas deseas comprar?"
+msgstr "Quantas páginas você deseja comprar?"
+
+#: .\Pagos\templates\seleccionar_paquete.html:16
+msgid ""
+"\n"
+"                    Cada página tiene un valor de <strong>$X</strong>. A más páginas, mayores beneficios.\n"
+"                "
+msgstr ""
+"Cada página tem um valor <strong> $ x </strong>.Para mais páginas, maiores "
+"benefícios."
+
+#: .\Pagos\templates\seleccionar_paquete.html:23
+msgid "Continuar"
+msgstr "Continuar"
+
+#: .\Pagos\templates\seleccionar_paquete.html:32
+msgid "Distribuidor Básico"
+msgstr "Distribuidor básico"
+
+#: .\Pagos\templates\seleccionar_paquete.html:34
+#, python-format
+msgid ""
+"\n"
+"                            Obtén una comisión del <strong>10%%</strong> por cada venta realizada.\n"
+"                        "
+msgstr "Obtenha uma comissão <strong> 10 %% </strong> para cada venda."
+
+#: .\Pagos\templates\seleccionar_paquete.html:39
+msgid "Perfecto para comenzar a generar ingresos como distribuidor."
+msgstr "Perfeito para começar a gerar renda como distribuidor."
+
+#: .\Pagos\templates\seleccionar_paquete.html:47
+msgid "Distribuidor Premium"
+msgstr "Distribuidor premium"
+
+#: .\Pagos\templates\seleccionar_paquete.html:49
+#, python-format
+msgid ""
+"\n"
+"                            Obtén una comisión del <strong>15%%</strong> por cada venta realizada.\n"
+"                        "
+msgstr "Obtenha uma comissão <strong> 15 %% </strong> para cada venda."
+
+#: .\Pagos\templates\seleccionar_paquete.html:54
+msgid "Mayor beneficio para distribuidores activos."
+msgstr "Maior benefício para distribuidores ativos."
+
+#: .\Pagos\templates\seleccionar_plan.html:5
+msgid "Seleccionar Plan"
+msgstr "Selecione Plano"
+
+#: .\Pagos\templates\seleccionar_plan.html:20
+msgid ""
+"Encuentra el plan perfecto para tu proyecto. Todos incluyen SSL gratuito"
+msgstr "Encontre o plano perfeito para o seu projeto.Todos incluem SSL grátis"
+
+#: .\Pagos\templates\seleccionar_plan.html:21
+msgid "creador de sitios web y soporte técnico especializado"
+msgstr "Criador de sites e suporte técnico especializado"
+
+#: .\Pagos\templates\seleccionar_plan.html:35
+msgid "Elige tu modalidad de pago"
+msgstr "Escolha o seu modo de pagamento"
+
+#: .\Pagos\templates\seleccionar_plan.html:42
+msgid "Mensual"
+msgstr "Mensal"
+
+#: .\Pagos\templates\seleccionar_plan.html:43
+msgid "Pago mes a mes"
+msgstr "Mês a mês"
+
+#: .\Pagos\templates\seleccionar_plan.html:51
+msgid "Semestral"
+msgstr "Semestral"
+
+#: .\Pagos\templates\seleccionar_plan.html:52
+msgid "Ahorra un"
+msgstr "Salve a"
+
+#: .\Pagos\templates\seleccionar_plan.html:60
+msgid "Anual"
+msgstr "Anual"
+
+#: .\Pagos\templates\seleccionar_plan.html:62
+msgid "Ahorra"
+msgstr "Salvar"
+
+#: .\Pagos\templates\seleccionar_plan.html:112
+msgid "meses"
+msgstr "meses"
+
+#: .\Pagos\templates\seleccionar_plan.html:113
+msgid "año"
+msgstr "ano"
+
+#: .\Pagos\templates\seleccionar_plan.html:116
+msgid "Pago mensual"
+msgstr "Pagamento mensal"
+
+#: .\Pagos\templates\seleccionar_plan.html:118
+msgid "Ahorro del"
+msgstr "Economia do"
+
+#: .\Pagos\templates\seleccionar_plan.html:121
+msgid "Mejor precio"
+msgstr "Melhor preço"
+
+#: .\Pagos\templates\seleccionar_plan.html:121
+msgid "off"
+msgstr "DESLIGADO"
+
+#: .\Pagos\templates\seleccionar_plan.html:130
+msgid "sitios web"
+msgstr "Sites"
+
+#: .\Pagos\templates\seleccionar_plan.html:134
+msgid "de almacenamiento"
+msgstr "Armazenar"
+
+#: .\Pagos\templates\seleccionar_plan.html:138
+msgid "bases de datos"
+msgstr "Bancos de dados"
+
+#: .\Pagos\templates\seleccionar_plan.html:142
+msgid "cuentas de email"
+msgstr "Contas de email"
+
+#: .\Pagos\templates\seleccionar_plan.html:146
+msgid "certificados SSL"
+msgstr "Certificados SSL"
+
+#: .\Pagos\templates\seleccionar_plan.html:151
+msgid "HTTPS incluido"
+msgstr "Https incluídos"
+
+#: .\Pagos\templates\seleccionar_plan.html:157
+msgid "Creador de sitios web"
+msgstr "Criador de sites"
+
+#: .\Pagos\templates\seleccionar_plan.html:163
+msgid "Email marketing"
+msgstr "Marketing por e -mail"
+
+#: .\Pagos\templates\seleccionar_plan.html:190
+msgid "Requisitos"
+msgstr "Requisitos"
+
+#: .\Pagos\templates\seleccionar_plan.html:190
+msgid ""
+"Necesitas tener registrada una dirección de facturación y una tarjeta de "
+"crédito para continuar"
+msgstr ""
+"Você precisa ter um endereço de cobrança e um cartão de crédito registrado "
+"para continuar"
+
+#: .\Pagos\templates\seleccionar_plan.html:196
+msgid "Continuar con el Plan Seleccionado"
+msgstr "Continue com o plano selecionado"
+
+#: .\Pagos\templates\seleccionar_plan.html:201
+msgid "Proceso seguro y protegido. Cancela cuando quieras"
+msgstr "Processo seguro e protegido.Cancelar sempre que quiser"
+
+#: .\Tickets\templates\crear_ticket.html:5
+msgid "Crear Ticket - ChibchaWeb"
+msgstr "Criar Ticket - Chibchaweb"
+
+#: .\Tickets\templates\crear_ticket.html:17
+msgid "Crear Nuevo Ticket"
+msgstr "Crie um novo ticket"
+
+#: .\Tickets\templates\crear_ticket.html:18
+msgid "Solicita ayuda de nuestro equipo de soporte técnico"
+msgstr "Solicite ajuda da nossa equipe de suporte técnico"
+
+#: .\Tickets\templates\crear_ticket.html:36
+msgid "¿Cómo podemos ayudarte?"
+msgstr "Como podemos ajudá -lo?"
+
+#: .\Tickets\templates\crear_ticket.html:37
+msgid ""
+"Nuestro equipo de soporte está aquí para resolver cualquier problema "
+"relacionado con"
+msgstr ""
+"Nossa equipe de suporte está aqui para resolver qualquer problema "
+"relacionado a"
+
+#: .\Tickets\templates\crear_ticket.html:39
+msgid "Configuración de dominios y DNS"
+msgstr "Configuração de domínio e DNS"
+
+#: .\Tickets\templates\crear_ticket.html:40
+msgid "Problemas técnicos de hosting"
+msgstr "Hospedando problemas técnicos"
+
+#: .\Tickets\templates\crear_ticket.html:41
+msgid "Gestión de cuentas y facturación"
+msgstr "Gerenciamento de contas e cobrança"
+
+#: .\Tickets\templates\crear_ticket.html:42
+msgid "Consultas sobre planes y servicios"
+msgstr "Consultas sobre planos e serviços"
+
+#: .\Tickets\templates\crear_ticket.html:64
+msgid "Título del Ticket"
+msgstr "Título do ingresso"
+
+#: .\Tickets\templates\crear_ticket.html:69
+msgid "Describe brevemente el problema o consulta"
+msgstr "Descreva brevemente o problema ou consulta"
+
+#: .\Tickets\templates\crear_ticket.html:76
+msgid "Descripción Detallada"
+msgstr "Descrição detalhada"
+
+#: .\Tickets\templates\crear_ticket.html:81
+msgid "Proporciona todos los detalles posibles para una resolución más rápida"
+msgstr "Fornece todos os detalhes possíveis para uma resolução mais rápida"
+
+#: .\Tickets\templates\crear_ticket.html:95
+msgid "Selecciona la urgencia de tu solicitud"
+msgstr "Selecione a urgência do seu aplicativo"
+
+#: .\Tickets\templates\crear_ticket.html:104
+msgid "Enviar Ticket"
+msgstr "Enviar tíquete"
+
+#: .\Tickets\templates\crear_ticket.html:108
+msgid "Volver a Mis Tickets"
+msgstr "Volte aos meus ingressos"
+
+#: .\Tickets\templates\crear_ticket.html:121
+msgid "Tiempo de Respuesta"
+msgstr "Tempo de resposta"
+
+#: .\Tickets\templates\crear_ticket.html:123
+msgid "Respondemos en menos de 24 horas"
+msgstr "Respondemos em menos de 24 horas"
+
+#: .\Tickets\templates\tickets_cliente.html:4
+msgid "Mis Tickets - ChibchaWeb"
+msgstr "Meus ingressos - Chibchaweb"
+
+#: .\Tickets\templates\tickets_cliente.html:17
+msgid "Gestiona todas tus solicitudes de soporte"
+msgstr "Gerencie todos os seus pedidos de suporte"
+
+#: .\Tickets\templates\tickets_cliente.html:23
+msgid "Nuevo Ticket"
+msgstr "Novo bilhete"
+
+#: .\Tickets\templates\tickets_cliente.html:41
+msgid "Historial de Tickets"
+msgstr "História do ingresso"
+
+#: .\Tickets\templates\tickets_cliente.html:124
+#: .\Tickets\templates\tickets_cliente.html:193
+msgid "Sin estado"
+msgstr "Nenhum estado"
+
+#: .\Tickets\templates\tickets_cliente.html:137
+msgid "Ver Solución"
+msgstr "Veja a solução"
+
+#: .\Tickets\templates\tickets_cliente.html:181
+msgid "Estado Actual"
+msgstr "Estado atual"
+
+#: .\Tickets\templates\tickets_cliente.html:207
+msgid "Historial de Estados"
+msgstr "História dos Estados"
+
+#: .\Tickets\templates\tickets_cliente.html:237
+msgid "Ticket Resuelto"
+msgstr "Ticket resolvido"
+
+#: .\Tickets\templates\tickets_cliente.html:245
+msgid "Tu problema ha sido resuelto"
+msgstr "Seu problema foi resolvido"
+
+#: .\Tickets\templates\tickets_cliente.html:247
+msgid ""
+"Nuestro equipo de soporte ha trabajado en tu solicitud y la ha marcado como "
+"resuelta"
+msgstr ""
+"Nossa equipe de suporte trabalhou em seu aplicativo e a marcou como um "
+"resolvido"
+
+#: .\Tickets\templates\tickets_cliente.html:252
+msgid "Problema Original"
+msgstr "Problema original"
+
+#: .\Tickets\templates\tickets_cliente.html:256
+msgid "Fecha de Resolución"
+msgstr "Data de resolução"
+
+#: .\Tickets\templates\tickets_cliente.html:267
+msgid "Resolución"
+msgstr "Resolução"
+
+#: .\Tickets\templates\tickets_cliente.html:276
+msgid "Resuelto por"
+msgstr "Resolvido por"
+
+#: .\Tickets\templates\tickets_cliente.html:282
+msgid "Entendido"
+msgstr "Entendido"
+
+#: .\Tickets\templates\tickets_cliente.html:308
+msgid "No tienes tickets aún"
+msgstr "Você ainda não tem ingressos"
+
+#: .\Tickets\templates\tickets_cliente.html:310
+msgid ""
+"¿Necesitas ayuda? Crea tu primer ticket de soporte y nuestro equipo te "
+"ayudará a resolver cualquier problema."
+msgstr ""
+"Você precisa de ajuda?Crie seu primeiro ticket de suporte e nossa equipe o "
+"ajudará a resolver qualquer problema."
+
+#: .\Tickets\templates\tickets_cliente.html:313
+msgid "Crear Mi Primer Ticket"
+msgstr "Crie meu primeiro ingresso"
+
+#: .\Tickets\templates\tickets_cliente.html:326
+msgid "Respuesta Rápida"
+msgstr "Resposta rápida"
+
+#: .\Tickets\templates\tickets_cliente.html:328
+msgid "Nuestro equipo responde en menos de 24 horas"
+msgstr "Nossa equipe responde em menos de 24 horas"
+
+#: .\Tickets\templates\tickets_cliente.html:337
+msgid "Soporte Experto"
+msgstr "Suporte especializado"
+
+#: .\Tickets\templates\tickets_cliente.html:339
+msgid "Técnicos especializados en hosting y dominios"
+msgstr "Hospedagem e domínios técnicos especializados"
+
+#: .\Tickets\templates\tickets_cliente.html:348
+msgid "Seguimiento Total"
+msgstr "Monitoramento total"
+
+#: .\Tickets\templates\tickets_cliente.html:350
+msgid "Mantente informado del progreso de tu solicitud"
+msgstr "Mantenha -se informado do progresso do seu aplicativo"
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "Messages"
+msgstr "Mensagens"
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr "Mapas do site"
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr "Arquivos estáticos"
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr "Sindicação"
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr "..."
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:32
+msgid "That page number is not an integer"
+msgstr "Esse número de página não é inteiro"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:33
+msgid "That page number is less than 1"
+msgstr "Esse número de página é menor que 1"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:34
+msgid "That page contains no results"
+msgstr "Essa página não contém resultados"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr "Insira um valor válido."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:70
+msgid "Enter a valid domain name."
+msgstr "Digite um nome de domínio válido."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:153
+#: .\venv\Lib\site-packages\django\forms\fields.py:775
+msgid "Enter a valid URL."
+msgstr "Digite um URL válido."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:200
+msgid "Enter a valid integer."
+msgstr "Insira um número inteiro válido."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:211
+msgid "Enter a valid email address."
+msgstr "Digite um endereço de e -mail válido."
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+"Digite uma \"lesma\" válida composta por letras, números, sublinhados ou "
+"hífens."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
+msgstr ""
+"Digite uma \"lesma\" válida composta por letras unicode, números, "
+"sublinhados ou hífens."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:309
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+#: .\venv\Lib\site-packages\django\core\validators.py:332
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2220
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr "Digite o endereço de um %(protocolo) válido."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:311
+msgid "IPv4"
+msgstr "IPv4"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:320
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr "IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:334
+msgid "IPv4 or IPv6"
+msgstr "IPv4 ou IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr "Digite apenas dígitos separados por vírgulas."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr "Reure esse valor é %(limite_value) s (é %(show_value) s)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "Reure esse valor é menor ou igual a %(limite_value) s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "Reure esse valor é maior ou igual a %(limite_value) s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr "Reure esse valor é um múltiplo do tamanho da etapa %(limite_value) s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+"Verifique se esse é um múltiplo do tamanho da etapa %(limite_value) s, a "
+"partir de %(deslocamento) s, p.%(deslocamento) s, %(valid_value1) s, "
+"%(valid_value2) s e assim por diante."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:514
+#: .\venv\Lib\site-packages\django\forms\fields.py:366
+#: .\venv\Lib\site-packages\django\forms\fields.py:405
+msgid "Enter a number."
+msgstr "Número do ETEE."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+"Extensão de arquivo “%(extensão) s” não é aloada.As extensões permitidas "
+"são: %(permitido_extensions) s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:659
+msgid "Null characters are not allowed."
+msgstr "Caracteres nulos não são permitidos."
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1600
+#: .\venv\Lib\site-packages\django\forms\models.py:908
+msgid "and"
+msgstr "e"
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1602
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr "A restrição \"%(nome) s\" é violada."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr "Valor %(valor) r não é uma escolha válida."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+msgid "This field cannot be null."
+msgstr "Este campo não pode ser nulo."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
+msgid "This field cannot be blank."
+msgstr "Este campo não pode ficar em branco."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr "Campo do tipo: %(Field_type) s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1162
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr "O valor \"%(valor) s\" deve ser verdadeiro ou falso."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1163
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr "O valor \"%(valor) s\" deve ser verdadeiro, falso ou nenhum."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1165
+msgid "Boolean (Either True or False)"
+msgstr "Booleano (eithher verdadeiro ou falso)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1215
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr "String (até %(max_length) s)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1217
+msgid "String (unlimited)"
+msgstr "String (ilimitado)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1326
+msgid "Comma-separated integers"
+msgstr "Inteiros inteiros separados por comanda"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1427
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+"Valor \"%(valor) s\" Você tem um formato de data inválido.Deve estar em "
+"formato AAAA-MM-DD."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1431
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1566
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+"O valor \"%(valor) s\" possui o formato correto (AAAA-MM-DD), mas é uma data"
+" inválida."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
+msgid "Date (without time)"
+msgstr "Data (sem hora)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1562
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+"O valor \"%(valor) s\" possui um formato inválido.Deve estar no formato AAA "
+"YYYY-MM-DD HH: MM [: SS [.UUUUU]] [TZ]."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+msgstr ""
+"“%(Valor) s” o valor tem o formato correto (AAAA-MM-DD HH: MM [: SS "
+"[.UUUUU]] [TZ]), mas é uma data/hora inválida."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
+msgid "Date (with time)"
+msgstr "Data (com hora)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1702
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr "O valor \"%(valor) s\" deve ser um número decimal."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1704
+msgid "Decimal number"
+msgstr "Número decimal"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1864
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+"O valor \"%(valor) s\" possui um formato inválido.Deve estar em [dd] [[hh:] "
+"mm:] SS [.uuuuu] formato."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
+msgid "Duration"
+msgstr "Duração"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1920
+msgid "Email address"
+msgstr "Endereço de email"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1945
+msgid "File path"
+msgstr "Caminho do arquivo"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2023
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr "O valor \"%(valor) s\" deve estar à tona."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2025
+msgid "Floating point number"
+msgstr "Número do ponto flutuante"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2065
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr "O valor \"%(valor) s\" deve ser inteiro."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2067
+msgid "Integer"
+msgstr "Inteiro"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2163
+msgid "Big (8 byte) integer"
+msgstr "Grande (8 byte) inteiro"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2180
+msgid "Small integer"
+msgstr "Pequeno inter"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2188
+msgid "IPv4 address"
+msgstr "Endereço IPv4"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2219
+msgid "IP address"
+msgstr "Endereço IP"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2310
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2311
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr "O valor de \"%(valor) s\" deve ser either nenhum, verdadeiro ou falso."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2313
+msgid "Boolean (Either True, False or None)"
+msgstr "Booleano (eithher verdadeiro, falso ou nenhum)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2364
+msgid "Positive big integer"
+msgstr "Inteiro grande positivo"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2379
+msgid "Positive integer"
+msgstr "Número inteiro positivo"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2394
+msgid "Positive small integer"
+msgstr "Pequeno interger positivo"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2410
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr "Slug (até %(max_length) s)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
+msgid "Text"
+msgstr "Texto"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2526
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+"O valor \"%(valor) s\" possui um formato inválido.Deve estar em HH: MM [: SS"
+" [.uuuuu]] formato."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2530
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+"O valor \"%(valor) s\" possui o formato correto (hh: mm [: ss [.uuuuu]]), "
+"mas é um tempo inválido."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2534
+msgid "Time"
+msgstr "Tempo"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2642
+msgid "URL"
+msgstr "Url"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2666
+msgid "Raw binary data"
+msgstr "Dados binários brutos"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2731
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr "\"%(Valor) s\" não é um UUID válido."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2733
+msgid "Universally unique identifier"
+msgstr "Identificador universalmente único"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:244
+msgid "File"
+msgstr "Arquivo"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
+msgid "Image"
+msgstr "Imagem"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:24
+msgid "A JSON object"
+msgstr "Para o objeto JSON"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "Value must be valid JSON."
+msgstr "O valor deve ser válido JSON."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:978
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:981
+msgid "Foreign Key (type determined by related field)"
+msgstr "Chave estrangeira (tipo determinado pelo campo relacionado)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1275
+msgid "One-to-one relationship"
+msgstr "Relacionamento um para um"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1332
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1334
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1382
+msgid "Many-to-many relationship"
+msgstr "Relacionamento muitos para muitos"
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the
+#. label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:185
+msgid ":?.!"
+msgstr ":?.!"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:95
+msgid "This field is required."
+msgstr "Este campo é obrigatório."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:315
+msgid "Enter a whole number."
+msgstr "Insira um número inteiro."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:486
+#: .\venv\Lib\site-packages\django\forms\fields.py:1267
+msgid "Enter a valid date."
+msgstr "Insira uma data válida."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:509
+#: .\venv\Lib\site-packages\django\forms\fields.py:1268
+msgid "Enter a valid time."
+msgstr "Insira um horário válido."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:536
+msgid "Enter a valid date/time."
+msgstr "Insira uma data/hora válida."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:570
+msgid "Enter a valid duration."
+msgstr "Insira uma duração válida."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:571
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr "O número de dias deve estar entre {min_days} e {max_days}."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:640
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr "Não o arquivo foi enviado.Verifique o tipo de enítido no formulário."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:641
+msgid "No file was submitted."
+msgstr "Não o arquivo foi enviado."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:642
+msgid "The submitted file is empty."
+msgstr "O arquivo enviado está vazio."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:644
+#, python-format
+msgid ""
+"Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:649
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+"Por favor, envie um arquivo ou verifique a caixa de seleção Clear, não os "
+"dois."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:717
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+"Carregue uma imagem válida.O arquivo que você carregou foi eithher não uma "
+"imagem ou uma imagem corrompida."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:889
+#: .\venv\Lib\site-packages\django\forms\fields.py:975
+#: .\venv\Lib\site-packages\django\forms\models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+"Selecione uma opção válida.%(Valor) s não é uma das opções disponíveis."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:977
+#: .\venv\Lib\site-packages\django\forms\fields.py:1096
+#: .\venv\Lib\site-packages\django\forms\models.py:1590
+msgid "Enter a list of values."
+msgstr "Digite uma lista de valores."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1097
+msgid "Enter a complete value."
+msgstr "Insira um valor completo."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1339
+msgid "Enter a valid UUID."
+msgstr "Digite um UUID válido."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1369
+msgid "Enter a valid JSON."
+msgstr "Entee válido JSON."
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:97
+msgid ":"
+msgstr ":"
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:239
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr "(Campo oculto %(nome) S) %(Erro) s"
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+"Os dados da forma de gerenciamento estão ausentes ou adulterados em "
+"Haen.Campos ausentes: %(field_names) s.Pode ser necessário registrar um "
+"relatório de bug se o problema persistir."
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr "Ordem"
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr "Excluir"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr "Corrija os dados duplicados para %(campo) s."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr "Por favor, os dados duplicados para %(campo) s, que devem ser únicos."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+"Corrija os dados duplicados para %(field_name) s, que devem ser únicos para "
+"a %(pesquisa) s em %(date_field) s."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:922
+msgid "Please correct the duplicate values below."
+msgstr "Por favor, os valores duplicados abaixo."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr "O valor embutido não correspondeu à instância do pai."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1450
+msgid ""
+"Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+"Selecione uma opção válida.Essa escolha não é uma das opções disponíveis."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr "\"%(Pk) s\" não é um valor válido."
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:229
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:527
+msgid "Clear"
+msgstr "Claro"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:528
+msgid "Currently"
+msgstr "Atualmente"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:529
+msgid "Change"
+msgstr "MUDAR"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:866
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:867
+msgid "Yes"
+msgstr "Garfos"
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr "Sim, não, talvez"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:903
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "p.m."
+msgstr "da tarde"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:75
+msgid "a.m."
+msgstr "SOU."
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "PM"
+msgstr "P.M."
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:81
+msgid "AM"
+msgstr "SOU"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:153
+msgid "midnight"
+msgstr "Meia-noite"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:155
+msgid "noon"
+msgstr "Meio-dia"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr "Segunda-feira"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr "Terça-feira"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr "Quarta-feira"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr "Quinta-feira"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr "Sexta-feira"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr "Sábado"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr "Domingo"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr "seg"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr "ter"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr "qua"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr "qui"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr "sex"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr "SENTADO"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr "Sol"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr "Janeiro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr "Fevereiro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr "Marchar"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr "abril"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr "Junho"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr "Julho"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr "Agosto"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr "SETEMBRO"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr "outubro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr "novembro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr "dezembro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr "Jan"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr "fevereiro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr "mar"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr "Apr"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr "poderia"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr "Jun"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr "Jul"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr "AUG"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr "set"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr "OUT"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr "Nov"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr "DEC"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr "Jan."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr "Fevereiro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "Marchar"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr "abril"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "Poderia"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr "Junho"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr "Julho"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr "AUG."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr "Setembro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr "Outubro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr "Novembro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr "Dez."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr "Janeiro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr "Fevereiro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr "Marchar"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr "abril"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr "Poderia"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr "Junho"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr "Julho"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr "Agosto"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr "SETEMBRO"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr "outubro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr "novembro"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr "dezembro"
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr "Este não é um endereço IPv6 válido."
+
+#: .\venv\Lib\site-packages\django\utils\text.py:76
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:287
+msgid "or"
+msgstr "Ou"
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:306
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ", Assim,"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:29
+msgid "Forbidden"
+msgstr "Proibido"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr "A verificação do CSRF falhou.Solicitar abortar."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+"Você está vendo esta mensagem porque este site HTTPS exige que o \"cabeçalho"
+" do referente\" seja sentir pelo seu navegador da web, mas nenhum era para "
+"sentir.Este cabeçalho é necessário por razões de segurança, para rear que "
+"seu navegador não está sendo seqüestrado por terceiros."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+"Se você configurou seu navegador para desativar os cabeçalhos de "
+"\"referenciador\", reencontre-os, pelo menos para este site, ou para "
+"conexões HTTPS, ou para solicitações \"mesmos originárias\"."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
+" including the “Referrer-Policy: no-referrer” header, please remove them. "
+"The CSRF protection requires the “Referer” header to do strict referer "
+"checking. If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+"Se você estiver usando a tag <names name = \"referenciador\" content = \"no-"
+"refererr\"> ou incluindo o cabeçalho \"referentr-político: no-refererr\", "
+"lembre-se.Os requisitos de proteção do CSRF O cabeçalho do \"referente\" "
+"para fazer uma verificação estrita do referente.Se você é uma defesa "
+"concertada, use alternativas como <a rel = \"noreferrer\" ...> para links "
+"para sites de terceiros."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+"Você está vendo esta mensagem porque este site requer cookie CSRF ao enviar "
+"formulários.Este cookie é necessário por razões de segurança, para rear que "
+"seu navegador não está sendo hijaculado por terceiros."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+"Se você configurou seu navegador para desativar os cookies, reiniciá-los, "
+"pelo menos para este site ou para os requisitos de \"Origin\"."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr "Mais informações são proibidas com depuração = true."
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr "Nenhum ano especificado"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr "Data fora do alcance"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr "Nenhum mês especificado"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr "Nenhum dia especificado"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr "Sem semana especificada"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:353
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:384
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr "Sem %(verbose_name_plural) s progitável"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:680
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+"Future %(verbose_name_plural) S não válido Scholy %(Class_Name) "
+"S.Alow_Future é falso."
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:720
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr "String de data inválida \"%(DATEST) s\" Dado formato \"%(formato) s\""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr "Não %(verbose_name) s encontrou correspondendo à consulta"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "A página não é \"última\", nem pode ser convertida em um int."
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr "Página inválida ( %(Page_Number) s): %(mensagem) s"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:173
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr "Lista vazia e \"%(Class_name) s.allow_empty\" são falsas."
+
+#: .\venv\Lib\site-packages\django\views\static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr "Os índices de diretório não são permitidos aqui."
+
+#: .\venv\Lib\site-packages\django\views\static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr "\"%(Caminho) s\" não existe"
+
+#: .\venv\Lib\site-packages\django\views\static.py:68
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr "Índice de %(diretório) s"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr "A instalação funcionou com sucesso!Parabéns!"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr "View <a href = \"https://docs.djangoproject.com/en/% Let"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+"and you have not configured any URLs."
+msgstr ""
+"Você está vendo esta página porque <a href = "
+"\"https://docs.djangoproject.com/en/% letting) s/ref/Settings/#Debug\" "
+"Target = \"_ Blank\" REFUG qualquer URLs."
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
+msgid "Django Documentation"
+msgstr "Documentação de Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr "Tópicos, Referências, & amp;Como fazer"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr "Tutorial: um aplicativo de votação"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:227
+msgid "Get started with Django"
+msgstr "Comece com Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:235
+msgid "Django Community"
+msgstr "Comunidade Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr "Conecte, obtenha ajuda ou contribui"

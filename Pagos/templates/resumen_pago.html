@@ -1,7 +1,8 @@
-{% extends 'base_clientes.html' %}
+s{% extends 'base_clientes.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Resumen de Pago{% endblock %}
+{% block title %}{% trans "Resumen de Pago" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/payment-system.css' %}">
@@ -13,25 +14,25 @@
     <div class="payment-step-indicator">
         <div class="payment-step completed">
             <div class="payment-step-number">1</div>
-            <span>Plan</span>
+            <span>{% trans "Plan" %}</span>
         </div>
         <div class="payment-step-connector"></div>
         <div class="payment-step completed">
             <div class="payment-step-number">2</div>
-            <span>Dirección & Tarjeta</span>
+            <span>{% trans "Dirección & Tarjeta" %}</span>
         </div>
         <div class="payment-step-connector"></div>
         <div class="payment-step active">
             <div class="payment-step-number">3</div>
-            <span>Pago</span>
+            <span>{% trans "Pago" %}</span>
         </div>
     </div>
 
     <!-- Header -->
     <div class="payment-page-header">
         <div class="container">
-            <h2>Resumen de tu Pedido</h2>
-            <p>Revisa los detalles antes de confirmar tu pago</p>
+            <h2>{% trans "Resumen de tu Pedido" %}</h2>
+            <p>{% trans "Revisa los detalles antes de confirmar tu pago" %}</p>
         </div>
     </div>
 
@@ -43,12 +44,18 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h4><i class="fas fa-server me-2"></i>{{ plan|capfirst }} - {{ modalidad|capfirst }}</h4>
-                            <p class="mb-0">Tu plan seleccionado</p>
+                            <p class="mb-0">{% trans "Tu plan seleccionado" %}</p>
                         </div>
                         <div class="text-end">
                             <h3 class="mb-0 text-success">${{ monto }}</h3>
                             <small class="text-muted">
-                                {% if modalidad == 'mensual' %}/mes{% elif modalidad == 'semestral' %}/6 meses{% else %}/año{% endif %}
+                                {% if modalidad == 'mensual' %}
+                                    {% trans "/mes" %}
+                                {% elif modalidad == 'semestral' %}
+                                    {% trans "/6 meses" %}
+                                {% else %}
+                                    {% trans "/año" %}
+                                {% endif %}
                             </small>
                         </div>
                     </div>
@@ -61,7 +68,7 @@
                             <div class="payment-section">
                                 <h3 class="payment-section-title">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    Dirección de Facturación
+                                    {% trans "Dirección de Facturación" %}
                                 </h3>
                                 
                                 <div class="payment-summary-card">
@@ -72,7 +79,7 @@
                                         <div class="payment-item-details">
                                             <h5>{{ direccion.pais.nombre }}</h5>
                                             <div class="payment-item-text">{{ direccion.ubicacion }}</div>
-                                            <div class="payment-item-text">CP: {{ direccion.codigoPostal }}</div>
+                                            <div class="payment-item-text">{% trans "CP:" %} {{ direccion.codigoPostal }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -84,18 +91,18 @@
                             <div class="payment-section">
                                 <h3 class="payment-section-title">
                                     <i class="fas fa-credit-card"></i>
-                                    Método de Pago
+                                    {% trans "Método de Pago" %}
                                 </h3>
                                 
                                 <div class="payment-summary-card">
                                     <div class="payment-item-info">
                                         <div class="payment-item-icon tarjeta-icon">
-                                            CARD
+                                            {% trans "CARD" %}
                                         </div>
                                         <div class="payment-item-details">
-                                            <h5>Tarjeta de Crédito</h5>
+                                            <h5>{% trans "Tarjeta de Crédito" %}</h5>
                                             <div class="payment-card-number">**** **** **** {{ tarjeta }}</div>
-                                            <div class="payment-item-text">Tarjeta registrada</div>
+                                            <div class="payment-item-text">{% trans "Tarjeta registrada" %}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -107,13 +114,19 @@
                     <div class="payment-cost-summary">
                         <div class="row align-items-center">
                             <div class="col-md-8">
-                                <h4 class="mb-1">Total a Pagar</h4>
-                                <p class="text-muted mb-0">Incluye todos los impuestos y tarifas</p>
+                                <h4 class="mb-1">{% trans "Total a Pagar" %}</h4>
+                                <p class="text-muted mb-0">{% trans "Incluye todos los impuestos y tarifas" %}</p>
                             </div>
                             <div class="col-md-4 text-end">
                                 <h2 class="text-success mb-0">${{ monto }}</h2>
                                 <small class="text-muted">
-                                    {% if modalidad == 'mensual' %}/mes{% elif modalidad == 'semestral' %}/6 meses{% else %}/año{% endif %}
+                                    {% if modalidad == 'mensual' %}
+                                        {% trans "/mes" %}
+                                    {% elif modalidad == 'semestral' %}
+                                        {% trans "/6 meses" %}
+                                    {% else %}
+                                        {% trans "/año" %}
+                                    {% endif %}
                                 </small>
                             </div>
                         </div>
@@ -125,7 +138,7 @@
                             {% csrf_token %}
                             <button type="submit" class="payment-btn-primary">
                                 <i class="fas fa-lock me-2"></i>
-                                Confirmar y Pagar
+                                {% trans "Confirmar y Pagar" %}
                             </button>
                         </form>
                     </div>
@@ -134,7 +147,7 @@
                     <div class="text-center">
                         <a href="{% url 'pagos:seleccionar_direccion_tarjeta' %}" class="payment-btn-secondary">
                             <i class="fas fa-arrow-left me-2"></i>
-                            Volver a Selección
+                            {% trans "Volver a Selección" %}
                         </a>
                     </div>
                 </div>

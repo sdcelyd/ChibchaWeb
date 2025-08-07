@@ -1,13 +1,16 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Seleccionar Paquete" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'styles/distributor-styles.css' %}">
 {% endblock %}
 
 {% block content %}
-<title>Comprar Paquetes - ChibchaWeb</title>
+<title>{% trans "Comprar Paquetes" %} - ChibchaWeb</title>
 
 <!-- Hero Header de Compra -->
 <section class="purchase-header bg-gradient-chibcha text-white py-5">
@@ -17,14 +20,14 @@
                 <div class="purchase-info">
                     <div class="purchase-badge mb-3">
                         <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
-                            <i class="fas fa-shopping-cart me-2"></i>Comprar Paquetes
+                            <i class="fas fa-shopping-cart me-2"></i>{% trans "Comprar Paquetes" %}
                         </span>
                     </div>
                     <h1 class="display-6 fw-bold mb-3">
-                        Paquetes de Páginas Web
+                        {% trans "Paquetes de Páginas Web" %}
                     </h1>
                     <p class="lead mb-4">
-                        Selecciona la cantidad de páginas que deseas comprar para comenzar o expandir tu negocio
+                        {% trans "Selecciona la cantidad de páginas que deseas comprar para comenzar o expandir tu negocio" %}
                     </p>
                 </div>
             </div>
@@ -46,7 +49,7 @@
             <div class="col-lg-8">
                 <div class="purchase-form-card">
                     <div class="card-header-custom">
-                        <h4><i class="fas fa-calculator me-2"></i>Configurar tu Paquete</h4>
+                        <h4><i class="fas fa-calculator me-2"></i>{% trans "Configurar tu Paquete" %}</h4>
                     </div>
                     <div class="card-body p-4">
                         <form method="post" id="packageForm">
@@ -54,7 +57,7 @@
                             
                             <div class="quantity-selector mb-4">
                                 <label for="cantidad" class="form-label fs-5 mb-3">
-                                    <i class="fas fa-globe me-2"></i>¿Cuántas páginas deseas comprar?
+                                    <i class="fas fa-globe me-2"></i>{% trans "¿Cuántas páginas deseas comprar?" %}
                                 </label>
                                 
                                 <div class="quantity-input-wrapper">
@@ -73,24 +76,24 @@
                                 
                                 <div class="price-info text-center mt-3">
                                     <div class="price-display">
-                                        <span class="price-label">Precio por página:</span>
+                                        <span class="price-label">{% trans "Precio por página:" %}</span>
                                         <span class="price-amount">${{ precio_por_pagina }}</span>
                                     </div>
                                     <div class="total-display mt-2">
-                                        <span class="total-label">Total:</span>
+                                        <span class="total-label">{% trans "Total:" %}</span>
                                         <span class="total-amount" id="totalAmount">${{ precio_por_pagina }}</span>
                                     </div>
                                 </div>
                                 
                                 <div class="form-text text-center mt-3">
                                     <i class="fas fa-info-circle me-1"></i>
-                                    A más páginas compres, mayores serán tus beneficios como distribuidor
+                                    {% trans "A más páginas compres, mayores serán tus beneficios como distribuidor" %}
                                 </div>
                             </div>
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-chibcha-primary btn-lg px-5">
-                                    <i class="fas fa-credit-card me-2"></i>Continuar con la Compra
+                                    <i class="fas fa-credit-card me-2"></i>{% trans "Continuar con la Compra" %}
                                 </button>
                             </div>
                         </form>
@@ -102,7 +105,7 @@
         <!-- Tarjetas de Beneficios -->
         <div class="row justify-content-center mt-5">
             <div class="col-12">
-                <h3 class="text-center mb-4">Tipos de Distribuidor</h3>
+                <h3 class="text-center mb-4">{% trans "Tipos de Distribuidor" %}</h3>
             </div>
             <div class="col-lg-5 mb-4">
                 <div class="benefit-card basic-distributor">
@@ -110,18 +113,18 @@
                         <i class="fas fa-user-tie"></i>
                     </div>
                     <div class="benefit-content">
-                        <h4 class="benefit-title">Distribuidor Básico</h4>
+                        <h4 class="benefit-title">{% trans "Distribuidor Básico" %}</h4>
                         <div class="benefit-commission">
                             <span class="commission-rate">10%</span>
-                            <span class="commission-label">de comisión</span>
+                            <span class="commission-label">{% trans "de comisión" %}</span>
                         </div>
                         <p class="benefit-description">
-                            Perfecto para comenzar tu negocio de reventa. Ideal para nuevos distribuidores que quieren generar ingresos adicionales.
+                            {% trans "Perfecto para comenzar tu negocio de reventa. Ideal para nuevos distribuidores que quieren generar ingresos adicionales." %}
                         </p>
                         <ul class="benefit-features">
-                            <li><i class="fas fa-check text-success me-2"></i>Panel de control básico</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Soporte por email</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Reportes mensuales</li>
+                            <li><i class="fas fa-check text-success me-2"></i>{% trans "Panel de control básico" %}</li>
+                            <li><i class="fas fa-check text-success me-2"></i>{% trans "Soporte por email" %}</li>
+                            <li><i class="fas fa-check text-success me-2"></i>{% trans "Reportes mensuales" %}</li>
                         </ul>
                     </div>
                 </div>
@@ -130,25 +133,25 @@
             <div class="col-lg-5 mb-4">
                 <div class="benefit-card premium-distributor">
                     <div class="benefit-ribbon">
-                        <span>Recomendado</span>
+                        <span>{% trans "Recomendado" %}</span>
                     </div>
                     <div class="benefit-icon">
                         <i class="fas fa-crown"></i>
                     </div>
                     <div class="benefit-content">
-                        <h4 class="benefit-title">Distribuidor Premium</h4>
+                        <h4 class="benefit-title">{% trans "Distribuidor Premium" %}</h4>
                         <div class="benefit-commission">
                             <span class="commission-rate">15%</span>
-                            <span class="commission-label">de comisión</span>
+                            <span class="commission-label">{% trans "de comisión" %}</span>
                         </div>
                         <p class="benefit-description">
-                            Para distribuidores activos que buscan maximizar sus ganancias con beneficios exclusivos y mayor soporte.
+                            {% trans "Para distribuidores activos que buscan maximizar sus ganancias con beneficios exclusivos y mayor soporte." %}
                         </p>
                         <ul class="benefit-features">
-                            <li><i class="fas fa-check text-success me-2"></i>Panel de control avanzado</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Soporte prioritario 24/7</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Reportes en tiempo real</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Herramientas de marketing</li>
+                            <li><i class="fas fa-check text-success me-2"></i>{% trans "Panel de control avanzado" %}</li>
+                            <li><i class="fas fa-check text-success me-2"></i>{% trans "Soporte prioritario 24/7" %}</li>
+                            <li><i class="fas fa-check text-success me-2"></i>{% trans "Reportes en tiempo real" %}</li>
+                            <li><i class="fas fa-check text-success me-2"></i>{% trans "Herramientas de marketing" %}</li>
                         </ul>
                     </div>
                 </div>
@@ -160,7 +163,7 @@
             <div class="col-12">
                 <div class="additional-info-card">
                     <div class="card-header-custom bg-info">
-                        <h5><i class="fas fa-lightbulb me-2"></i>¿Por qué elegir ser Distribuidor?</h5>
+                        <h5><i class="fas fa-lightbulb me-2"></i>{% trans "¿Por qué elegir ser Distribuidor?" %}</h5>
                     </div>
                     <div class="card-body">
                         <div class="row g-4">
@@ -169,8 +172,8 @@
                                     <div class="info-icon mb-3">
                                         <i class="fas fa-chart-line text-success"></i>
                                     </div>
-                                    <h6>Ingresos Pasivos</h6>
-                                    <p class="text-muted">Genera ingresos continuos con cada venta</p>
+                                    <h6>{% trans "Ingresos Pasivos" %}</h6>
+                                    <p class="text-muted">{% trans "Genera ingresos continuos con cada venta" %}</p>
                                 </div>
                             </div>
                             <div class="col-md-3 text-center">
@@ -178,8 +181,8 @@
                                     <div class="info-icon mb-3">
                                         <i class="fas fa-handshake text-primary"></i>
                                     </div>
-                                    <h6>Negocio Propio</h6>
-                                    <p class="text-muted">Construye tu propia empresa de hosting</p>
+                                    <h6>{% trans "Negocio Propio" %}</h6>
+                                    <p class="text-muted">{% trans "Construye tu propia empresa de hosting" %}</p>
                                 </div>
                             </div>
                             <div class="col-md-3 text-center">
@@ -187,8 +190,8 @@
                                     <div class="info-icon mb-3">
                                         <i class="fas fa-users text-info"></i>
                                     </div>
-                                    <h6>Red de Clientes</h6>
-                                    <p class="text-muted">Expande tu base de clientes</p>
+                                    <h6>{% trans "Red de Clientes" %}</h6>
+                                    <p class="text-muted">{% trans "Expande tu base de clientes" %}</p>
                                 </div>
                             </div>
                             <div class="col-md-3 text-center">
@@ -196,8 +199,8 @@
                                     <div class="info-icon mb-3">
                                         <i class="fas fa-headset text-warning"></i>
                                     </div>
-                                    <h6>Soporte Total</h6>
-                                    <p class="text-muted">Te ayudamos en cada paso</p>
+                                    <h6>{% trans "Soporte Total" %}</h6>
+                                    <p class="text-muted">{% trans "Te ayudamos en cada paso" %}</p>
                                 </div>
                             </div>
                         </div>

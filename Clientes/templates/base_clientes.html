@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +20,7 @@
     <!-- CSS adicional para páginas específicas -->
     {% block extra_css %}{% endblock %}
     
-    <title>{% block title %}ChibchaWeb - Dashboard{% endblock %}</title>
+    <title>{% block title %}ChibchaWeb - {% trans "Dashboard" %}{% endblock %}</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -46,19 +47,19 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link nav-link-chibcha{% if not cliente.suscripcion_activa %} text-muted{% endif %}" href="{% url 'clientes:mis_hosts' %}">
-                            Mis Host
+                            {% trans "Mis Host" %}
                             {% if not cliente.suscripcion_activa %}
                                 <i class="fas fa-lock ms-1" title="Requiere suscripción"></i>
                             {% endif %}
                         </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'tickets:tickets_cliente' %}">Mis Tickets</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'tickets:tickets_cliente' %}">{% trans "Mis Tickets" %}</a></li>
                     {% if cliente.es_distribuidor %}
-                        <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'distribuidores:mis_paquetes' %}">Mis paquetes</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-chibcha" href="{% url 'distribuidores:mis_paquetes' %}">{% trans "Mis paquetes" %}</a></li>
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link nav-link-chibcha{% if not cliente.suscripcion_activa %} text-muted{% endif %}" href="{% url 'clientes:quiero_ser_distribuidor' %}">
-                                Quiero ser distribuidor
+                                {% trans "Quiero ser distribuidor" %}
                                 {% if not cliente.suscripcion_activa %}
                                     <i class="fas fa-lock ms-1" title="Requiere suscripción"></i>
                                 {% endif %}
@@ -71,32 +72,32 @@
                 {% if not cliente.suscripcion_activa %}
                 <div class="navbar-text me-3">
                     <small class="text-warning">
-                        <i class="fas fa-exclamation-triangle me-1"></i>Sin plan activo
+                        <i class="fas fa-exclamation-triangle me-1"></i>{% trans "Sin plan activo" %}
                     </small>
                 </div>
                 {% else %}
                 <div class="navbar-text me-3">
                     <small class="text-success">
-                        <i class="fas fa-check-circle me-1"></i>Plan {{ cliente.plan|capfirst }}
+                        <i class="fas fa-check-circle me-1"></i>{% trans "Plan" %} {{ cliente.plan|capfirst }}
                     </small>
                 </div>
                 {% endif %}
                 <div class="dropdown">
                     <button class="btn btn-chibcha-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        Mi cuenta
+                        {% trans "Mi cuenta" %}
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}">Perfil</a></li>
+                        <li><a class="dropdown-item" href="{% url 'clientes:perfil' %}">{% trans "Perfil" %}</a></li>
                         {% if cliente.es_distribuidor %}
-                            <li><a class="dropdown-item" href="{% url 'distribuidores:dashboard' %}">Distribuidor</a></li>
+                            <li><a class="dropdown-item" href="{% url 'distribuidores:dashboard' %}">{% trans "Distribuidor" %}</a></li>
                         {% endif %}
-                        <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">Configuración</a></li>
-                        <li><a class="dropdown-item" href="{% url 'tickets:crear_ticket' %}">Crear Ticket</a></li>
+                        <li><a class="dropdown-item" href="{% url 'clientes:detalle_cliente' %}">{% trans "Configuración" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'tickets:crear_ticket' %}">{% trans "Crear Ticket" %}</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
                           <form method="post" action="{% url 'logout' %}" style="display:inline;">
                             {% csrf_token %}
-                            <button type="submit" class="dropdown-item" style="display:inline">Cerrar sesión</button>
+                            <button type="submit" class="dropdown-item" style="display:inline">{% trans "Cerrar sesión" %}</button>
                           </form>
                         </li>
                     </ul>
@@ -113,7 +114,7 @@
     <!-- Pie de página -->
     <footer class="bg-gradient-chibcha text-chibcha-light text-center py-4">
         <div class="container">
-            <p class="mb-0">&copy; 2025 ChibchaWeb - Todos los derechos reservados</p>
+            <p class="mb-0">&copy; 2025 ChibchaWeb - {% trans "Todos los derechos reservados" %}</p>
         </div>
     </footer>
 

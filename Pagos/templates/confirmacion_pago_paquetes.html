@@ -1,13 +1,14 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load i18n %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/distributor-styles.css' %}">
 {% endblock %}
 
 {% block content %}
-<title>Compra Exitosa - ChibchaWeb</title>
+<title>{% trans "Compra Exitosa - ChibchaWeb" %}</title>
 
 <!-- Hero de Confirmación -->
 <section class="success-header bg-gradient-chibcha text-white py-5">
@@ -17,14 +18,14 @@
                 <div class="success-info">
                     <div class="success-badge mb-3">
                         <span class="badge bg-success px-3 py-2 rounded-pill">
-                            <i class="fas fa-check-circle me-2"></i>Compra Exitosa
+                            <i class="fas fa-check-circle me-2"></i>{% trans "Compra Exitosa" %}
                         </span>
                     </div>
                     <h1 class="display-6 fw-bold mb-3">
-                        ¡Felicitaciones!
+                        {% trans "¡Felicitaciones!" %}
                     </h1>
                     <p class="lead mb-4">
-                        Tu paquete ha sido procesado exitosamente. Ya puedes comenzar a generar ingresos como distribuidor.
+                        {% trans "Tu paquete ha sido procesado exitosamente. Ya puedes comenzar a generar ingresos como distribuidor." %}
                     </p>
                 </div>
             </div>
@@ -52,18 +53,17 @@
                                 <i class="fas fa-check"></i>
                             </div>
                         </div>
-                        
-                        <h2 class="success-title mb-4">¡Compra Completada!</h2>
-                        
+
+                        <h2 class="success-title mb-4">{% trans "¡Compra Completada!" %}</h2>
+
                         <p class="success-message mb-4">
-                            Has adquirido exitosamente tu paquete de páginas web para reventa. 
-                            Tu inventario ha sido actualizado y ya puedes comenzar a ofrecer servicios a tus clientes.
+                            {% trans "Has adquirido exitosamente tu paquete de páginas web para reventa. Tu inventario ha sido actualizado y ya puedes comenzar a ofrecer servicios a tus clientes." %}
                         </p>
                         
                         <div class="success-details mb-4">
                             <div class="detail-item">
                                 <i class="fas fa-calendar-check text-success me-2"></i>
-                                <span>Procesado el {{ "now"|date:"d/m/Y H:i" }}</span>
+                                <span>{% trans "Procesado el" %} {{ "now"|date:"d/m/Y H:i" }}</span>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                 <!-- Acciones Disponibles -->
                 <div class="actions-card">
                     <div class="card-header-custom">
-                        <h4><i class="fas fa-cog me-2"></i>¿Qué quieres hacer ahora?</h4>
+                        <h4><i class="fas fa-cog me-2"></i>{% trans "¿Qué quieres hacer ahora?" %}</h4>
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -82,8 +82,8 @@
                                         <i class="fas fa-tachometer-alt"></i>
                                     </div>
                                     <div class="action-text">
-                                        <h6>Ir al Dashboard</h6>
-                                        <p>Revisa tu panel de distribuidor</p>
+                                        <h6>{% trans "Ir al Dashboard" %}</h6>
+                                        <p>{% trans "Revisa tu panel de distribuidor" %}</p>
                                     </div>
                                     <div class="action-arrow">
                                         <i class="fas fa-arrow-right"></i>
@@ -96,8 +96,8 @@
                                         <i class="fas fa-boxes"></i>
                                     </div>
                                     <div class="action-text">
-                                        <h6>Ver mis Paquetes</h6>
-                                        <p>Gestiona tu inventario</p>
+                                        <h6>{% trans "Ver mis Paquetes" %}</h6>
+                                        <p>{% trans "Gestiona tu inventario" %}</p>
                                     </div>
                                     <div class="action-arrow">
                                         <i class="fas fa-arrow-right"></i>
@@ -110,8 +110,8 @@
                                         <i class="fas fa-plus-circle"></i>
                                     </div>
                                     <div class="action-text">
-                                        <h6>Comprar Más</h6>
-                                        <p>Amplía tu inventario</p>
+                                        <h6>{% trans "Comprar Más" %}</h6>
+                                        <p>{% trans "Amplía tu inventario" %}</p>
                                     </div>
                                     <div class="action-arrow">
                                         <i class="fas fa-arrow-right"></i>
@@ -124,8 +124,8 @@
                                         <i class="fas fa-headset"></i>
                                     </div>
                                     <div class="action-text">
-                                        <h6>Contactar Soporte</h6>
-                                        <p>¿Necesitas ayuda?</p>
+                                        <h6>{% trans "Contactar Soporte" %}</h6>
+                                        <p>{% trans "¿Necesitas ayuda?" %}</p>
                                     </div>
                                     <div class="action-arrow">
                                         <i class="fas fa-arrow-right"></i>
@@ -139,16 +139,16 @@
                 <!-- Información de Contacto -->
                 <div class="contact-info-card mt-5">
                     <div class="card-body text-center">
-                        <h5 class="mb-3">¿Tienes preguntas?</h5>
+                        <h5 class="mb-3">{% trans "¿Tienes preguntas?" %}</h5>
                         <p class="text-muted mb-4">
-                            Nuestro equipo de soporte está aquí para ayudarte a maximizar tus ganancias como distribuidor.
+                            {% trans "Nuestro equipo de soporte está aquí para ayudarte a maximizar tus ganancias como distribuidor." %}
                         </p>
                         <div class="contact-methods">
                             <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-outline-primary me-3">
-                                <i class="fas fa-ticket-alt me-2"></i>Crear Ticket
+                                <i class="fas fa-ticket-alt me-2"></i>{% trans "Crear Ticket" %}
                             </a>
                             <a href="mailto:soporte@chibchaweb.com" class="btn btn-outline-secondary">
-                                <i class="fas fa-envelope me-2"></i>Email Soporte
+                                <i class="fas fa-envelope me-2"></i>{% trans "Email Soporte" %}
                             </a>
                         </div>
                     </div>

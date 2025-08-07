@@ -1,7 +1,7 @@
 {% extends "base_clientes.html" %}
-
+{% load i18n %}
 {% block content %}
-<title>Mis Tickets - ChibchaWeb</title>
+<title>{% trans "Mis Tickets - ChibchaWeb" %}</title>
 
 <!-- Header de Tickets -->
 <section class="bg-gradient-chibcha text-white py-4">
@@ -13,14 +13,14 @@
                         <i class="fas fa-ticket-alt fs-3"></i>
                     </div>
                     <div>
-                        <h1 class="h2 mb-1">Mis Tickets</h1>
-                        <p class="mb-0 opacity-75">Gestiona todas tus solicitudes de soporte</p>
+                        <h1 class="h2 mb-1">{% trans "Mis Tickets" %}</h1>
+                        <p class="mb-0 opacity-75">{% trans "Gestiona todas tus solicitudes de soporte" %}</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 text-end">
                 <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-chibcha-primary btn-lg">
-                    <i class="fas fa-plus me-2"></i>Nuevo Ticket
+                    <i class="fas fa-plus me-2"></i>{% trans "Nuevo Ticket" %}
                 </a>
             </div>
         </div>
@@ -38,10 +38,10 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0">
                                     <i class="fas fa-list me-2 text-chibcha-primary"></i>
-                                    Historial de Tickets ({{ tickets|length }})
+                                    {% trans "Historial de Tickets" %} ({{ tickets|length }})
                                 </h5>
                                 <div class="text-muted small">
-                                    <i class="fas fa-clock me-1"></i>Última actualización
+                                    <i class="fas fa-clock me-1"></i>{% trans "Última actualización" %}
                                 </div>
                             </div>
                         </div>
@@ -54,18 +54,18 @@
                                                 <i class="fas fa-hashtag me-1"></i>ID
                                             </th>
                                             <th class="py-3">
-                                                <i class="fas fa-tag me-1"></i>Nombre
+                                                <i class="fas fa-tag me-1"></i>{% trans "Nombre" %}
                                             </th>
                                             <th class="py-3">
-                                                <i class="fas fa-file-alt me-1"></i>Descripción
+                                                <i class="fas fa-file-alt me-1"></i>{% trans "Descripción" %}
                                             </th>
                                             <th class="py-3">
-                                                <i class="fas fa-calendar me-1"></i>Fecha
+                                                <i class="fas fa-calendar me-1"></i>{% trans "Fecha" %}
                                             </th>
                                             <th class="py-3">
-                                                <i class="fas fa-flag me-1"></i>Estado
+                                                <i class="fas fa-flag me-1"></i>{% trans "Estado" %}
                                             </th>
-                                            <th class="py-3 text-center">Acciones</th>
+                                            <th class="py-3 text-center">{% trans "Acciones" %}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -91,7 +91,7 @@
                                                     <i class="fas fa-clock me-1"></i>
                                                     {{ ticket.fechar_creacion|date:"d M Y" }}
                                                     <br>
-                                                    <span class="text-muted">Fecha de creación</span>
+                                                    <span class="text-muted">{% trans "Fecha de creación" %}</span>
                                                 </div>
                                             </td>
                                             <td>
@@ -121,7 +121,7 @@
                                                     {% endwith %}
                                                 {% else %}
                                                     <span class="badge bg-light text-dark">
-                                                        <i class="fas fa-question me-1"></i>Sin estado
+                                                        <i class="fas fa-question me-1"></i>{% trans "Sin estado" %}
                                                     </span>
                                                 {% endif %}
                                             </td>
@@ -134,7 +134,7 @@
                                                                     data-bs-toggle="modal" 
                                                                     data-bs-target="#solucionModal{{ ticket.idTicket }}"
                                                                     title="Ver solución">
-                                                                <i class="fas fa-check-circle me-1"></i>Ver Solución
+                                                                <i class="fas fa-check-circle me-1"></i>{% trans "Ver Solución" %}
                                                             </button>
                                                         {% else %}
                                                             <!-- Ticket en proceso: mostrar estado -->
@@ -178,7 +178,7 @@
                                                                 <span class="text-muted">{{ ticket.nombreTicket }}</span>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <strong>Estado Actual:</strong><br>
+                                                                <strong>{% trans "Estado Actual" %}:</strong><br>
                                                                 {% if ticket.historial.last %}
                                                                     {% with estado=ticket.historial.last.estado.nombreEstado %}
                                                                         {% if estado == "Resuelto" or estado == "Cerrado" %}
@@ -190,21 +190,21 @@
                                                                         {% endif %}
                                                                     {% endwith %}
                                                                 {% else %}
-                                                                    <span class="badge bg-light text-dark">Sin estado</span>
+                                                                    <span class="badge bg-light text-dark">{% trans "Sin estado" %}</span>
                                                                 {% endif %}
                                                             </div>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <strong>Descripción del Problema:</strong><br>
+                                                            <strong>{% trans "Descripción del Problema" %}:</strong><br>
                                                             <p class="text-muted">{{ ticket.descripcionTicket }}</p>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <strong>Fecha de Creación:</strong><br>
+                                                            <strong>{% trans "Fecha de Creación" %}:</strong><br>
                                                             <span class="text-muted">{{ ticket.fechar_creacion|date:"d M Y" }}</span>
                                                         </div>
                                                         {% if ticket.historial.all %}
                                                         <div class="mb-3">
-                                                            <strong>Historial de Estados:</strong>
+                                                            <strong>{% trans "Historial de Estados" %}:</strong>
                                                             <div class="timeline mt-2">
                                                                 {% for historia in ticket.historial.all %}
                                                                 <div class="timeline-item border-start border-2 ps-3 pb-3">
@@ -218,7 +218,7 @@
                                                         {% endif %}
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Cerrar" %}</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -234,7 +234,7 @@
                                                             <div class="modal-header bg-success text-white">
                                                                 <h5 class="modal-title">
                                                                     <i class="fas fa-check-circle me-2"></i>
-                                                                    Ticket Resuelto #{{ ticket.idTicket }}
+                                                                    {% trans "Ticket Resuelto" %} #{{ ticket.idTicket }}
                                                                 </h5>
                                                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                                                             </div>
@@ -242,29 +242,29 @@
                                                                 <div class="alert alert-success border-0">
                                                                     <h6 class="alert-heading">
                                                                         <i class="fas fa-thumbs-up me-2"></i>
-                                                                        ¡Tu problema ha sido resuelto!
+                                                                        ¡{% trans "Tu problema ha sido resuelto" %}!
                                                                     </h6>
-                                                                    <p class="mb-0">Nuestro equipo de soporte ha trabajado en tu solicitud y la ha marcado como resuelta.</p>
+                                                                    <p class="mb-0">{% trans "Nuestro equipo de soporte ha trabajado en tu solicitud y la ha marcado como resuelta" %}.</p>
                                                                 </div>
                                                                 
                                                                 <div class="row mb-3">
                                                                     <div class="col-md-6">
-                                                                        <strong>Problema Original:</strong><br>
+                                                                        <strong>{% trans "Problema Original" %}:</strong><br>
                                                                         <span class="text-muted">{{ ticket.nombreTicket }}</span>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <strong>Fecha de Resolución:</strong><br>
+                                                                        <strong>{% trans "Fecha de Resolución" %}:</strong><br>
                                                                         <span class="text-muted">{{ ticket.historial.last.fecha_modificacion|date:"d M Y" }}</span>
                                                                     </div>
                                                                 </div>
                                                                 
                                                                 <div class="mb-3">
-                                                                    <strong>Descripción del Problema:</strong><br>
+                                                                    <strong>{% trans "Descripción del Problema" %}:</strong><br>
                                                                     <p class="text-muted bg-light p-3 rounded">{{ ticket.descripcionTicket }}</p>
                                                                 </div>
                                                                 
                                                                 <div class="mb-3">
-                                                                    <strong>Resolución:</strong><br>
+                                                                    <strong>{% trans "Resolución" %}:</strong><br>
                                                                     <div class="bg-success bg-opacity-10 p-3 rounded border border-success">
                                                                         <p class="mb-0">{{ ticket.historial.last.modDescripcion }}</p>
                                                                     </div>
@@ -273,13 +273,13 @@
                                                                 {% if ticket.historial.last.empleado %}
                                                                 <div class="text-muted small">
                                                                     <i class="fas fa-user me-1"></i>
-                                                                    Resuelto por: {{ ticket.historial.last.empleado.user.first_name }} {{ ticket.historial.last.empleado.user.last_name }}
+                                                                    {% trans "Resuelto por" %}: {{ ticket.historial.last.empleado.user.first_name }} {{ ticket.historial.last.empleado.user.last_name }}
                                                                 </div>
                                                                 {% endif %}
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">
-                                                                    <i class="fas fa-check me-1"></i>Entendido
+                                                                    <i class="fas fa-check me-1"></i>{% trans "Entendido" %}
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -305,12 +305,12 @@
                         <div class="empty-icon mb-4">
                             <i class="fas fa-ticket-alt text-muted" style="font-size: 4rem;"></i>
                         </div>
-                        <h3 class="h4 text-muted mb-3">No tienes tickets aún</h3>
+                        <h3 class="h4 text-muted mb-3">{% trans "No tienes tickets aún" %}</h3>
                         <p class="text-muted mb-4">
-                            ¿Necesitas ayuda? Crea tu primer ticket de soporte y nuestro equipo te ayudará a resolver cualquier problema.
+                            {% trans "¿Necesitas ayuda? Crea tu primer ticket de soporte y nuestro equipo te ayudará a resolver cualquier problema." %}
                         </p>
                         <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-chibcha-primary btn-lg">
-                            <i class="fas fa-plus me-2"></i>Crear Mi Primer Ticket
+                            <i class="fas fa-plus me-2"></i>{% trans "Crear Mi Primer Ticket" %}
                         </a>
                     </div>
                 </div>
@@ -323,9 +323,9 @@
                 <div class="card border-0 bg-light h-100">
                     <div class="card-body text-center">
                         <i class="fas fa-clock text-chibcha-primary fs-1 mb-3"></i>
-                        <h5>Respuesta Rápida</h5>
+                        <h5>{% trans "Respuesta Rápida" %}</h5>
                         <p class="text-muted small">
-                            Nuestro equipo responde en menos de 24 horas
+                            {% trans "Nuestro equipo responde en menos de 24 horas" %}
                         </p>
                     </div>
                 </div>
@@ -334,9 +334,9 @@
                 <div class="card border-0 bg-light h-100">
                     <div class="card-body text-center">
                         <i class="fas fa-users text-chibcha-primary fs-1 mb-3"></i>
-                        <h5>Soporte Experto</h5>
+                        <h5>{% trans "Soporte Experto" %}</h5>
                         <p class="text-muted small">
-                            Técnicos especializados en hosting y dominios
+                            {% trans "Técnicos especializados en hosting y dominios" %}
                         </p>
                     </div>
                 </div>
@@ -345,9 +345,9 @@
                 <div class="card border-0 bg-light h-100">
                     <div class="card-body text-center">
                         <i class="fas fa-shield-alt text-chibcha-primary fs-1 mb-3"></i>
-                        <h5>Seguimiento Total</h5>
+                        <h5>{% trans "Seguimiento Total" %}</h5>
                         <p class="text-muted small">
-                            Mantente informado del progreso de tu solicitud
+                            {% trans "Mantente informado del progreso de tu solicitud" %}
                         </p>
                     </div>
                 </div>

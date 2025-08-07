@@ -1,13 +1,14 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load i18n %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/distributor-styles.css' %}">
 {% endblock %}
 
 {% block content %}
-<title>Resumen de Compra - ChibchaWeb</title>
+<title>{% trans "Resumen de Compra - ChibchaWeb" %}</title>
 
 <!-- Hero Header del Resumen -->
 <section class="purchase-header bg-gradient-chibcha text-white py-5">
@@ -17,14 +18,14 @@
                 <div class="purchase-info">
                     <div class="purchase-badge mb-3">
                         <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
-                            <i class="fas fa-receipt me-2"></i>Resumen de Compra
+                            <i class="fas fa-receipt me-2"></i>{% trans "Resumen de Compra" %}
                         </span>
                     </div>
                     <h1 class="display-6 fw-bold mb-3">
-                        Confirma tu Paquete
+                        {% trans "Confirma tu Paquete" %}
                     </h1>
                     <p class="lead mb-4">
-                        Revisa los detalles de tu compra antes de procesar el pago
+                        {% trans "Revisa los detalles de tu compra antes de procesar el pago" %}
                     </p>
                 </div>
             </div>
@@ -45,17 +46,17 @@
         <div class="payment-step-indicator">
             <div class="payment-step completed">
                 <div class="payment-step-number">1</div>
-                <span>Paquete</span>
+                <span>{% trans "Paquete" %}</span>
             </div>
             <div class="payment-step-connector"></div>
             <div class="payment-step completed">
                 <div class="payment-step-number">2</div>
-                <span>Dirección & Tarjeta</span>
+                <span>{% trans "Dirección & Tarjeta" %}</span>
             </div>
             <div class="payment-step-connector"></div>
             <div class="payment-step active">
                 <div class="payment-step-number">3</div>
-                <span>Confirmación</span>
+                <span>{% trans "Confirmación" %}</span>
             </div>
         </div>
     </div>
@@ -72,7 +73,7 @@
                     <div class="col-lg-8">
                         <div class="summary-card">
                             <div class="card-header-custom">
-                                <h4><i class="fas fa-boxes me-2"></i>Detalles del Paquete</h4>
+                                <h4><i class="fas fa-boxes me-2"></i>{% trans "Detalles del Paquete" %}</h4>
                             </div>
                             <div class="card-body">
                                 <div class="package-summary">
@@ -81,12 +82,12 @@
                                             <i class="fas fa-globe"></i>
                                         </div>
                                         <div class="package-details">
-                                            <h5>Paquete de Páginas Web</h5>
-                                            <p class="text-muted">Para reventa a tus clientes</p>
+                                            <h5>{% trans "Paquete de Páginas Web" %}</h5>
+                                            <p class="text-muted">{% trans "Para reventa a tus clientes" %}</p>
                                         </div>
                                         <div class="package-quantity">
                                             <span class="quantity-number">{{ cantidad }}</span>
-                                            <span class="quantity-label">páginas</span>
+                                            <span class="quantity-label">{% trans "páginas" %}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -98,15 +99,15 @@
                                         <span>${{ total }}</span>
                                     </div>
                                     <div class="price-row subtotal">
-                                        <span>Subtotal</span>
+                                        <span>{% trans "Subtotal" %}</span>
                                         <span>${{ total }}</span>
                                     </div>
                                     <div class="price-row taxes">
-                                        <span>Impuestos incluidos</span>
+                                        <span>{% trans "Impuestos incluidos" %}</span>
                                         <span>$0.00</span>
                                     </div>
                                     <div class="price-row total">
-                                        <span>Total a Pagar</span>
+                                        <span>{% trans "Total a Pagar" %}</span>
                                         <span>${{ total }}</span>
                                     </div>
                                 </div>
@@ -118,7 +119,7 @@
                     <div class="col-lg-4">
                         <div class="payment-info-card">
                             <div class="card-header-custom bg-success">
-                                <h5><i class="fas fa-credit-card me-2"></i>Información de Pago</h5>
+                                <h5><i class="fas fa-credit-card me-2"></i>{% trans "Información de Pago" %}</h5>
                             </div>
                             <div class="card-body">
                                 <!-- Dirección -->
@@ -127,7 +128,7 @@
                                         <i class="fas fa-map-marker-alt"></i>
                                     </div>
                                     <div class="detail-content">
-                                        <h6>Dirección de Facturación</h6>
+                                        <h6>{% trans "Dirección de Facturación" %}</h6>
                                         <p class="mb-1">{{ direccion.pais.nombre }}</p>
                                         <p class="mb-1">{{ direccion.ubicacion }}</p>
                                         <p class="text-muted">CP: {{ direccion.codigoPostal }}</p>
@@ -140,7 +141,7 @@
                                         <i class="fas fa-credit-card"></i>
                                     </div>
                                     <div class="detail-content">
-                                        <h6>Método de Pago</h6>
+                                        <h6>{% trans "Método de Pago" %}</h6>
                                         <p class="mb-1">{{ tarjeta.nombre_titular }}</p>
                                         <p class="mb-1">**** **** **** {{ tarjeta.numero|slice:"-4:" }}</p>
                                         <p class="text-muted">Vence: {{ tarjeta.fecha_expiracion }}</p>
@@ -152,14 +153,14 @@
                         <!-- Beneficios -->
                         <div class="benefits-card mt-4">
                             <div class="card-header-custom bg-info">
-                                <h5><i class="fas fa-star me-2"></i>Beneficios Incluidos</h5>
+                                <h5><i class="fas fa-star me-2"></i>{% trans "Beneficios Incluidos" %}</h5>
                             </div>
                             <div class="card-body">
                                 <ul class="benefits-list">
-                                    <li><i class="fas fa-check text-success me-2"></i>Páginas listas para revender</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Soporte técnico incluido</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Panel de gestión avanzado</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Comisiones por cada venta</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Páginas listas para revender" %}</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Soporte técnico incluido" %}</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Panel de gestión avanzado" %}</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>{% trans "Comisiones por cada venta" %}</li>
                                 </ul>
                             </div>
                         </div>
@@ -174,17 +175,17 @@
                                 {% csrf_token %}
                                 <div class="action-buttons">
                                     <a href="{% url 'pagos:seleccionar_direccion_tarjeta' %}" class="btn btn-outline-secondary btn-lg me-3">
-                                        <i class="fas fa-arrow-left me-2"></i>Volver Atrás
+                                        <i class="fas fa-arrow-left me-2"></i>{% trans "Volver Atrás" %}
                                     </a>
                                     <button type="submit" class="btn btn-chibcha-primary btn-lg px-5">
-                                        <i class="fas fa-lock me-2"></i>Confirmar Compra de ${{ total }}
+                                        <i class="fas fa-lock me-2"></i>{% trans "Confirmar Compra de $" %}{{ total }}
                                     </button>
                                 </div>
                                 
                                 <div class="security-notice mt-3">
                                     <small class="text-muted">
                                         <i class="fas fa-shield-alt me-1"></i>
-                                        Tu información está protegida con encriptación SSL
+                                        {% trans "Tu información está protegida con encriptación SSL" %}
                                     </small>
                                 </div>
                             </form>
@@ -202,12 +203,12 @@
                                         <i class="fas fa-info-circle text-info"></i>
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">Términos de Compra</h6>
-                                        <p class="mb-2">Al confirmar esta compra, aceptas nuestros términos y condiciones de servicio.</p>
+                                        <h6 class="mb-2">{% trans "Términos de Compra" %}</h6>
+                                        <p class="mb-2">{% trans "Al confirmar esta compra, aceptas nuestros términos y condiciones de servicio." %}</p>
                                         <ul class="mb-0 small text-muted">
-                                            <li>Las páginas se agregarán inmediatamente a tu cuenta</li>
-                                            <li>No hay reembolsos una vez procesado el pago</li>
-                                            <li>Soporte técnico disponible 24/7</li>
+                                            <li>{% trans "Las páginas se agregarán inmediatamente a tu cuenta" %}</li>
+                                            <li>{% trans "No hay reembolsos una vez procesado el pago" %}</li>
+                                            <li>{% trans "Soporte técnico disponible 24/7" %}</li>
                                         </ul>
                                     </div>
                                 </div>

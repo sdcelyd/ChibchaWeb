@@ -1,8 +1,8 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 {% block content %}
-<title>Crear Ticket - ChibchaWeb</title>
+<title>{% trans "Crear Ticket - ChibchaWeb" %}</title>
 
 <!-- Header de Crear Ticket -->
 <section class="bg-gradient-chibcha text-white py-4">
@@ -14,8 +14,8 @@
                         <i class="fas fa-plus-circle fs-3"></i>
                     </div>
                     <div>
-                        <h1 class="h2 mb-1">Crear Nuevo Ticket</h1>
-                        <p class="mb-0 opacity-75">Solicita ayuda de nuestro equipo de soporte técnico</p>
+                        <h1 class="h2 mb-1">{% trans "Crear Nuevo Ticket" %}</h1>
+                        <p class="mb-0 opacity-75">{% trans "Solicita ayuda de nuestro equipo de soporte técnico" %}</p>
                     </div>
                 </div>
             </div>
@@ -33,13 +33,13 @@
                     <div class="d-flex">
                         <i class="fas fa-info-circle me-3 mt-1"></i>
                         <div>
-                            <h6 class="alert-heading mb-2">¿Cómo podemos ayudarte?</h6>
-                            <p class="mb-2">Nuestro equipo de soporte está aquí para resolver cualquier problema relacionado con:</p>
+                            <h6 class="alert-heading mb-2">{% trans "¿Cómo podemos ayudarte?" %}</h6>
+                            <p class="mb-2">{% trans "Nuestro equipo de soporte está aquí para resolver cualquier problema relacionado con" %}:</p>
                             <ul class="mb-0 small">
-                                <li>Configuración de dominios y DNS</li>
-                                <li>Problemas técnicos de hosting</li>
-                                <li>Gestión de cuentas y facturación</li>
-                                <li>Consultas sobre planes y servicios</li>
+                                <li>{% trans "Configuración de dominios y DNS" %}</li>
+                                <li>{% trans "Problemas técnicos de hosting" %}</li>
+                                <li>{% trans "Gestión de cuentas y facturación" %}</li>
+                                <li>{% trans "Consultas sobre planes y servicios" %}</li>
                             </ul>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="card-header bg-light">
                         <h5 class="mb-0">
                             <i class="fas fa-edit me-2 text-chibcha-primary"></i>
-                            Detalles del Ticket
+                            {% trans "Detalles del Ticket" %}
                         </h5>
                     </div>
                     <div class="card-body p-4">
@@ -61,24 +61,24 @@
                             <div class="mb-4">
                                 <label class="form-label fw-semibold">
                                     <i class="fas fa-tag me-2 text-chibcha-primary"></i>
-                                    Título del Ticket
+                                    {% trans "Título del Ticket" %}
                                 </label>
                                 {{ form.nombreTicket }}
                                 <div class="form-text">
                                     <i class="fas fa-lightbulb me-1"></i>
-                                    Describe brevemente el problema o consulta
+                                    {% trans "Describe brevemente el problema o consulta" %}
                                 </div>
                             </div>
 
                             <div class="mb-4">
                                 <label class="form-label fw-semibold">
                                     <i class="fas fa-align-left me-2 text-chibcha-primary"></i>
-                                    Descripción Detallada
+                                    {% trans "Descripción Detallada" %}
                                 </label>
                                 {{ form.descripcionTicket }}
                                 <div class="form-text">
                                     <i class="fas fa-info-circle me-1"></i>
-                                    Proporciona todos los detalles posibles para una resolución más rápida
+                                    {% trans "Proporciona todos los detalles posibles para una resolución más rápida" %}
                                 </div>
                             </div>
 
@@ -87,12 +87,12 @@
                             <div class="mb-4">
                                 <label class="form-label fw-semibold">
                                     <i class="fas fa-exclamation-triangle me-2 text-chibcha-primary"></i>
-                                    Prioridad
+                                    {% trans "Prioridad" %}
                                 </label>
                                 {{ form.prioridad }}
                                 <div class="form-text">
                                     <i class="fas fa-clock me-1"></i>
-                                    Selecciona la urgencia de tu solicitud
+                                    {% trans "Selecciona la urgencia de tu solicitud" %}
                                 </div>
                             </div>
                             {% endif %}
@@ -101,11 +101,11 @@
                             <div class="d-flex gap-3 mt-4 pt-3 border-top">
                                 <button type="submit" class="btn btn-chibcha-primary btn-lg">
                                     <i class="fas fa-paper-plane me-2"></i>
-                                    Enviar Ticket
+                                    {% trans "Enviar Ticket" %}
                                 </button>
                                 <a href="{% url 'tickets:tickets_cliente' %}" class="btn btn-outline-secondary btn-lg">
                                     <i class="fas fa-arrow-left me-2"></i>
-                                    Volver a Mis Tickets
+                                    {% trans "Volver a Mis Tickets" %}
                                 </a>
                             </div>
                         </form>
@@ -118,9 +118,9 @@
                         <div class="card border-0 bg-light h-100">
                             <div class="card-body text-center">
                                 <i class="fas fa-clock text-success fs-2 mb-3"></i>
-                                <h6>Tiempo de Respuesta</h6>
+                                <h6>{% trans "Tiempo de Respuesta" %}</h6>
                                 <p class="text-muted small mb-0">
-                                    Respondemos en menos de 24 horas
+                                    {% trans "Respondemos en menos de 24 horas" %}
                                 </p>
                             </div>
                         </div>

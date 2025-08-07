@@ -1,12 +1,13 @@
 {% extends "base_clientes.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'styles/distributor-styles.css' %}">
 {% endblock %}
 
 {% block content %}
-<title>Mis Paquetes - ChibchaWeb</title>
+<title>{% trans "Mis Paquetes - ChibchaWeb" %}</title>
 
 <!-- Hero Header de Paquetes -->
 <section class="packages-header bg-gradient-chibcha text-white py-5">
@@ -16,14 +17,14 @@
                 <div class="packages-info">
                     <div class="packages-badge mb-3">
                         <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
-                            <i class="fas fa-boxes me-2"></i>Mis Paquetes
+                            <i class="fas fa-boxes me-2"></i>{% trans "Mis Paquetes" %}
                         </span>
                     </div>
                     <h1 class="display-6 fw-bold mb-3">
-                        Gestión de Paquetes
+                        {% trans "Gestión de Paquetes" %}
                     </h1>
                     <p class="lead mb-4">
-                        Administra y revisa todos tus paquetes de dominios disponibles para revender
+                        {% trans "Administra y revisa todos tus paquetes de dominios disponibles para revender" %}
                     </p>
                 </div>
             </div>
@@ -50,7 +51,7 @@
                     </div>
                     <div class="stat-info">
                         <div class="stat-number">{{ pagos_paquetes.count }}</div>
-                        <div class="stat-label">Compras Realizadas</div>
+                        <div class="stat-label">{% trans "Compras Realizadas" %}</div>
                     </div>
                 </div>
             </div>
@@ -61,7 +62,7 @@
                     </div>
                     <div class="stat-info">
                         <div class="stat-number">{{ distribuidor.paginas_disponibles }}</div>
-                        <div class="stat-label">Páginas Disponibles</div>
+                        <div class="stat-label">{% trans "Páginas Disponibles" %}</div>
                     </div>
                 </div>
             </div>
@@ -72,7 +73,7 @@
                     </div>
                     <div class="stat-info">
                         <div class="stat-number">{{ distribuidor.paginas_vendidas }}</div>
-                        <div class="stat-label">Páginas Vendidas</div>
+                        <div class="stat-label">{% trans "Páginas Vendidas" %}</div>
                     </div>
                 </div>
             </div>
@@ -84,10 +85,10 @@
                 <div class="packages-list-card">
                     <div class="card-header-custom">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h4><i class="fas fa-list me-2"></i>Lista de Paquetes</h4>
+                            <h4><i class="fas fa-list me-2"></i>{% trans "Lista de Paquetes" %}</h4>
                             <div class="btn-group">
                                 <a href="{% url 'pagos:seleccionar_paquete' %}" class="btn btn-chibcha-primary">
-                                    <i class="fas fa-plus me-2"></i>Comprar Paquetes
+                                    <i class="fas fa-plus me-2"></i>{% trans "Comprar Paquetes" %}
                                 </a>
                             </div>
                         </div>
@@ -99,12 +100,12 @@
                                 <table class="table table-hover">
                                     <thead class="table-chibcha">
                                         <tr>
-                                            <th>ID Compra</th>
-                                            <th>Páginas</th>
-                                            <th>Monto</th>
-                                            <th>Fecha Compra</th>
-                                            <th>Estado</th>
-                                            <th>Descripción</th>
+                                            <th>{% trans "ID Compra" %}</th>
+                                            <th>{% trans "Páginas" %}</th>
+                                            <th>{% trans "Monto" %}</th>
+                                            <th>{% trans "Fecha Compra" %}</th>
+                                            <th>{% trans "Estado" %}</th>
+                                            <th>{% trans "Descripción" %}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -112,16 +113,16 @@
                                         <tr>
                                             <td class="fw-bold text-chibcha">#{{ pago.pagoId }}</td>
                                             <td>
-                                                <span class="badge bg-success">{{ pago.cantidad_paginas }} páginas</span>
+                                                <span class="badge bg-success">{{ pago.cantidad_paginas }} {% trans "páginas" %}</span>
                                             </td>
                                             <td class="fw-bold">${{ pago.monto }}</td>
                                             <td>{{ pago.fecha|date:"d/m/Y H:i" }}</td>
                                             <td>
                                                 <span class="badge bg-success">
-                                                    <i class="fas fa-check me-1"></i>Completado
+                                                    <i class="fas fa-check me-1"></i>{% trans "Completado" %}
                                                 </span>
                                             </td>
-                                            <td class="text-muted">{{ pago.descripcion|default:"Paquete de páginas web" }}</td>
+                                            <td class="text-muted">{{ pago.descripcion|default:"{% trans 'Paquete de páginas web' %}" }}</td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
@@ -133,16 +134,16 @@
                                 <div class="empty-icon mb-4">
                                     <i class="fas fa-box-open text-muted" style="font-size: 5rem;"></i>
                                 </div>
-                                <h5 class="text-muted mb-3">No tienes paquetes aún</h5>
+                                <h5 class="text-muted mb-3">{% trans "No tienes paquetes aún" %}</h5>
                                 <p class="text-muted mb-4">
-                                    Comienza a generar ingresos comprando tu primer paquete de páginas web para revender.
+                                    {% trans "Comienza a generar ingresos comprando tu primer paquete de páginas web para revender." %}
                                 </p>
                                 <div class="empty-actions">
                                     <a href="{% url 'pagos:seleccionar_paquete' %}" class="btn btn-chibcha-primary me-3">
-                                        <i class="fas fa-shopping-cart me-2"></i>Comprar Primer Paquete
+                                        <i class="fas fa-shopping-cart me-2"></i>{% trans "Comprar Primer Paquete" %}
                                     </a>
                                     <a href="{% url 'distribuidores:dashboard' %}" class="btn btn-outline-secondary">
-                                        <i class="fas fa-arrow-left me-2"></i>Volver al Dashboard
+                                        <i class="fas fa-arrow-left me-2"></i>{% trans "Volver al Dashboard" %}
                                     </a>
                                 </div>
                             </div>
@@ -159,12 +160,12 @@
                     <div class="card-header-custom">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h4><i class="fas fa-globe me-2"></i>Espacios Utilizados</h4>
-                                <small class="text-muted">Dominios creados con tus espacios de distribuidor</small>
+                                <h4><i class="fas fa-globe me-2"></i>{% trans "Espacios Utilizados" %}</h4>
+                                <small class="text-muted">{% trans "Dominios creados con tus espacios de distribuidor" %}</small>
                             </div>
                             {% if distribuidor.paginas_disponibles > 0 %}
                             <a href="{% url 'dominios:agregar_dominio' %}?from=distribuidor" class="btn btn-success btn-sm">
-                                <i class="fas fa-globe me-2"></i>Usar espacios
+                                <i class="fas fa-globe me-2"></i>{% trans "Usar espacios" %}
                             </a>
                             {% endif %}
                         </div>
@@ -175,9 +176,9 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th><i class="fas fa-globe me-2"></i>Dominio</th>
-                                            <th><i class="fas fa-cogs me-2"></i>Acciones</th>
-                                            <th><i class="fas fa-trash me-2"></i>Borrar</th>
+                                            <th><i class="fas fa-globe me-2"></i>{% trans "Dominio" %}</th>
+                                            <th><i class="fas fa-cogs me-2"></i>{% trans "Acciones" %}</th>
+                                            <th><i class="fas fa-trash me-2"></i>{% trans "Borrar" %}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -193,7 +194,7 @@
                                             <td>
                                                 <div class="d-flex gap-2" role="group">
                                                     <button type="button" class="btn btn-outline-primary btn-sm px-3" title="Configurar dominio">
-                                                        <i class="fas fa-cog me-1"></i>Configurar
+                                                        <i class="fas fa-cog me-1"></i>{% trans "Configurar" %}
                                                     </button>
                                                 </div>
                                             </td>
@@ -203,7 +204,7 @@
                                                     <button type="submit" class="btn btn-outline-danger btn-sm px-3" 
                                                             onclick="return confirm('¿Estás seguro de que deseas eliminar el dominio {{ dominio.nombreDominio }}? Esto liberará 1 espacio en tu paquete de distribuidor.')"
                                                             title="Eliminar dominio">
-                                                            <i class="fas fa-trash me-1"></i>Eliminar
+                                                            <i class="fas fa-trash me-1"></i>{% trans "Eliminar" %}
                                                         </button>
                                                     </form>
                                                 </div>
@@ -216,10 +217,10 @@
                         {% else %}
                             <div class="empty-state text-center py-5">
                                 <i class="fas fa-globe fa-3x text-muted mb-3"></i>
-                                <h5 class="text-muted">No has usado espacios aún</h5>
-                                <p class="text-muted mb-4">Usa el botón "Usar espacios" para crear dominios con tus espacios de distribuidor.</p>
+                                <h5 class="text-muted">{% trans "No has usado espacios aún" %}</h5>
+                                <p class="text-muted mb-4">{% trans "Usa el botón 'Usar espacios' para crear dominios con tus espacios de distribuidor." %}</p>
                                 <a href="{% url 'dominios:agregar_dominio' %}?from=distribuidor" class="btn btn-success">
-                                    <i class="fas fa-globe me-2"></i>Usar espacios ahora
+                                    <i class="fas fa-globe me-2"></i>{% trans "Usar espacios ahora" %}
                                 </a>
                             </div>
                         {% endif %}
@@ -233,14 +234,14 @@
             <div class="col-lg-6">
                 <div class="info-card">
                     <div class="card-header-custom bg-info">
-                        <h5><i class="fas fa-info-circle me-2"></i>¿Cómo Funciona?</h5>
+                        <h5><i class="fas fa-info-circle me-2"></i>{% trans "¿Cómo Funciona?" %}</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled mb-0">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Compras paquetes de dominios</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Revendes a tus clientes</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Ganas comisiones por cada venta</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Gestionas todo desde tu panel</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{% trans "Compras paquetes de dominios" %}</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{% trans "Revendes a tus clientes" %}</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{% trans "Ganas comisiones por cada venta" %}</li>
+                            <li><i class="fas fa-check text-success me-2"></i>{% trans "Gestionas todo desde tu panel" %}</li>
                         </ul>
                     </div>
                 </div>
@@ -248,14 +249,14 @@
             <div class="col-lg-6">
                 <div class="info-card">
                     <div class="card-header-custom bg-success">
-                        <h5><i class="fas fa-handshake me-2"></i>Beneficios del Distribuidor</h5>
+                        <h5><i class="fas fa-handshake me-2"></i>{% trans "Beneficios del Distribuidor" %}</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled mb-0">
-                            <li class="mb-2"><i class="fas fa-percentage text-success me-2"></i>Comisiones competitivas</li>
-                            <li class="mb-2"><i class="fas fa-headset text-success me-2"></i>Soporte técnico dedicado</li>
-                            <li class="mb-2"><i class="fas fa-chart-line text-success me-2"></i>Panel de control avanzado</li>
-                            <li><i class="fas fa-users text-success me-2"></i>Red de distribuidores</li>
+                            <li class="mb-2"><i class="fas fa-percentage text-success me-2"></i>{% trans "Comisiones competitivas" %}</li>
+                            <li class="mb-2"><i class="fas fa-headset text-success me-2"></i>{% trans "Soporte técnico dedicado" %}</li>
+                            <li class="mb-2"><i class="fas fa-chart-line text-success me-2"></i>{% trans "Panel de control avanzado" %}</li>
+                            <li><i class="fas fa-users text-success me-2"></i>{% trans "Red de distribuidores" %}</li>
                         </ul>
                     </div>
                 </div>

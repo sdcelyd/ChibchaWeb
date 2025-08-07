@@ -1,14 +1,14 @@
 {% extends "base.html" %}
-
-{% block title %}Activación Fallida{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Activación Fallida" %}{% endblock %}
 
 {% block content %}
 <div class="container mt-5 mb-5 text-center">
     <div class="card shadow p-5">
-        <h2 class="text-danger mb-3">Enlace inválido o expirado</h2>
-        <p>El enlace de activación no es válido o ya fue usado.</p>
-        <p>Si el problema persiste, por favor vuelve a registrarte.</p>
-        <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-secondary mt-3">Volver al registro</a>
+        <h2 class="text-danger mb-3">{% trans "Enlace inválido o expirado" %}</h2>
+        <p>{% trans "El enlace de activación no es válido o ya fue usado" %}.</p>
+        <p>{% trans "Si el problema persiste, por favor vuelve a registrarte" %}.</p>
+        <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-secondary mt-3">{% trans "Volver al registro" %}</a>
     </div>
 </div>
 {% endblock %}

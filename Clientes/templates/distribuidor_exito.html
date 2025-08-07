@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 <div class="container py-5 text-center">
-    <h2>¡Felicidades!</h2>
-    <p>Ahora eres un distribuidor oficial. Ya puedes acceder a tus paquetes y empezar a gestionar tus dominios.</p>
-    <a href="{% url 'distribuidores:mis_paquetes' %}" class="btn btn-success mt-3">Ver mis paquetes</a>
+    <h2>¡{% trans "Felicidades" %}!</h2>
+    <p>{% trans "Ahora eres un distribuidor oficial. Ya puedes acceder a tus paquetes y empezar a gestionar tus dominios" %}.</p>
+    <a href="{% url 'distribuidores:mis_paquetes' %}" class="btn btn-success mt-3">{% trans "Ver mis paquetes" %}</a>
 </div>
 {% endblock %}

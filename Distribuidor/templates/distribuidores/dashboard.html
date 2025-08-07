@@ -1,6 +1,7 @@
 {% extends "base_clientes.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load i18n %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'styles/distributor-styles.css' %}">
@@ -17,21 +18,21 @@
                 <div class="distributor-info">
                     <div class="distributor-badge mb-3">
                         <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
-                            <i class="fas fa-handshake me-2"></i>Panel Distribuidor
+                            <i class="fas fa-handshake me-2"></i>{% trans "Panel Distribuidor" %}
                         </span>
                     </div>
                     <h1 class="display-6 fw-bold mb-3">
                         {{ cliente.user.get_full_name|default:cliente.user.username }}
                     </h1>
                     <p class="lead mb-4">
-                        Administra tu negocio de reventa y gestiona tus paquetes de dominios
+                        {% trans "Administra tu negocio de reventa y gestiona tus paquetes de dominios" %}
                     </p>
                     
                     <!-- Status del Distribuidor -->
                     <div class="distributor-status-card">
                         <div class="status-info">
                             <i class="fas fa-award me-2"></i>
-                            <span>Distribuidor <strong>{{ distribuidor.get_tipo_display }}</strong></span>
+                            <span>{% trans "Distribuidor" %} <strong>{{ distribuidor.get_tipo_display }}</strong></span>
                         </div>
                     </div>
                 </div>
@@ -55,15 +56,15 @@
             <div class="col-lg-6">
                 <div class="profile-card">
                     <div class="card-header-custom">
-                        <h4><i class="fas fa-user me-2"></i>Información Personal</h4>
+                        <h4><i class="fas fa-user me-2"></i>{% trans "Información Personal" %}</h4>
                     </div>
                     <div class="card-body">
                         <div class="info-item mb-3">
-                            <label class="info-label">Email:</label>
+                            <label class="info-label">{% trans "Email:" %}</label>
                             <span class="info-value">{{ cliente.user.email }}</span>
                         </div>
                         <div class="info-item mb-3">
-                            <label class="info-label">Teléfono:</label>
+                            <label class="info-label">{% trans "Teléfono:" %}</label>
                             <span class="info-value">{{ cliente.telefono|default:"No especificado" }}</span>
                         </div>
                     </div>
@@ -74,18 +75,18 @@
             <div class="col-lg-6">
                 <div class="distributor-packages-card">
                     <div class="card-header-custom bg-chibcha-accent">
-                        <h4><i class="fas fa-box-open me-2"></i>Mis Paquetes</h4>
+                        <h4><i class="fas fa-box-open me-2"></i>{% trans "Mis Paquetes" %}</h4>
                     </div>
                     <div class="card-body">
                         <div class="package-stats">
                             <div class="row text-center">
                                 <div class="col-6">
                                     <div class="stat-number">{{ distribuidor.paginas_disponibles }}</div>
-                                    <div class="stat-label">Páginas Disponibles</div>
+                                    <div class="stat-label">{% trans "Páginas Disponibles" %}</div>
                                 </div>
                                 <div class="col-6">
                                     <div class="stat-number">{{ distribuidor.paginas_vendidas }}</div>
-                                    <div class="stat-label">Páginas Vendidas</div>
+                                    <div class="stat-label">{% trans "Páginas Vendidas" %}</div>
                                 </div>
                             </div>
                         </div>
@@ -93,21 +94,21 @@
                         {% if distribuidor.paginas_disponibles == 0 and distribuidor.paginas_vendidas == 0 %}
                             <div class="empty-state text-center py-4">
                                 <i class="fas fa-inbox text-muted mb-3" style="font-size: 3rem;"></i>
-                                <p class="text-muted mb-4">Aún no tienes paquetes para revender</p>
+                                <p class="text-muted mb-4">{% trans "Aún no tienes paquetes para revender" %}</p>
                                 <a href="{% url 'pagos:seleccionar_paquete' %}" class="btn btn-chibcha-primary">
-                                    <i class="fas fa-shopping-cart me-2"></i>Comprar Paquetes
+                                    <i class="fas fa-shopping-cart me-2"></i>{% trans "Comprar Paquetes" %}
                                 </a>
                             </div>
                         {% else %}
                             <div class="package-actions text-center mt-4">
                                 <a href="{% url 'distribuidores:mis_paquetes' %}" class="btn btn-outline-chibcha me-2">
-                                    <i class="fas fa-eye me-2"></i>Ver Detalles
+                                    <i class="fas fa-eye me-2"></i>{% trans "Ver Detalles" %}
                                 </a>
                                 <a href="{% url 'dominios:agregar_dominio' %}?from=distribuidor" class="btn btn-success me-2">
-                                    <i class="fas fa-globe me-2"></i>Usar espacios
+                                    <i class="fas fa-globe me-2"></i>{% trans "Usar espacios" %}
                                 </a>
                                 <a href="{% url 'pagos:seleccionar_paquete' %}" class="btn btn-chibcha-primary">
-                                    <i class="fas fa-plus me-2"></i>Comprar Más
+                                    <i class="fas fa-plus me-2"></i>{% trans "Comprar Más" %}   
                                 </a>
                             </div>
                         {% endif %}
@@ -121,7 +122,7 @@
             <div class="col-12">
                 <div class="quick-actions-card">
                     <div class="card-header-custom">
-                        <h4><i class="fas fa-tachometer-alt me-2"></i>Acciones Rápidas</h4>
+                        <h4><i class="fas fa-tachometer-alt me-2"></i>{% trans "Acciones Rápidas" %}</h4>
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -131,8 +132,8 @@
                                         <i class="fas fa-chart-line"></i>
                                     </div>
                                     <div class="action-content">
-                                        <h6>Gestionar Paquetes</h6>
-                                        <p>Administra tus paquetes de dominios</p>
+                                        <h6>{% trans "Gestionar Paquetes" %}</h6>
+                                        <p>{% trans "Administra tus paquetes de dominios" %}</p>
                                     </div>
                                 </a>
                             </div>
@@ -142,8 +143,8 @@
                                         <i class="fas fa-headset"></i>
                                     </div>
                                     <div class="action-content">
-                                        <h6>Soporte Técnico</h6>
-                                        <p>Contacta con nuestro equipo</p>
+                                        <h6>{% trans "Soporte Técnico" %}</h6>
+                                        <p>{% trans "Contacta con nuestro equipo" %}</p>
                                     </div>
                                 </a>
                             </div>
@@ -153,8 +154,8 @@
                                         <i class="fas fa-shopping-bag"></i>
                                     </div>
                                     <div class="action-content">
-                                        <h6>Comprar Paquetes</h6>
-                                        <p>Aumenta tu inventario</p>
+                                        <h6>{% trans "Comprar Paquetes" %}</h6>
+                                        <p>{% trans "Aumenta tu inventario" %}</p>
                                     </div>
                                 </a>
                             </div>

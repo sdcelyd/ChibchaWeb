@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
 
-{% block title %}Registrar Tarjeta de Crédito - ChibchaWeb{% endblock %}
+{% block title %}{% trans "Registrar Tarjeta de Crédito - ChibchaWeb" %}{% endblock %}
 
 {% block content %}
 <div class="container mt-5 mb-5">
@@ -9,7 +11,7 @@
             <div class="card shadow">
                 <div class="card-header bg-success text-white">
                     <h4 class="mb-0">
-                        <i class="fas fa-credit-card me-2"></i>Registrar Nueva Tarjeta de Crédito
+                        <i class="fas fa-credit-card me-2"></i>{% trans "Registrar Nueva Tarjeta de Crédito" %}
                     </h4>
                 </div>
                 <div class="card-body">
@@ -18,9 +20,8 @@
                         <div class="d-flex align-items-center">
                             <i class="fas fa-exclamation-triangle text-warning me-2"></i>
                             <div>
-                                <strong>Plan pendiente:</strong> Tienes el plan <strong>{{ request.session.plan_pendiente }}</strong> 
-                                en modalidad <strong>{{ request.session.modalidad_pendiente }}</strong> esperando. 
-                                Completa el registro de tu tarjeta para continuar.
+                                <strong>{% trans "Plan pendiente:" %}</strong> {% trans "Tienes el plan" %} <strong>{{ request.session.plan_pendiente }}</strong> 
+                                {% trans "en modalidad" %} <strong>{{ request.session.modalidad_pendiente }}</strong> {% trans "esperando. Completa el registro de tu tarjeta para continuar." %}
                             </div>
                         </div>
                     </div>
@@ -28,67 +29,67 @@
                     
                     <div class="alert alert-info" role="alert">
                         <i class="fas fa-shield-alt me-2"></i>
-                        <strong>Seguridad:</strong> Tus datos están protegidos con encriptación de nivel bancario.
+                        <strong>{% trans "Seguridad:" %}</strong> {% trans "Tus datos están protegidos con encriptación de nivel bancario." %}
                     </div>
 
                     <form method="post">
                         {% csrf_token %}
                         
                         <div class="col-md-12 mb-3 position-relative">
-                    <label for="id_numero" class="form-label">
-                        <i class="fas fa-credit-card me-1"></i>Número de Tarjeta
-                    </label>
-                    <input type="text" 
-                        class="form-control pe-5" 
-                        id="id_numero" 
-                        name="numero" 
-                        placeholder="1234 5678 9012 3456"
-                        maxlength="19"
-                        required
-                        oninput="formatCardNumber(this); actualizarLogo();">
-                    <img id="logoTarjeta" 
-                        src="" 
-                        alt="Logo Tarjeta" 
-                        style="height: 30px; position: absolute; right: 12px; top: 55%; transform: translateY(-50%); display: none;">
-                    <div class="form-text">Ingresa los 14 a 16 dígitos de tu tarjeta</div>
-</div>
+                            <label for="id_numero" class="form-label">
+                                <i class="fas fa-credit-card me-1"></i>{% trans "Número de Tarjeta" %}
+                            </label>
+                            <input type="text" 
+                                class="form-control pe-5" 
+                                id="id_numero" 
+                                name="numero" 
+                                placeholder="{% trans '1234 5678 9012 3456' %}"
+                                maxlength="19"
+                                required
+                                oninput="formatCardNumber(this); actualizarLogo();">
+                            <img id="logoTarjeta" 
+                                src="" 
+                                alt="{% trans 'Logo Tarjeta' %}" 
+                                style="height: 30px; position: absolute; right: 12px; top: 55%; transform: translateY(-50%); display: none;">
+                            <div class="form-text">{% trans "Ingresa los 14 a 16 dígitos de tu tarjeta" %}</div>
+                        </div>
 
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label for="id_nombre_titular" class="form-label">
-                                    <i class="fas fa-user me-1"></i>Nombre del Titular
+                                    <i class="fas fa-user me-1"></i>{% trans "Nombre del Titular" %}
                                 </label>
                                 <input type="text" 
                                        class="form-control text-uppercase" 
                                        id="id_nombre_titular" 
                                        name="nombre_titular" 
-                                       placeholder="NOMBRE COMPLETO COMO APARECE EN LA TARJETA"
+                                       placeholder="{% trans 'NOMBRE COMPLETO COMO APARECE EN LA TARJETA' %}"
                                        maxlength="50"
                                        required
                                        style="text-transform: uppercase;">
-                                <div class="form-text">Nombre exacto como aparece en tu tarjeta</div>
+                                <div class="form-text">{% trans "Nombre exacto como aparece en tu tarjeta" %}</div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="id_fecha_expiracion" class="form-label">
-                                    <i class="fas fa-calendar-alt me-1"></i>Fecha de Expiración
+                                    <i class="fas fa-calendar-alt me-1"></i>{% trans "Fecha de Expiración" %}
                                 </label>
                                 <input type="text" 
                                        class="form-control" 
                                        id="id_fecha_expiracion" 
                                        name="fecha_expiracion" 
-                                       placeholder="MM/AA"
+                                       placeholder="{% trans 'MM/AA' %}"
                                        maxlength="5"
                                        required
                                        oninput="formatExpiryDate(this)">
-                                <div class="form-text">Formato: MM/AA</div>
+                                <div class="form-text">{% trans "Formato: MM/AA" %}</div>
                             </div>
                             
                             <div class="col-md-6 mb-3">
                                 <label for="id_cvv" class="form-label">
-                                    <i class="fas fa-lock me-1"></i>CVV
+                                    <i class="fas fa-lock me-1"></i>{% trans "CVV" %}
                                 </label>
                                 <input type="password" 
                                        class="form-control" 
@@ -97,16 +98,16 @@
                                        placeholder="123"
                                        maxlength="4"
                                        required>
-                                <div class="form-text">Código de 3 o 4 dígitos en el reverso</div>
+                                <div class="form-text">{% trans "Código de 3 o 4 dígitos en el reverso" %}</div>
                             </div>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="{% url 'clientes:detalle_cliente' %}" class="btn btn-secondary me-md-2">
-                                <i class="fas fa-arrow-left me-1"></i>Cancelar
+                                <i class="fas fa-arrow-left me-1"></i>{% trans "Cancelar" %}
                             </a>
                             <button type="submit" class="btn btn-success">
-                                <i class="fas fa-save me-1"></i>Guardar Tarjeta
+                                <i class="fas fa-save me-1"></i>{% trans "Guardar Tarjeta" %}
                             </button>
                         </div>
                     </form>
@@ -117,6 +118,7 @@
 </div>
 
 <script>
+// Aquí no es necesario traducir JS
 function formatCardNumber(input) {
     let value = input.value.replace(/\D/g, '');
     value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
@@ -158,8 +160,6 @@ function actualizarLogo() {
         img.style.display = "none";
     }
 }
-
-
 </script>
 
 <!-- Font Awesome for icons -->

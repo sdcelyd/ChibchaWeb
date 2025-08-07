@@ -1,6 +1,6 @@
 {% extends "base_clientes.html" %}
 {% load static %}
-
+{% load i18n %}
 {% block title %}Agregar Dominio - ChibchaWeb{% endblock %}
 
 {% block content %}
@@ -12,21 +12,21 @@
                 <div class="domain-info">
                     <div class="domain-badge mb-3">
                         <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
-                            <i class="fas fa-plus me-2"></i>Nuevo Dominio
+                            <i class="fas fa-plus me-2"></i>{% trans "Nuevo Dominio" %}
                         </span>
                     </div>
                     <h1 class="display-6 fw-bold mb-3">
                         {% if from_distribuidor %}
-                            Usar Espacio del Distribuidor
+                            {% trans "Usar Espacio del Distribuidor" %}
                         {% else %}
-                            Agregar Nuevo Dominio
+                            {% trans "Agregar Nuevo Dominio" %}
                         {% endif %}
                     </h1>
                     <p class="lead mb-4">
                         {% if from_distribuidor %}
-                            Utiliza uno de tus espacios disponibles para crear un nuevo dominio
+                            {% trans "Utiliza uno de tus espacios disponibles para crear un nuevo dominio" %}
                         {% else %}
-                            Agrega un nuevo dominio a tu plan de hosting
+                            {% trans "Agrega un nuevo dominio a tu plan de hosting" %}
                         {% endif %}
                     </p>
                 </div>
@@ -49,11 +49,11 @@
                 <div class="alert alert-info mb-4">
                     <div class="row align-items-center">
                         <div class="col-md-6">
-                            <strong><i class="fas fa-user me-2"></i>Cliente:</strong> 
+                            <strong><i class="fas fa-user me-2"></i>{% trans "Cliente" %}:</strong> 
                             {{ cliente.user.get_full_name|default:cliente.user.username }}
                         </div>
                         <div class="col-md-6">
-                            <strong><i class="fas fa-star me-2"></i>Plan Activo:</strong> 
+                            <strong><i class="fas fa-star me-2"></i>{% trans "Plan Activo" %}:</strong> 
                             {{ cliente.plan|capfirst }}
                         </div>
                     </div>
@@ -64,10 +64,10 @@
                         <div class="text-center mb-4">
                             <h3 class="text-chibcha-dark">
                                 <i class="fas fa-link me-2"></i>
-                                Configurar Nuevo Dominio
+                                {% trans "Configurar Nuevo Dominio" %}
                             </h3>
                             <p class="text-muted">
-                                Ingresa el dominio que deseas agregar
+                                {% trans "Ingresa el dominio que deseas agregar a tu plan de hosting" %}
                             </p>
                         </div>
 
@@ -75,15 +75,15 @@
                         <div class="validation-steps mb-4">
                             <div class="step {% if not dominio_validado %}active{% else %}completed{% endif %}">
                                 <div class="step-number">1</div>
-                                <span>Ingresa tu dominio</span>
+                                <span>{% trans "Ingresa tu dominio" %}</span>
                             </div>
                             <div class="step {% if dominio_validado and not dominio_disponible %}active{% elif dominio_validado and dominio_disponible %}completed{% endif %}">
                                 <div class="step-number">2</div>
-                                <span>Validar disponibilidad</span>
+                                <span>{% trans "Validar disponibilidad" %}</span>
                             </div>
                             <div class="step {% if dominio_validado and dominio_disponible %}active{% endif %}">
                                 <div class="step-number">3</div>
-                                <span>Agregar a tu cuenta</span>
+                                <span>{% trans "Agregar a tu cuenta" %}</span>
                             </div>
                         </div>
 
@@ -124,22 +124,22 @@
                                     {% if dominio_disponible %}
                                         <div class="alert alert-success">
                                             <i class="fas fa-check-circle me-2"></i>
-                                            <strong>¡Excelente!</strong> El dominio "{{ dominio_valor }}" está disponible y listo para usar.
+                                            <strong>¡{% trans "Excelente" %}!</strong> {% trans "El dominio" %} "{{ dominio_valor }}" {% trans "está disponible y listo para usar." %}
                                             <div class="mt-2">
-                                                <small>✓ Dominio disponible para registro</small><br>
-                                                <small>✓ Listo para configurar hosting</small><br>
-                                                <small>✓ SSL gratuito incluido</small>
+                                                <small>✓ {% trans "Dominio disponible para registro" %}</small><br>
+                                                <small>✓ {% trans "Listo para configurar hosting" %}</small><br>
+                                                <small>✓ {% trans "SSL gratuito incluido" %}</small>
                                             </div>
                                         </div>
                                     {% else %}
                                         <div class="alert alert-warning">
                                             <i class="fas fa-exclamation-triangle me-2"></i>
-                                            <strong>Dominio en uso:</strong> "{{ dominio_valor }}" ya está siendo utilizado.
+                                            <strong>{% trans "Dominio en uso" %}:</strong> "{{ dominio_valor }}" {% trans "ya está siendo utilizado." %}
                                             <div class="mt-2">
-                                                <small><strong>¿Qué puedes hacer?</strong></small><br>
-                                                <small>• Elige un dominio diferente que esté disponible</small><br>
-                                                <small>• Si este dominio te pertenece, <a href="{% url 'tickets:crear_ticket' %}" class="text-warning"><u>contacta a soporte</u></a> para transferirlo</small><br>
-                                                <small>• Prueba con una extensión diferente (.com, .net, .org, etc.)</small>
+                                                <small><strong>¿{% trans "Qué puedes hacer" %}?</strong></small><br>
+                                                <small>• {% trans "Elige un dominio diferente que esté disponible" %}</small><br>
+                                                <small>• {% trans "Si este dominio te pertenece" %}, <a href="{% url 'tickets:crear_ticket' %}" class="text-warning"><u>{% trans "contacta a soporte" %}</u></a>{% trans " para transferirlo" %}</small><br>
+                                                <small>• {% trans "Prueba con una extensión diferente" %} (.com, .net, .org, etc.)</small>
                                             </div>
                                         </div>
                                     {% endif %}
@@ -150,24 +150,24 @@
                                 <div class="col-md-6">
                                     <button type="submit" name="accion" value="validar" class="btn btn-outline-chibcha-primary btn-lg w-100">
                                         <i class="fas fa-search me-2"></i>
-                                        Validar Disponibilidad
+                                        {% trans "Validar Disponibilidad" %}
                                     </button>
                                 </div>
                                 <div class="col-md-6">
                                     {% if dominio_validado and dominio_disponible %}
                                         <button type="submit" name="accion" value="agregar" class="btn btn-chibcha-primary btn-lg w-100">
                                             <i class="fas fa-plus me-2"></i>
-                                            Agregar a Mi Cuenta
+                                            {% trans "Agregar a Mi Cuenta" %}
                                         </button>
                                     {% elif dominio_validado and not dominio_disponible %}
                                         <button type="button" class="btn btn-danger btn-lg w-100" disabled title="Este dominio ya está en uso">
                                             <i class="fas fa-times me-2"></i>
-                                            Dominio No Disponible
+                                            {% trans "Dominio No Disponible" %}
                                         </button>
                                     {% else %}
                                         <button type="button" class="btn btn-secondary btn-lg w-100" disabled title="Primero valida la disponibilidad del dominio">
                                             <i class="fas fa-plus me-2"></i>
-                                            Agregar Dominio
+                                            {% trans "Agregar Dominio" %}
                                         </button>
                                     {% endif %}
                                 </div>
@@ -177,12 +177,12 @@
                                 {% if from_distribuidor %}
                                     <a href="{% url 'distribuidores:mis_paquetes' %}" class="btn btn-outline-success">
                                         <i class="fas fa-arrow-left me-2"></i>
-                                        Volver a Mis Paquetes
+                                        {% trans "Volver a Mis Paquetes" %}
                                     </a>
                                 {% else %}
                                     <a href="{% url 'clientes:mis_hosts' %}" class="btn btn-outline-secondary">
                                         <i class="fas fa-arrow-left me-2"></i>
-                                        Volver a Mis Hosts
+                                        {% trans "Volver a Mis Hosts" %}
                                     </a>
                                 {% endif %}
                             </div>
@@ -199,9 +199,9 @@
                     <div class="info-icon mb-3">
                         <i class="fas fa-shield-alt fa-2x text-success"></i>
                     </div>
-                    <h5>SSL Automático</h5>
+                    <h5>{% trans "SSL Automático" %}</h5>
                     <p class="text-muted">
-                        Certificado SSL gratuito incluido con tu dominio
+                        {% trans "Certificado SSL gratuito incluido con tu dominio" %}
                     </p>
                 </div>
             </div>
@@ -210,9 +210,9 @@
                     <div class="info-icon mb-3">
                         <i class="fas fa-rocket fa-2x text-chibcha-accent"></i>
                     </div>
-                    <h5>Configuración Rápida</h5>
+                    <h5>{% trans "Configuración Rápida" %}</h5>
                     <p class="text-muted">
-                        Tu dominio se configurará automáticamente en nuestros servidores
+                        {% trans "Tu dominio se configurará automáticamente en nuestros servidores" %}
                     </p>
                 </div>
             </div>
@@ -221,9 +221,9 @@
                     <div class="info-icon mb-3">
                         <i class="fas fa-headset fa-2x text-primary"></i>
                     </div>
-                    <h5>Soporte 24/7</h5>
+                    <h5>{% trans "Soporte 24/7" %}</h5>
                     <p class="text-muted">
-                        Nuestro equipo te ayudará con cualquier configuración
+                        {% trans "Nuestro equipo te ayudará con cualquier configuración" %}
                     </p>
                 </div>
             </div>
@@ -234,7 +234,7 @@
             <div class="col-12">
                 <div class="alert alert-warning">
                     <i class="fas fa-exclamation-triangle me-2"></i>
-                    <strong>Importante:</strong> Al agregar el dominio, nuestro equipo recibirá una notificación para configurar los servicios de hosting correspondientes.
+                    <strong>{% trans "Importante" %}:</strong> {% trans "Al agregar el dominio, nuestro equipo recibirá una notificación para configurar los servicios de hosting correspondientes" %}.
                 </div>
             </div>
         </div>

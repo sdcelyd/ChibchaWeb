@@ -1,7 +1,7 @@
 {% extends "base_clientes.html" %}
 {% load static %}
-
-{% block title %}Editar Perfil - ChibchaWeb{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Editar Perfil" %} - ChibchaWeb{% endblock %}
 
 {% block content %}
 <!-- Header del Editar Perfil -->
@@ -12,14 +12,14 @@
                 <div class="edit-profile-info">
                     <div class="edit-profile-badge mb-3">
                         <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
-                            <i class="fas fa-edit me-2"></i>Editar Perfil
+                            <i class="fas fa-edit me-2"></i>{% trans "Editar Perfil" %}
                         </span>
                     </div>
                     <h1 class="display-6 fw-bold mb-3">
-                        Actualizar Mi Información
+                        {% trans "Actualizar Mi Información" %}
                     </h1>
                     <p class="lead mb-4">
-                        Mantén tu información personal actualizada y segura
+                        {% trans "Mantén tu información personal actualizada y segura" %}
                     </p>
                 </div>
             </div>
@@ -66,15 +66,15 @@
                             <div class="section-header mb-4">
                                 <h4 class="text-chibcha-dark">
                                     <i class="fas fa-user me-2"></i>
-                                    Información de Cuenta
+                                    {% trans "Información de Cuenta" %}
                                 </h4>
-                                <p class="text-muted">Actualiza tu información de acceso</p>
+                                <p class="text-muted">{% trans "Actualiza tu información de acceso" %}</p>
                             </div>
 
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <label for="id_username" class="form-label fw-bold">
-                                        <i class="fas fa-user me-2"></i>Nombre de Usuario
+                                        <i class="fas fa-user me-2"></i>{% trans "Nombre de Usuario" %}
                                     </label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-chibcha-accent text-dark">
@@ -84,12 +84,12 @@
                                                value="{{ cliente.user.username }}" required>
                                     </div>
                                     <div class="form-text">
-                                        <i class="fas fa-info-circle me-1"></i>Tu nombre de usuario único en ChibchaWeb
+                                        <i class="fas fa-info-circle me-1"></i>{% trans "Tu nombre de usuario único en ChibchaWeb" %}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="id_email" class="form-label fw-bold">
-                                        <i class="fas fa-envelope me-2"></i>Email
+                                        <i class="fas fa-envelope me-2"></i>{% trans "Email" %}
                                     </label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-chibcha-accent text-dark">
@@ -99,7 +99,7 @@
                                                value="{{ cliente.user.email }}" required>
                                     </div>
                                     <div class="form-text">
-                                        <i class="fas fa-info-circle me-1"></i>Email para notificaciones y recuperación
+                                        <i class="fas fa-info-circle me-1"></i>{% trans "Email para notificaciones y recuperación" %}
                                     </div>
                                 </div>
                             </div>
@@ -108,15 +108,15 @@
                             <div class="section-header mb-4">
                                 <h4 class="text-chibcha-dark">
                                     <i class="fas fa-id-card me-2"></i>
-                                    Información Personal
+                                    {% trans "Información Personal" %}
                                 </h4>
-                                <p class="text-muted">Completa tu perfil personal</p>
+                                <p class="text-muted">{% trans "Completa tu perfil personal" %}</p>
                             </div>
 
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <label for="id_first_name" class="form-label fw-bold">
-                                        <i class="fas fa-user-tag me-2"></i>Nombre
+                                        <i class="fas fa-user-tag me-2"></i>{% trans "Nombre" %}
                                     </label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-chibcha-accent text-dark">
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="id_last_name" class="form-label fw-bold">
-                                        <i class="fas fa-user-tag me-2"></i>Apellido
+                                        <i class="fas fa-user-tag me-2"></i>{% trans "Apellido" %}
                                     </label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-chibcha-accent text-dark">
@@ -142,7 +142,7 @@
 
                             <div class="mb-4">
                                 <label for="id_telefono" class="form-label fw-bold">
-                                    <i class="fas fa-phone me-2"></i>Teléfono
+                                    <i class="fas fa-phone me-2"></i>{% trans "Teléfono" %}
                                 </label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-chibcha-accent text-dark">
@@ -152,7 +152,7 @@
                                            value="{{ cliente.telefono|default:'' }}" placeholder="+57 000 000 0000">
                                 </div>
                                 <div class="form-text">
-                                    <i class="fas fa-info-circle me-1"></i>Número de contacto para soporte técnico
+                                    <i class="fas fa-info-circle me-1"></i>{% trans "Número de contacto para soporte técnico" %}
                                 </div>
                             </div>
 
@@ -160,14 +160,14 @@
                             <div class="section-header mb-4">
                                 <h4 class="text-chibcha-dark">
                                     <i class="fas fa-shield-alt me-2"></i>
-                                    Seguridad
+                                    {% trans "Seguridad" %}
                                 </h4>
-                                <p class="text-muted">Cambia tu contraseña (opcional)</p>
+                                <p class="text-muted">{% trans "Cambia tu contraseña (opcional)" %}</p>
                             </div>
 
                             <div class="mb-4">
                                 <label for="id_password" class="form-label fw-bold">
-                                    <i class="fas fa-lock me-2"></i>Nueva Contraseña
+                                    <i class="fas fa-lock me-2"></i>{% trans "Nueva Contraseña" %}
                                 </label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-chibcha-accent text-dark">
@@ -180,7 +180,7 @@
                                     </button>
                                 </div>
                                 <div class="form-text">
-                                    <i class="fas fa-shield-alt me-1"></i>Solo completa si deseas cambiar tu contraseña actual
+                                    <i class="fas fa-shield-alt me-1"></i>{% trans "Solo completa si deseas cambiar tu contraseña actual" %}
                                 </div>
                             </div>
 
@@ -189,13 +189,13 @@
                                 <div class="col-md-6 mb-2">
                                     <a href="{% url 'clientes:perfil' %}" class="btn btn-outline-secondary btn-lg w-100">
                                         <i class="fas fa-arrow-left me-2"></i>
-                                        Cancelar
+                                        {% trans "Cancelar" %}
                                     </a>
                                 </div>
                                 <div class="col-md-6">
                                     <button type="submit" class="btn btn-chibcha-primary btn-lg w-100">
                                         <i class="fas fa-save me-2"></i>
-                                        Guardar Cambios
+                                        {% trans "Guardar Cambios" %}
                                     </button>
                                 </div>
                             </div>
@@ -212,9 +212,9 @@
                     <div class="tip-icon mb-3">
                         <i class="fas fa-shield-alt fa-2x text-success"></i>
                     </div>
-                    <h5>Datos Seguros</h5>
+                    <h5>{% trans "Datos Seguros" %}</h5>
                     <p class="text-muted">
-                        Tu información está protegida con encriptación de nivel bancario
+                        {% trans "Tu información está protegida con encriptación de nivel bancario" %}
                     </p>
                 </div>
             </div>
@@ -223,9 +223,9 @@
                     <div class="tip-icon mb-3">
                         <i class="fas fa-user-shield fa-2x text-chibcha-accent"></i>
                     </div>
-                    <h5>Privacidad</h5>
+                    <h5>{% trans "Privacidad" %}</h5>
                     <p class="text-muted">
-                        Nunca compartimos tu información personal con terceros
+                        {% trans "Nunca compartimos tu información personal con terceros" %}
                     </p>
                 </div>
             </div>
@@ -234,9 +234,9 @@
                     <div class="tip-icon mb-3">
                         <i class="fas fa-sync fa-2x text-primary"></i>
                     </div>
-                    <h5>Actualización</h5>
+                    <h5>{% trans "Actualización" %}</h5>
                     <p class="text-muted">
-                        Mantén tu información actualizada para mejor servicio
+                        {% trans "Mantén tu información actualizada para mejor servicio" %}
                     </p>
                 </div>
             </div>
@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentValue.length > 0 && currentValue.length < 8) {
                 showFieldFeedback(this, 'La contraseña debe tener al menos 8 caracteres', 'error');
             } else if (currentValue.length >= 8) {
-                showFieldFeedback(this, 'Contraseña válida', 'success');
+                showFieldFeedback(this, '{% trans "Contraseña válida" %}', 'success');
             }
         });
     }

@@ -1,7 +1,8 @@
+{% load i18n %}
 <!-- Campo número de tarjeta con logo y validación -->
 <div class="col-md-12 mb-3 position-relative">
     <label for="id_numero" class="form-label">
-        <i class="fas fa-credit-card me-1"></i>Número de Tarjeta
+        <i class="fas fa-credit-card me-1"></i>{% trans "Número de Tarjeta" %}
     </label>
     <input type="text"
            class="form-control pe-5"
@@ -13,11 +14,11 @@
            oninput="formatCardNumber(this); actualizarLogo(); validarFranquicia();">
     <img id="logoTarjeta"
          src=""
-         alt="Logo Tarjeta"
+         alt="{% trans 'Logo Tarjeta' %}"
          style="height: 30px; position: absolute; right: 12px; top: 55%; transform: translateY(-50%); display: none;">
-    <div class="form-text">Ingresa los 14 a 16 dígitos de tu tarjeta</div>
+    <div class="form-text">{% trans "Ingresa los 14 a 16 dígitos de tu tarjeta" %}</div>
     <div id="aviso-franquicia" class="text-danger small mt-1" style="display: none;">
-        Solo se permiten tarjetas VISA, MasterCard o Diners Club.
+        {% trans "Solo se permiten tarjetas VISA, MasterCard o Diners Club." %}
     </div>
 </div>
 
@@ -25,16 +26,16 @@
 <div class="row">
     <div class="col-md-12 mb-3">
         <label for="id_nombre_titular" class="form-label">
-            <i class="fas fa-user me-1"></i>Nombre del Titular
+            <i class="fas fa-user me-1"></i>{% trans "Nombre del Titular" %}
         </label>
         <input type="text"
                class="form-control text-uppercase"
                id="id_nombre_titular"
                name="titular"
-               placeholder="NOMBRE COMPLETO COMO APARECE EN LA TARJETA"
+               placeholder="{% trans 'NOMBRE COMPLETO COMO APARECE EN LA TARJETA' %}"
                maxlength="50"
                required>
-        <div class="form-text">Nombre exacto como aparece en tu tarjeta</div>
+        <div class="form-text">{% trans "Nombre exacto como aparece en tu tarjeta" %}</div>
     </div>
 </div>
 
@@ -42,17 +43,17 @@
 <div class="row">
     <div class="col-md-6 mb-3">
         <label for="id_fecha_expiracion" class="form-label">
-            <i class="fas fa-calendar-alt me-1"></i>Fecha de Expiración
+            <i class="fas fa-calendar-alt me-1"></i>{% trans "Fecha de Expiración" %}
         </label>
         <input type="text"
                class="form-control"
                id="id_fecha_expiracion"
                name="expiracion"
-               placeholder="MM/AA"
+               placeholder="{% trans 'MM/AA' %}"
                maxlength="5"
                required
                oninput="formatExpiryDate(this)">
-        <div class="form-text">Formato: MM/AA</div>
+        <div class="form-text">{% trans "Formato: MM/AA" %}</div>
     </div>
 
     <div class="col-md-6 mb-3">
