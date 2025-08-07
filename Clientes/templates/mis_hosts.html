@@ -130,7 +130,7 @@
                         
                         <div class="action-buttons">
                             {% if cliente.puede_agregar_dominios %}
-                                <a href="{% url 'agregar_dominio' %}" class="btn btn-chibcha-primary btn-lg me-3">
+                                <a href="{% url 'dominios:agregar_dominio' %}" class="btn btn-chibcha-primary btn-lg me-3">
                                     <i class="fas fa-plus me-2"></i>{% trans "Agregar Host" %}
                                 </a>
                             {% else %}
