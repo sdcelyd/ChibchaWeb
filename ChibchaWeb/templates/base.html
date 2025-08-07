@@ -19,7 +19,7 @@
 
     <title>{% block title %}ChibchaWeb - {% trans "Hosting Profesional"%}{% endblock %}</title>
 </head>
-<body class="bg-light">
+<body class="{% if request.COOKIES.modo_oscuro == '1' %}dark-mode{% endif %}">
     {% if messages %}
     <div class="container mt-3">
         {% for message in messages %}
@@ -205,15 +205,21 @@
             
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">&copy; 2025 ChibchaWeb - {% trans "Todos los derechos reservados"%}</p>
+                    <p class="mb-0">&copy; 2025 ChibchaWeb - {% trans "Todos los derechos reservados" %}</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
-                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Términos de servicio"%}</a>
+                    <div class="d-flex justify-content-center justify-content-md-end align-items-center gap-3">
+                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Términos de servicio" %}</a>
                         <span class="text-chibcha-light">|</span>
-                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Política de privacidad"%}</a>
+                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Política de privacidad" %}</a>
                         <span class="text-chibcha-light">|</span>
-                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Cookies"%}</a>
+                        <a href="#" class="text-chibcha-light text-decoration-none small">{% trans "Cookies" %}</a>
+                        <span class="text-chibcha-light">|</span>
+
+                        <!-- Botón de modo oscuro -->
+                        <button onclick="toggleDarkMode()" id="modoOscuroBtn" class="btn btn-sm btn-outline-secondary">
+                            🌙 / ☀️
+                        </button>
                     </div>
                 </div>
             </div>
@@ -222,5 +228,13 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function toggleDarkMode() {
+        const body = document.body;
+        const dark = body.classList.toggle('dark-mode');
+        document.cookie = `modo_oscuro=${dark ? 1 : 0}; path=/; max-age=31536000`;
+    }
+</script>
 </body>
 </html>
+

@@ -22,7 +22,7 @@
     
     <title>{% block title %}ChibchaWeb - {% trans "Dashboard" %}{% endblock %}</title>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="{% if request.COOKIES.modo_oscuro == '1' %}dark-mode{% endif %} d-flex flex-column min-vh-100">
 
     {% if messages %}
     <div class="container mt-3">
@@ -116,10 +116,22 @@
         <div class="container">
             <p class="mb-0">&copy; 2025 ChibchaWeb - {% trans "Todos los derechos reservados" %}</p>
         </div>
+
+        <!-- Botón de modo oscuro -->
+                        <button onclick="toggleDarkMode()" id="modoOscuroBtn" class="btn btn-sm btn-outline-secondary">
+                            🌙 / ☀️
+                        </button>
     </footer>
 
     <!-- Script de Bootstrap al final para mejor rendimiento -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function toggleDarkMode() {
+        const body = document.body;
+        const dark = body.classList.toggle('dark-mode');
+        document.cookie = `modo_oscuro=${dark ? 1 : 0}; path=/; max-age=31536000`;
+    }
+</script>
     
     <!-- JavaScript adicional para páginas específicas -->
     {% block extra_js %}{% endblock %}
