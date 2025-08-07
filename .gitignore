@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 traducir_po.py
+traducir_po_v2.py
 # Archivos del entorno virtual (ajusta si tu venv tiene otro nombre)
 venv/
 env/

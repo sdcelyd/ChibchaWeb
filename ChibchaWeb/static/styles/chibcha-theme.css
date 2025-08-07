@@ -3588,7 +3588,7 @@ input:checked + .slider:before {
 }
 
 .dashboard-card {
-    background: white;
+    background: var(--chibcha-brown);
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -3637,12 +3637,12 @@ input:checked + .slider:before {
 .dashboard-card .card-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1b1215;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
 .dashboard-card .card-text {
-    color: #69554b;
+    color: #f9f5f3;
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -3678,7 +3678,7 @@ input:checked + .slider:before {
 
 /* Card Distribuidor Especial */
 .distribuidor-card {
-    background: linear-gradient(135deg, #fff8e1 0%, #fffaf5 100%);
+   background: linear-gradient(135deg, #e2b728 0%, #181202 100%);
     border: 2px solid #ffc107;
 }
 
@@ -4981,4 +4981,255 @@ input:checked + .slider:before {
 
 .requirements-info .alert strong {
     color: #6c371f;
+}
+
+
+body.dark-mode {
+    /* Fondo general y texto */
+    background-color: #212121 !important;
+    color: #e5d3b5 !important;
+
+    /* Bootstrap */
+    --bs-body-bg: #121212;
+    --bs-body-color: #e5d3b5;
+    --bs-light-rgb: 30, 30, 30;
+
+    /* Tus variables */
+    --chibcha-dark: #020101;
+    --chibcha-medium: #221f1e;
+    --chibcha-light: #070200;
+    --chibcha-accent: #eab21b;
+    --chibcha-brown: #3a2921;
+       /* marrón más profundo */
+
+    --dark: var(--chibcha-dark);
+    --light: var(--chibcha-light);
+
+    --gradient-service: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+}
+
+/* Clases específicas que necesitas adaptar */
+
+body.dark-mode .bg-light {
+    background-color: #0b0803bd !important;
+}
+
+body.dark-mode .plans-simple {
+    background: #100603a3 !important;
+}
+
+body.dark-mode .section-title {
+    color: #cac5c2 !important;
+}
+
+body.dark-mode .service-card-simple {
+    background: #2b2224 !important; /* versión oscura de #bf0a30 */
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .form-control {
+    background-color: #2a2a2a !important;
+    color: var(--chibcha-dark) !important;
+    border-color: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .dashboard-card .card-title {
+    color: var(--chibcha-light) !important;
+}
+
+body.dark-mode .quick-actions {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+}
+
+body.dark-mode .quick-action-btn {
+    background: #2c2c2c !important;
+    color: #e5d3b5 !important;
+    border-color: rgba(255,255,255,0.05) !important;
+}
+
+body.dark-mode .payment-plan-summary {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)) !important;
+    color: var(--chibcha-light) !important;
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .payment-container {
+    background: #1e1e1e !important;
+    color: var(--chibcha-light) !important;
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
+/* Forzar texto de títulos e íconos secundarios */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode a,
+body.dark-mode span,
+body.dark-mode strong,
+body.dark-mode label,
+body.dark-mode small {
+    color: white !important;
+}
+
+.dark-mode .cta-simple {
+    background: linear-gradient(135deg, #1b1215 0%, #030201d9 100%) !important;
+}
+
+.dark-mode .bg-dark {
+    background-color: #39200b !important;
+}
+
+.dark-mode .hero-new {
+    background: linear-gradient(135deg, #1b1215 0%, #27201d 100%) !important;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-mode .bg-white {
+    --bs-bg-opacity: 1;
+    background-color: rgb(9 7 7) !important;
+}
+
+.dark-mode .navbar-nav .nav-link {
+    color: #f1e2dc !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .plan-professional .plan-features li {
+    color: rgb(244 244 244 / 90%) !important;
+}
+
+.dark-mode .plan-professional {
+    background: linear-gradient(135deg, #0e0b01 0%, #e1a400 100%) !important;
+    color: #c1456e !important;
+    border: 2px solid #eab21b !important;
+    transform: scale(1.05);
+}
+
+.dark-mode .plan-starter {
+    background: linear-gradient(135deg, #22150e 0%, #33251f 100%) !important;
+    color: white !important;
+    border: 2px solid #69554b !important;
+}
+
+.dark-mode .profile-header {
+    background: linear-gradient(135deg, #1b1215 0%, #000000 50%, #6c371f 100%);
+    position: relative;
+    overflow: hidden;
+    color: black;
+}
+
+
+.dark-mode .profile-header {
+    background: linear-gradient(135deg, #1b1215 0%, #000000 50%, #6c371f 100%);
+    position: relative;
+    overflow: hidden;
+    color: black;
+    background-color: black;
+}
+
+.dark-mode .profile-card .card-body {
+    background-color: #181818;
+}
+
+.dark-mode .detail-item div {
+    font-weight: 600;
+    color: #f8f9fa;
+    background-color: black;
+}
+
+.dark-mode .plan-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f8f9fa;
+    margin-bottom: 1rem;
+    background-color: black;
+}
+
+.dark-mode .dropdown-menu.show {
+    display: block;
+    background-color: black;
+}
+
+.dark-mode .card-header-custom {
+    background: linear-gradient(135deg, #171818 0%, #000000 100%);
+    border-bottom: 2px solid rgb(156 143 109 / 10%);
+    padding: 1.5rem;
+}
+
+.dark-mode .info-value {
+    color: #f7f7f7;
+   
+}
+
+.dark-mode .actions-grid {
+    background-color: black;
+
+}
+
+.dark-mode  .action-item {
+    background: linear-gradient(135deg, #382805 0%, #874011 100%);
+}
+
+.dark-mode .quick-actions-profile {
+    background: #0e0b0b;
+
+}
+
+.dark-mode .dashboard-card {
+    color: black !important;
+    
+}
+
+.dark-mode .card-body {
+    background-color: black;
+}
+
+.dark-mode .text-dark {
+  
+    color: rgb(255 255 255) !important;
+}
+
+.dark-mode .alert {
+     background: #0e0b0b
+
+}
+
+.dark-mode .p-5 {
+     background: #0e0b0b
+
+}
+
+.dark-mode .empty-hosts-state {
+
+    background: #1b0e08;
+   
+}
+
+
+
+.dark-mode .steps-guide {
+
+    background: #1b0e08;
+   
+}
+
+.dark-mode  .step-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: #150404;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(234, 178, 27, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
 }

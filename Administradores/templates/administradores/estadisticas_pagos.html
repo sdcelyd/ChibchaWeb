@@ -433,26 +433,28 @@
             <div class="col-md-6">
                 <p class="mb-3">{% trans "Descarga los datos en diferentes formatos" %}:</p>
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-outline-success">
+                    <a href="{% url 'administradores:exportar_pagos_excel' %}" class="btn btn-outline-success">
                         <i class="fas fa-file-excel"></i> Excel
-                    </button>
-                    <button type="button" class="btn btn-outline-danger">
+                    </a>
+                    <a href="{% url 'administradores:exportar_pagos_pdf' %}" class="btn btn-outline-danger">
                         <i class="fas fa-file-pdf"></i> PDF
-                    </button>
-                    <button type="button" class="btn btn-outline-primary">
+                    </a>
+                    <a href="{% url 'administradores:exportar_pagos_csv' %}" class="btn btn-outline-primary">
                         <i class="fas fa-file-csv"></i> CSV
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="alert alert-info mb-0">
                     <i class="fas fa-info-circle"></i>
-                    <strong>{% trans "Nota" %}:</strong> {% trans "Los reportes incluyen todos los datos del período seleccionado." %}
+                    <strong>{% trans "Nota" %}:</strong>
+                    {% trans "Los reportes incluyen todos los datos del período seleccionado." %}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
 
 {% block extra_js %}
