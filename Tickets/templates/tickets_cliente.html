@@ -1,0 +1,358 @@
+{% extends "base_clientes.html" %}
+
+{% block content %}
+<title>Mis Tickets - ChibchaWeb</title>
+
+<!-- Header de Tickets -->
+<section class="bg-gradient-chibcha text-white py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center">
+                    <div class="bg-white bg-opacity-20 rounded-circle p-3 me-3">
+                        <i class="fas fa-ticket-alt fs-3"></i>
+                    </div>
+                    <div>
+                        <h1 class="h2 mb-1">Mis Tickets</h1>
+                        <p class="mb-0 opacity-75">Gestiona todas tus solicitudes de soporte</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-end">
+                <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-chibcha-primary btn-lg">
+                    <i class="fas fa-plus me-2"></i>Nuevo Ticket
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenido de Tickets -->
+<section class="py-5">
+    <div class="container">
+        {% if tickets %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-light">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-list me-2 text-chibcha-primary"></i>
+                                    Historial de Tickets ({{ tickets|length }})
+                                </h5>
+                                <div class="text-muted small">
+                                    <i class="fas fa-clock me-1"></i>Última actualización
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="px-4 py-3">
+                                                <i class="fas fa-hashtag me-1"></i>ID
+                                            </th>
+                                            <th class="py-3">
+                                                <i class="fas fa-tag me-1"></i>Nombre
+                                            </th>
+                                            <th class="py-3">
+                                                <i class="fas fa-file-alt me-1"></i>Descripción
+                                            </th>
+                                            <th class="py-3">
+                                                <i class="fas fa-calendar me-1"></i>Fecha
+                                            </th>
+                                            <th class="py-3">
+                                                <i class="fas fa-flag me-1"></i>Estado
+                                            </th>
+                                            <th class="py-3 text-center">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for ticket in tickets %}
+                                        <tr class="align-middle">
+                                            <td class="px-4">
+                                                <span class="badge bg-chibcha-primary fs-6">
+                                                    #{{ ticket.idTicket }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <div class="fw-semibold text-dark">
+                                                    {{ ticket.nombreTicket }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-truncate" style="max-width: 200px;" title="{{ ticket.descripcionTicket }}">
+                                                    {{ ticket.descripcionTicket }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-muted small">
+                                                    <i class="fas fa-clock me-1"></i>
+                                                    {{ ticket.fechar_creacion|date:"d M Y" }}
+                                                    <br>
+                                                    <span class="text-muted">Fecha de creación</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {% if ticket.historial.last %}
+                                                    {% with estado=ticket.historial.last.estado.nombreEstado %}
+                                                        {% if estado == "Abierto" %}
+                                                            <span class="badge bg-info">
+                                                                <i class="fas fa-circle me-1"></i>{{ estado }}
+                                                            </span>
+                                                        {% elif estado == "En Progreso" or estado == "En proceso" %}
+                                                            <span class="badge bg-warning text-dark">
+                                                                <i class="fas fa-spinner me-1"></i>{{ estado }}
+                                                            </span>
+                                                        {% elif estado == "Resuelto" or estado == "Cerrado" %}
+                                                            <span class="badge bg-success">
+                                                                <i class="fas fa-check me-1"></i>{{ estado }}
+                                                            </span>
+                                                        {% elif estado == "En espera" %}
+                                                            <span class="badge bg-secondary">
+                                                                <i class="fas fa-clock me-1"></i>{{ estado }}
+                                                            </span>
+                                                        {% else %}
+                                                            <span class="badge bg-primary">
+                                                                <i class="fas fa-info me-1"></i>{{ estado }}
+                                                            </span>
+                                                        {% endif %}
+                                                    {% endwith %}
+                                                {% else %}
+                                                    <span class="badge bg-light text-dark">
+                                                        <i class="fas fa-question me-1"></i>Sin estado
+                                                    </span>
+                                                {% endif %}
+                                            </td>
+                                            <td class="text-center">
+                                                {% if ticket.historial.last %}
+                                                    {% with estado=ticket.historial.last.estado.nombreEstado %}
+                                                        {% if estado == "Resuelto" or estado == "Cerrado" %}
+                                                            <!-- Ticket resuelto: solo mostrar descripción de la solución -->
+                                                            <button type="button" class="btn btn-sm btn-success" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#solucionModal{{ ticket.idTicket }}"
+                                                                    title="Ver solución">
+                                                                <i class="fas fa-check-circle me-1"></i>Ver Solución
+                                                            </button>
+                                                        {% else %}
+                                                            <!-- Ticket en proceso: mostrar estado -->
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-sm btn-outline-primary" 
+                                                                        data-bs-toggle="modal" 
+                                                                        data-bs-target="#detalleModal{{ ticket.idTicket }}"
+                                                                        title="Ver detalles">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </button>
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endwith %}
+                                                {% else %}
+                                                    <!-- Sin estado: mostrar detalles básicos -->
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary" 
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#detalleModal{{ ticket.idTicket }}"
+                                                            title="Ver detalles">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- Modal para Ver Detalles -->
+                                        <div class="modal fade" id="detalleModal{{ ticket.idTicket }}" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">
+                                                            <i class="fas fa-ticket-alt me-2"></i>
+                                                            Ticket #{{ ticket.idTicket }}
+                                                        </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <strong>Título:</strong><br>
+                                                                <span class="text-muted">{{ ticket.nombreTicket }}</span>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <strong>Estado Actual:</strong><br>
+                                                                {% if ticket.historial.last %}
+                                                                    {% with estado=ticket.historial.last.estado.nombreEstado %}
+                                                                        {% if estado == "Resuelto" or estado == "Cerrado" %}
+                                                                            <span class="badge bg-success">{{ estado }}</span>
+                                                                        {% elif estado == "En Progreso" or estado == "En proceso" %}
+                                                                            <span class="badge bg-warning text-dark">{{ estado }}</span>
+                                                                        {% else %}
+                                                                            <span class="badge bg-info">{{ estado }}</span>
+                                                                        {% endif %}
+                                                                    {% endwith %}
+                                                                {% else %}
+                                                                    <span class="badge bg-light text-dark">Sin estado</span>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <strong>Descripción del Problema:</strong><br>
+                                                            <p class="text-muted">{{ ticket.descripcionTicket }}</p>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <strong>Fecha de Creación:</strong><br>
+                                                            <span class="text-muted">{{ ticket.fechar_creacion|date:"d M Y" }}</span>
+                                                        </div>
+                                                        {% if ticket.historial.all %}
+                                                        <div class="mb-3">
+                                                            <strong>Historial de Estados:</strong>
+                                                            <div class="timeline mt-2">
+                                                                {% for historia in ticket.historial.all %}
+                                                                <div class="timeline-item border-start border-2 ps-3 pb-3">
+                                                                    <small class="text-muted">{{ historia.fecha_modificacion|date:"d M Y" }}</small><br>
+                                                                    <span class="badge bg-secondary">{{ historia.estado.nombreEstado }}</span><br>
+                                                                    <small>{{ historia.modDescripcion }}</small>
+                                                                </div>
+                                                                {% endfor %}
+                                                            </div>
+                                                        </div>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal para Ver Solución (solo si está resuelto) -->
+                                        {% if ticket.historial.last %}
+                                            {% with estado=ticket.historial.last.estado.nombreEstado %}
+                                                {% if estado == "Resuelto" or estado == "Cerrado" %}
+                                                <div class="modal fade" id="solucionModal{{ ticket.idTicket }}" tabindex="-1" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header bg-success text-white">
+                                                                <h5 class="modal-title">
+                                                                    <i class="fas fa-check-circle me-2"></i>
+                                                                    Ticket Resuelto #{{ ticket.idTicket }}
+                                                                </h5>
+                                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="alert alert-success border-0">
+                                                                    <h6 class="alert-heading">
+                                                                        <i class="fas fa-thumbs-up me-2"></i>
+                                                                        ¡Tu problema ha sido resuelto!
+                                                                    </h6>
+                                                                    <p class="mb-0">Nuestro equipo de soporte ha trabajado en tu solicitud y la ha marcado como resuelta.</p>
+                                                                </div>
+                                                                
+                                                                <div class="row mb-3">
+                                                                    <div class="col-md-6">
+                                                                        <strong>Problema Original:</strong><br>
+                                                                        <span class="text-muted">{{ ticket.nombreTicket }}</span>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <strong>Fecha de Resolución:</strong><br>
+                                                                        <span class="text-muted">{{ ticket.historial.last.fecha_modificacion|date:"d M Y" }}</span>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="mb-3">
+                                                                    <strong>Descripción del Problema:</strong><br>
+                                                                    <p class="text-muted bg-light p-3 rounded">{{ ticket.descripcionTicket }}</p>
+                                                                </div>
+                                                                
+                                                                <div class="mb-3">
+                                                                    <strong>Resolución:</strong><br>
+                                                                    <div class="bg-success bg-opacity-10 p-3 rounded border border-success">
+                                                                        <p class="mb-0">{{ ticket.historial.last.modDescripcion }}</p>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                {% if ticket.historial.last.empleado %}
+                                                                <div class="text-muted small">
+                                                                    <i class="fas fa-user me-1"></i>
+                                                                    Resuelto por: {{ ticket.historial.last.empleado.user.first_name }} {{ ticket.historial.last.empleado.user.last_name }}
+                                                                </div>
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                                                                    <i class="fas fa-check me-1"></i>Entendido
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                            {% endwith %}
+                                        {% endif %}
+
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <!-- Estado vacío -->
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <div class="empty-state py-5">
+                        <div class="empty-icon mb-4">
+                            <i class="fas fa-ticket-alt text-muted" style="font-size: 4rem;"></i>
+                        </div>
+                        <h3 class="h4 text-muted mb-3">No tienes tickets aún</h3>
+                        <p class="text-muted mb-4">
+                            ¿Necesitas ayuda? Crea tu primer ticket de soporte y nuestro equipo te ayudará a resolver cualquier problema.
+                        </p>
+                        <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-chibcha-primary btn-lg">
+                            <i class="fas fa-plus me-2"></i>Crear Mi Primer Ticket
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Información adicional -->
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card border-0 bg-light h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-clock text-chibcha-primary fs-1 mb-3"></i>
+                        <h5>Respuesta Rápida</h5>
+                        <p class="text-muted small">
+                            Nuestro equipo responde en menos de 24 horas
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 bg-light h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-users text-chibcha-primary fs-1 mb-3"></i>
+                        <h5>Soporte Experto</h5>
+                        <p class="text-muted small">
+                            Técnicos especializados en hosting y dominios
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 bg-light h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt text-chibcha-primary fs-1 mb-3"></i>
+                        <h5>Seguimiento Total</h5>
+                        <p class="text-muted small">
+                            Mantente informado del progreso de tu solicitud
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

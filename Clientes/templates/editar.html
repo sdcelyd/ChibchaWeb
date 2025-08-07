@@ -1,0 +1,471 @@
+{% extends "base_clientes.html" %}
+{% load static %}
+
+{% block title %}Editar Perfil - ChibchaWeb{% endblock %}
+
+{% block content %}
+<!-- Header del Editar Perfil -->
+<section class="edit-profile-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="edit-profile-info">
+                    <div class="edit-profile-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-edit me-2"></i>Editar Perfil
+                        </span>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-3">
+                        Actualizar Mi Información
+                    </h1>
+                    <p class="lead mb-4">
+                        Mantén tu información personal actualizada y segura
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="edit-profile-icon">
+                    <i class="fas fa-user-edit fa-5x text-chibcha-accent"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenido del Formulario -->
+<section class="edit-profile-content py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Mostrar mensajes de error/éxito -->
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show mb-4" role="alert">
+                            {% if message.tags == 'error' %}
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                            {% elif message.tags == 'success' %}
+                                <i class="fas fa-check-circle me-2"></i>
+                            {% elif message.tags == 'info' %}
+                                <i class="fas fa-info-circle me-2"></i>
+                            {% elif message.tags == 'warning' %}
+                                <i class="fas fa-exclamation-circle me-2"></i>
+                            {% endif %}
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <form method="post" novalidate id="editProfileForm">
+                            {% csrf_token %}
+                            
+                            <!-- Información de cuenta -->
+                            <div class="section-header mb-4">
+                                <h4 class="text-chibcha-dark">
+                                    <i class="fas fa-user me-2"></i>
+                                    Información de Cuenta
+                                </h4>
+                                <p class="text-muted">Actualiza tu información de acceso</p>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label for="id_username" class="form-label fw-bold">
+                                        <i class="fas fa-user me-2"></i>Nombre de Usuario
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-chibcha-accent text-dark">
+                                            <i class="fas fa-at"></i>
+                                        </span>
+                                        <input type="text" name="username" class="form-control" id="id_username" 
+                                               value="{{ cliente.user.username }}" required>
+                                    </div>
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i>Tu nombre de usuario único en ChibchaWeb
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_email" class="form-label fw-bold">
+                                        <i class="fas fa-envelope me-2"></i>Email
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-chibcha-accent text-dark">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <input type="email" name="email" class="form-control" id="id_email" 
+                                               value="{{ cliente.user.email }}" required>
+                                    </div>
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i>Email para notificaciones y recuperación
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Información personal -->
+                            <div class="section-header mb-4">
+                                <h4 class="text-chibcha-dark">
+                                    <i class="fas fa-id-card me-2"></i>
+                                    Información Personal
+                                </h4>
+                                <p class="text-muted">Completa tu perfil personal</p>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label for="id_first_name" class="form-label fw-bold">
+                                        <i class="fas fa-user-tag me-2"></i>Nombre
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-chibcha-accent text-dark">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                        <input type="text" name="first_name" class="form-control" id="id_first_name" 
+                                               value="{{ cliente.user.first_name|default:'' }}" placeholder="Tu nombre">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_last_name" class="form-label fw-bold">
+                                        <i class="fas fa-user-tag me-2"></i>Apellido
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-chibcha-accent text-dark">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                        <input type="text" name="last_name" class="form-control" id="id_last_name" 
+                                               value="{{ cliente.user.last_name|default:'' }}" placeholder="Tu apellido">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="id_telefono" class="form-label fw-bold">
+                                    <i class="fas fa-phone me-2"></i>Teléfono
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-chibcha-accent text-dark">
+                                        <i class="fas fa-phone"></i>
+                                    </span>
+                                    <input type="tel" name="telefono" class="form-control" id="id_telefono" 
+                                           value="{{ cliente.telefono|default:'' }}" placeholder="+57 000 000 0000">
+                                </div>
+                                <div class="form-text">
+                                    <i class="fas fa-info-circle me-1"></i>Número de contacto para soporte técnico
+                                </div>
+                            </div>
+
+                            <!-- Seguridad -->
+                            <div class="section-header mb-4">
+                                <h4 class="text-chibcha-dark">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Seguridad
+                                </h4>
+                                <p class="text-muted">Cambia tu contraseña (opcional)</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="id_password" class="form-label fw-bold">
+                                    <i class="fas fa-lock me-2"></i>Nueva Contraseña
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-chibcha-accent text-dark">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <input type="password" name="password" class="form-control" id="id_password" 
+                                           placeholder="Deja en blanco para mantener la actual">
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">
+                                    <i class="fas fa-shield-alt me-1"></i>Solo completa si deseas cambiar tu contraseña actual
+                                </div>
+                            </div>
+
+                            <!-- Botones de acción -->
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <a href="{% url 'clientes:perfil' %}" class="btn btn-outline-secondary btn-lg w-100">
+                                        <i class="fas fa-arrow-left me-2"></i>
+                                        Cancelar
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-chibcha-primary btn-lg w-100">
+                                        <i class="fas fa-save me-2"></i>
+                                        Guardar Cambios
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información de Seguridad -->
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <div class="security-tip">
+                    <div class="tip-icon mb-3">
+                        <i class="fas fa-shield-alt fa-2x text-success"></i>
+                    </div>
+                    <h5>Datos Seguros</h5>
+                    <p class="text-muted">
+                        Tu información está protegida con encriptación de nivel bancario
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="security-tip">
+                    <div class="tip-icon mb-3">
+                        <i class="fas fa-user-shield fa-2x text-chibcha-accent"></i>
+                    </div>
+                    <h5>Privacidad</h5>
+                    <p class="text-muted">
+                        Nunca compartimos tu información personal con terceros
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="security-tip">
+                    <div class="tip-icon mb-3">
+                        <i class="fas fa-sync fa-2x text-primary"></i>
+                    </div>
+                    <h5>Actualización</h5>
+                    <p class="text-muted">
+                        Mantén tu información actualizada para mejor servicio
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.edit-profile-icon {
+    opacity: 0.8;
+}
+
+.section-header {
+    border-bottom: 2px solid #F4C542;
+    padding-bottom: 0.5rem;
+}
+
+.security-tip {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    transition: transform 0.2s ease;
+    height: 100%;
+}
+
+.security-tip:hover {
+    transform: translateY(-5px);
+}
+
+.input-group-text {
+    border-color: #F4C542;
+}
+
+.form-control:focus {
+    border-color: #F4C542;
+    box-shadow: 0 0 0 0.2rem rgba(244, 197, 66, 0.25);
+}
+
+#togglePassword {
+    border-color: #F4C542;
+}
+
+.form-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Estilos para alertas */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+    border-left: 4px solid #198754;
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-left: 4px solid #dc3545;
+}
+
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border-left: 4px solid #ffc107;
+}
+
+.alert-info {
+    background-color: rgba(13, 202, 240, 0.1);
+    color: #0dcaf0;
+    border-left: 4px solid #0dcaf0;
+}
+
+/* Animación para alertas */
+.alert {
+    animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Validación de campos */
+.is-invalid {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.is-valid {
+    border-color: #198754 !important;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25) !important;
+}
+
+/* Feedback de campos */
+.form-text.text-danger {
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.form-text.text-success {
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle password visibility
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('id_password');
+    
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            const icon = togglePassword.querySelector('i');
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        });
+    }
+    
+    // Validación de contraseña solamente
+    const passwordField = document.getElementById('id_password');
+    if (passwordField) {
+        passwordField.addEventListener('input', function() {
+            const currentValue = this.value;
+            const feedback = document.getElementById('password-feedback');
+            
+            // Limpiar feedback anterior
+            if (feedback) {
+                feedback.remove();
+            }
+            
+            if (currentValue.length > 0 && currentValue.length < 8) {
+                showFieldFeedback(this, 'La contraseña debe tener al menos 8 caracteres', 'error');
+            } else if (currentValue.length >= 8) {
+                showFieldFeedback(this, 'Contraseña válida', 'success');
+            }
+        });
+    }
+    
+    function showFieldFeedback(field, message, type) {
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.id = field.id + '-feedback';
+        feedbackDiv.className = `form-text ${type === 'error' ? 'text-danger' : 'text-success'}`;
+        feedbackDiv.innerHTML = `<i class="fas fa-${type === 'error' ? 'exclamation-triangle' : 'check-circle'} me-1"></i>${message}`;
+        
+        field.parentNode.insertAdjacentElement('afterend', feedbackDiv);
+    }
+    
+    // Form validation on submit - solo campos requeridos básicos
+    const form = document.getElementById('editProfileForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            const requiredFields = form.querySelectorAll('input[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    field.classList.remove('is-invalid');
+                    field.classList.add('is-valid');
+                }
+            });
+            
+            // Validar contraseña si se proporciona
+            const passwordField = document.getElementById('id_password');
+            if (passwordField && passwordField.value.length > 0 && passwordField.value.length < 8) {
+                passwordField.classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                // Scroll al primer campo con error
+                const firstError = form.querySelector('.is-invalid');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+                
+                // Mostrar mensaje de error general
+                const existingAlert = document.querySelector('.alert-danger.validation-error');
+                if (!existingAlert) {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-danger validation-error mt-3';
+                    alertDiv.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Por favor corrige los errores antes de continuar.';
+                    form.appendChild(alertDiv);
+                    
+                    setTimeout(() => {
+                        alertDiv.remove();
+                    }, 5000);
+                }
+            }
+        });
+    }
+    
+    // Auto-hide success messages after 5 seconds
+    setTimeout(function() {
+        const successAlerts = document.querySelectorAll('.alert-success');
+        successAlerts.forEach(function(alert) {
+            if (alert.querySelector('.btn-close')) {
+                alert.querySelector('.btn-close').click();
+            }
+        });
+    }, 5000);
+});
+</script>
+{% endblock %}

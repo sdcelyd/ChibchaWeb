@@ -1,0 +1,330 @@
+{% extends 'administradores/base.html' %}
+
+{% block title %}Editar Usuario - Admin Panel{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><i class="fas fa-user-edit"></i> Editar Usuario: {{ user_obj.username }}</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="{% url 'administradores:gestionar_usuarios' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Volver
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-edit"></i> Información del Usuario</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <!-- Basic Information -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.username.id_for_label }}" class="form-label">
+                                    <i class="fas fa-user"></i> {{ form.username.label }}
+                                </label>
+                                {{ form.username }}
+                                {% if form.username.errors %}
+                                    <div class="text-danger small">{{ form.username.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.email.id_for_label }}" class="form-label">
+                                    <i class="fas fa-envelope"></i> {{ form.email.label }}
+                                </label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <div class="text-danger small">{{ form.email.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.first_name.id_for_label }}" class="form-label">
+                                    <i class="fas fa-id-card"></i> {{ form.first_name.label }}
+                                </label>
+                                {{ form.first_name }}
+                                {% if form.first_name.errors %}
+                                    <div class="text-danger small">{{ form.first_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.last_name.id_for_label }}" class="form-label">
+                                    <i class="fas fa-id-card"></i> {{ form.last_name.label }}
+                                </label>
+                                {{ form.last_name }}
+                                {% if form.last_name.errors %}
+                                    <div class="text-danger small">{{ form.last_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipo de Usuario -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.tipo_usuario.id_for_label }}" class="form-label">
+                                    <i class="fas fa-tag"></i> {{ form.tipo_usuario.label }}
+                                </label>
+                                {{ form.tipo_usuario }}
+                                {% if form.tipo_usuario.errors %}
+                                    <div class="text-danger small">{{ form.tipo_usuario.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.telefono.id_for_label }}" class="form-label">
+                                    <i class="fas fa-phone"></i> {{ form.telefono.label }}
+                                </label>
+                                {{ form.telefono }}
+                                {% if form.telefono.errors %}
+                                    <div class="text-danger small">{{ form.telefono.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campos específicos de Empleado -->
+                    <div id="empleado-fields" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="{{ form.rol_empleado.id_for_label }}" class="form-label">
+                                        <i class="fas fa-user-tie"></i> {{ form.rol_empleado.label }}
+                                    </label>
+                                    {{ form.rol_empleado }}
+                                    {% if form.rol_empleado.errors %}
+                                        <div class="text-danger small">{{ form.rol_empleado.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="{{ form.nivel_empleado.id_for_label }}" class="form-label">
+                                        <i class="fas fa-layer-group"></i> {{ form.nivel_empleado.label }}
+                                    </label>
+                                    {{ form.nivel_empleado }}
+                                    {% if form.nivel_empleado.errors %}
+                                        <div class="text-danger small">{{ form.nivel_empleado.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Status Fields -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    {{ form.is_active }}
+                                    <label class="form-check-label" for="{{ form.is_active.id_for_label }}">
+                                        <i class="fas fa-user-check"></i> Cuenta Django Activa
+                                    </label>
+                                </div>
+                                {% if form.is_active.errors %}
+                                    <div class="text-danger small">{{ form.is_active.errors }}</div>
+                                {% endif %}
+                                <small class="text-muted">Controla si el usuario puede iniciar sesión</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    {{ form.activo }}
+                                    <label class="form-check-label" for="{{ form.activo.id_for_label }}">
+                                        <i class="fas fa-toggle-on"></i> Perfil Activo
+                                    </label>
+                                </div>
+                                {% if form.activo.errors %}
+                                    <div class="text-danger small">{{ form.activo.errors }}</div>
+                                {% endif %}
+                                <small class="text-muted">Controla si el perfil específico está activo</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Errors -->
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    <!-- Submit Buttons -->
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="{% url 'administradores:gestionar_usuarios' %}" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- User Info Sidebar -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-info-circle"></i> Información del Usuario</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-5">Usuario:</dt>
+                    <dd class="col-sm-7">{{ user_obj.username }}</dd>
+                    
+                    <dt class="col-sm-5">Tipo:</dt>
+                    <dd class="col-sm-7">
+                        {% if user_obj.cliente %}
+                            <span class="badge bg-info">Cliente</span>
+                        {% elif user_obj.empleado %}
+                            <span class="badge bg-success">Empleado ({{ user_obj.empleado.rol|capfirst }})</span>
+                        {% elif user_obj.administrador %}
+                            <span class="badge bg-danger">Administrador</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Usuario Base</span>
+                        {% endif %}
+                    </dd>
+                    
+                    <dt class="col-sm-5">Registro:</dt>
+                    <dd class="col-sm-7">{{ user_obj.date_joined|date:"d/m/Y H:i" }}</dd>
+                    
+                    <dt class="col-sm-5">Último login:</dt>
+                    <dd class="col-sm-7">
+                        {% if user_obj.last_login %}
+                            {{ user_obj.last_login|date:"d/m/Y H:i" }}
+                        {% else %}
+                            <span class="text-muted">Nunca</span>
+                        {% endif %}
+                    </dd>
+                    
+                    <dt class="col-sm-5">Estado Django:</dt>
+                    <dd class="col-sm-7">
+                        {% if user_obj.is_active %}
+                            <span class="badge bg-success">Activo</span>
+                        {% else %}
+                            <span class="badge bg-danger">Inactivo</span>
+                        {% endif %}
+                    </dd>
+                    
+                    <dt class="col-sm-5">Estado Perfil:</dt>
+                    <dd class="col-sm-7">
+                        {% if user_obj.cliente %}
+                            {% if user_obj.cliente.activo %}
+                                <span class="badge bg-success">Activo</span>
+                            {% else %}
+                                <span class="badge bg-danger">Inactivo</span>
+                            {% endif %}
+                        {% elif user_obj.empleado %}
+                            {% if user_obj.empleado.activo %}
+                                <span class="badge bg-success">Activo</span>
+                            {% else %}
+                                <span class="badge bg-danger">Inactivo</span>
+                            {% endif %}
+                        {% elif user_obj.administrador %}
+                            {% if user_obj.administrador.activo %}
+                                <span class="badge bg-success">Activo</span>
+                            {% else %}
+                                <span class="badge bg-danger">Inactivo</span>
+                            {% endif %}
+                        {% else %}
+                            <span class="badge bg-secondary">N/A</span>
+                        {% endif %}
+                    </dd>
+                </dl>
+
+                <!-- Additional Info for Specific User Types -->
+                {% if user_obj.cliente %}
+                <hr>
+                <h6><i class="fas fa-user"></i> Info Cliente:</h6>
+                <dl class="row">
+                    <dt class="col-sm-6">Suscripción:</dt>
+                    <dd class="col-sm-6">
+                        {% if user_obj.cliente.tiene_suscripcion %}
+                            <span class="badge bg-success">Sí</span>
+                        {% else %}
+                            <span class="badge bg-secondary">No</span>
+                        {% endif %}
+                    </dd>
+                    {% if user_obj.cliente.plan %}
+                    <dt class="col-sm-6">Plan:</dt>
+                    <dd class="col-sm-6">{{ user_obj.cliente.plan|capfirst }}</dd>
+                    {% endif %}
+                </dl>
+                {% endif %}
+
+                {% if user_obj.empleado %}
+                <hr>
+                <h6><i class="fas fa-user-tie"></i> Info Empleado:</h6>
+                <dl class="row">
+                    <dt class="col-sm-6">Rol:</dt>
+                    <dd class="col-sm-6">{{ user_obj.empleado.rol|capfirst }}</dd>
+                    <dt class="col-sm-6">Nivel:</dt>
+                    <dd class="col-sm-6">Nivel {{ user_obj.empleado.nivel }}</dd>
+                    <dt class="col-sm-6">Teléfono:</dt>
+                    <dd class="col-sm-6">{{ user_obj.empleado.telefono|default:"No especificado" }}</dd>
+                </dl>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="card border-danger mt-3">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Zona de Peligro</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-danger">Las siguientes acciones son irreversibles:</p>
+                <a href="{% url 'administradores:eliminar_usuario' user_obj.id %}" 
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('¿Estás seguro de eliminar este usuario? Esta acción no se puede deshacer.')">
+                    <i class="fas fa-trash"></i> Eliminar Usuario
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tipoSelect = document.getElementById('id_tipo_usuario');
+    const empleadoFields = document.getElementById('empleado-fields');
+    
+    function toggleEmpleadoFields() {
+        if (tipoSelect.value === 'empleado') {
+            empleadoFields.style.display = 'block';
+            document.getElementById('id_rol_empleado').required = true;
+        } else {
+            empleadoFields.style.display = 'none';
+            document.getElementById('id_rol_empleado').required = false;
+        }
+    }
+    
+    // Initial setup
+    toggleEmpleadoFields();
+    
+    // Listen for changes
+    tipoSelect.addEventListener('change', toggleEmpleadoFields);
+});
+</script>
+{% endblock %}

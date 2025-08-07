@@ -1,0 +1,74 @@
+<!-- templates/components/language_selector.html -->
+{% load i18n %}
+
+<div class="dropdown">
+    <button class="btn btn-outline-light dropdown-toggle" type="button" 
+            id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-globe"></i>
+        <span class="d-none d-md-inline ms-2">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == 'es' %}Español
+            {% elif LANGUAGE_CODE == 'en' %}English  
+            {% comment %} {% elif LANGUAGE_CODE == 'fr' %}Français {% endcomment %}
+            {% elif LANGUAGE_CODE == 'pt' %}Português
+            {% endif %}
+        </span>
+    </button>
+    
+    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+        {% get_available_languages as LANGUAGES %}
+        {% get_current_language as LANGUAGE_CODE %}
+        
+        {% for code, name in LANGUAGES %}
+            {% if code != LANGUAGE_CODE %}
+                <li>
+                    <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.get_full_path }}" />
+                        <input name="language" type="hidden" value="{{ code }}" />
+                        <button type="submit" class="dropdown-item">
+                            <i class="fas fa-flag me-2"></i>
+                            {% if code == 'es' %}
+                                <span class="flag-icon flag-icon-es me-2"></span>Español
+                            {% elif code == 'en' %}
+                                <span class="flag-icon flag-icon-us me-2"></span>English
+                            {% comment %} {% elif code == 'fr' %}
+                                <span class="flag-icon flag-icon-fr me-2"></span>Français {% endcomment %}
+                            {% elif code == 'pt' %}
+                                <span class="flag-icon flag-icon-br me-2"></span>Português
+                            {% endif %}
+                        </button>
+                    </form>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+/* Estilos adicionales para el selector */
+.dropdown-item {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 0.375rem 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.flag-icon {
+    width: 20px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.flag-icon-us { background: linear-gradient(to bottom, #bf0a30 0%, #bf0a30 7.7%, white 7.7%, white 15.4%, #bf0a30 15.4%, #bf0a30 23.1%, white 23.1%, white 30.8%, #bf0a30 30.8%, #bf0a30 38.5%, white 38.5%, white 46.2%, #bf0a30 46.2%, #bf0a30 53.9%, white 53.9%, white 61.6%, #bf0a30 61.6%, #bf0a30 69.3%, white 69.3%, white 77%, #bf0a30 77%, #bf0a30 84.7%, white 84.7%, white 92.4%, #bf0a30 92.4%, #bf0a30 100%), linear-gradient(to bottom, #002868 0%, #002868 100%); background-size: 100% 100%, 40% 53.85%; background-repeat: no-repeat; background-position: 0 0, 0 0; }
+.flag-icon-es { background: linear-gradient(to bottom, #c60b1e 33%, #ffc400 33%, #ffc400 66%, #c60b1e 66%); }
+{% comment %} .flag-icon-fr { background: linear-gradient(to right, #002395 33%, #ffffff 33%, #ffffff 66%, #ed2939 66%); } {% endcomment %}
+.flag-icon-br { background: linear-gradient(to bottom, #009739 40%, #fedd00 40%, #fedd00 60%, #009739 60%); }
+</style>

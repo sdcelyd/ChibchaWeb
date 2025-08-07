@@ -1,0 +1,223 @@
+{% extends "base_clientes.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/distributor-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<title>Resumen de Compra - ChibchaWeb</title>
+
+<!-- Hero Header del Resumen -->
+<section class="purchase-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="purchase-info">
+                    <div class="purchase-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-receipt me-2"></i>Resumen de Compra
+                        </span>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-3">
+                        Confirma tu Paquete
+                    </h1>
+                    <p class="lead mb-4">
+                        Revisa los detalles de tu compra antes de procesar el pago
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="purchase-illustration">
+                    <div class="purchase-circle">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Indicador de pasos -->
+<section class="py-3 bg-light">
+    <div class="container">
+        <div class="payment-step-indicator">
+            <div class="payment-step completed">
+                <div class="payment-step-number">1</div>
+                <span>Paquete</span>
+            </div>
+            <div class="payment-step-connector"></div>
+            <div class="payment-step completed">
+                <div class="payment-step-number">2</div>
+                <span>Dirección & Tarjeta</span>
+            </div>
+            <div class="payment-step-connector"></div>
+            <div class="payment-step active">
+                <div class="payment-step-number">3</div>
+                <span>Confirmación</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenido del Resumen -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Resumen Principal -->
+                <div class="row g-4">
+                    <!-- Detalles del Paquete -->
+                    <div class="col-lg-8">
+                        <div class="summary-card">
+                            <div class="card-header-custom">
+                                <h4><i class="fas fa-boxes me-2"></i>Detalles del Paquete</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="package-summary">
+                                    <div class="package-item">
+                                        <div class="package-icon">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <div class="package-details">
+                                            <h5>Paquete de Páginas Web</h5>
+                                            <p class="text-muted">Para reventa a tus clientes</p>
+                                        </div>
+                                        <div class="package-quantity">
+                                            <span class="quantity-number">{{ cantidad }}</span>
+                                            <span class="quantity-label">páginas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Cálculo de Precios -->
+                                <div class="price-breakdown">
+                                    <div class="price-row">
+                                        <span>{{ cantidad }} páginas × ${{ precio_unitario }}</span>
+                                        <span>${{ total }}</span>
+                                    </div>
+                                    <div class="price-row subtotal">
+                                        <span>Subtotal</span>
+                                        <span>${{ total }}</span>
+                                    </div>
+                                    <div class="price-row taxes">
+                                        <span>Impuestos incluidos</span>
+                                        <span>$0.00</span>
+                                    </div>
+                                    <div class="price-row total">
+                                        <span>Total a Pagar</span>
+                                        <span>${{ total }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de Pago -->
+                    <div class="col-lg-4">
+                        <div class="payment-info-card">
+                            <div class="card-header-custom bg-success">
+                                <h5><i class="fas fa-credit-card me-2"></i>Información de Pago</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- Dirección -->
+                                <div class="payment-detail mb-4">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <h6>Dirección de Facturación</h6>
+                                        <p class="mb-1">{{ direccion.pais.nombre }}</p>
+                                        <p class="mb-1">{{ direccion.ubicacion }}</p>
+                                        <p class="text-muted">CP: {{ direccion.codigoPostal }}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Tarjeta -->
+                                <div class="payment-detail">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <h6>Método de Pago</h6>
+                                        <p class="mb-1">{{ tarjeta.nombre_titular }}</p>
+                                        <p class="mb-1">**** **** **** {{ tarjeta.numero|slice:"-4:" }}</p>
+                                        <p class="text-muted">Vence: {{ tarjeta.fecha_expiracion }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Beneficios -->
+                        <div class="benefits-card mt-4">
+                            <div class="card-header-custom bg-info">
+                                <h5><i class="fas fa-star me-2"></i>Beneficios Incluidos</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="benefits-list">
+                                    <li><i class="fas fa-check text-success me-2"></i>Páginas listas para revender</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Soporte técnico incluido</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Panel de gestión avanzado</li>
+                                    <li><i class="fas fa-check text-success me-2"></i>Comisiones por cada venta</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acciones de Confirmación -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="confirmation-actions">
+                            <form method="post" class="text-center">
+                                {% csrf_token %}
+                                <div class="action-buttons">
+                                    <a href="{% url 'pagos:seleccionar_direccion_tarjeta' %}" class="btn btn-outline-secondary btn-lg me-3">
+                                        <i class="fas fa-arrow-left me-2"></i>Volver Atrás
+                                    </a>
+                                    <button type="submit" class="btn btn-chibcha-primary btn-lg px-5">
+                                        <i class="fas fa-lock me-2"></i>Confirmar Compra de ${{ total }}
+                                    </button>
+                                </div>
+                                
+                                <div class="security-notice mt-3">
+                                    <small class="text-muted">
+                                        <i class="fas fa-shield-alt me-1"></i>
+                                        Tu información está protegida con encriptación SSL
+                                    </small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Términos y Condiciones -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="terms-notice">
+                            <div class="alert alert-light">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="fas fa-info-circle text-info"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-2">Términos de Compra</h6>
+                                        <p class="mb-2">Al confirmar esta compra, aceptas nuestros términos y condiciones de servicio.</p>
+                                        <ul class="mb-0 small text-muted">
+                                            <li>Las páginas se agregarán inmediatamente a tu cuenta</li>
+                                            <li>No hay reembolsos una vez procesado el pago</li>
+                                            <li>Soporte técnico disponible 24/7</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

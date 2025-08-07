@@ -1,0 +1,575 @@
+{% extends 'administradores/base.html' %}
+
+{% block title %}Estadísticas de Pagos - Admin Panel{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><i class="fas fa-chart-line"></i> Estadísticas de Pagos e Ingresos</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="window.print()">
+            <i class="fas fa-print"></i> Imprimir
+        </button>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="fas fa-filter"></i> Filtros de Período</h5>
+    </div>
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-3">
+                <label for="periodo" class="form-label">Período Predefinido</label>
+                <select name="periodo" id="periodo" class="form-select">
+                    <option value="7" {% if periodo == '7' %}selected{% endif %}>Últimos 7 días</option>
+                    <option value="30" {% if periodo == '30' %}selected{% endif %}>Últimos 30 días</option>
+                    <option value="90" {% if periodo == '90' %}selected{% endif %}>Últimos 3 meses</option>
+                    <option value="365" {% if periodo == '365' %}selected{% endif %}>Último año</option>
+                    <option value="custom" {% if periodo == 'custom' %}selected{% endif %}>Personalizado</option>
+                </select>
+            </div>
+            <div class="col-md-3" id="fecha-inicio-container">
+                <label for="fecha_inicio" class="form-label">Fecha Inicio</label>
+                <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control" value="{{ fecha_inicio }}">
+            </div>
+            <div class="col-md-3" id="fecha-fin-container">
+                <label for="fecha_fin" class="form-label">Fecha Fin</label>
+                <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" value="{{ fecha_fin }}">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">&nbsp;</label>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Filtrar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Ingresos Totales
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            ${{ total_ingresos|floatformat:2 }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Total Transacciones
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_transacciones }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-credit-card fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Promedio por Transacción
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            ${{ promedio_transaccion|floatformat:2 }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calculator fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Crecimiento
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">+15.3%</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-chart-line fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estadísticas Específicas por Tipo -->
+<div class="row mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-primary h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Ingresos Hosting
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            ${{ total_ingresos_hosting|floatformat:2 }}
+                        </div>
+                        <div class="text-xs text-muted">{{ total_transacciones_hosting }} transacciones</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-server fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-success h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Ingresos Distribuidores
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            ${{ total_ingresos_distribuidores|floatformat:2 }}
+                        </div>
+                        <div class="text-xs text-muted">{{ total_transacciones_distribuidores }} paquetes vendidos</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-info h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Páginas Vendidas
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ total_paginas_vendidas }}
+                        </div>
+                        <div class="text-xs text-muted">A distribuidores</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-globe fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row">
+    <!-- Revenue Timeline Chart -->
+    <div class="col-xl-8 col-lg-7">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-chart-area"></i> Ingresos por Día
+                </h6>
+            </div>
+            <div class="card-body">
+                <canvas id="revenueTimelineChart" style="height: 350px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue by Plan Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-chart-pie"></i> Ingresos por Plan
+                </h6>
+            </div>
+            <div class="card-body">
+                <canvas id="revenuePlanChart" style="height: 350px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Data Tables -->
+<div class="row">
+    <!-- Top Clientes Hosting -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-server"></i> Top 10 Clientes Hosting
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Cliente</th>
+                                <th>Total</th>
+                                <th>Transacciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cliente in hosting_clientes %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <strong>{{ cliente.cliente__user__username }}</strong><br>
+                                    <small class="text-muted">{{ cliente.cliente__user__email }}</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">${{ cliente.total|floatformat:2 }}</span>
+                                </td>
+                                <td>{{ cliente.cantidad }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-3">
+                                    <i class="fas fa-info-circle text-muted"></i>
+                                    No hay datos disponibles
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Distribuidores -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-success">
+                    <i class="fas fa-users"></i> Top 10 Distribuidores
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Distribuidor</th>
+                                <th>Total</th>
+                                <th>Páginas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for distribuidor in distribuidores_clientes %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <strong>{{ distribuidor.cliente__user__username }}</strong><br>
+                                    <small class="text-muted">{{ distribuidor.cliente__user__email }}</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-success">${{ distribuidor.total|floatformat:2 }}</span>
+                                </td>
+                                <td>{{ distribuidor.cantidad }} compras</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-3">
+                                    <i class="fas fa-info-circle text-muted"></i>
+                                    No hay distribuidores aún
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Segunda fila de tablas -->
+<div class="row mt-4">
+    <!-- Top Distribuidores por Páginas -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-info">
+                    <i class="fas fa-globe"></i> Top Distribuidores por Páginas
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Distribuidor</th>
+                                <th>Páginas</th>
+                                <th>Total Invertido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for distribuidor in top_distribuidores %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <strong>{{ distribuidor.cliente__user__username }}</strong><br>
+                                    <small class="text-muted">{{ distribuidor.cliente__user__email }}</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">{{ distribuidor.paginas }} páginas</span>
+                                </td>
+                                <td>${{ distribuidor.total|floatformat:2 }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-3">
+                                    <i class="fas fa-info-circle text-muted"></i>
+                                    No hay distribuidores aún
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue by Plan Table -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-layer-group"></i> Ingresos por Plan de Hosting
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>Plan</th>
+                                <th>Ingresos</th>
+                                <th>Transacciones</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for plan in ingresos_por_plan %}
+                            <tr>
+                                <td>
+                                    <i class="fas fa-server me-1"></i>
+                                    {{ plan.cliente__plan|default:"Sin Plan"|capfirst }}
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">${{ plan.total|floatformat:2 }}</span>
+                                </td>
+                                <td>{{ plan.cantidad }}</td>
+                                <td>
+                                    {% widthratio plan.total total_ingresos 100 %}%
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-3">
+                                    <i class="fas fa-info-circle text-muted"></i>
+                                    No hay datos disponibles
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Export Options -->
+<div class="card mt-4">
+    <div class="card-header">
+        <h6 class="m-0 font-weight-bold text-primary">
+            <i class="fas fa-download"></i> Exportar Datos
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="mb-3">Descarga los datos en diferentes formatos:</p>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-success">
+                        <i class="fas fa-file-excel"></i> Excel
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fas fa-file-pdf"></i> PDF
+                    </button>
+                    <button type="button" class="btn btn-outline-primary">
+                        <i class="fas fa-file-csv"></i> CSV
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-info mb-0">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Nota:</strong> Los reportes incluyen todos los datos del período seleccionado.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Show/hide custom date fields
+document.getElementById('periodo').addEventListener('change', function() {
+    const isCustom = this.value === 'custom';
+    document.getElementById('fecha-inicio-container').style.display = isCustom ? 'block' : 'none';
+    document.getElementById('fecha-fin-container').style.display = isCustom ? 'block' : 'none';
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const periodo = document.getElementById('periodo').value;
+    const isCustom = periodo === 'custom';
+    document.getElementById('fecha-inicio-container').style.display = isCustom ? 'block' : 'none';
+    document.getElementById('fecha-fin-container').style.display = isCustom ? 'block' : 'none';
+});
+
+// Revenue Timeline Chart
+const timelineCtx = document.getElementById('revenueTimelineChart').getContext('2d');
+const timelineChart = new Chart(timelineCtx, {
+    type: 'line',
+    data: {
+        labels: [
+            {% for ingreso in ingresos_diarios_hosting %}
+                '{{ ingreso.fecha_dia|date:"M d" }}'{% if not forloop.last %},{% endif %}
+            {% empty %}
+                'Sin datos'
+            {% endfor %}
+        ],
+        datasets: [{
+            label: 'Ingresos Hosting',
+            data: [
+                {% for ingreso in ingresos_diarios_hosting %}
+                    {{ ingreso.total }}{% if not forloop.last %},{% endif %}
+                {% empty %}
+                    0
+                {% endfor %}
+            ],
+            borderColor: '#007bff',
+            backgroundColor: 'rgba(0, 123, 255, 0.1)',
+            tension: 0.4,
+            fill: false
+        },
+        {
+            label: 'Ingresos Distribuidores',
+            data: [
+                {% for ingreso in ingresos_diarios_distribuidores %}
+                    {{ ingreso.total }}{% if not forloop.last %},{% endif %}
+                {% empty %}
+                    0
+                {% endfor %}
+            ],
+            borderColor: '#28a745',
+            backgroundColor: 'rgba(40, 167, 69, 0.1)',
+            tension: 0.4,
+            fill: false
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top'
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value) {
+                        return '$' + value.toLocaleString();
+                    }
+                }
+            }
+        }
+    }
+});
+
+// Revenue by Plan Chart
+const planCtx = document.getElementById('revenuePlanChart').getContext('2d');
+const planChart = new Chart(planCtx, {
+    type: 'doughnut',
+    data: {
+        labels: [
+            {% for plan in ingresos_por_plan %}
+                '{{ plan.cliente__plan|default:"Sin Plan" }}'{% if not forloop.last %},{% endif %}
+            {% empty %}
+                'Sin datos'
+            {% endfor %}
+        ],
+        datasets: [{
+            data: [
+                {% for plan in ingresos_por_plan %}
+                    {{ plan.total }}{% if not forloop.last %},{% endif %}
+                {% empty %}
+                    0
+                {% endfor %}
+            ],
+            backgroundColor: [
+                '#007bff', '#28a745', '#ffc107', '#dc3545', '#17a2b8', '#6f42c1'
+            ],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,267 @@
+{% extends "base_clientes.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/distributor-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<title>Mis Paquetes - ChibchaWeb</title>
+
+<!-- Hero Header de Paquetes -->
+<section class="packages-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="packages-info">
+                    <div class="packages-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-boxes me-2"></i>Mis Paquetes
+                        </span>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-3">
+                        Gestión de Paquetes
+                    </h1>
+                    <p class="lead mb-4">
+                        Administra y revisa todos tus paquetes de dominios disponibles para revender
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="packages-illustration">
+                    <div class="packages-circle">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenido de Paquetes -->
+<section class="packages-content py-5">
+    <div class="container">
+        <!-- Estadísticas Rápidas -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="stat-card-modern">
+                    <div class="stat-icon bg-success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number">{{ pagos_paquetes.count }}</div>
+                        <div class="stat-label">Compras Realizadas</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card-modern">
+                    <div class="stat-icon bg-warning">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number">{{ distribuidor.paginas_disponibles }}</div>
+                        <div class="stat-label">Páginas Disponibles</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card-modern">
+                    <div class="stat-icon bg-info">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number">{{ distribuidor.paginas_vendidas }}</div>
+                        <div class="stat-label">Páginas Vendidas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Paquetes -->
+        <div class="row">
+            <div class="col-12">
+                <div class="packages-list-card">
+                    <div class="card-header-custom">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4><i class="fas fa-list me-2"></i>Lista de Paquetes</h4>
+                            <div class="btn-group">
+                                <a href="{% url 'pagos:seleccionar_paquete' %}" class="btn btn-chibcha-primary">
+                                    <i class="fas fa-plus me-2"></i>Comprar Paquetes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% if pagos_paquetes %}
+                            <!-- Tabla de paquetes -->
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="table-chibcha">
+                                        <tr>
+                                            <th>ID Compra</th>
+                                            <th>Páginas</th>
+                                            <th>Monto</th>
+                                            <th>Fecha Compra</th>
+                                            <th>Estado</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for pago in pagos_paquetes %}
+                                        <tr>
+                                            <td class="fw-bold text-chibcha">#{{ pago.pagoId }}</td>
+                                            <td>
+                                                <span class="badge bg-success">{{ pago.cantidad_paginas }} páginas</span>
+                                            </td>
+                                            <td class="fw-bold">${{ pago.monto }}</td>
+                                            <td>{{ pago.fecha|date:"d/m/Y H:i" }}</td>
+                                            <td>
+                                                <span class="badge bg-success">
+                                                    <i class="fas fa-check me-1"></i>Completado
+                                                </span>
+                                            </td>
+                                            <td class="text-muted">{{ pago.descripcion|default:"Paquete de páginas web" }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <!-- Estado vacío -->
+                            <div class="empty-packages-state text-center py-5">
+                                <div class="empty-icon mb-4">
+                                    <i class="fas fa-box-open text-muted" style="font-size: 5rem;"></i>
+                                </div>
+                                <h5 class="text-muted mb-3">No tienes paquetes aún</h5>
+                                <p class="text-muted mb-4">
+                                    Comienza a generar ingresos comprando tu primer paquete de páginas web para revender.
+                                </p>
+                                <div class="empty-actions">
+                                    <a href="{% url 'pagos:seleccionar_paquete' %}" class="btn btn-chibcha-primary me-3">
+                                        <i class="fas fa-shopping-cart me-2"></i>Comprar Primer Paquete
+                                    </a>
+                                    <a href="{% url 'distribuidores:dashboard' %}" class="btn btn-outline-secondary">
+                                        <i class="fas fa-arrow-left me-2"></i>Volver al Dashboard
+                                    </a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dominios Utilizados -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="packages-list-card">
+                    <div class="card-header-custom">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4><i class="fas fa-globe me-2"></i>Espacios Utilizados</h4>
+                                <small class="text-muted">Dominios creados con tus espacios de distribuidor</small>
+                            </div>
+                            {% if distribuidor.paginas_disponibles > 0 %}
+                            <a href="{% url 'dominios:agregar_dominio' %}?from=distribuidor" class="btn btn-success btn-sm">
+                                <i class="fas fa-globe me-2"></i>Usar espacios
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% if dominios_distribuidor %}
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><i class="fas fa-globe me-2"></i>Dominio</th>
+                                            <th><i class="fas fa-cogs me-2"></i>Acciones</th>
+                                            <th><i class="fas fa-trash me-2"></i>Borrar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for dominio in dominios_distribuidor %}
+                                        <tr>
+                                            <td>
+                                                <strong>{{ dominio.nombreDominio }}</strong>
+                                                <br>
+                                                <small class="text-muted">
+                                                    <i class="fas fa-user me-1"></i>{{ dominio.clienteId.user.get_full_name|default:dominio.clienteId.user.username }}
+                                                </small>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex gap-2" role="group">
+                                                    <button type="button" class="btn btn-outline-primary btn-sm px-3" title="Configurar dominio">
+                                                        <i class="fas fa-cog me-1"></i>Configurar
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <form method="post" action="{% url 'dominios:eliminar_dominio' dominio.id %}?from=distribuidor" style="display: inline;">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm px-3" 
+                                                            onclick="return confirm('¿Estás seguro de que deseas eliminar el dominio {{ dominio.nombreDominio }}? Esto liberará 1 espacio en tu paquete de distribuidor.')"
+                                                            title="Eliminar dominio">
+                                                            <i class="fas fa-trash me-1"></i>Eliminar
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <div class="empty-state text-center py-5">
+                                <i class="fas fa-globe fa-3x text-muted mb-3"></i>
+                                <h5 class="text-muted">No has usado espacios aún</h5>
+                                <p class="text-muted mb-4">Usa el botón "Usar espacios" para crear dominios con tus espacios de distribuidor.</p>
+                                <a href="{% url 'dominios:agregar_dominio' %}?from=distribuidor" class="btn btn-success">
+                                    <i class="fas fa-globe me-2"></i>Usar espacios ahora
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información Adicional -->
+        <div class="row g-4 mt-4">
+            <div class="col-lg-6">
+                <div class="info-card">
+                    <div class="card-header-custom bg-info">
+                        <h5><i class="fas fa-info-circle me-2"></i>¿Cómo Funciona?</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Compras paquetes de dominios</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Revendes a tus clientes</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Ganas comisiones por cada venta</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Gestionas todo desde tu panel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="info-card">
+                    <div class="card-header-custom bg-success">
+                        <h5><i class="fas fa-handshake me-2"></i>Beneficios del Distribuidor</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="fas fa-percentage text-success me-2"></i>Comisiones competitivas</li>
+                            <li class="mb-2"><i class="fas fa-headset text-success me-2"></i>Soporte técnico dedicado</li>
+                            <li class="mb-2"><i class="fas fa-chart-line text-success me-2"></i>Panel de control avanzado</li>
+                            <li><i class="fas fa-users text-success me-2"></i>Red de distribuidores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

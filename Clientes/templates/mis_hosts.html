@@ -1,0 +1,222 @@
+{% extends "base_clientes.html" %}
+{% load static %}
+
+{% block content %}
+<title>Mis Hosts - ChibchaWeb</title>
+
+<!-- Header de Hosts -->
+<section class="hosts-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="hosts-info">
+                    <div class="hosts-badge mb-3">
+                        <span class="badge bg-chibcha-accent text-dark px-3 py-2 rounded-pill">
+                            <i class="fas fa-globe me-2"></i>Gestión de Hosting
+                        </span>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-3">Mis Hosts</h1>
+                    <p class="lead mb-4">
+                        Administra todos tus dominios y servicios de hosting desde un solo lugar
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="hosts-stats">
+                    <div class="chibcha-logo-container position-relative">
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <div class="bg-chibcha-primary rounded-circle d-flex align-items-center justify-content-center me-3" 
+                                 style="width: 50px; height: 50px;">
+                                <i class="fas fa-server text-white fs-4"></i>
+                            </div>
+                            <div class="text-start">
+                                <div class="text-white fw-bold fs-5">ChibchaWeb</div>
+                                <small class="text-white-50 text-uppercase">Hosting</small>
+                            </div>
+                        </div>
+                        <div class="hosts-count-badge">
+                            <span class="badge bg-chibcha-accent text-dark fs-6 px-3 py-2">
+                                {{ dominios|length }} Host{{ dominios|length|pluralize }}
+                            </span>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenido de Hosts -->
+<section class="hosts-content py-5">
+    <div class="container">
+        {% if cliente.suscripcion_activa %}
+            <!-- Usuario con suscripción activa -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="alert alert-success">
+                        <h4><i class="fas fa-check-circle me-2"></i>Plan {{ cliente.plan|capfirst }} Activo</h4>
+                        <p class="mb-0">Tu suscripción está activa hasta {{ cliente.fecha_fin_suscripcion|date:"d M Y" }}. Puedes gestionar tus hosts y dominios.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado Actual con Plan -->
+            {% if dominios %}
+                <!-- Lista de dominios existentes -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h3 class="mb-4">
+                            <i class="fas fa-list me-2"></i>Mis Dominios
+                        </h3>
+                        <div class="row">
+                            {% for dominio in dominios %}
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                                <h5 class="card-title text-chibcha-dark mb-0">
+                                                    <i class="fas fa-globe me-2"></i>
+                                                    {{ dominio.nombreDominio }}
+                                                </h5>
+                                                <span class="badge bg-success">Activo</span>
+                                            </div>
+                                            <p class="card-text text-muted small">
+                                                Configurado para hosting con ChibchaWeb
+                                            </p>
+                                            <div class="btn-group w-100" role="group">
+                                                <button type="button" class="btn btn-outline-primary btn-sm">
+                                                    <i class="fas fa-cog me-1"></i>Configurar
+                                                </button>
+                                                <form method="post" action="{% url 'dominios:eliminar_dominio' dominio.id %}" style="display: inline; width: 50%;">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm w-100" 
+                                                            onclick="return confirm('¿Estás seguro de que deseas eliminar el dominio {{ dominio.nombreDominio }}? Esta acción no se puede deshacer.')">
+                                                        <i class="fas fa-trash me-1"></i>Eliminar
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="empty-hosts-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>{% if dominios %}Agregar Más Dominios{% else %}Gestiona tus Hosts{% endif %}</h3>
+                        <p class="text-muted">{% if dominios %}Puedes agregar más dominios a tu plan de hosting{% else %}Agrega y administra todos tus dominios y servicios de hosting{% endif %}</p>
+                        
+                        <!-- Información del límite del plan -->
+                        <div class="alert alert-info mb-3">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Plan {{ cliente.plan|capfirst }}:</strong> 
+                            Estás usando {{ cliente.dominios_count }} de {{ cliente.limite_dominios }} dominios disponibles.
+                            {% if not cliente.puede_agregar_dominios %}
+                                <div class="mt-2">
+                                    <small class="text-warning">
+                                        <i class="fas fa-exclamation-triangle me-1"></i>
+                                        Has alcanzado el límite de tu plan. <a href="{% url 'home' %}#planes" class="text-warning"><u>Actualiza tu plan</u></a> para agregar más dominios.
+                                    </small>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="action-buttons">
+                            {% if cliente.puede_agregar_dominios %}
+                                <a href="{% url 'dominios:agregar_dominio' %}" class="btn btn-chibcha-primary btn-lg me-3">
+                                    <i class="fas fa-plus me-2"></i>Agregar Host
+                                </a>
+                            {% else %}
+                                <button class="btn btn-secondary btn-lg me-3" disabled title="Límite de dominios alcanzado">
+                                    <i class="fas fa-lock me-2"></i>Límite Alcanzado
+                                </button>
+                            {% endif %}
+                            <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-outline-chibcha-primary btn-lg">
+                                <i class="fas fa-headset me-2"></i>Contactar Soporte
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <!-- Usuario sin suscripción -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="alert alert-warning">
+                        <h4><i class="fas fa-exclamation-triangle me-2"></i>Suscripción Requerida</h4>
+                        <p class="mb-0">Necesitas una suscripción activa para gestionar hosts y dominios. ¡Elige el plan que mejor se adapte a tus necesidades!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado sin Plan -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="empty-hosts-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-lock text-muted"></i>
+                        </div>
+                        <h3>Adquiere un Plan para Comenzar</h3>
+                        <p class="text-muted">Para gestionar hosts y dominios, necesitas contratar uno de nuestros planes de hosting</p>
+                        
+                        <div class="action-buttons">
+                            <a href="{% url 'pagos:seleccionar_plan' %}" class="btn btn-chibcha-primary btn-lg me-3">
+                                <i class="fas fa-shopping-cart me-2"></i>Ver Planes
+                            </a>
+                            <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-outline-chibcha-primary btn-lg">
+                                <i class="fas fa-headset me-2"></i>Contactar Soporte
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Guía de pasos -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="steps-guide">
+                    <h3 class="text-center mb-5">¿Cómo agregar tu primer host?</h3>
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <h6>Verificar Dominio</h6>
+                                <p>Usa nuestra herramienta para verificar que tu dominio esté disponible</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <h6>Contactar Soporte</h6>
+                                <p>Nuestro equipo te ayudará con la configuración inicial</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <h6>Configuración DNS</h6>
+                                <p>Te proporcionaremos los DNS necesarios para tu dominio</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <h6>¡Listo!</h6>
+                                <p>Tu sitio web estará online en pocas horas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

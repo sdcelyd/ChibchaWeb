@@ -1,0 +1,221 @@
+{% extends 'base_clientes.html' %}
+{% load static %}
+
+{% block title %}Seleccionar Dirección y Tarjeta{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/payment-system.css' %}">
+<link rel="stylesheet" href="{% static 'styles/distributor-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Indicador de pasos -->
+    <div class="payment-step-indicator">
+        <div class="payment-step completed">
+            <div class="payment-step-number">1</div>
+            {% if es_compra_paquetes %}
+                <span>Paquete</span>
+            {% else %}
+                <span>Plan</span>
+            {% endif %}
+        </div>
+        <div class="payment-step-connector"></div>
+        <div class="payment-step active">
+            <div class="payment-step-number">2</div>
+            <span>Dirección & Tarjeta</span>
+        </div>
+        <div class="payment-step-connector"></div>
+        <div class="payment-step">
+            <div class="payment-step-number">3</div>
+            <span>Pago</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="payment-page-header">
+        <div class="container">
+            <h2>Información de Pago</h2>
+            {% if es_compra_paquetes %}
+                <p>Selecciona tu dirección de facturación y método de pago para tu paquete de páginas</p>
+            {% else %}
+                <p>Selecciona tu dirección de facturación y método de pago para tu plan de hosting</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Resumen del Plan/Paquete -->
+                <div class="payment-plan-summary">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            {% if es_compra_paquetes %}
+                                <h4><i class="fas fa-boxes me-2"></i>Paquete de Páginas</h4>
+                                <p class="mb-0">{{ cantidad_paquetes }} páginas para reventa</p>
+                            {% else %}
+                                <h4><i class="fas fa-server me-2"></i>{{ plan }} - {{ modalidad|title }}</h4>
+                                <p class="mb-0">Tu plan seleccionado</p>
+                            {% endif %}
+                        </div>
+                        <div class="text-end">
+                            {% if es_compra_paquetes %}
+                                <h3 class="mb-0 text-success">${{ total_paquetes }}</h3>
+                                <small class="text-muted">${{ precio_unitario }} por página</small>
+                            {% else %}
+                                <h3 class="mb-0 text-success">${{ precio }}</h3>
+                                <small class="text-muted">
+                                    {% if modalidad == 'mensual' %}/mes{% elif modalidad == 'semestral' %}/6 meses{% else %}/año{% endif %}
+                                </small>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="payment-container">
+                        <div class="row">
+                            <!-- Selección de Dirección -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="payment-section">
+                                    <h3 class="payment-section-title">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Dirección de Facturación
+                                    </h3>
+
+                                    {% if direcciones %}
+                                        {% for direccion in direcciones %}
+                                        <div class="payment-item-card direccion-card" data-direccion-id="{{ direccion.direccionId }}">
+                                            <input type="radio" name="direccion_id" value="{{ direccion.direccionId }}" 
+                                                   class="payment-item-radio" id="direccion_{{ direccion.direccionId }}">
+                                            
+                                            <div class="payment-item-info">
+                                                <div class="payment-item-icon direccion-icon">
+                                                    <i class="fas fa-home"></i>
+                                                </div>
+                                                <div class="payment-item-details">
+                                                    <h5>{{ direccion.pais.nombre }}</h5>
+                                                    <div class="payment-item-text direccion-text">{{ direccion.ubicacion }}</div>
+                                                    <div class="payment-item-text direccion-text">CP: {{ direccion.codigoPostal }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <div class="payment-no-items">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <h5>No tienes direcciones registradas</h5>
+                                            <p>Necesitas registrar una dirección de facturación para continuar.</p>
+                                            <button type="submit" name="accion" value="nueva_direccion" class="payment-btn-primary">
+                                                <i class="fas fa-plus me-2"></i>
+                                                Registrar Dirección
+                                            </button>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if direcciones %}
+                                    <div class="text-center mt-3">
+                                        <button type="submit" name="accion" value="nueva_direccion" class="payment-btn-primary btn-sm">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Agregar Nueva Dirección
+                                        </button>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Selección de Tarjeta -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="payment-section">
+                                    <h3 class="payment-section-title">
+                                        <i class="fas fa-credit-card"></i>
+                                        Método de Pago
+                                    </h3>
+
+                                    {% if tarjetas %}
+                                        {% for tarjeta in tarjetas %}
+                                        <div class="payment-item-card tarjeta-card" data-tarjeta-id="{{ tarjeta.id }}">
+                                            <input type="radio" name="tarjeta_id" value="{{ tarjeta.id }}" 
+                                                   class="payment-item-radio" id="tarjeta_{{ tarjeta.id }}">
+                                            
+                                            <div class="payment-item-info">
+                                                <div class="payment-item-icon tarjeta-icon">
+                                                    CARD
+                                                </div>
+                                                <div class="payment-item-details">
+                                                    <h5>{{ tarjeta.nombre_titular }}</h5>
+                                                    <div class="payment-card-number">**** **** **** {{ tarjeta.numero|slice:"-4:" }}</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="payment-item-meta">
+                                                <div class="payment-card-expiry">
+                                                    <i class="far fa-calendar-alt me-1"></i>
+                                                    {{ tarjeta.fecha_expiracion }}
+                                                </div>
+                                                <div class="payment-card-type">Tarjeta</div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <div class="payment-no-items">
+                                            <i class="fas fa-credit-card"></i>
+                                            <h5>No tienes tarjetas registradas</h5>
+                                            <p>Necesitas registrar una tarjeta de crédito para procesar el pago.</p>
+                                            <button type="submit" name="accion" value="nueva_tarjeta" class="payment-btn-primary">
+                                                <i class="fas fa-credit-card me-2"></i>
+                                                Registrar Tarjeta
+                                            </button>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if tarjetas %}
+                                    <div class="text-center mt-3">
+                                        <button type="submit" name="accion" value="nueva_tarjeta" class="payment-btn-primary     btn-sm">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Agregar Nueva Tarjeta
+                                        </button>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción -->
+                        <div class="payment-action-buttons">
+                            {% if direcciones and tarjetas %}
+                            <button type="submit" name="accion" value="continuar" class="payment-btn-primary">
+                                <i class="fas fa-arrow-right me-2"></i>
+                                Continuar al Resumen
+                            </button>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Botón de regreso -->
+                    <div class="text-center">
+                        {% if es_compra_paquetes %}
+                            <a href="{% url 'pagos:seleccionar_paquete' %}" class="payment-btn-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>
+                                Volver a Paquetes
+                            </a>
+                        {% else %}
+                            <a href="{% url 'pagos:seleccionar_plan' %}" class="payment-btn-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>
+                                Volver a Planes
+                            </a>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/payment-system.js' %}"></script>
+{% endblock %}

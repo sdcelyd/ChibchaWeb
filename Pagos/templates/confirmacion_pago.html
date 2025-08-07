@@ -1,0 +1,162 @@
+{% extends 'base_clientes.html' %}
+{% load static %}
+
+{% block title %}Pago Confirmado{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/payment-system.css' %}">
+<style>
+    .success-animation {
+        animation: successPulse 2s ease-in-out;
+    }
+    
+    @keyframes successPulse {
+        0% { transform: scale(0.8); opacity: 0; }
+        50% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .success-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #28a745, #20c997);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+    }
+    
+    .success-icon i {
+        font-size: 2.5rem;
+        color: white;
+    }
+    
+    .confirmation-card {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border: none;
+        text-align: center;
+    }
+    
+    .success-details {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Indicador de pasos completados -->
+    <div class="payment-step-indicator">
+        <div class="payment-step completed">
+            <div class="payment-step-number">1</div>
+            <span>Plan</span>
+        </div>
+        <div class="payment-step-connector"></div>
+        <div class="payment-step completed">
+            <div class="payment-step-number">2</div>
+            <span>Dirección & Tarjeta</span>
+        </div>
+        <div class="payment-step-connector"></div>
+        <div class="payment-step completed">
+            <div class="payment-step-number">3</div>
+            <span>Pago</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="payment-page-header success-header">
+        <div class="container">
+            <h2>¡Proceso Completado!</h2>
+            <p>Tu suscripción ha sido activada exitosamente</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="confirmation-card success-animation">
+                    <!-- Icono de éxito -->
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+
+                    <!-- Mensaje principal -->
+                    <h2 class="text-success mb-3">¡Pago Exitoso!</h2>
+                    <p class="lead text-muted mb-4">
+                        Tu suscripción ha sido activada correctamente y ya puedes comenzar a disfrutar de todos los beneficios.
+                    </p>
+
+                    <!-- Detalles de confirmación -->
+                    <div class="success-details">
+                        <div class="row text-start">
+                            <div class="col-6">
+                                <small class="text-muted">Estado del Pago</small>
+                                <div class="fw-bold text-success">
+                                    <i class="fas fa-check-circle me-1"></i>
+                                    Confirmado
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-muted">Fecha</small>
+                                <div class="fw-bold">{{ "now"|date:"d/m/Y H:i" }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Beneficios activados -->
+                    <div class="text-start mb-4">
+                        <h5 class="mb-3">
+                            <i class="fas fa-star text-warning me-2"></i>
+                            Beneficios Activados
+                        </h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Acceso completo a la plataforma
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Comisiones por ventas activadas
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Soporte técnico premium
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>
+                                Panel de administración disponible
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'clientes:home_clientes' %}" class="payment-btn-primary">
+                            <i class="fas fa-tachometer-alt me-2"></i>
+                            Ir al Panel Principal
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/payment-system.js' %}"></script>
+<script>
+    // Confetti effect para celebrar el éxito
+    document.addEventListener('DOMContentLoaded', function() {
+        // Aquí podrías agregar efectos adicionales como confetti
+        console.log('¡Pago completado exitosamente!');
+    });
+</script>
+{% endblock %}

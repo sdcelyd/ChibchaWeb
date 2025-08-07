@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Iniciar Sesión" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="card card-chibcha mx-auto" style="width: 22rem;">
+        <div class="card-body">
+            <h5 class="card-title mb-4 text-chibcha-secondary">{% trans "Iniciar sesión" %}</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username" class="form-label form-label-chibcha">{% trans "Nickname" %}</label>
+                    <input type="text" name="username" class="form-control" id="id_username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="id_password" class="form-label form-label-chibcha">{% trans "Contraseña" %}</label>
+                    <input type="password" name="password" class="form-control" id="id_password" required>
+                </div>
+                <button type="submit" class="btn btn-chibcha-primary w-100">{% trans "Ingresar" %}</button>
+            </form>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'clientes:registrar_cliente' %}" class="btn btn-link w-100 text-chibcha-secondary">{% trans "Registrarse" %}</a>
+                <a href="{% url 'empleados:log' %}" class="btn btn-link w-100 text-chibcha-secondary">{% trans "Portal Empleados" %}</a>
+            </div>
+            <hr>
+            <div class="text-center">
+                <a href="{% url 'administradores:login' %}" class="btn btn-link w-100 text-chibcha-secondary">{% trans "Portal Administradores" %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

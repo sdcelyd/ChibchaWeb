@@ -1,0 +1,19 @@
+from django.urls import path
+from . import views
+
+
+app_name = 'empleados'  # Namespace for the app
+
+urlpatterns = [
+    path('log/', views.EmpleadoLoginView.as_view(), name='log'),
+    path('dashboard/', views.DashboardView.as_view(), name='dashboard'),
+    path('dashboard/supervisor/', views.SupervisorDashboardView.as_view(), name='supervisor_dashboard'),
+    path('dashboard/agente/', views.AgenteDashboardView.as_view(), name='agente_dashboard'),
+    path('mis-tickets/', views.MisTicketsView.as_view(), name='mis_tickets'),
+    path('asignar-ticket/', views.asignar_ticket, name='asignar_ticket'),
+    path('resolver-ticket/', views.resolver_ticket, name='resolver_ticket'),
+    path('escalar-ticket/', views.escalar_ticket, name='escalar_ticket'),
+    path('ticket/<int:ticket_id>/detalles/', views.obtener_detalles_ticket, name='obtener_detalles_ticket'),
+    path('empleado/<int:empleado_id>/detalles/', views.obtener_detalles_empleado, name='obtener_detalles_empleado'),
+    path('logout/', views.EmpleadoLogoutView.as_view(), name='logout'),
+]

@@ -1,0 +1,45 @@
+{% extends "base_clientes.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    {% if cliente.suscripcion_activa %}
+                        <h2 class="card-title mb-4">Conviértete en Distribuidor</h2>
+                        <p class="mb-4">
+                            Como distribuidor, podrás vender paquetes de hosting, recibir comisiones y gestionar múltiples dominios. ¡Es una gran oportunidad para expandir tu presencia digital!
+                        </p>
+                        <div class="alert alert-info mb-4">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Tienes un plan <strong>{{ cliente.plan|capfirst }}</strong> activo, ¡perfecto para ser distribuidor!
+                        </div>
+                        <form method="post" action="{% url 'clientes:hacer_distribuidor' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-chibcha-primary btn-lg">
+                                <i class="fas fa-handshake me-2"></i>Sí, quiero ser distribuidor
+                            </button>
+                        </form>
+                    {% else %}
+                        <h2 class="card-title mb-4">Suscripción Requerida</h2>
+                        <div class="alert alert-warning mb-4">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Necesitas una suscripción activa</strong> para convertirte en distribuidor
+                        </div>
+                        <p class="mb-4">
+                            Para ser distribuidor de ChibchaWeb, primero debes tener un plan activo. Esto nos permite garantizar que conoces nuestros servicios y puedes ofrecer la mejor experiencia a tus clientes.
+                        </p>
+                        <a href="{% url 'pagos:seleccionar_plan' %}" class="btn btn-chibcha-primary btn-lg me-3">
+                            <i class="fas fa-shopping-cart me-2"></i>Ver Planes
+                        </a>
+                        <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-outline-secondary btn-lg">
+                            <i class="fas fa-headset me-2"></i>Contactar Soporte
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

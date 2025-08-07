@@ -1,0 +1,354 @@
+{% extends 'administradores/base.html' %}
+
+{% block title %}Dashboard - Admin Panel{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="fas fa-calendar"></i> Este mes
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Esta semana</a></li>
+                <li><a class="dropdown-item" href="#">Este mes</a></li>
+                <li><a class="dropdown-item" href="#">Este año</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Cards -->
+<div class="row mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-chibcha-secondary text-uppercase mb-1">
+                            Total Clientes
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_clientes|default:0 }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-chibcha-accent text-uppercase mb-1">
+                            Clientes Activos
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ clientes_activos|default:0 }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-check fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-chibcha-brown text-uppercase mb-1">
+                            Total Empleados
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_empleados|default:0 }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-tie fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-chibcha-light text-uppercase mb-1">
+                            Ingresos Totales
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            ${{ ingresos_totales|floatformat:2|default:"0.00" }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Revenue Chart and Recent Activity -->
+<div class="row">
+    <!-- Revenue Chart -->
+    <div class="col-xl-8 col-lg-7">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-chibcha-secondary">
+                    <i class="fas fa-chart-area"></i> Ingresos del Último Mes
+                </h6>
+            </div>
+            <div class="card-body">
+                <canvas id="revenueChart" style="height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-chibcha-secondary">
+                    <i class="fas fa-chart-pie"></i> Distribución de Usuarios
+                </h6>
+            </div>
+            <div class="card-body">
+                <canvas id="userChart" style="height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity and Quick Actions -->
+<div class="row mt-4">
+    <!-- Recent Activity -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-chibcha-secondary">
+                    <i class="fas fa-clock"></i> Actividad Reciente
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item border-0 px-0">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-sm me-3">
+                                <span class="avatar-title bg-success rounded-circle">
+                                    <i class="fas fa-user-plus"></i>
+                                </span>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-0">Nuevo usuario registrado</h6>
+                                <small class="text-muted">Hace 5 minutos</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="list-group-item border-0 px-0">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-sm me-3">
+                                <span class="avatar-title bg-info rounded-circle">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-0">Nuevo pago procesado</h6>
+                                <small class="text-muted">Hace 12 minutos</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="list-group-item border-0 px-0">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-sm me-3">
+                                <span class="avatar-title bg-warning rounded-circle">
+                                    <i class="fas fa-server"></i>
+                                </span>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-0">Plan actualizado</h6>
+                                <small class="text-muted">Hace 1 hora</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-outline-secondary btn-sm">Ver toda la actividad</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-chibcha-secondary">
+                    <i class="fas fa-bolt"></i> Acciones Rápidas
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    {% if request.administrador.puede_gestionar_usuarios %}
+                    <div class="col-6">
+                        <a href="{% url 'administradores:crear_usuario' %}" class="btn btn-primary w-100">
+                            <i class="fas fa-user-plus"></i><br>
+                            <small>Crear Usuario</small>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="{% url 'administradores:gestionar_usuarios' %}" class="btn btn-info w-100">
+                            <i class="fas fa-users"></i><br>
+                            <small>Ver Usuarios</small>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    {% if request.administrador.puede_ver_estadisticas %}
+                    <div class="col-6">
+                        <a href="{% url 'administradores:estadisticas_pagos' %}" class="btn btn-success w-100">
+                            <i class="fas fa-chart-line"></i><br>
+                            <small>Estadísticas</small>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="{% url 'administradores:estadisticas_usuarios' %}" class="btn btn-warning w-100">
+                            <i class="fas fa-chart-pie"></i><br>
+                            <small>Reportes</small>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- System Status -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-chibcha-secondary">
+                    <i class="fas fa-server"></i> Estado del Sistema
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>Servidor Web</span>
+                    <span class="badge bg-success">Online</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>Base de Datos</span>
+                    <span class="badge bg-success">Online</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>Procesamiento de Pagos</span>
+                    <span class="badge bg-success">Online</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Backups</span>
+                    <span class="badge bg-info">Programado</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Revenue Chart
+const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+const revenueChart = new Chart(revenueCtx, {
+    type: 'line',
+    data: {
+        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+            label: 'Ingresos',
+            data: [12000, 19000, 15000, 17000, 22000, 25000, 28000],
+            borderColor: 'var(--chibcha-secondary)',
+            backgroundColor: 'rgba(108, 55, 31, 0.1)',
+            tension: 0.4,
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value) {
+                        return '$' + value.toLocaleString();
+                    }
+                }
+            }
+        }
+    }
+});
+
+// User Distribution Chart
+const userCtx = document.getElementById('userChart').getContext('2d');
+const userChart = new Chart(userCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Clientes', 'Empleados', 'Administradores'],
+        datasets: [{
+            data: [parseInt("{{ total_clientes|default:'0' }}"), parseInt("{{ total_empleados|default:'0' }}"), 3],
+            backgroundColor: [
+                '#6c371f',  // Marrón oscuro para Clientes
+                '#eab21b',  // Dorado para Empleados
+                '#444444'   // Marrón claro para Administradores
+            ],
+            hoverBackgroundColor: [
+                '#5a2e19',  // Marrón más oscuro al hacer hover
+                '#d19f18',  // Dorado más oscuro al hacer hover
+                '#000000'   // Marrón claro más oscuro al hacer hover
+            ],
+            borderWidth: 2,
+            borderColor: '#ffffff'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    usePointStyle: true,
+                    padding: 20,
+                    font: {
+                        size: 12
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const label = context.label || '';
+                        const value = context.formattedValue;
+                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                        const percentage = ((context.raw / total) * 100).toFixed(1);
+                        return `${label}: ${value} (${percentage}%)`;
+                    }
+                }
+            }
+        }
+    }
+});
+</script>
+{% endblock %}

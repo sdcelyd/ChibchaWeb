@@ -1,0 +1,31 @@
+# Ignora archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+traducir_po.py
+# Archivos del entorno virtual (ajusta si tu venv tiene otro nombre)
+venv/
+env/
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.swp
+*.bak
+*.tmp
+
+# Archivos generados por Django
+*.pot
+*.pyc
+db.sqlite3
+
+# Configuración de VS Code (si usas este editor)
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de despliegue opcionales
+*.env

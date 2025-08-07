@@ -1,0 +1,477 @@
+{% extends 'administradores/base.html' %}
+
+{% block title %}Estadísticas de Usuarios - Admin Panel{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><i class="fas fa-chart-pie"></i> Estadísticas de Usuarios</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="exportarUsuarios()">
+                <i class="fas fa-download"></i> Exportar
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.reload()">
+                <i class="fas fa-sync"></i> Actualizar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+    <!-- Total Clients -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Total Clientes
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_clientes }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clients with Subscription -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Con Suscripción
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ clientes_con_suscripcion }}</div>
+                        <div class="text-xs text-muted">
+                            {{ porcentaje_suscripcion|floatformat:1 }}% del total
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-crown fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Employees -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Total Empleados
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_empleados }}</div>
+                        <div class="text-xs text-muted">{{ empleados_activos }} activos</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-tie fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row">
+    <!-- User Distribution Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-chart-pie"></i> Distribución de Usuarios
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="userDistributionChart"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <div class="row">
+                        <div class="col-6">
+                            <i class="fas fa-circle text-primary"></i> Clientes
+                        </div>
+                        <div class="col-6">
+                            <i class="fas fa-circle text-warning"></i> Empleados
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plan Distribution Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-layer-group"></i> Distribución por Planes
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="planDistributionChart"></canvas>
+                </div>
+                <div class="mt-4 text-center small">
+                    {% for plan in planes_distribucion %}
+                    <span class="mr-2 d-block">
+                        <i class="fas fa-circle" style="color: hsl({{ forloop.counter0 }}, 70%, 50%);"></i> 
+                        {{ plan.plan|default:"Sin Plan" }} ({{ plan.cantidad }})
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>n
+        </div>
+    </div>
+
+    <!-- Client Status Progress -->
+    <div class="col-xl-4 col-lg-2">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-tasks"></i> Estado de Clientes
+                </h6>
+            </div>
+            <div class="card-body">
+                <!-- Subscription Progress -->
+                <h6 class="text-info">Con Suscripción</h6>
+                <div class="progress mb-3" style="height: 20px;">
+                    <div class="progress-bar bg-info" role="progressbar" 
+                         style="width: {{ porcentaje_suscripcion }}%">
+                        <span class="text-white font-weight-bold">
+                            {{ porcentaje_suscripcion|floatformat:0 }}%
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Recent Signups -->
+                <h6 class="text-warning">Nuevos (30 días)</h6>
+                <div class="progress mb-3" style="height: 20px;">
+                    <div class="progress-bar bg-warning" role="progressbar" 
+                         style="width: {% if total_clientes > 0 %}{% widthratio clientes_recientes total_clientes 100 %}{% else %}0{% endif %}%">
+                        <span class="text-dark font-weight-bold">
+                            {{ clientes_recientes }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Growth Indicator -->
+                <div class="text-center mt-4">
+                    <h4 class="text-success">
+                        <i class="fas fa-arrow-up"></i> +{{ clientes_recientes }}
+                    </h4>
+                    <small class="text-muted">Nuevos clientes este mes</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detailed Tables Row -->
+<div class="row">
+    <!-- Employee Roles Table -->
+    <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-user-tie"></i> Empleados por Rol
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th><i class="fas fa-tag"></i> Rol</th>
+                                <th><i class="fas fa-users"></i> Cantidad</th>
+                                <th><i class="fas fa-percentage"></i> Porcentaje</th>
+                                <th><i class="fas fa-chart-bar"></i> Visual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for rol in empleados_por_rol %}
+                            <tr>
+                                <td>
+                                    <span class="badge bg-{% if rol.rol == 'supervisor' %}danger{% else %}success{% endif %}">
+                                        {{ rol.rol|capfirst }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <strong>{{ rol.cantidad }}</strong>
+                                </td>
+                                <td>
+                                    {% if total_empleados > 0 %}
+                                        {% widthratio rol.cantidad total_empleados 100 %}%
+                                    {% else %}
+                                        0%
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 15px; width: 100px;">
+                                        <div class="progress-bar bg-{% if rol.rol == 'supervisor' %}danger{% else %}success{% endif %}" 
+                                             style="width: {% if total_empleados > 0 %}{% widthratio rol.cantidad total_empleados 100 %}{% else %}0{% endif %}%">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center text-muted py-3">
+                                    <i class="fas fa-user-times"></i> No hay empleados registrados
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plan Distribution Table -->
+    <div class="col-xl-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-layer-group"></i> Clientes por Plan
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th><i class="fas fa-tag"></i> Plan</th>
+                                <th><i class="fas fa-users"></i> Clientes</th>
+                                <th><i class="fas fa-percentage"></i> % del Total</th>
+                                <th><i class="fas fa-chart-bar"></i> Visual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for plan in planes_distribucion %}
+                            <tr>
+                                <td>
+                                    <span class="badge bg-primary">
+                                        {{ plan.plan|default:"Sin Plan" }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <strong>{{ plan.cantidad }}</strong>
+                                </td>
+                                <td>
+                                    {% if clientes_con_suscripcion > 0 %}
+                                        {% widthratio plan.cantidad clientes_con_suscripcion 100 %}%
+                                    {% else %}
+                                        0%
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 15px; width: 100px;">
+                                        <div class="progress-bar bg-primary" 
+                                             style="width: {% if clientes_con_suscripcion > 0 %}{% widthratio plan.cantidad clientes_con_suscripcion 100 %}{% else %}0{% endif %}%">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center text-muted py-3">
+                                    <i class="fas fa-inbox"></i> No hay planes activos
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Summary Stats Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-info-circle"></i> Resumen General del Sistema
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3 border-right">
+                        <h4 class="text-primary">{{ total_clientes|add:total_empleados }}</h4>
+                        <small class="text-muted">Total Usuarios Registrados</small>
+                    </div>
+                    <div class="col-md-3 border-right">
+                        <h4 class="text-success">
+                            {{ porcentaje_suscripcion|floatformat:1 }}%
+                        </h4>
+                        <small class="text-muted">Tasa de Conversión a Suscripción</small>
+                    </div>
+                    <div class="col-md-3 border-right">
+                        <h4 class="text-info">{{ clientes_recientes }}</h4>
+                        <small class="text-muted">Registros Últimos 30 Días</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="text-warning">
+                            {% if total_empleados > 0 %}
+                                {% widthratio empleados_activos total_empleados 100 %}%
+                            {% else %}
+                                0%
+                            {% endif %}
+                        </h4>
+                        <small class="text-muted">Empleados Activos</small>
+                    </div>
+                </div>
+                
+                <hr class="my-4">
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Insights:</strong>
+                    <ul class="mb-0 mt-2">
+                        <li>
+                            <strong>Crecimiento:</strong> 
+                            {{ clientes_recientes }} nuevos clientes en los últimos 30 días
+                        </li>
+                        <li>
+                            <strong>Adopción:</strong> 
+                            {{ porcentaje_suscripcion|floatformat:1 }}% de los clientes tienen suscripción activa
+                        </li>
+                        <li>
+                            <strong>Equipo:</strong> 
+                            {{ empleados_activos }} de {{ total_empleados }} empleados están activos
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // User Distribution Chart
+    const ctxUserDist = document.getElementById('userDistributionChart').getContext('2d');
+    
+    new Chart(ctxUserDist, {
+        type: 'doughnut',
+        data: {
+            labels: ['Clientes', 'Empleados'],
+            datasets: [{
+                data: [{{ total_clientes }}, {{ total_empleados }}],
+                backgroundColor: ['#007bff', '#ffc107'],
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        padding: 20
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const total = {{ total_clientes|add:total_empleados }};
+                            const percentage = total > 0 ? ((context.parsed / total) * 100).toFixed(1) : 0;
+                            return context.label + ': ' + context.parsed + ' (' + percentage + '%)';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Plan Distribution Chart
+    const ctxPlanDist = document.getElementById('planDistributionChart').getContext('2d');
+    const planData = {{ planes_distribucion|safe }};
+    
+    const planLabels = planData.map(item => item.plan || 'Sin Plan');
+    const planValues = planData.map(item => item.cantidad);
+    
+    new Chart(ctxPlanDist, {
+        type: 'pie',
+        data: {
+            labels: planLabels,
+            datasets: [{
+                data: planValues,
+                backgroundColor: [
+                    '#007bff',
+                    '#28a745',
+                    '#ffc107',
+                    '#dc3545',
+                    '#6f42c1',
+                    '#fd7e14'
+                ],
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        padding: 15
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = total > 0 ? ((context.parsed / total) * 100).toFixed(1) : 0;
+                            return context.label + ': ' + context.parsed + ' clientes (' + percentage + '%)';
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+
+// Export function
+function exportarUsuarios() {
+    const data = [
+        ['Métrica', 'Valor'],
+        ['Total Clientes', '{{ total_clientes }}'],
+        ['Clientes con Suscripción', '{{ clientes_con_suscripcion }}'],
+        ['Total Empleados', '{{ total_empleados }}'],
+        ['Empleados Activos', '{{ empleados_activos }}'],
+        ['Nuevos Clientes (30 días)', '{{ clientes_recientes }}']
+    ];
+    
+    let csvContent = "data:text/csv;charset=utf-8," 
+        + data.map(e => e.join(",")).join("\n");
+    
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "estadisticas_usuarios.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+{% endblock %}

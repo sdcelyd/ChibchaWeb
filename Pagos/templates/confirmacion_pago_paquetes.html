@@ -1,0 +1,161 @@
+{% extends "base_clientes.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/distributor-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<title>Compra Exitosa - ChibchaWeb</title>
+
+<!-- Hero de Confirmación -->
+<section class="success-header bg-gradient-chibcha text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="success-info">
+                    <div class="success-badge mb-3">
+                        <span class="badge bg-success px-3 py-2 rounded-pill">
+                            <i class="fas fa-check-circle me-2"></i>Compra Exitosa
+                        </span>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-3">
+                        ¡Felicitaciones!
+                    </h1>
+                    <p class="lead mb-4">
+                        Tu paquete ha sido procesado exitosamente. Ya puedes comenzar a generar ingresos como distribuidor.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="success-animation">
+                    <div class="success-circle">
+                        <i class="fas fa-trophy text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenido de Confirmación -->
+<section class="confirmation-content py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Tarjeta Principal de Confirmación -->
+                <div class="confirmation-card mb-5">
+                    <div class="card-body text-center p-5">
+                        <div class="success-icon mb-4">
+                            <div class="icon-circle success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        
+                        <h2 class="success-title mb-4">¡Compra Completada!</h2>
+                        
+                        <p class="success-message mb-4">
+                            Has adquirido exitosamente tu paquete de páginas web para reventa. 
+                            Tu inventario ha sido actualizado y ya puedes comenzar a ofrecer servicios a tus clientes.
+                        </p>
+                        
+                        <div class="success-details mb-4">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-check text-success me-2"></i>
+                                <span>Procesado el {{ "now"|date:"d/m/Y H:i" }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acciones Disponibles -->
+                <div class="actions-card">
+                    <div class="card-header-custom">
+                        <h4><i class="fas fa-cog me-2"></i>¿Qué quieres hacer ahora?</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <a href="{% url 'distribuidores:dashboard' %}" class="action-button primary">
+                                    <div class="action-icon">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                    </div>
+                                    <div class="action-text">
+                                        <h6>Ir al Dashboard</h6>
+                                        <p>Revisa tu panel de distribuidor</p>
+                                    </div>
+                                    <div class="action-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{% url 'distribuidores:mis_paquetes' %}" class="action-button secondary">
+                                    <div class="action-icon">
+                                        <i class="fas fa-boxes"></i>
+                                    </div>
+                                    <div class="action-text">
+                                        <h6>Ver mis Paquetes</h6>
+                                        <p>Gestiona tu inventario</p>
+                                    </div>
+                                    <div class="action-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{% url 'pagos:seleccionar_paquete' %}" class="action-button info">
+                                    <div class="action-icon">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div class="action-text">
+                                        <h6>Comprar Más</h6>
+                                        <p>Amplía tu inventario</p>
+                                    </div>
+                                    <div class="action-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{% url 'tickets:crear_ticket' %}" class="action-button warning">
+                                    <div class="action-icon">
+                                        <i class="fas fa-headset"></i>
+                                    </div>
+                                    <div class="action-text">
+                                        <h6>Contactar Soporte</h6>
+                                        <p>¿Necesitas ayuda?</p>
+                                    </div>
+                                    <div class="action-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información de Contacto -->
+                <div class="contact-info-card mt-5">
+                    <div class="card-body text-center">
+                        <h5 class="mb-3">¿Tienes preguntas?</h5>
+                        <p class="text-muted mb-4">
+                            Nuestro equipo de soporte está aquí para ayudarte a maximizar tus ganancias como distribuidor.
+                        </p>
+                        <div class="contact-methods">
+                            <a href="{% url 'tickets:crear_ticket' %}" class="btn btn-outline-primary me-3">
+                                <i class="fas fa-ticket-alt me-2"></i>Crear Ticket
+                            </a>
+                            <a href="mailto:soporte@chibchaweb.com" class="btn btn-outline-secondary">
+                                <i class="fas fa-envelope me-2"></i>Email Soporte
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
