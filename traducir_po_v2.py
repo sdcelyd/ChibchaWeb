@@ -31,7 +31,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class PoTranslator:
-    def __init__(self, src_lang='es', dest_lang='pt', delay=0.5):
+    def __init__(self, src_lang='es', dest_lang='en', delay=0.5):
         self.src_lang = src_lang
         self.dest_lang = dest_lang
         self.delay = delay
@@ -193,7 +193,7 @@ def main():
     parser = argparse.ArgumentParser(description='Traductor de archivos Django .po')
     parser.add_argument('po_file', help='Ruta del archivo .po a traducir')
     parser.add_argument('--src', default='es', help='Idioma origen (default: es)')
-    parser.add_argument('--dest', default='pt', help='Idioma destino (default: pt)')
+    parser.add_argument('--dest', default='en', help='Idioma destino (default: en)')
     parser.add_argument('--delay', type=float, default=0.5, help='Pausa entre traducciones en segundos')
     parser.add_argument('--no-backup', action='store_true', help='No crear archivo de respaldo')
     parser.add_argument('--config', help='Archivo de configuración JSON')
@@ -227,7 +227,7 @@ if __name__ == "__main__":
     import sys
     if len(sys.argv) == 1:
         # Configuración por defecto para compatibilidad
-        PO_FILE_PATH = 'locale/pt/LC_MESSAGES/django.po'
+        PO_FILE_PATH = 'locale/en/LC_MESSAGES/django.po'
         translator = PoTranslator()
         try:
             translator.translate_po_file(PO_FILE_PATH)
