@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-07 20:23-0500\n"
+"POT-Creation-Date: 2025-08-07 21:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,677 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Administradores\forms.py:13 .\Administradores\forms.py:188
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:48
+#: .\Administradores\templates\administradores\crear_usuario.html:170
+#: .\Administradores\templates\administradores\editar_usuario.html:197
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:244
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:102
+#: .\Dominios\templates\agregar_dominio.html:52
+#: .\Empleados\templates\agente_dashboard.html:198
+#: .\Empleados\templates\agente_dashboard.html:247
+#: .\Empleados\templates\mis_tickets.html:195
+#: .\Empleados\templates\mis_tickets.html:298
+#: .\Empleados\templates\supervisor_dashboard.html:251
+#: .\Empleados\templates\supervisor_dashboard.html:329
+#: .\Empleados\templates\supervisor_dashboard.html:537
+#: .\Empleados\templates\supervisor_dashboard.html:581
+#: .\Empleados\templates\supervisor_dashboard.html:701
+msgid "Cliente"
+msgstr "Customer"
+
+#: .\Administradores\forms.py:14 .\Administradores\forms.py:189
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:50
+#: .\Administradores\templates\administradores\crear_usuario.html:174
+#: .\Administradores\templates\administradores\editar_usuario.html:199
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:106
+msgid "Empleado"
+msgstr "Employee"
+
+#: .\Administradores\forms.py:15 .\Administradores\forms.py:190
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:52
+#: .\Administradores\templates\administradores\crear_usuario.html:178
+#: .\Administradores\templates\administradores\editar_usuario.html:201
+msgid "Administrador"
+msgstr "Administrator"
+
+#: .\Administradores\forms.py:19 .\Administradores\forms.py:167
+#: .\Administradores\templates\administradores\crear_usuario.html:186
+msgid "Agente"
+msgstr "Agent"
+
+#: .\Administradores\forms.py:20 .\Administradores\forms.py:168
+#: .\Administradores\templates\administradores\crear_usuario.html:189
+msgid "Supervisor"
+msgstr "Supervisor"
+
+#: .\Administradores\forms.py:25 .\Administradores\forms.py:236
+#: .\Administradores\forms.py:343
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:38
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:79
+#: .\Clientes\templates\editar.html:92
+#: .\Clientes\templates\home_clientes.html:118
+#: .\Clientes\templates\perfil.html:58
+#: .\Empleados\templates\agente_dashboard.html:71
+#: .\Empleados\templates\agente_dashboard.html:296
+#: .\Empleados\templates\mis_tickets.html:66
+#: .\Empleados\templates\supervisor_dashboard.html:74
+#: .\Empleados\templates\supervisor_dashboard.html:415
+#: .\Empleados\templates\supervisor_dashboard.html:664
+msgid "Email"
+msgstr "E-mail"
+
+#: .\Administradores\forms.py:26
+msgid "Ingrese una dirección de correo electrónico válida"
+msgstr "Required. Please enter a valid email address."
+
+#: .\Administradores\forms.py:31 .\Administradores\forms.py:237
+#: .\Administradores\forms.py:342
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:39
+#: .\Clientes\forms.py:23 .\Clientes\forms.py:53
+#: .\Clientes\templates\editar.html:119
+#: .\Empleados\templates\agente_dashboard.html:197
+#: .\Empleados\templates\agente_dashboard.html:246
+#: .\Empleados\templates\mis_tickets.html:297
+#: .\Empleados\templates\supervisor_dashboard.html:250
+#: .\Empleados\templates\supervisor_dashboard.html:328
+#: .\Empleados\templates\supervisor_dashboard.html:413
+#: .\Empleados\templates\supervisor_dashboard.html:536
+#: .\Tickets\templates\tickets_cliente.html:57
+msgid "Nombre"
+msgstr "Name"
+
+#: .\Administradores\forms.py:32
+msgid "Nombre del usuario"
+msgstr "Username"
+
+#: .\Administradores\forms.py:37 .\Administradores\forms.py:238
+#: .\Clientes\forms.py:29 .\Clientes\forms.py:54
+#: .\Clientes\templates\editar.html:131
+msgid "Apellido"
+msgstr "Last name"
+
+#: .\Administradores\forms.py:38
+msgid "Apellido del usuario"
+msgstr "User surname"
+
+#: .\Administradores\forms.py:43 .\Administradores\forms.py:193
+#: .\Administradores\forms.py:350
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:43
+msgid "Tipo de Usuario"
+msgstr "User type"
+
+#: .\Administradores\forms.py:44
+msgid "Seleccione el tipo de perfil para el usuario"
+msgstr "Select the user profile type"
+
+#: .\Administradores\forms.py:49 .\Administradores\forms.py:160
+#: .\Administradores\forms.py:553
+#: .\Administradores\templates\administradores\editar_usuario.html:282
+#: .\Clientes\forms.py:12 .\Clientes\forms.py:37
+#: .\Clientes\templates\editar.html:145 .\Clientes\templates\perfil.html:70
+#: .\Empleados\templates\agente_dashboard.html:323
+#: .\Empleados\templates\supervisor_dashboard.html:665
+msgid "Teléfono"
+msgstr "Phone"
+
+#: .\Administradores\forms.py:50
+msgid "Número de teléfono (opcional)"
+msgstr "Telephone number (optional)"
+
+#: .\Administradores\forms.py:55 .\Administradores\forms.py:171
+msgid "Rol de Empleado"
+msgstr "Employee roles"
+
+#: .\Administradores\forms.py:56
+msgid "Solo requerido si el tipo de usuario es Empleado"
+msgstr "Only required if the user type is employed"
+
+#: .\Administradores\forms.py:63
+msgid "Enviar email de bienvenida"
+msgstr "Send welcome email"
+
+#: .\Administradores\forms.py:64
+msgid "Enviar credenciales de acceso por correo electrónico"
+msgstr "Send email access credentials"
+
+#: .\Administradores\forms.py:71 .\Administradores\forms.py:235
+#: .\Administradores\forms.py:339 .\Clientes\templates\editar.html:77
+#: .\Clientes\templates\perfil.html:52
+msgid "Nombre de Usuario"
+msgstr "User name"
+
+#: .\Administradores\forms.py:72
+#: .\Administradores\templates\administradores\login.html:131
+#: .\ChibchaWeb\templates\login.html:21 .\Clientes\forms.py:65
+#: .\Empleados\templates\logEmpleados.html:53
+msgid "Contraseña"
+msgstr "Password"
+
+#: .\Administradores\forms.py:73
+msgid "Confirmar Contraseña"
+msgstr "Confirm Password"
+
+#: .\Administradores\forms.py:76
+msgid ""
+"Requerido. 150 caracteres o menos. Letras, dígitos y @/./+/-/_ únicamente."
+msgstr ""
+"Required. 150 characters maximum. Only letters, digits, and @/./+/-/_."
+
+#: .\Administradores\forms.py:77
+msgid "Su contraseña debe contener al menos 8 caracteres."
+msgstr ""
+"Your password must contain at least 8 characters, it cannot be very common "
+
+#: .\Administradores\forms.py:78
+msgid "Ingrese la misma contraseña que antes, para verificación."
+msgstr "Enter the same password as above for verification."
+
+#: .\Administradores\forms.py:93
+msgid "Nombre de usuario único"
+msgstr "Single username"
+
+#: .\Administradores\forms.py:96
+msgid "correo@ejemplo.com"
+msgstr "example@mail.com"
+
+#: .\Administradores\forms.py:99
+msgid "Nombres del usuario"
+msgstr "User names"
+
+#: .\Administradores\forms.py:102
+msgid "Apellidos del usuario"
+msgstr "User surname"
+
+#: .\Administradores\forms.py:105 .\Administradores\forms.py:263
+msgid "Ej: +57 300 123 4567"
+msgstr "Example: +57 300 123 4567"
+
+#: .\Administradores\forms.py:119 .\Administradores\forms.py:301
+msgid "Ya existe un usuario con este email."
+msgstr "There is already a user with this email."
+
+#: .\Administradores\forms.py:125
+msgid "Ya existe un usuario con este nombre de usuario."
+msgstr "There is already a user with this username."
+
+#: .\Administradores\forms.py:134 .\Administradores\forms.py:309
+msgid "Formato de teléfono inválido."
+msgstr "Invalid telephone format."
+
+#: .\Administradores\forms.py:144 .\Administradores\forms.py:319
+msgid "El rol es obligatorio para empleados."
+msgstr "The role is mandatory for employees."
+
+#: .\Administradores\forms.py:154
+#: .\Administradores\templates\administradores\editar_usuario.html:151
+msgid "Perfil Activo"
+msgstr "Active profile"
+
+#: .\Administradores\forms.py:155
+msgid "Determina si el perfil específico está activo"
+msgstr "Determine if the specific profile is active"
+
+#: .\Administradores\forms.py:161
+msgid "Número de teléfono del usuario"
+msgstr "User phone number"
+
+#: .\Administradores\forms.py:172
+msgid "Rol asignado al empleado"
+msgstr "Role assigned to employee"
+
+#: .\Administradores\forms.py:176
+msgid "Nivel 1"
+msgstr "Level 1"
+
+#: .\Administradores\forms.py:177
+msgid "Nivel 2"
+msgstr "Level 2"
+
+#: .\Administradores\forms.py:178
+msgid "Nivel 3"
+msgstr "Level 3"
+
+#: .\Administradores\forms.py:181
+#: .\Empleados\templates\supervisor_dashboard.html:176
+msgid "Nivel de Acceso"
+msgstr "Access level"
+
+#: .\Administradores\forms.py:182
+msgid "Nivel de permisos del empleado"
+msgstr "Employee permissions"
+
+#: .\Administradores\forms.py:194
+msgid "Cambiar el tipo de perfil del usuario"
+msgstr "Change the user profile type"
+
+#: .\Administradores\forms.py:200
+msgid "Puede Gestionar Usuarios"
+msgstr "Manage users"
+
+#: .\Administradores\forms.py:201
+msgid "Permite al administrador crear, editar y eliminar usuarios"
+msgstr "It allows the administrator to create, edit and eliminate users"
+
+#: .\Administradores\forms.py:205
+msgid "Puede Ver Estadísticas"
+msgstr "You can see statistics"
+
+#: .\Administradores\forms.py:206
+msgid "Permite al administrador acceder a reportes y estadísticas"
+msgstr "Allows the administrator to access reports and statistics"
+
+#: .\Administradores\forms.py:210
+msgid "Puede Gestionar Pagos"
+msgstr "You can manage payments"
+
+#: .\Administradores\forms.py:211
+msgid "Permite al administrador gestionar información de pagos"
+msgstr "Allows the administrator to manage payment information"
+
+#: .\Administradores\forms.py:217
+msgid "Básico"
+msgstr "Essential"
+
+#: .\Administradores\forms.py:218
+msgid "Profesional"
+msgstr "Professional"
+
+#: .\Administradores\forms.py:219
+msgid "Empresarial"
+msgstr "Business"
+
+#: .\Administradores\forms.py:222
+msgid "Plan del Cliente"
+msgstr "Customer Panel"
+
+#: .\Administradores\forms.py:223
+msgid "Plan de hosting asignado al cliente"
+msgstr "Customer assigned hosting plan"
+
+#: .\Administradores\forms.py:227
+msgid "Tiene Suscripción Activa"
+msgstr "It has an active subscription"
+
+#: .\Administradores\forms.py:228
+msgid "Indica si el cliente tiene una suscripción activa"
+msgstr "Indicates if the client has an active subscription"
+
+#: .\Administradores\forms.py:239
+msgid "Usuario Activo"
+msgstr "Active user"
+
+#: .\Administradores\forms.py:242
+msgid "Nombre único para identificar al usuario"
+msgstr "Unique name to identify the user"
+
+#: .\Administradores\forms.py:243
+msgid "Dirección de correo electrónico"
+msgstr "Email"
+
+#: .\Administradores\forms.py:244
+msgid "Nombre(s) del usuario"
+msgstr "User names"
+
+#: .\Administradores\forms.py:245
+msgid "Apellido(s) del usuario"
+msgstr "User Surname (s)"
+
+#: .\Administradores\forms.py:246
+msgid "Determina si el usuario puede iniciar sesión"
+msgstr "Determine if the user can log in"
+
+#: .\Administradores\forms.py:326 .\Administradores\forms.py:333
+#: .\Administradores\forms.py:548
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:45
+msgid "Todos"
+msgstr "All"
+
+#: .\Administradores\forms.py:327
+#: .\Administradores\templates\administradores\dashboard.html:311
+#: .\Administradores\templates\administradores\estadisticas_usuarios.html:254
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:46
+msgid "Clientes"
+msgstr "Customers"
+
+#: .\Administradores\forms.py:328
+#: .\Administradores\templates\administradores\dashboard.html:311
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:47
+msgid "Empleados"
+msgstr "Employees"
+
+#: .\Administradores\forms.py:329
+#: .\Administradores\templates\administradores\dashboard.html:311
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:48
+msgid "Administradores"
+msgstr "Administrators"
+
+#: .\Administradores\forms.py:334
+msgid "Activos"
+msgstr "Assets"
+
+#: .\Administradores\forms.py:335
+msgid "Inactivos"
+msgstr "Inactive"
+
+#: .\Administradores\forms.py:340
+msgid "Fecha de Registro (Recientes)"
+msgstr "Registration date (recent)"
+
+#: .\Administradores\forms.py:341
+msgid "Fecha de Registro (Antiguos)"
+msgstr "Registration date (old)"
+
+#: .\Administradores\forms.py:351
+msgid "Filtrar por tipo de perfil"
+msgstr "Filter by type of profile"
+
+#: .\Administradores\forms.py:356
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:52
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:60
+msgid "Buscar"
+msgstr "Look for"
+
+#: .\Administradores\forms.py:357
+msgid "Buscar por nombre, usuario o email"
+msgstr "Search by name, user or email"
+
+#: .\Administradores\forms.py:363
+#: .\Administradores\templates\administradores\confirmar_eliminacion.html:57
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:82
+#: .\Distribuidor\templates\distribuidores\mis_paquetes.html:107
+#: .\Empleados\templates\agente_dashboard.html:199
+#: .\Empleados\templates\agente_dashboard.html:248
+#: .\Empleados\templates\agente_dashboard.html:312
+#: .\Empleados\templates\mis_tickets.html:299
+#: .\Empleados\templates\supervisor_dashboard.html:331
+#: .\Empleados\templates\supervisor_dashboard.html:416
+#: .\Empleados\templates\supervisor_dashboard.html:539
+#: .\Empleados\templates\supervisor_dashboard.html:583
+#: .\Empleados\templates\supervisor_dashboard.html:702
+#: .\Tickets\templates\tickets_cliente.html:66
+msgid "Estado"
+msgstr "State"
+
+#: .\Administradores\forms.py:364
+msgid "Filtrar por estado del usuario"
+msgstr "Filter by state"
+
+#: .\Administradores\forms.py:370
+msgid "Ordenar por"
+msgstr "sort by"
+
+#: .\Administradores\forms.py:371
+msgid "Criterio de ordenamiento"
+msgstr "Ordering criteria"
+
+#: .\Administradores\forms.py:378 .\Administradores\forms.py:535
+msgid "Registrado desde"
+msgstr "Registered from"
+
+#: .\Administradores\forms.py:379
+msgid "Mostrar usuarios registrados desde esta fecha"
+msgstr "Show registered users from this date"
+
+#: .\Administradores\forms.py:384 .\Administradores\forms.py:541
+msgid "Registrado hasta"
+msgstr "Registered up to"
+
+#: .\Administradores\forms.py:385
+msgid "Mostrar usuarios registrados hasta esta fecha"
+msgstr "Show registered users to this date"
+
+#: .\Administradores\forms.py:395
+msgid "Buscar usuarios..."
+msgstr "Find users ..."
+
+#: .\Administradores\forms.py:404 .\Administradores\forms.py:637
+msgid "La fecha \"desde\" debe ser anterior a la fecha \"hasta\"."
+msgstr "The date \"from\" must be prior to date \"to\"."
+
+#: .\Administradores\forms.py:411
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:25
+msgid "Últimos 7 días"
+msgstr "Last 7 days"
+
+#: .\Administradores\forms.py:412
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:26
+msgid "Últimos 30 días"
+msgstr "Last 30 days"
+
+#: .\Administradores\forms.py:413
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:27
+msgid "Últimos 3 meses"
+msgstr "Last 3 months"
+
+#: .\Administradores\forms.py:414
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:28
+msgid "Último año"
+msgstr "Last year"
+
+#: .\Administradores\forms.py:415
+#: .\Administradores\templates\administradores\estadisticas_pagos.html:29
+msgid "Personalizado"
+msgstr "Personalized"
+
+#: .\Administradores\forms.py:419 .\Administradores\forms.py:586
+msgid "Estadísticas Generales"
+msgstr "General statistics"
+
+#: .\Administradores\forms.py:420
+#: .\Administradores\templates\administradores\base.html:93
+msgid "Usuarios"
+msgstr "Users"
+
+#: .\Administradores\forms.py:421
+msgid "Pagos"
+msgstr "Payments"
+
+#: .\Administradores\forms.py:422
+msgid "Solo Hosting"
+msgstr "Only hosting"
+
+#: .\Administradores\forms.py:423
+msgid "Solo Distribuidores"
+msgstr "Only distributors"
+
+#: .\Administradores\forms.py:430
+msgid "Período de Tiempo"
+msgstr "Period of time"
+
+#: .\Administradores\forms.py:431
+msgid "Seleccione el rango temporal para las estadísticas"
+msgstr "Select the temporary range for statistics"
+
+#: .\Administradores\forms.py:436
+msgid "Fecha de Inicio"
+msgstr "Date Start"
+
+#: .\Administradores\forms.py:437 .\Administradores\forms.py:443
+msgid "Solo para período personalizado"
+msgstr "Only for personalized period"
+
+#: .\Administradores\forms.py:442
+msgid "Fecha de Fin"
+msgstr "End date"
+
+#: .\Administradores\forms.py:449
+msgid "Tipo de Estadística"
+msgstr "Type of statistics"
+
+#: .\Administradores\forms.py:450
+msgid "Seleccione el tipo de reporte a generar"
+msgstr "Select the type of report to generate"
+
+#: .\Administradores\forms.py:454 .\Administradores\forms.py:607
+msgid "Incluir Usuarios Inactivos"
+msgstr "Include inactive users"
+
+#: .\Administradores\forms.py:455
+msgid "Incluir usuarios desactivados en las estadísticas"
+msgstr "Include users deactivated in statistics"
+
+#: .\Administradores\forms.py:474
+msgid "Para período personalizado, debe especificar ambas fechas."
+msgstr "For personalized period, you must specify both dates."
+
+#: .\Administradores\forms.py:476
+msgid "La fecha de inicio debe ser anterior a la fecha de fin."
+msgstr "The start date must be prior to the end date."
+
+#: .\Administradores\forms.py:492
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:8
+msgid "Gestionar Usuarios"
+msgstr "Manage users"
+
+#: .\Administradores\forms.py:493
+msgid "Ver Estadísticas"
+msgstr "See statistics"
+
+#: .\Administradores\forms.py:494
+msgid "Gestionar Pagos"
+msgstr "Manage payments"
+
+#: .\Administradores\forms.py:497
+msgid "Permite crear, editar y eliminar usuarios del sistema"
+msgstr "Allows to create, edit and eliminate system users"
+
+#: .\Administradores\forms.py:498
+msgid "Permite acceso a reportes y estadísticas del sistema"
+msgstr "Allows access to reports and system statistics"
+
+#: .\Administradores\forms.py:499
+msgid "Permite gestionar información relacionada con pagos"
+msgstr "Allows managing information related to payments"
+
+#: .\Administradores\forms.py:515
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:80
+#: .\Clientes\templates\perfil.html:64
+msgid "Nombre Completo"
+msgstr "Full name"
+
+#: .\Administradores\forms.py:516
+msgid "Buscar por nombre y apellido"
+msgstr "Search by name and surname"
+
+#: .\Administradores\forms.py:521
+msgid "Email contiene"
+msgstr "Email support"
+
+#: .\Administradores\forms.py:522
+msgid "Buscar emails que contengan este texto"
+msgstr "Search emails containing this text"
+
+#: .\Administradores\forms.py:527
+msgid "Usuario contiene"
+msgstr "User contains"
+
+#: .\Administradores\forms.py:528
+msgid "Buscar nombres de usuario que contengan este texto"
+msgstr "Find user names that contain this text"
+
+#: .\Administradores\forms.py:536
+msgid "Usuarios registrados después de esta fecha y hora"
+msgstr "Registered users after this date and time"
+
+#: .\Administradores\forms.py:542
+msgid "Usuarios registrados antes de esta fecha y hora"
+msgstr "Registered users before this date and time"
+
+#: .\Administradores\forms.py:549
+msgid "Con teléfono"
+msgstr "With phone"
+
+#: .\Administradores\forms.py:550
+msgid "Sin teléfono"
+msgstr "No phone"
+
+#: .\Administradores\forms.py:554
+msgid "Filtrar por presencia de número telefónico"
+msgstr "Filter for the presence of telephone number"
+
+#: .\Administradores\forms.py:564
+msgid "Ej: Juan Pérez"
+msgstr "Ex: Juan Pérez"
+
+#: .\Administradores\forms.py:567
+msgid "Ej: gmail.com"
+msgstr "Ex: gmail.com"
+
+#: .\Administradores\forms.py:570
+msgid "Ej: admin"
+msgstr "Ex: admin"
+
+#: .\Administradores\forms.py:578
+msgid "CSV"
+msgstr "CSV"
+
+#: .\Administradores\forms.py:579
+msgid "Excel (.xlsx)"
+msgstr "Excel (.xlsx)"
+
+#: .\Administradores\forms.py:580
+msgid "PDF"
+msgstr "PDF"
+
+#: .\Administradores\forms.py:584
+#: .\Administradores\templates\administradores\gestionar_usuarios.html:71
+msgid "Lista de Usuarios"
+msgstr "List of users"
+
+#: .\Administradores\forms.py:585
+msgid "Historial de Pagos"
+msgstr "States history"
+
+#: .\Administradores\forms.py:587
+msgid "Solo Clientes"
+msgstr "Only customers"
+
+#: .\Administradores\forms.py:588
+msgid "Solo Empleados"
+msgstr "Only employees"
+
+#: .\Administradores\forms.py:589
+msgid "Solo Administradores"
+msgstr "Only administrators"
+
+#: .\Administradores\forms.py:595
+msgid "Tipo de Datos"
+msgstr "Data type"
+
+#: .\Administradores\forms.py:596
+msgid "Seleccione qué información exportar"
+msgstr "Select what information export"
+
+#: .\Administradores\forms.py:602
+msgid "Formato de Exportación"
+msgstr "Export format"
+
+#: .\Administradores\forms.py:603
+msgid "Formato del archivo a generar"
+msgstr "File format to generate"
+
+#: .\Administradores\forms.py:608
+msgid "Incluir usuarios desactivados en la exportación"
+msgstr "Include users deactivated in export"
+
+#: .\Administradores\forms.py:613
+msgid "Desde Fecha"
+msgstr "From date"
+
+#: .\Administradores\forms.py:614
+msgid "Solo datos desde esta fecha (opcional)"
+msgstr "Only data from this date (optional)"
+
+#: .\Administradores\forms.py:619
+#| msgid "Fecha"
+msgid "Hasta Fecha"
+msgstr "To date"
+
+#: .\Administradores\forms.py:620
+msgid "Solo datos hasta esta fecha (opcional)"
+msgstr "Only data until this date (optional)"
 
 #: .\Administradores\templates\administradores\base.html:8
 msgid "Panel de Administración - ChibchaWeb"
@@ -55,10 +726,6 @@ msgstr "Statistics"
 msgid "Pagos e Ingresos"
 msgstr "Payments and income"
 
-#: .\Administradores\templates\administradores\base.html:93
-msgid "Usuarios"
-msgstr "Users"
-
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:3
 msgid "Confirmar Eliminación - Admin Panel"
 msgstr "Confirm elimination - admin panel"
@@ -70,7 +737,6 @@ msgstr "Confirm elimination"
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:10
 #: .\Administradores\templates\administradores\crear_usuario.html:10
 #: .\Administradores\templates\administradores\editar_usuario.html:10
-#: .\Clientes\templates\registro.html:88
 msgid "Volver"
 msgstr "Return"
 
@@ -106,34 +772,6 @@ msgstr "Basic information"
 msgid "Usuario"
 msgstr "User"
 
-#: .\Administradores\templates\administradores\confirmar_eliminacion.html:38
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:79
-#: .\Clientes\templates\editar.html:92
-#: .\Clientes\templates\home_clientes.html:118
-#: .\Clientes\templates\perfil.html:58
-#: .\Empleados\templates\agente_dashboard.html:71
-#: .\Empleados\templates\agente_dashboard.html:296
-#: .\Empleados\templates\mis_tickets.html:66
-#: .\Empleados\templates\supervisor_dashboard.html:74
-#: .\Empleados\templates\supervisor_dashboard.html:415
-#: .\Empleados\templates\supervisor_dashboard.html:664
-msgid "Email"
-msgstr "E-mail"
-
-#: .\Administradores\templates\administradores\confirmar_eliminacion.html:39
-#: .\Clientes\forms.py:23 .\Clientes\forms.py:53
-#: .\Clientes\templates\editar.html:119
-#: .\Empleados\templates\agente_dashboard.html:197
-#: .\Empleados\templates\agente_dashboard.html:246
-#: .\Empleados\templates\mis_tickets.html:297
-#: .\Empleados\templates\supervisor_dashboard.html:250
-#: .\Empleados\templates\supervisor_dashboard.html:328
-#: .\Empleados\templates\supervisor_dashboard.html:413
-#: .\Empleados\templates\supervisor_dashboard.html:536
-#: .\Tickets\templates\tickets_cliente.html:57
-msgid "Nombre"
-msgstr "Name"
-
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:40
 #: .\Administradores\templates\administradores\editar_usuario.html:207
 msgid "Registro"
@@ -148,57 +786,10 @@ msgstr "Details"
 msgid "Tipo"
 msgstr "Guy"
 
-#: .\Administradores\templates\administradores\confirmar_eliminacion.html:48
-#: .\Administradores\templates\administradores\crear_usuario.html:170
-#: .\Administradores\templates\administradores\editar_usuario.html:197
-#: .\Administradores\templates\administradores\estadisticas_pagos.html:244
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:102
-#: .\Dominios\templates\agregar_dominio.html:52
-#: .\Empleados\templates\agente_dashboard.html:198
-#: .\Empleados\templates\agente_dashboard.html:247
-#: .\Empleados\templates\mis_tickets.html:195
-#: .\Empleados\templates\mis_tickets.html:298
-#: .\Empleados\templates\supervisor_dashboard.html:251
-#: .\Empleados\templates\supervisor_dashboard.html:329
-#: .\Empleados\templates\supervisor_dashboard.html:537
-#: .\Empleados\templates\supervisor_dashboard.html:581
-#: .\Empleados\templates\supervisor_dashboard.html:701
-msgid "Cliente"
-msgstr "Customer"
-
-#: .\Administradores\templates\administradores\confirmar_eliminacion.html:50
-#: .\Administradores\templates\administradores\crear_usuario.html:174
-#: .\Administradores\templates\administradores\editar_usuario.html:199
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:106
-msgid "Empleado"
-msgstr "Employee"
-
-#: .\Administradores\templates\administradores\confirmar_eliminacion.html:52
-#: .\Administradores\templates\administradores\crear_usuario.html:178
-#: .\Administradores\templates\administradores\editar_usuario.html:201
-msgid "Administrador"
-msgstr "Administrator"
-
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:54
 #: .\Administradores\templates\administradores\editar_usuario.html:203
 msgid "Usuario Base"
 msgstr "Base user"
-
-#: .\Administradores\templates\administradores\confirmar_eliminacion.html:57
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:82
-#: .\Distribuidor\templates\distribuidores\mis_paquetes.html:107
-#: .\Empleados\templates\agente_dashboard.html:199
-#: .\Empleados\templates\agente_dashboard.html:248
-#: .\Empleados\templates\agente_dashboard.html:312
-#: .\Empleados\templates\mis_tickets.html:299
-#: .\Empleados\templates\supervisor_dashboard.html:331
-#: .\Empleados\templates\supervisor_dashboard.html:416
-#: .\Empleados\templates\supervisor_dashboard.html:539
-#: .\Empleados\templates\supervisor_dashboard.html:583
-#: .\Empleados\templates\supervisor_dashboard.html:702
-#: .\Tickets\templates\tickets_cliente.html:66
-msgid "Estado"
-msgstr "State"
 
 #: .\Administradores\templates\administradores\confirmar_eliminacion.html:59
 #: .\Administradores\templates\administradores\editar_usuario.html:222
@@ -335,16 +926,8 @@ msgid "Roles de Empleado"
 msgstr "Employee roles"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:186
-msgid "Agente"
-msgstr "Agent"
-
-#: .\Administradores\templates\administradores\crear_usuario.html:186
 msgid "Soporte básico al cliente (Nivel 1)"
 msgstr "Basic customer support (level 1)"
-
-#: .\Administradores\templates\administradores\crear_usuario.html:189
-msgid "Supervisor"
-msgstr "Supervisor"
 
 #: .\Administradores\templates\administradores\crear_usuario.html:189
 msgid "Gestión de agentes y escalación (Nivel 2-3)"
@@ -521,22 +1104,6 @@ msgstr "Jul"
 msgid "Ingresos"
 msgstr "Income"
 
-#: .\Administradores\templates\administradores\dashboard.html:311
-#: .\Administradores\templates\administradores\estadisticas_usuarios.html:254
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:46
-msgid "Clientes"
-msgstr "Customers"
-
-#: .\Administradores\templates\administradores\dashboard.html:311
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:47
-msgid "Empleados"
-msgstr "Employees"
-
-#: .\Administradores\templates\administradores\dashboard.html:311
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:48
-msgid "Administradores"
-msgstr "Administrators"
-
 #: .\Administradores\templates\administradores\editar_usuario.html:3
 msgid "Editar Usuario - Admin Panel"
 msgstr "Edit User - Admin Panel"
@@ -552,10 +1119,6 @@ msgstr "Active Django account"
 #: .\Administradores\templates\administradores\editar_usuario.html:143
 msgid "Controla si el usuario puede iniciar sesión"
 msgstr "Control if the user can log in"
-
-#: .\Administradores\templates\administradores\editar_usuario.html:151
-msgid "Perfil Activo"
-msgstr "Active profile"
 
 #: .\Administradores\templates\administradores\editar_usuario.html:157
 msgid "Controla si el perfil específico está activo"
@@ -635,14 +1198,6 @@ msgstr "Role"
 msgid "Nivel"
 msgstr "Level"
 
-#: .\Administradores\templates\administradores\editar_usuario.html:282
-#: .\Clientes\forms.py:12 .\Clientes\forms.py:37
-#: .\Clientes\templates\editar.html:145 .\Clientes\templates\perfil.html:70
-#: .\Empleados\templates\agente_dashboard.html:323
-#: .\Empleados\templates\supervisor_dashboard.html:665
-msgid "Teléfono"
-msgstr "Phone"
-
 #: .\Administradores\templates\administradores\editar_usuario.html:292
 msgid "Zona de Peligro"
 msgstr "Danger zone"
@@ -675,26 +1230,6 @@ msgstr "Period filters"
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:23
 msgid "Período Predefinido"
 msgstr "Predefined period"
-
-#: .\Administradores\templates\administradores\estadisticas_pagos.html:25
-msgid "Últimos 7 días"
-msgstr "Last 7 days"
-
-#: .\Administradores\templates\administradores\estadisticas_pagos.html:26
-msgid "Últimos 30 días"
-msgstr "Last 30 days"
-
-#: .\Administradores\templates\administradores\estadisticas_pagos.html:27
-msgid "Últimos 3 meses"
-msgstr "Last 3 months"
-
-#: .\Administradores\templates\administradores\estadisticas_pagos.html:28
-msgid "Último año"
-msgstr "Last year"
-
-#: .\Administradores\templates\administradores\estadisticas_pagos.html:29
-msgid "Personalizado"
-msgstr "Personalized"
 
 #: .\Administradores\templates\administradores\estadisticas_pagos.html:33
 msgid "Fecha Inicio"
@@ -987,10 +1522,6 @@ msgstr "employees are active"
 msgid "Gestionar Usuarios - Admin Panel"
 msgstr "Manage users - admin panel"
 
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:8
-msgid "Gestionar Usuarios"
-msgstr "Manage users"
-
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:23
 msgid "Total Usuarios"
 msgstr "Total Users"
@@ -998,28 +1529,6 @@ msgstr "Total Users"
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:38
 msgid "Filtros"
 msgstr "Filters"
-
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:43
-msgid "Tipo de Usuario"
-msgstr "User type"
-
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:45
-msgid "Todos"
-msgstr "All"
-
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:52
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:60
-msgid "Buscar"
-msgstr "Look for"
-
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:71
-msgid "Lista de Usuarios"
-msgstr "List of users"
-
-#: .\Administradores\templates\administradores\gestionar_usuarios.html:80
-#: .\Clientes\templates\perfil.html:64
-msgid "Nombre Completo"
-msgstr "Full name"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:81
 msgid " Tipo"
@@ -1041,7 +1550,8 @@ msgid "Admin"
 msgstr "Admin"
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:150
-msgid "No se encontraron usuarios que coincidan con los criterios de búsqueda."
+msgid ""
+"No se encontraron usuarios que coincidan con los criterios de búsqueda."
 msgstr "No users were found that coincide with the search criteria."
 
 #: .\Administradores\templates\administradores\gestionar_usuarios.html:177
@@ -1059,12 +1569,6 @@ msgstr "Administration Panel"
 #: .\Administradores\templates\administradores\login.html:106
 msgid "Acceso Seguro"
 msgstr "Safe access"
-
-#: .\Administradores\templates\administradores\login.html:131
-#: .\ChibchaWeb\templates\login.html:21 .\Clientes\forms.py:65
-#: .\Empleados\templates\logEmpleados.html:53
-msgid "Contraseña"
-msgstr "Password"
 
 #: .\Administradores\templates\administradores\login.html:138
 #: .\ChibchaWeb\templates\login.html:24
@@ -1143,7 +1647,6 @@ msgstr "Close session"
 
 #: .\ChibchaWeb\templates\base.html:105 .\ChibchaWeb\templates\login.html:13
 #: .\Clientes\templates\activacion_exitosa.html:10
-#: .\Clientes\templates\registro.html:101
 msgid "Iniciar sesión"
 msgstr "Login"
 
@@ -1169,8 +1672,8 @@ msgstr "See plans"
 
 #: .\ChibchaWeb\templates\base.html:156
 msgid ""
-"Soluciones de hosting profesional para empresas y emprendedores en Colombia. "
-"Más de 10 años de experiencia en el sector"
+"Soluciones de hosting profesional para empresas y emprendedores en Colombia."
+" Más de 10 años de experiencia en el sector"
 msgstr ""
 "Professional hosting solutions for companies and entrepreneurs in "
 "Colombia.More than 10 years of experience in the sector"
@@ -1325,8 +1828,8 @@ msgstr "is always available"
 
 #: .\ChibchaWeb\templates\informacion.html:119
 msgid ""
-"El mejor hosting que he usado en Colombia. Rápido, confiable y con excelente "
-"soporte técnico."
+"El mejor hosting que he usado en Colombia. Rápido, confiable y con excelente"
+" soporte técnico."
 msgstr ""
 "The best hosting I have used in Colombia.Fast, reliable and with excellent "
 "technical support."
@@ -1352,7 +1855,7 @@ msgstr "Premium hosting"
 msgid "Servidores SSD NVMe ultrarrápidos"
 msgstr "Ultra -granted SSD NVME servers"
 
-#: .\ChibchaWeb\templates\informacion.html:159 .\ChibchaWeb\views.py:58
+#: .\ChibchaWeb\templates\informacion.html:159
 msgid "SSL Gratuito"
 msgstr "Free SSL"
 
@@ -1360,7 +1863,7 @@ msgstr "Free SSL"
 msgid "Certificados SSL automáticos"
 msgstr "Automatic SSL certificates"
 
-#: .\ChibchaWeb\templates\informacion.html:169 .\ChibchaWeb\views.py:59
+#: .\ChibchaWeb\templates\informacion.html:169
 #: .\Dominios\templates\agregar_dominio.html:232
 msgid "Soporte 24/7"
 msgstr "24/7 support"
@@ -1386,7 +1889,7 @@ msgstr "Hosting plans"
 msgid "Elige el plan perfecto para tu proyecto"
 msgstr "Choose the perfect plan for your project"
 
-#: .\ChibchaWeb\templates\informacion.html:200 .\ChibchaWeb\views.py:116
+#: .\ChibchaWeb\templates\informacion.html:200
 msgid "Plata"
 msgstr "Silver"
 
@@ -1410,7 +1913,7 @@ msgstr "Gratuitous"
 msgid "Más Popular"
 msgstr "More popular"
 
-#: .\ChibchaWeb\templates\informacion.html:224 .\ChibchaWeb\views.py:117
+#: .\ChibchaWeb\templates\informacion.html:224
 msgid "Platino"
 msgstr "Platinum"
 
@@ -1430,7 +1933,7 @@ msgstr "Email marketing"
 msgid "CDN Global"
 msgstr "Global CDN"
 
-#: .\ChibchaWeb\templates\informacion.html:247 .\ChibchaWeb\views.py:118
+#: .\ChibchaWeb\templates\informacion.html:247
 msgid "Oro"
 msgstr "Gold"
 
@@ -1479,24 +1982,6 @@ msgstr "Nickname"
 msgid "Portal Administradores"
 msgstr "Administrators portal"
 
-#: .\ChibchaWeb\views.py:36
-#, python-format
-msgid "%(count)d Sitio Web"
-msgid_plural "%(count)d Sitios Web"
-msgstr[0] ""
-msgstr[1] ""
-
-#: .\ChibchaWeb\views.py:43
-#, python-format
-msgid "%(count)d Base de Datos"
-msgid_plural "%(count)d Bases de Datos"
-msgstr[0] ""
-msgstr[1] ""
-
-#: .\ChibchaWeb\views.py:58
-msgid "Sin SSL"
-msgstr "Without SSL"
-
 #: .\Clientes\forms.py:15
 msgid "Ingresa tu número de teléfono"
 msgstr "Enter your phone number"
@@ -1505,14 +1990,9 @@ msgstr "Enter your phone number"
 msgid "Opcional. Máximo 30 caracteres."
 msgstr "Optional. Maximum 30 characters."
 
-#: .\Clientes\forms.py:29 .\Clientes\forms.py:54
-#: .\Clientes\templates\editar.html:131
-msgid "Apellido"
-msgstr "Last name"
-
 #: .\Clientes\forms.py:38
 msgid "Opcional. Formato: 3001234567"
-msgstr ""
+msgstr "Optional.Format: 3001234567"
 
 #: .\Clientes\forms.py:44 .\Clientes\forms.py:55
 msgid "Correo electrónico"
@@ -1528,13 +2008,16 @@ msgstr "Username"
 
 #: .\Clientes\forms.py:58
 msgid "Requerido. 150 caracteres máximo. Solo letras, dígitos y @/./+/-/_."
-msgstr "Required. 150 characters maximum. Only letters, digits, and @/./+/-/_."
+msgstr ""
+"Required. 150 characters maximum. Only letters, digits, and @/./+/-/_."
 
 #: .\Clientes\forms.py:67
 msgid ""
 "Tu contraseña debe contener al menos 8 caracteres, no puede ser muy común y "
 "no puede ser completamente numérica."
 msgstr ""
+"Your password must contain at least 8 characters, it cannot be very common "
+"and cannot be completely numerical."
 
 #: .\Clientes\forms.py:71
 msgid "Confirmar contraseña"
@@ -1655,7 +2138,6 @@ msgstr "User from"
 
 #: .\Clientes\templates\detalle_cliente.html:43
 #: .\Clientes\templates\editar.html:111 .\Clientes\templates\perfil.html:46
-#: .\Clientes\templates\registro.html:31
 #: .\Distribuidor\templates\distribuidores\dashboard.html:59
 #: .\Empleados\templates\supervisor_dashboard.html:659
 msgid "Información Personal"
@@ -1801,10 +2283,6 @@ msgstr "Account information"
 msgid "Actualiza tu información de acceso"
 msgstr "Update your access information"
 
-#: .\Clientes\templates\editar.html:77 .\Clientes\templates\perfil.html:52
-msgid "Nombre de Usuario"
-msgstr "User name"
-
 #: .\Clientes\templates\editar.html:87
 msgid "Tu nombre de usuario único en ChibchaWeb"
 msgstr "Your single username in Chibchaweb"
@@ -1900,8 +2378,8 @@ msgstr "Control Panel"
 
 #: .\Clientes\templates\home_clientes.html:19
 msgid ""
-"Gestiona tus servicios de hosting, revisa estadísticas y controla todo desde "
-"tu panel personalizado."
+"Gestiona tus servicios de hosting, revisa estadísticas y controla todo desde"
+" tu panel personalizado."
 msgstr ""
 "Manage your hosting services, check statistics and control everything from "
 "your personalized panel."
@@ -1991,7 +2469,8 @@ msgid "Panel VIP"
 msgstr "VIP panel"
 
 #: .\Clientes\templates\home_clientes.html:175
-#: .\Clientes\templates\mis_hosts.html:191 .\Clientes\templates\perfil.html:179
+#: .\Clientes\templates\mis_hosts.html:191
+#: .\Clientes\templates\perfil.html:179
 msgid "Verificar Dominio"
 msgstr "Verify domain"
 
@@ -2121,7 +2600,8 @@ msgstr "Acquire a plan to start"
 msgid ""
 "Para gestionar hosts y dominios, necesitas contratar uno de nuestros planes "
 "de hosting"
-msgstr "To manage hosts and domains, you need to hire one of our hosting plans"
+msgstr ""
+"To manage hosts and domains, you need to hire one of our hosting plans"
 
 #: .\Clientes\templates\mis_hosts.html:186
 msgid "Cómo agregar tu primer host"
@@ -2228,40 +2708,22 @@ msgid "para convertirte en distribuidor"
 msgstr "To become a distributor"
 
 #: .\Clientes\templates\quiero_ser_distribuidor.html:31
-msgid "Para ser distribuidor de ChibchaWeb, primero debes tener un plan activo. "
+msgid ""
+"Para ser distribuidor de ChibchaWeb, primero debes tener un plan activo. "
 "Esto nos permite garantizar que conoces nuestros servicios y puedes ofrecer "
 "la mejor experiencia a tus clientes"
-msgstr "To be a Chibchaweb distributor, you must first have an active plan.This "
-"allows us to guarantee that you know our services and you can offer the best "
-"experience to your customers"
+msgstr ""
+"To be a Chibchaweb distributor, you must first have an active plan.This "
+"allows us to guarantee that you know our services and you can offer the best"
+" experience to your customers"
 
-#: .\Clientes\templates\registro.html:4 .\Clientes\templates\registro.html:12
+#: .\Clientes\templates\registro.html:4 .\Clientes\templates\registro.html:9
 msgid "Registrar Cliente"
 msgstr "Register customer"
 
 #: .\Clientes\templates\registro.html:13
-msgid "Crea tu cuenta para comenzar con tu hosting"
-msgstr "Create your account to start your hosting"
-
-#: .\Clientes\templates\registro.html:59
-msgid "Información de la Cuenta"
-msgstr "Account information"
-
-#: .\Clientes\templates\registro.html:80
-msgid "Nota:"
-msgstr "Note:"
-
-#: .\Clientes\templates\registro.html:81
-msgid "Recibirás un correo de confirmación para activar tu cuenta."
-msgstr "You will receive a confirmation email to activate your account."
-
-#: .\Clientes\templates\registro.html:92
 msgid "Registrar"
 msgstr "Register"
-
-#: .\Clientes\templates\registro.html:99
-msgid "¿Ya tienes una cuenta?"
-msgstr "Already have an account?"
 
 #: .\Distribuidor\templates\distribuidores\dashboard.html:28
 msgid "Administra tu negocio de reventa y gestiona tus paquetes de dominios"
@@ -2627,8 +3089,8 @@ msgid ""
 "Al agregar el dominio, nuestro equipo recibirá una notificación para "
 "configurar los servicios de hosting correspondientes"
 msgstr ""
-"By adding the domain, our equipment will receive a notification to configure "
-"the corresponding hosting services"
+"By adding the domain, our equipment will receive a notification to configure"
+" the corresponding hosting services"
 
 #: .\Dominios\templates\verificar_url.html:4
 msgid "Verificar Disponibilidad de URL"
@@ -2976,10 +3438,6 @@ msgstr "Level agents"
 #: .\Empleados\templates\supervisor_dashboard.html:144
 msgid "Agentes Activos"
 msgstr "Active agents"
-
-#: .\Empleados\templates\supervisor_dashboard.html:176
-msgid "Nivel de Acceso"
-msgstr "Access level"
 
 #: .\Empleados\templates\supervisor_dashboard.html:199
 msgid "Gestionar Tickets"
@@ -3340,8 +3798,8 @@ msgid ""
 "Tu paquete ha sido procesado exitosamente. Ya puedes comenzar a generar "
 "ingresos como distribuidor."
 msgstr ""
-"Your package has been processed successfully.You can start generating income "
-"as a distributor."
+"Your package has been processed successfully.You can start generating income"
+" as a distributor."
 
 #: .\Pagos\templates\confirmacion_pago_paquetes.html:57
 msgid "¡Compra Completada!"
@@ -3841,8 +4299,8 @@ msgid ""
 "Perfecto para comenzar tu negocio de reventa. Ideal para nuevos "
 "distribuidores que quieren generar ingresos adicionales."
 msgstr ""
-"Perfect to start your resale business.Ideal for new distributors who want to "
-"generate additional income."
+"Perfect to start your resale business.Ideal for new distributors who want to"
+" generate additional income."
 
 #: .\Pagos\templates\seleccionar_paquete.html:125
 msgid "Panel de control básico"
@@ -4036,6 +4494,146 @@ msgstr "Continue with the selected plan"
 msgid "Proceso seguro y protegido. Cancela cuando quieras"
 msgstr "Safe and protected process.Cancel whenever you want"
 
+#: .\Pagos\views.py:51 .\Pagos\views.py:526
+msgid "Dirección registrada exitosamente."
+msgstr "Successly registered address."
+
+#: .\Pagos\views.py:70 .\Pagos\views.py:147 .\Pagos\views.py:529
+#, python-format
+msgid "¡Perfecto! Ahora puedes continuar con tu plan %(plan)s."
+msgstr "Perfect!Now you can continue with your Plan %(Plan) s."
+
+#: .\Pagos\views.py:74 .\Pagos\views.py:530
+msgid ""
+"Ahora necesitas registrar una tarjeta de crédito para completar tu plan."
+msgstr "You need to register a credit card to process payment."
+
+#: .\Pagos\views.py:79 .\Pagos\views.py:527
+msgid "Error al registrar la dirección: %(error)s"
+msgstr "Error"
+
+#: .\Pagos\views.py:81 .\Pagos\views.py:161 .\Pagos\views.py:528
+msgid "Por favor completa todos los campos requeridos."
+msgstr "Please complete all the required fields."
+
+#: .\Pagos\views.py:108 .\Pagos\views.py:533
+msgid "El formato de fecha debe ser MM/AA"
+msgstr "The date format must be mm/aa"
+
+#: .\Pagos\views.py:113 .\Pagos\views.py:534
+msgid "El CVV debe tener 3 o 4 dígitos"
+msgstr "The CVV must have 3 or 4 digits"
+
+#: .\Pagos\views.py:128 .\Pagos\views.py:532
+msgid "Tarjeta de crédito registrada exitosamente."
+msgstr "Successfully registered credit card."
+
+#: .\Pagos\views.py:151 .\Pagos\views.py:531
+msgid ""
+"Ahora necesitas registrar una dirección de facturación para completar tu "
+msgstr "Now you need to register a billing address to complete your"
+
+#: .\Pagos\views.py:159 .\Pagos\views.py:535
+#, python-format
+msgid "Error al registrar la tarjeta: %(error)s"
+msgstr "Error when registering the card: %(error) s"
+
+#: .\Pagos\views.py:176 .\Pagos\views.py:536
+msgid "Dirección eliminada exitosamente."
+msgstr "Successfully eliminated address."
+
+#: .\Pagos\views.py:178 .\Pagos\views.py:537
+#, python-format
+msgid "Error al eliminar la dirección: %(error)s"
+msgstr "Error eliminating address: %(error) s"
+
+#: .\Pagos\views.py:195 .\Pagos\views.py:538
+msgid "Tarjeta eliminada exitosamente."
+msgstr "Successfully eliminated card."
+
+#: .\Pagos\views.py:197 .\Pagos\views.py:539
+#, python-format
+msgid "Error al eliminar la tarjeta: %(error)s"
+msgstr "Error deleting the card: %(error) s"
+
+#: .\Pagos\views.py:211 .\Pagos\views.py:540
+msgid "Debes ser un cliente registrado para adquirir un plan."
+msgstr "You must be a registered customer to acquire a plan."
+
+#: .\Pagos\views.py:222 .\Pagos\views.py:541
+msgid ""
+"Necesitas registrar una dirección de facturación antes de continuar con tu "
+"plan."
+msgstr ""
+"You need to register a billing address before continuing with your plan"
+
+#: .\Pagos\views.py:230 .\Pagos\views.py:542
+msgid ""
+"Necesitas registrar una tarjeta de crédito antes de continuar con tu plan."
+msgstr "You need to register a credit card before continuing with your plan."
+
+#: .\Pagos\views.py:239 .\Pagos\views.py:543
+msgid ""
+"Plan %(plan)s en modalidad %(modalidad)s seleccionado. Ahora selecciona tu "
+"dirección y tarjeta de pago."
+msgstr ""
+"lan %(Plan) S in Modality %(Modality) S Selected.Now select your address and"
+" payment card."
+
+#: .\Pagos\views.py:249 .\Pagos\views.py:344 .\Pagos\views.py:544
+msgid "Debes ser un cliente registrado."
+msgstr "You must be a registered customer."
+
+#: .\Pagos\views.py:259 .\Pagos\views.py:545
+msgid "Debes seleccionar un paquete primero."
+msgstr "You must select a package first."
+
+#: .\Pagos\views.py:266 .\Pagos\views.py:546
+msgid "Debes seleccionar un plan primero."
+msgstr "You must select a plan first."
+
+#: .\Pagos\views.py:284 .\Pagos\views.py:547
+msgid "Debes seleccionar una dirección y una tarjeta para continuar."
+msgstr "You must select an address and a card to continue."
+
+#: .\Pagos\views.py:295 .\Pagos\views.py:548
+#, python-format
+msgid "Seleccionado: %(direccion)s y tarjeta terminada en %(tarjeta)s"
+msgstr "Selected: %(address) s and card finished in %(card) S"
+
+#: .\Pagos\views.py:306 .\Pagos\views.py:549
+msgid "Dirección o tarjeta no válida."
+msgstr "Non -valid address or card."
+
+#: .\Pagos\views.py:354 .\Pagos\views.py:450 .\Pagos\views.py:550
+msgid ""
+"Faltan datos para procesar el pago. Por favor, inicia el proceso nuevamente."
+msgstr "Data is missing to process payment.Please start the process again."
+
+#: .\Pagos\views.py:362 .\Pagos\views.py:458 .\Pagos\views.py:551
+msgid "Datos de dirección o tarjeta no válidos."
+msgstr "Non -valid address or card data."
+
+#: .\Pagos\views.py:392 .\Pagos\views.py:552
+#, python-format
+msgid "¡Pago procesado exitosamente! Tu plan %(plan)s está activo."
+msgstr "Payment processed successfully!Your plan %(plan) s is active."
+
+#: .\Pagos\views.py:481 .\Pagos\views.py:553
+msgid "Compra de %(cantidad)s páginas para reventa"
+msgstr "Pages for resale"
+
+#: .\Pagos\views.py:490 .\Pagos\views.py:554
+msgid "No se pudo actualizar el perfil de distribuidor."
+msgstr "The distributor profile could not be updated."
+
+#: .\Pagos\views.py:492 .\Pagos\views.py:555
+#, python-format
+msgid ""
+"¡Pago procesado exitosamente! Se agregaron %(cantidad)s páginas a tu cuenta."
+msgstr ""
+"Payment processed successfully!%(Quantity) were added to your account."
+
 #: .\Tickets\templates\crear_ticket.html:5
 msgid "Crear Ticket - ChibchaWeb"
 msgstr "Create Ticket - Chibchaweb"
@@ -4187,8 +4785,8 @@ msgid ""
 "¿Necesitas ayuda? Crea tu primer ticket de soporte y nuestro equipo te "
 "ayudará a resolver cualquier problema."
 msgstr ""
-"Do you need help?Create your first support ticket and our team will help you "
-"solve any problem."
+"Do you need help?Create your first support ticket and our team will help you"
+" solve any problem."
 
 #: .\Tickets\templates\tickets_cliente.html:313
 msgid "Crear Mi Primer Ticket"
@@ -4283,8 +4881,8 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:297
 msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
 msgstr ""
 "Enter a Valid \"slug\" consisting of unicode letters, numbers, underscores, "
 "or hyphens."
@@ -4340,8 +4938,9 @@ msgid ""
 "Ensure this value is a multiple of step size %(limit_value)s, starting from "
 "%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
 msgstr ""
-"Ensure This is a multiple of Step Size %(Limit_value) S, Starting From %"
-"(Offset) S, E.G.%(offset) s, %(valid_value1) s, %(valid_value2) s, and so on."
+"Ensure This is a multiple of Step Size %(Limit_value) S, Starting From "
+"%(Offset) S, E.G.%(offset) s, %(valid_value1) s, %(valid_value2) s, and so "
+"on."
 
 #: .\venv\Lib\site-packages\django\core\validators.py:473
 #, python-format
@@ -4496,8 +5095,8 @@ msgid ""
 "“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
 "date."
 msgstr ""
-"“%(Value) s” value have the correct format (yyyy-mm-dd) but it is an invalid "
-"date."
+"“%(Value) s” value have the correct format (yyyy-mm-dd) but it is an invalid"
+" date."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
 msgid "Date (without time)"
@@ -4515,8 +5114,8 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
 #, python-format
 msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
+"“%(value)s” value has the correct format (YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
 msgstr ""
 "“%(Value) s” value have the correct format (yyyy-mm-dd hh: mm [: ss "
 "[.uuuuu]] [tz]) but it is an invalid date/time."
@@ -4540,8 +5139,8 @@ msgid ""
 "“%(value)s” value has an invalid format. It must be in [DD] "
 "[[HH:]MM:]ss[.uuuuuu] format."
 msgstr ""
-"\"%(Value) s\" Value has an invalid format.It must be in [dd] [[hh:] mm:] ss "
-"[.uuuuu] format."
+"\"%(Value) s\" Value has an invalid format.It must be in [dd] [[hh:] mm:] ss"
+" [.uuuuu] format."
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
 msgid "Duration"
@@ -4703,7 +5302,8 @@ msgid "Many-to-many relationship"
 msgstr "Many-to-Many Relationship"
 
 #. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the label
+#. characters will prevent the default label_suffix to be appended to the
+#. label
 #: .\venv\Lib\site-packages\django\forms\boundfield.py:185
 msgid ":?.!"
 msgstr ":?.!"
@@ -4753,7 +5353,8 @@ msgstr "The Submitted File is Empty."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:644
 #, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid ""
+"Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -4866,8 +5467,10 @@ msgid "The inline value did not match the parent instance."
 msgstr "The Inline Value Did Not Match The Parent Instance."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1450
-msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr "Select a Valid Choice.That choice is not One of the Available Choices."
+msgid ""
+"Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+"Select a Valid Choice.That choice is not One of the Available Choices."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1594
 #, python-format
@@ -5309,8 +5912,8 @@ msgid ""
 "hijacked by third parties."
 msgstr ""
 "You are Seeing this Message Because This https site requires “referer "
-"header” to be feel by your web browser, but none was for feeling.This Header "
-"is required for Security Reasons, to reure that your browser is not being "
+"header” to be feel by your web browser, but none was for feeling.This Header"
+" is required for Security Reasons, to reure that your browser is not being "
 "hijacked by third parties."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:40
@@ -5325,17 +5928,17 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:45
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a "
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
+" including the “Referrer-Policy: no-referrer” header, please remove them. "
+"The CSRF protection requires the “Referer” header to do strict referer "
+"checking. If you’re concerned about privacy, use alternatives like <a "
 "rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
 "If you are using the <finish name = \"referer\" content = \"no-refererr\"> "
 "tag or including the \"refererr-political: no-refererr\" Header, please "
 "remave them.The CSRF Protection requirements the “referer” Header to do "
-"strict referer checking.If you’re concertned advocacy, use alternatives like "
-"<a rel = \"noreferrer\" ...> for links to third-parts sites."
+"strict referer checking.If you’re concertned advocacy, use alternatives like"
+" <a rel = \"noreferrer\" ...> for links to third-parts sites."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:54
 msgid ""
@@ -5344,8 +5947,8 @@ msgid ""
 "that your browser is not being hijacked by third parties."
 msgstr ""
 "You are Seeing this Message Because This Site requires CSRF Cookie When "
-"Submitting Forms.This cookie is required for security reasons, to reure that "
-"your browser is not being hijacled by third parties."
+"Submitting Forms.This cookie is required for security reasons, to reure that"
+" your browser is not being hijacled by third parties."
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:60
 msgid ""
@@ -5393,8 +5996,8 @@ msgid ""
 "Future %(verbose_name_plural)s not available because "
 "%(class_name)s.allow_future is False."
 msgstr ""
-"Future %(verbose_name_plural) s notvailable scholary "
-"%(class_name) s.allow_future is false."
+"Future %(verbose_name_plural) s notvailable scholary %(class_name) "
+"s.allow_future is false."
 
 #: .\venv\Lib\site-packages\django\views\generic\dates.py:720
 #, python-format
@@ -5451,13 +6054,14 @@ msgstr "View <a href = \"https://docs.djangoproject.com/en/% Let"
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
 #, python-format
 msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" "
-"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
-"configured any URLs."
+"You are seeing this page because <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+"and you have not configured any URLs."
 msgstr ""
-"You are Seeing this Page Because <a href = \"https://docs.djangoproject.com/"
-"en/% Letting)s/ref/settings/#debug\" target = \"_ blank\" RefugAny URLs."
+"You are Seeing this Page Because <a href = "
+"\"https://docs.djangoproject.com/en/% Letting)s/ref/settings/#debug\" target"
+" = \"_ blank\" RefugAny URLs."
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
 msgid "Django Documentation"
@@ -5482,3 +6086,21 @@ msgstr "Django Community"
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr "Connect, Get Help, or contributes"
+
+#~ msgid "Sin SSL"
+#~ msgstr "Without SSL"
+
+#~ msgid "Crea tu cuenta para comenzar con tu hosting"
+#~ msgstr "Create your account to start your hosting"
+
+#~ msgid "Información de la Cuenta"
+#~ msgstr "Account information"
+
+#~ msgid "Nota:"
+#~ msgstr "Note:"
+
+#~ msgid "Recibirás un correo de confirmación para activar tu cuenta."
+#~ msgstr "You will receive a confirmation email to activate your account."
+
+#~ msgid "¿Ya tienes una cuenta?"
+#~ msgstr "Already have an account?"

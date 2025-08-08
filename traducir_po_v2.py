@@ -31,7 +31,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class PoTranslator:
-    def __init__(self, src_lang='es', dest_lang='en', delay=0.5):
+    def __init__(self, src_lang='es', dest_lang='pt', delay=0.5):
         self.src_lang = src_lang
         self.dest_lang = dest_lang
         self.delay = delay
@@ -40,7 +40,9 @@ class PoTranslator:
             'total': 0,
             'translated': 0,
             'failed': 0,
-            'skipped': 0
+            'skipped': 0,
+            'fuzzy': 0,
+            'fuzzy_fixed': 0
         }
     
     def _is_translatable(self, text: str) -> bool:
@@ -88,7 +90,7 @@ class PoTranslator:
         
         return None
     
-    def translate_po_file(self, po_path: str, create_backup: bool = True) -> dict:
+    def translate_po_file(self, po_path: str, create_backup: bool = True, handle_fuzzy: bool = True) -> dict:
         """Traduce un archivo .po completo"""
         if not os.path.exists(po_path):
             raise FileNotFoundError(f"El archivo {po_path} no existe")
@@ -109,20 +111,27 @@ class PoTranslator:
             raise
         
         untranslated = po.untranslated_entries()
-        self.stats['total'] = len(untranslated)
+        fuzzy_entries = po.fuzzy_entries() if handle_fuzzy else []
         
-        if self.stats['total'] == 0:
-            logger.info("No hay entradas sin traducir")
+        self.stats['total'] = len(untranslated)
+        self.stats['fuzzy'] = len(fuzzy_entries)
+        
+        if self.stats['total'] == 0 and self.stats['fuzzy'] == 0:
+            logger.info("No hay entradas sin traducir ni fuzzy")
             return self.stats
         
         logger.info(f"Entradas sin traducir: {self.stats['total']}")
+        if self.stats['fuzzy'] > 0:
+            logger.info(f"Entradas fuzzy encontradas: {self.stats['fuzzy']}")
         
-        # Procesar entradas
-        for i, entry in enumerate(untranslated, start=1):
-            self._process_entry(entry, i, self.stats['total'])
+        # Procesar entradas sin traducir
+        total_entries = untranslated + (fuzzy_entries if handle_fuzzy else [])
+        for i, entry in enumerate(total_entries, start=1):
+            is_fuzzy = entry in fuzzy_entries
+            self._process_entry(entry, i, len(total_entries), is_fuzzy)
             
             # Pausa entre traducciones
-            if i < self.stats['total']:  # No pausar después de la última
+            if i < len(total_entries):  # No pausar después de la última
                 time.sleep(self.delay)
         
         # Guardar archivos
@@ -141,12 +150,15 @@ class PoTranslator:
         
         return self.stats
     
-    def _process_entry(self, entry, current: int, total: int):
+    def _process_entry(self, entry, current: int, total: int, is_fuzzy: bool = False):
         """Procesa una entrada individual"""
         progress = f"[{current}/{total}]"
         original_text = entry.msgid
         
-        logger.info(f"{progress} Procesando: {original_text[:60]}...")
+        if is_fuzzy:
+            logger.info(f"{progress} Procesando fuzzy: {original_text[:60]}...")
+        else:
+            logger.info(f"{progress} Procesando: {original_text[:60]}...")
         
         # Verificar si debe traducirse
         if not self._is_translatable(original_text):
@@ -154,13 +166,31 @@ class PoTranslator:
             self.stats['skipped'] += 1
             return
         
+        # Si es fuzzy y ya tiene traducción, intentar mejorarla o mantenerla
+        if is_fuzzy:
+            if entry.msgstr:
+                logger.info(f"{progress} ✅ Fuzzy mantenido: {entry.msgstr[:60]}...")
+                # Quitar la marca fuzzy
+                if 'fuzzy' in entry.flags:
+                    entry.flags.remove('fuzzy')
+                self.stats['fuzzy_fixed'] += 1
+                return
+        
         # Traducir
         translation = self._translate_text(original_text)
         
         if translation:
             entry.msgstr = translation
-            logger.info(f"{progress} ✅ Traducido: {translation[:60]}...")
-            self.stats['translated'] += 1
+            # Quitar la marca fuzzy si existía
+            if 'fuzzy' in entry.flags:
+                entry.flags.remove('fuzzy')
+            
+            if is_fuzzy:
+                logger.info(f"{progress} ✅ Fuzzy traducido: {translation[:60]}...")
+                self.stats['fuzzy_fixed'] += 1
+            else:
+                logger.info(f"{progress} ✅ Traducido: {translation[:60]}...")
+                self.stats['translated'] += 1
         else:
             logger.error(f"{progress} ❌ Falló la traducción")
             self.stats['failed'] += 1
@@ -175,6 +205,9 @@ class PoTranslator:
         logger.info(f"Traducidas exitosamente: {self.stats['translated']}")
         logger.info(f"Fallidas: {self.stats['failed']}")
         logger.info(f"Omitidas: {self.stats['skipped']}")
+        if self.stats['fuzzy'] > 0:
+            logger.info(f"Entradas fuzzy encontradas: {self.stats['fuzzy']}")
+            logger.info(f"Entradas fuzzy corregidas: {self.stats['fuzzy_fixed']}")
         
         if self.stats['total'] > 0:
             success_rate = (self.stats['translated'] / self.stats['total']) * 100
@@ -193,8 +226,9 @@ def main():
     parser = argparse.ArgumentParser(description='Traductor de archivos Django .po')
     parser.add_argument('po_file', help='Ruta del archivo .po a traducir')
     parser.add_argument('--src', default='es', help='Idioma origen (default: es)')
-    parser.add_argument('--dest', default='en', help='Idioma destino (default: en)')
+    parser.add_argument('--dest', default='pt', help='Idioma destino (default: pt)')
     parser.add_argument('--delay', type=float, default=0.5, help='Pausa entre traducciones en segundos')
+    parser.add_argument('--no-fuzzy', action='store_true', help='No procesar entradas fuzzy')
     parser.add_argument('--no-backup', action='store_true', help='No crear archivo de respaldo')
     parser.add_argument('--config', help='Archivo de configuración JSON')
     
@@ -210,7 +244,11 @@ def main():
     
     try:
         translator = PoTranslator(src_lang=src_lang, dest_lang=dest_lang, delay=delay)
-        stats = translator.translate_po_file(args.po_file, create_backup=not args.no_backup)
+        stats = translator.translate_po_file(
+            args.po_file, 
+            create_backup=not args.no_backup,
+            handle_fuzzy=not args.no_fuzzy
+        )
         
         if stats['failed'] > 0:
             exit(1)  # Exit con error si hubo fallos
@@ -227,7 +265,7 @@ if __name__ == "__main__":
     import sys
     if len(sys.argv) == 1:
         # Configuración por defecto para compatibilidad
-        PO_FILE_PATH = 'locale/en/LC_MESSAGES/django.po'
+        PO_FILE_PATH = 'locale/pt/LC_MESSAGES/django.po'
         translator = PoTranslator()
         try:
             translator.translate_po_file(PO_FILE_PATH)
