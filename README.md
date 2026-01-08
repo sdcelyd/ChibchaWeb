@@ -33,6 +33,7 @@
 
 # Notas adicionales
 La base de datos usada es SQLite (se crea automáticamente).
+
 Para acceder a la página web usar https://chibchaweb.pythonanywhere.com/
 
 El entorno virtual y archivos temporales están excluidos vía .gitignore.
